@@ -25,6 +25,7 @@
 ## Pending Items
 - [X] React Native Vector Icons iOS React Issue
 - [X] React Native Vector Icons iOS Linking Issue
+- [ ] Update Deprecated Date/Time Pickers to React Native Datetime Picker
 - [ ] React Native Vector Icon Android Issue
 - [ ] Android Time Picker (Spinner) Time Fix
 - [ ] Android Time Picker (Clock) Time Fix
