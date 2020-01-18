@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Dimensions, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
-import Icon from 'react-native-vector-icons/Ionicons';
+// import Icon from 'react-native-vector-icons/Ionicons';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
@@ -158,7 +158,7 @@ const StatePickerSmall = (props: Props) => {
             <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
               <Text style={styles.fieldText}>{state !== undefined ? state : 'Select'}</Text>
 
-              <Icon name="ios-arrow-forward" size={22} style={styles.arrowForward}/>
+              {/* <Icon name="ios-arrow-forward" size={22} style={styles.arrowForward}/> */}
             </TouchableOpacity>
 
             <Modal isVisible={modalVisible} style={styles.modal}>

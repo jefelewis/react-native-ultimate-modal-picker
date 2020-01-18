@@ -1,6 +1,6 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
-import { DatePickerAndroid, DatePickerIOS, Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 import moment from 'moment';
@@ -19,18 +19,11 @@ interface Props {
   onChange: (date: Date) => any;
 }
 
-interface AndroidProps {
-  action: 'dateSetAction' | 'dismissedAction';
-  newDate?: Date;
-  year?: number;
-  month?: number;
-  day?: number;
-}
-
 // Component: Date Picker
 const DatePicker = (props: Props) => {
   // React Hooks: State
   const [ modalVisible, toggle ] = useState(false);
+  const [ androidVisible, toggleAndroid ] = useState(false);
   const [ date, setDate ] = useState(new Date());
 
   // Toggle Modal
@@ -44,38 +37,8 @@ const DatePicker = (props: Props) => {
 
       // Check Platform (Android)
       if (Platform.OS === 'android') {
-        // const { action, year, month, day } : AndroidProps = await DatePickerAndroid.open({
-        //   date: date,
-        //   mode: props.mode,
-        // });
-
-        // // Action: Date Set
-        // if (
-        //   action === DatePickerAndroid.dateSetAction
-        //   && year !== undefined
-        //   && month !== undefined
-        //   && day !== undefined
-        // ) {
-        //   // New Date
-        //   let newDate:Date = new Date(year, month, day);
-
-        //   // Select Date
-        //   selectDate(newDate);
-        // }
-
-        // // Action: Dismissed
-        // else if (action === DatePickerAndroid.dismissedAction) {
-        //   // Do Nothing
-        // }
-
-        return (
-          <RNDateTimePicker
-            mode="date"
-            display={props.mode}
-            value={date}
-            onChange={(event: any, date: Date) => selectDate(date)}
-          />
-        )
+        // React Hook: Toggle Android
+        toggleAndroid((androidVisible: boolean) => !androidVisible);
       }
     }
     catch (error) {
@@ -86,11 +49,19 @@ const DatePicker = (props: Props) => {
   // Select Date
   const selectDate = (date: Date) => {
     try {
-      // React Hook: Set Date
-      setDate(date);
+      // Date Picked
+      if (date !== undefined) {
+        // React Hook: Set Date
+        setDate(date);
+  
+        // React Props: onValueChange
+        props.onChange(date);
+      }
 
-      // React Props: onValueChange
-      props.onChange(date);
+      // Date Not Picked
+      if (date === undefined) {
+        // Do Nothing
+      }
     }
     catch (error) {
       console.log(error);
@@ -113,6 +84,29 @@ const DatePicker = (props: Props) => {
     }
   };
 
+  // Render Android Picker
+  const renderAndroidPicker = () => {
+    try {
+      //
+      if (androidVisible) {
+        return (
+          <RNDateTimePicker
+            mode="date"
+            display={props.mode}
+            value={date}
+            onChange={(event: any, date: Date) => selectDate(date)}
+          />
+        )
+      }
+      else {
+        return null;
+      }
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.inputTitleContainer}>
@@ -124,6 +118,8 @@ const DatePicker = (props: Props) => {
 
         {/* <Icon name="ios-arrow-forward" size={22} style={styles.arrowForward}/> */}
       </TouchableOpacity>
+
+      {renderAndroidPicker()}
 
       <Modal isVisible={modalVisible} style={styles.modal}>
         <View style={styles.modalContainer}>

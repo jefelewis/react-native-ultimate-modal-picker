@@ -20,13 +20,13 @@ interface Props {
   // onPress?: () => void;
 }
 
-interface AndroidProps {
-  action: 'dateSetAction' | 'dismissedAction';
-  newDate?: Date;
-  year?: number;
-  month?: number;
-  day?: number;
-}
+// interface AndroidProps {
+//   action: 'dateSetAction' | 'dismissedAction';
+//   newDate?: Date;
+//   year?: number;
+//   month?: number;
+//   day?: number;
+// }
 
 // Component: Date Range Picker
 const DateRangePicker = (props: Props) => {

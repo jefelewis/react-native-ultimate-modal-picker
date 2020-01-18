@@ -1,10 +1,10 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
-import { DatePickerIOS, Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-// import DateTimePicker from '@react-native-community/datetimepicker';
+import { Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 import moment from 'moment';
-import Icon from 'react-native-vector-icons/Ionicons';
+// import Icon from 'react-native-vector-icons/Ionicons';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
@@ -12,9 +12,9 @@ const { height, width } = Dimensions.get('window');
 // TypeScript: Types
 interface Props {
   title: string;
-  date: Date;
-  onValueChange: (date: Date) => Date;
-  onPress?: () => void;
+  // date: Date;
+  onValueChange: (date: Date) => any;
+  // onPress?: () => void;
 }
 
 // Component: Date Time Picker
@@ -54,11 +54,18 @@ const DateTimePicker = (props: Props) => {
   // Render iOS Picker
   const renderIOSPicker = () => {
     try {
+      // return (
+      //   <DatePickerIOS 
+      //     mode="datetime"
+      //     date={date}
+      //     onDateChange={() => selectDate(date)}
+      //   />
+      // )
       return (
-        <DatePickerIOS 
+        <RNDateTimePicker
           mode="datetime"
-          date={date}
-          onDateChange={() => selectDate(date)}
+          value={date}
+          onChange={(event: any, date: Date) => selectDate(date)}
         />
       )
     }
@@ -81,7 +88,7 @@ const DateTimePicker = (props: Props) => {
             <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
               <Text style={styles.fieldText} numberOfLines={1}>{date ? moment(date).format('MMM Do, YYYY h:mm a') : 'Select'}</Text>
 
-              <Icon name="ios-arrow-forward" size={22} style={styles.arrowForward}/>
+              {/* <Icon name="ios-arrow-forward" size={22} style={styles.arrowForward}/> */}
             </TouchableOpacity>
 
             <Modal isVisible={modalVisible} style={styles.modal}>

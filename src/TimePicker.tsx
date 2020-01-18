@@ -1,10 +1,10 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
-import { DatePickerIOS, Dimensions, Platform, StyleSheet, Text, TimePickerAndroid, TouchableOpacity, View } from 'react-native';
-// import DateTimePicker from '@react-native-community/datetimepicker';
+import { Dimensions, Platform, StyleSheet, Text, TimePickerAndroid, TouchableOpacity, View } from 'react-native';
+import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 import moment from 'moment';
-import Icon from 'react-native-vector-icons/Ionicons';
+// import Icon from 'react-native-vector-icons/Ionicons';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
@@ -12,10 +12,10 @@ const { height, width } = Dimensions.get('window');
 // TypeScript: Types
 interface Props {
   title: string;
-  date: Date;
+  // date: Date;
   mode: 'spinner' | 'default' | 'clock';
-  onValueChange: (date: Date) => Date;
-  onPress?: () => void;
+  onValueChange: (date: Date) => any;
+  // onPress?: () => void;
 }
 
 interface AndroidProps {
@@ -80,13 +80,13 @@ const TimePicker = (props: Props) => {
   };
 
   // Select Date
-  const selectDate = (date: Date) => {
+  const selectDate = async (date: Date) => {
     try {
       // React Hook: Set Date
       setDate(date);
 
       // React Props: onValueChange
-      props.onValueChange(date);
+      await props.onValueChange(date);
     }
     catch (error) {
       console.log(error);
@@ -96,13 +96,43 @@ const TimePicker = (props: Props) => {
   // Render iOS Picker
   const renderIOSPicker = () => {
     try {
+      // return (
+      //   <DatePickerIOS 
+      //     mode="time"
+      //     date={date}
+      //     onDateChange={() => selectDate(date)}
+      //   />
+      // )
       return (
-        <DatePickerIOS 
+        <RNDateTimePicker
           mode="time"
-          date={date}
-          onDateChange={() => selectDate(date)}
+          value={date}
+          onChange={(event: any, date: Date) => selectDate(date)}
         />
       )
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Render Android Picker
+  const renderAndroidPicker = () => {
+    try {
+      //
+      // if (androidVisible) {
+        return (
+          <RNDateTimePicker
+            mode="time"
+            display={props.mode}
+            value={date}
+            onChange={(event: any, date: Date) => selectDate(date)}
+          />
+        )
+      // }
+      // else {
+      //   return null;
+      // }
     }
     catch (error) {
       console.log(error);
@@ -118,7 +148,7 @@ const TimePicker = (props: Props) => {
       <TouchableOpacity onPress={() => toggleModal(props)} style={styles.fieldTextContainer}>
         <Text style={styles.fieldText} numberOfLines={1}>{date ? moment(date).format('h:mm a') : 'Select'}</Text>
 
-        <Icon name="ios-arrow-forward" size={22} style={styles.arrowForward}/>
+        {/* <Icon name="ios-arrow-forward" size={22} style={styles.arrowForward}/> */}
       </TouchableOpacity>
 
       <Modal isVisible={modalVisible} style={styles.modal}>
@@ -204,7 +234,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 4,
     borderColor: '#7D7D7D',
-    borderBottomWidth: StyleSheet.hairlineWidth,    
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   fieldText: {
     width: width - 32 - 20,
