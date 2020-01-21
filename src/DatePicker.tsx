@@ -1,5 +1,5 @@
 // Imports: Dependencies
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
@@ -15,23 +15,12 @@ interface Props {
   onChange: (date: Date) => any;
 }
 
-// interface Event {
-//   type: 'set' | 'dismissed';
-//   nativeEvent: number;
-//   // timestamp?: number,
-// }
-
 // Component: Date Picker
 const DatePicker = (props: Props) => {
   // React Hooks: State
   const [ modalVisible, toggle ] = useState(false);
   const [ androidModalVisible, toggleAndroid ] = useState(false);
   const [ date, setDate ] = useState(new Date());
-
-  // // React Hooks: Lifecycle Methods
-  // useEffect(() => {
-  //   toggleAndroid(false);
-  // }, [date])
 
   // Toggle Modal
   const toggleModal = () => {
