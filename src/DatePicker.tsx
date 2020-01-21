@@ -64,7 +64,6 @@ const DatePicker = (props: Props) => {
         if (event.type === 'dismissed') {
           // React Hook: Toggle Android
           toggleAndroid(false);
-          return;
         }
       }
 
