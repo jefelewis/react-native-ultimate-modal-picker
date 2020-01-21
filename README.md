@@ -25,10 +25,10 @@
 ## Pending Items
 - [X] React Native Vector Icons iOS React Issue
 - [X] React Native Vector Icons iOS Linking Issue
-- [ ] Update Deprecated Date/Time Pickers to React Native Datetime Picker
+- [X] Update Deprecated Date/Time Pickers to React Native Datetime Picker
+- [X] Android Time Picker (Spinner) Time Fix
+- [X] Android Time Picker (Clock) Time Fix
 - [ ] React Native Vector Icon Android Issue
-- [ ] Android Time Picker (Spinner) Time Fix
-- [ ] Android Time Picker (Clock) Time Fix
 - [ ] onValueChange passing state back up issue.
 - [ ] Deploy NPM Package
 
@@ -120,21 +120,21 @@ const App = () => {
       // Date Picker (Modes: spinner/calendar)
       <DatePicker
         title="Date"
-        onValueChange={(date) => console.log(`Date Value: ${date}`)}
+        onChange={(date) => console.log(`Date Value: ${date}`)}
         mode="spinner"
       />
 
       // Time Picker (Modes: spinner/clock)
       <TimePicker
         title="Time"
-        onValueChange={(date) => console.log(`Time Value: ${date}`)}
+        onChange={(date) => console.log(`Time Value: ${date}`)}
         mode="spinner"
       />
 
       // Date Time Picker (iOS Only)
       <DateTimePicker
         title="Date/Time"
-        onValueChange={(date) => console.log(`Date/Time Value: ${date}`)}
+        onChange={(date) => console.log(`Date/Time Value: ${date}`)}
       />
 
       // List Picker
