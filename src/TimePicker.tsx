@@ -1,7 +1,7 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
 import { Dimensions, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import RNDateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 import moment from 'moment';
 
@@ -84,7 +84,7 @@ const TimePicker = (props: Props) => {
   const renderIOSPicker = () => {
     try {
       return (
-        <RNDateTimePicker
+        <DateTimePicker
           mode="time"
           value={date}
           onChange={(event: any, date: Date) => selectDate(event, date)}
@@ -101,7 +101,7 @@ const TimePicker = (props: Props) => {
     try {
       if (androidModalVisible === true) {
         return (
-          <RNDateTimePicker
+          <DateTimePicker
             mode="time"
             display={props.mode}
             value={date}

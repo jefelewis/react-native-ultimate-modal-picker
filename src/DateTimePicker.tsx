@@ -1,7 +1,7 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
 import { Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import RNDateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 import moment from 'moment';
 // import Icon from 'react-native-vector-icons/Ionicons';
@@ -53,7 +53,7 @@ const DatetimePicker = (props: Props) => {
   const renderIOSPicker = () => {
     try {
       return (
-        <RNDateTimePicker
+        <DateTimePicker
           mode="datetime"
           value={date}
           onChange={(event: any, date: Date) => selectDate(date)}
