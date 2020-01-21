@@ -1,6 +1,6 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
-import { DatePickerAndroid, DatePickerIOS, Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 import moment from 'moment';
@@ -12,73 +12,33 @@ const { height, width } = Dimensions.get('window');
 interface Props {
   title: string;
   mode: 'calendar' | 'spinner' | 'default';
-  // date: Date;
-  minDate?: Date | number;
-  maxDate?: Date | number;
   onFromValueChange: (date: Date) => any;
   onToValueChange: (date: Date) => any;
-  // onPress?: () => void;
 }
-
-// interface AndroidProps {
-//   action: 'dateSetAction' | 'dismissedAction';
-//   newDate?: Date;
-//   year?: number;
-//   month?: number;
-//   day?: number;
-// }
 
 // Component: Date Range Picker
 const DateRangePicker = (props: Props) => {
   // React Hooks: State
   const [ fromDateModalVisible, toggleFromDate ] = useState(false);
   const [ toDateModalVisible, toggleToDate ] = useState(false);
+  const [ androidFromDateVisible, toggleFromDateAndroid ] = useState(false);
+  const [ androidToDateVisible, toggleToDateAndroid ] = useState(false);
   const [ fromDate, setFromDate ] = useState(new Date());
   const [ toDate, setToDate ] = useState(new Date());
 
   // Toggle From Date Modal
-  const toggleFromDateModal = async (props: Props) => {
+  const toggleFromDateModal = () => {
     try {
       // Check Platform (iOS)
       if (Platform.OS === 'ios') {
         // React Hook: Toggle Modal
         toggleFromDate((fromDateModalVisible: boolean) => !fromDateModalVisible);
       }
-      
+
       // Check Platform (Android)
       if (Platform.OS === 'android') {
-        // const { action, year, month, day } : AndroidProps = await DatePickerAndroid.open({
-        //   date: fromDate,
-        //   mode: props.mode,
-        // });
-
-        // // Action: Date Set
-        // if (
-        //   action === DatePickerAndroid.dateSetAction
-        //   && year !== undefined
-        //   && month !== undefined
-        //   && day !== undefined
-        // ) {
-        //   // New Date
-        //   let newDate:Date = new Date(year, month, day);
-
-        //   // Select From Date
-        //   selectFromDate(newDate);
-        // }
-
-        // // Action: Dismissed
-        // if (action === DatePickerAndroid.dismissedAction) {
-        //   // Do Nothing
-        // }
-
-        return (
-          <RNDateTimePicker
-            mode="date"
-            display={props.mode}
-            value={fromDate}
-            onFromDateChange={(event: any, date: Date) => selectFromDate(date)}
-          />
-        )
+        // React Hook: Toggle Android
+        toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
       }
     }
     catch (error) {
@@ -87,7 +47,7 @@ const DateRangePicker = (props: Props) => {
   };
 
   // Toggle To Date Modal
-  const toggleToDateModal = async (props: Props) => {
+  const toggleToDateModal = () => {
     try {
       // Check Platform (iOS)
       if (Platform.OS === 'ios') {
@@ -97,38 +57,8 @@ const DateRangePicker = (props: Props) => {
 
       // Check Platform (Android)
       if (Platform.OS === 'android') {
-        // const { action, year, month, day } : AndroidProps = await DatePickerAndroid.open({
-        //   date: toDate,
-        //   mode: props.mode,
-        // });
-
-        // // Action: Date Set
-        // if (
-        //   action === DatePickerAndroid.dateSetAction
-        //   && year !== undefined
-        //   && month !== undefined
-        //   && day !== undefined
-        // ) {
-        //   // New Date
-        //   let newDate = new Date(year, month, day);
-
-        //   // Select To Date
-        //   selectToDate(newDate);
-        // }
-
-        // // Action: Dismissed
-        // if (action === DatePickerAndroid.dismissedAction) {
-        //   // Do Nothing
-        // }
-
-        return (
-          <RNDateTimePicker
-            mode="date"
-            display={props.mode}
-            value={toDate}
-            onToDateChange={(event: any, date: Date) => selectFromDate(date)}
-          />
-        )
+        // React Hook: Toggle Android
+        toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
       }
     }
     catch (error) {
@@ -137,13 +67,36 @@ const DateRangePicker = (props: Props) => {
   };
 
   // Select From Date
-  const selectFromDate = (date: Date) => {
+  const selectFromDate = (event: any, date: Date) => {
     try {
-      // React Hook: Set From Date
-      setFromDate(date);
+      // Check Platform: Android
+      if (Platform.OS === 'android' && date !== undefined) {
+        // Event Type: Set Date
+        if (event.type === 'set') {
+          // React Hook: Toggle Android 
+          toggleFromDateAndroid(false);
+  
+          // React Hook: Set From Date
+          setFromDate(date);
+  
+          // React Props: onChange
+          props.onFromValueChange(date);
+        }
+  
+        // Event Type: Dismissed
+        if (event.type === 'dismissed') {
+          // React Hook: Toggle Android
+          toggleFromDate(false);
+        }
+      }
 
-      // React Props: onFromValueChange
-      props.onFromValueChange(date);
+      // Check Platform: Android
+      if (Platform.OS === 'ios') {
+        setFromDate(date);
+
+        // React Props: onChange
+        props.onFromValueChange(date);
+      }
     }
     catch (error) {
       console.log(error);
@@ -151,13 +104,36 @@ const DateRangePicker = (props: Props) => {
   };
 
   // Select To Date
-  const selectToDate = (date: Date) => {
+  const selectToDate = (event: any, date: Date) => {
     try {
-      // React Hook: Set To Date
-      setToDate(date);
+      // Check Platform: Android
+      if (Platform.OS === 'android' && date !== undefined) {
+        // Event Type: Set Date
+        if (event.type === 'set') {
+          // React Hook: Toggle Android 
+          toggleToDateAndroid(false);
+  
+          // React Hook: Set To Date
+          setToDate(date);
+  
+          // React Props: onChange
+          props.onToValueChange(date);
+        }
+  
+        // Event Type: Dismissed
+        if (event.type === 'dismissed') {
+          // React Hook: Toggle Android
+          toggleToDate(false);
+        }
+      }
 
-      // React Props: onToValueChange
-      props.onToValueChange(date);
+      // Check Platform: Android
+      if (Platform.OS === 'ios') {
+        setToDate(date);
+
+        // React Props: onChange
+        props.onToValueChange(date);
+      }
     }
     catch (error) {
       console.log(error);
@@ -167,18 +143,11 @@ const DateRangePicker = (props: Props) => {
   // Render From iOS Date Picker
   const renderFromIOSDatePicker = () => {
     try {
-      // return (
-      //   <DatePickerIOS 
-      //     mode="date"
-      //     date={fromDate}
-      //     onDateChange={() => selectFromDate(fromDate)}
-      //   />
-      // )
       return (
         <RNDateTimePicker
           mode="date"
           value={fromDate}
-          onChange={(event: any, date: Date) => selectFromDate(date)}
+          onChange={(event: any, date: Date) => selectFromDate(event, date)}
         />
       )
     }
@@ -190,20 +159,51 @@ const DateRangePicker = (props: Props) => {
   // Render To iOS Date Picker
   const renderToIOSDatePicker = () => {
     try {
-      // return (
-      //   <DatePickerIOS 
-      //     mode="date"
-      //     date={toDate}
-      //     onDateChange={() => selectToDate(toDate)}
-      //   />
-      // )
       return (
         <RNDateTimePicker
           mode="date"
           value={toDate}
-          onChange={(event: any, date: Date) => selectToDate(date)}
+          onChange={(event: any, date: Date) => selectToDate(event, date)}
         />
       )
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Render To Date Android Picker
+  const renderToDateAndroidPicker = () => {
+    try {
+      if (androidToDateVisible === true) {
+        return (
+          <RNDateTimePicker
+            mode="date"
+            display={props.mode}
+            value={toDate}
+            onChange={(event: any, date: Date) => selectToDate(event, date)}
+          />
+        )
+      }
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Render From Date Android Picker
+  const renderFromDateAndroidPicker = () => {
+    try {
+      if (androidFromDateVisible === true) {
+        return (
+          <RNDateTimePicker
+            mode="date"
+            display={props.mode}
+            value={fromDate}
+            onChange={(event: any, date: Date) => selectFromDate(event, date)}
+          />
+        )
+      }
     }
     catch (error) {
       console.log(error);
@@ -217,15 +217,19 @@ const DateRangePicker = (props: Props) => {
       </View>
 
       <View style={styles.toFromDateContainer}>
-        <TouchableOpacity onPress={() => toggleFromDateModal(props)} style={styles.dateInfoContainer}>
+        <TouchableOpacity onPress={() => toggleFromDateModal()} style={styles.dateInfoContainer}>
           <Text style={styles.dateText}>From</Text>
           <Text style={styles.text}>{moment(fromDate).format('MMM Do, YYYY')}</Text>
         </TouchableOpacity>
 
+        <View>
+          {androidFromDateVisible === true ? renderFromDateAndroidPicker() : null}
+        </View>
+
         <Modal isVisible={fromDateModalVisible} style={styles.modal}>
           <View style={styles.modalContainer}>
             <View style={styles.pickerHeaderContainer}>
-              <TouchableOpacity onPress={() => toggleFromDateModal(props)} >
+              <TouchableOpacity onPress={() => toggleFromDateModal()} >
                 <Text style={styles.doneText}>Done</Text>
               </TouchableOpacity>
             </View>
@@ -240,15 +244,19 @@ const DateRangePicker = (props: Props) => {
       <View style={styles.divider}></View>
 
       <View style={styles.toFromDateContainer}>
-        <TouchableOpacity onPress={() => toggleToDateModal(props)} style={styles.dateInfoContainer}>
+        <TouchableOpacity onPress={() => toggleToDateModal()} style={styles.dateInfoContainer}>
           <Text style={styles.dateText}>To</Text>
           <Text style={styles.text}>{moment(toDate).format('MMM Do, YYYY')}</Text>
         </TouchableOpacity>
 
+        <View>
+          {androidToDateVisible === true ? renderToDateAndroidPicker(): null}
+        </View>
+
         <Modal isVisible={toDateModalVisible} style={styles.modal}>
           <View style={styles.modalContainer}>
             <View style={styles.pickerHeaderContainer}>
-              <TouchableOpacity onPress={() => toggleToDateModal(props)} >
+              <TouchableOpacity onPress={() => toggleToDateModal()} >
                 <Text style={styles.doneText}>Done</Text>
               </TouchableOpacity>
             </View>
