@@ -12,8 +12,8 @@ const { height, width } = Dimensions.get('window');
 interface Props {
   title: string;
   mode: 'calendar' | 'spinner' | 'default';
-  onFromValueChange: (date: Date) => any;
-  onToValueChange: (date: Date) => any;
+  onFromChange: (date: Date) => any;
+  onToChange: (date: Date) => any;
 }
 
 // Component: Date Range Picker
@@ -80,7 +80,7 @@ const DateRangePicker = (props: Props) => {
           setFromDate(date);
   
           // React Props: onChange
-          props.onFromValueChange(date);
+          props.onFromChange(date);
         }
   
         // Event Type: Dismissed
@@ -95,7 +95,7 @@ const DateRangePicker = (props: Props) => {
         setFromDate(date);
 
         // React Props: onChange
-        props.onFromValueChange(date);
+        props.onFromChange(date);
       }
     }
     catch (error) {
@@ -117,7 +117,7 @@ const DateRangePicker = (props: Props) => {
           setToDate(date);
   
           // React Props: onChange
-          props.onToValueChange(date);
+          props.onToChange(date);
         }
   
         // Event Type: Dismissed
@@ -132,7 +132,7 @@ const DateRangePicker = (props: Props) => {
         setToDate(date);
 
         // React Props: onChange
-        props.onToValueChange(date);
+        props.onToChange(date);
       }
     }
     catch (error) {
