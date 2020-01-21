@@ -12,13 +12,11 @@ const { height, width } = Dimensions.get('window');
 // TypeScript: Types
 interface Props {
   title: string;
-  // date: Date;
-  onValueChange: (date: Date) => any;
-  // onPress?: () => void;
+  onChange: (date: Date) => any;
 }
 
-// Component: Date Time Picker
-const DateTimePicker = (props: Props) => {
+// Component: Datetime Picker
+const DatetimePicker = (props: Props) => {
   // React Hooks: State
   const [ modalVisible, toggle ] = useState(false);
   const [ date, setDate ] = useState(new Date());
@@ -44,7 +42,7 @@ const DateTimePicker = (props: Props) => {
       setDate(date);
 
       // React Props: onValueChange
-      props.onValueChange(date);
+      props.onChange(date);
     }
     catch (error) {
       console.log(error);
@@ -54,13 +52,6 @@ const DateTimePicker = (props: Props) => {
   // Render iOS Picker
   const renderIOSPicker = () => {
     try {
-      // return (
-      //   <DatePickerIOS 
-      //     mode="datetime"
-      //     date={date}
-      //     onDateChange={() => selectDate(date)}
-      //   />
-      // )
       return (
         <RNDateTimePicker
           mode="datetime"
@@ -156,7 +147,6 @@ const styles = StyleSheet.create({
   pickerContainer: {
     height: 220,
     width: width,
-    // backgroundColor: '#CFD3D9',
     backgroundColor: 'white',
   },
   doneText: {
@@ -209,4 +199,4 @@ const styles = StyleSheet.create({
 });
 
 // Exports
-export default DateTimePicker;
+export default DatetimePicker;
