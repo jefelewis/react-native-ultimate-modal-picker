@@ -1,7 +1,7 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
 import { Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 import moment from 'moment';
 
@@ -12,8 +12,8 @@ const { height, width } = Dimensions.get('window');
 interface Props {
   title: string;
   mode: 'calendar' | 'spinner' | 'default';
-  onFromChange: (date: Date) => any;
-  onToChange: (date: Date) => any;
+  onFromChange: (date: any) => any;
+  onToChange: (date: any) => any;
 }
 
 // Component: Date Range Picker
@@ -70,11 +70,17 @@ const DateRangePicker = (props: Props) => {
   const selectFromDate = (event: any, date: Date) => {
     try {
       // Check Platform: Android
-      if (Platform.OS === 'android' && date !== undefined) {
+      if (Platform.OS === 'android') {
+        // Undefined
+        if (date === undefined) {
+          // React Hook: Toggle From Date Android 
+          toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
+        }
+
         // Event Type: Set Date
-        if (event.type === 'set') {
+        else if (event.type === 'set') {
           // React Hook: Toggle Android 
-          toggleFromDateAndroid(false);
+          toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
   
           // React Hook: Set From Date
           setFromDate(date);
@@ -84,7 +90,7 @@ const DateRangePicker = (props: Props) => {
         }
   
         // Event Type: Dismissed
-        if (event.type === 'dismissed') {
+        else if (event.type === 'dismissed') {
           // React Hook: Toggle Android
           toggleFromDate(false);
         }
@@ -107,11 +113,17 @@ const DateRangePicker = (props: Props) => {
   const selectToDate = (event: any, date: Date) => {
     try {
       // Check Platform: Android
-      if (Platform.OS === 'android' && date !== undefined) {
+      if (Platform.OS === 'android') {
+        // Undefined
+        if (date === undefined) {
+          // React Hook: Toggle From Date Android 
+          toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
+        }
+
         // Event Type: Set Date
-        if (event.type === 'set') {
+        else if (event.type === 'set') {
           // React Hook: Toggle Android 
-          toggleToDateAndroid(false);
+          toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
   
           // React Hook: Set To Date
           setToDate(date);
@@ -121,7 +133,7 @@ const DateRangePicker = (props: Props) => {
         }
   
         // Event Type: Dismissed
-        if (event.type === 'dismissed') {
+        else if (event.type === 'dismissed') {
           // React Hook: Toggle Android
           toggleToDate(false);
         }
@@ -144,10 +156,10 @@ const DateRangePicker = (props: Props) => {
   const renderFromIOSDatePicker = () => {
     try {
       return (
-        <DateTimePicker
+        <RNDateTimePicker
           mode="date"
           value={fromDate}
-          onChange={(event: any, date: Date) => selectFromDate(event, date)}
+          onChange={(event: any, date: any) => selectFromDate(event, date)}
         />
       )
     }
@@ -160,10 +172,10 @@ const DateRangePicker = (props: Props) => {
   const renderToIOSDatePicker = () => {
     try {
       return (
-        <DateTimePicker
+        <RNDateTimePicker
           mode="date"
           value={toDate}
-          onChange={(event: any, date: Date) => selectToDate(event, date)}
+          onChange={(event: any, date: any) => selectToDate(event, date)}
         />
       )
     }
@@ -177,11 +189,11 @@ const DateRangePicker = (props: Props) => {
     try {
       if (androidToDateVisible === true) {
         return (
-          <DateTimePicker
+          <RNDateTimePicker
             mode="date"
             display={props.mode}
             value={toDate}
-            onChange={(event: any, date: Date) => selectToDate(event, date)}
+            onChange={(event: any, date: any) => selectToDate(event, date)}
           />
         )
       }
@@ -196,11 +208,11 @@ const DateRangePicker = (props: Props) => {
     try {
       if (androidFromDateVisible === true) {
         return (
-          <DateTimePicker
+          <RNDateTimePicker
             mode="date"
             display={props.mode}
             value={fromDate}
-            onChange={(event: any, date: Date) => selectFromDate(event, date)}
+            onChange={(event: any, date: any) => selectFromDate(event, date)}
           />
         )
       }

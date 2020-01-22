@@ -1,7 +1,7 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
 import { Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 import moment from 'moment';
 
@@ -12,7 +12,7 @@ const { height, width } = Dimensions.get('window');
 interface Props {
   title: string;
   mode: 'calendar' | 'spinner' | 'default';
-  onChange: (date: Date) => any;
+  onChange: (date: any) => any;
 }
 
 // Component: Date Picker
@@ -46,12 +46,18 @@ const DatePicker = (props: Props) => {
   const selectDate = (event: any, date: Date) => {
     try {
       // Check Platform: Android
-      if (Platform.OS === 'android' && date !== undefined) {
+      if (Platform.OS === 'android') {
+
+        // Undefined
+        if (date === undefined) {
+          // React Hook: Toggle Android 
+          toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
+        }
 
         // Event Type: Set Date
-        if (event.type === 'set') {
+        else if (event.type === 'set') {
           // React Hook: Toggle Android 
-          toggleAndroid(false);
+          toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
 
           // React Hook: Set From Date
           setDate(date);
@@ -61,9 +67,9 @@ const DatePicker = (props: Props) => {
         }
 
         // Event Type: Dismissed
-        if (event.type === 'dismissed') {
+        else if (event.type === 'dismissed') {
           // React Hook: Toggle Android
-          toggleAndroid(false);
+          toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
         }
       }
 
@@ -84,10 +90,10 @@ const DatePicker = (props: Props) => {
   const renderIOSPicker = () => {
     try {
       return (
-        <DateTimePicker
+        <RNDateTimePicker
           mode="date"
           value={date}
-          onChange={(event: any, date: Date) => selectDate(event, date)}
+          onChange={(event: any, date: any) => selectDate(event, date)}
         />
       )
     }
@@ -101,11 +107,11 @@ const DatePicker = (props: Props) => {
     try {
       if (androidModalVisible === true) {
         return (
-          <DateTimePicker
+          <RNDateTimePicker
             mode="date"
             display={props.mode}
             value={date}
-            onChange={(event: any, date: Date) => selectDate(event, date)}
+            onChange={(event: any, date: any) => selectDate(event, date)}
           />
         )
       }
