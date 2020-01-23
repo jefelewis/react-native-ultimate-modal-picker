@@ -93,7 +93,19 @@
 npm i react-native-ultimate-modal-picker
 ```
 
-**2. Run Project:**
+**2. Add Pod**
+Add the following line to ios/podfile:
+```
+pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec
+```
+
+**3. Install Pods**
+```
+cd ios
+pod install
+```
+
+**4. Run Project:**
 ```
 react-native run-ios
 ```
@@ -116,7 +128,7 @@ import {
 // React Native App
 const App = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ display: 'flex', flex: 1 }}>
       // Date Picker (Modes: spinner/calendar)
       <DatePicker
         title="Date"
