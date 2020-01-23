@@ -11,7 +11,7 @@ const { height, width } = Dimensions.get('window');
 interface Props {
   title: string;
   items: Array<Item>;
-  onValueChange: (value: string) => string;
+  onChange: (item: string) => string;
   onPress?: () => void;
 }
 
@@ -26,7 +26,7 @@ interface Item {
 const ListPicker = (props: Props) => {
   // React Hooks: State
   const [ modalVisible, toggle ] = useState(false);
-  const [ value, setValue ] = useState();
+  const [ item, setItem ] = useState();
 
   // Toggle Modal
   const toggleModal = () => {
@@ -42,14 +42,14 @@ const ListPicker = (props: Props) => {
     }
   };
 
-  // Select Value
-  const selectValue = (value: string) => {
+  // Select Item
+  const selectItem = (item: string) => {
     try {
-      // React Hook: Set Value
-      setValue(value);
+      // React Hook: Set Item
+      setItem(item);
 
-      // React Props: onValueChange
-      props.onValueChange(value);
+      // React Props: onChange
+      props.onChange(item);
     }
     catch (error) {
       console.log(error);
@@ -61,8 +61,8 @@ const ListPicker = (props: Props) => {
     try {
       return (
         <Picker
-          selectedValue={value}
-          onValueChange={() => selectValue(value)}>
+          selectedValue={item}
+          onChange={() => selectItem(item)}>
           {props.items.map((item: Item) => {
             return (
               <Picker.Item
@@ -92,7 +92,7 @@ const ListPicker = (props: Props) => {
             </View>
 
             <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-              <Text style={styles.fieldText} numberOfLines={1}>{value !== undefined ? value : 'Select'}</Text>
+              <Text style={styles.fieldText} numberOfLines={1}>{item !== undefined ? item : 'Select'}</Text>
 
               {/* <Icon name="ios-arrow-forward" size={22} style={styles.arrowForward}/> */}
             </TouchableOpacity>
@@ -124,9 +124,9 @@ const ListPicker = (props: Props) => {
 
             <View style={styles.fieldTextContainer}>
               <Picker
-                selectedValue={value}
+                selectedValue={item}
                 style={{height: 60, width: width - 16}}
-                onValueChange={selectValue}
+                onChange={selectItem}
                 prompt="Fuck"
                 mode="dropdown">
                 {props.items.map((item: Item) => {
