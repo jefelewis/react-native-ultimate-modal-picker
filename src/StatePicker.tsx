@@ -10,7 +10,7 @@ const { height, width } = Dimensions.get('window');
 // TypeScript: Types
 interface Props {
   title: string;
-  onValueChange: (state: State) => string;
+  onChange: (state: State) => string;
   onPress?: () => void;
 }
 
@@ -113,7 +113,7 @@ const StatePicker = (props: Props) => {
   // Select State
   const selectState = (state: State) => {
     try {
-      console.log('Select State (From onValueChange)');
+      console.log('Select State (From onChange)');
       console.log(state);
       console.log('Select State Type');
       console.log(typeof state);
@@ -122,8 +122,8 @@ const StatePicker = (props: Props) => {
       // React Hook: Set State
       setState(state);
 
-      // React Props: onValueChange
-      props.onValueChange(state);
+      // React Props: onChange
+      props.onChange(state);
     }
     catch (error) {
       console.log(error);
@@ -136,7 +136,7 @@ const StatePicker = (props: Props) => {
       return (
         <Picker
           selectedValue={state}
-          onValueChange={() => selectState(state)}>
+          onChange={() => selectState(state)}>
           {unitedStates.map((state: State) => {
             return (
               <Picker.Item
@@ -201,7 +201,7 @@ const StatePicker = (props: Props) => {
               <Picker
                 selectedValue={state}
                 style={{height: 60, width: width - 16}}
-                onValueChange={(state) => selectState(state)}>
+                onChange={(state) => selectState(state)}>
                 {unitedStates.map((state: State) => {
                   return (
                     <Picker.Item
