@@ -50,14 +50,14 @@ const TimePicker = (props: Props) => {
 
         // Undefined
         if (date === undefined) {
-          // React Hook: Toggle Android 
-          toggleAndroid(false);
+          // React Hook: Toggle Android
+          toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
         }
 
         // Event Type: Set Date
         if (event.type === 'set') {
-          // React Hook: Toggle Android 
-          toggleAndroid(false);
+          // React Hook: Toggle Android
+          toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
 
           // React Hook: Set From Date
           setDate(date);
