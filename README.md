@@ -6,10 +6,10 @@
 *  [Built With](#built-with)
 *  [Known Issues](#known-issues)
 *  [Pending Items](#pending-items)
-*  [Picker Types (iOS)](#picker-types-ios)
-*  [Picker Types (Android)](#picker-types-android)
 *  [Getting Started](#getting-started)
 *  [Example Code](#example-code)
+*  [Picker Types (iOS)](#picker-types-ios)
+*  [Picker Types (Android)](#picker-types-android)
 
 ## Built With
 * [TypeScript](https://github.com/microsoft/TypeScript) - Programming Language
@@ -31,61 +31,6 @@
 - [ ] React Native Vector Icon Android Issue
 - [ ] onValueChange passing state back up issue.
 - [ ] Deploy NPM Package
-
-## Picker Types (iOS)
-### 1. Date
-<div align="center">
-  <img src="/screenshots/ios/datepicker.gif" width="40%" height="40%" />
-</div>
-
-### 2. Time
-<div align="center">
-  <img src="/screenshots/ios/timepicker.gif" width="40%" height="40%" />
-</div>
-
-### 3. Date/Time (iOS Only)
-<div align="center">
-  <img src="/screenshots/ios/datetimepicker.gif" width="40%" height="40%" />
-</div>
-
-### 4. List
-<div align="center">
-  <img src="/screenshots/ios/listpicker.gif" width="40%" height="40%" />
-</div>
-
-
-### 5. State (50 United States)
-<div align="center">
-  <img src="/screenshots/ios/statepicker.gif" width="40%" height="40%" />
-</div>
-
-## Picker Types (Android)
-### 1. Date (Mode: Spinner)
-<div align="center">
-  <img src="/screenshots/android/datespinnerpickerandroid.gif" width="40%" height="40%" />
-</div>
-
-### 2. Date (Mode: Calendar)
-<div align="center">
-  <img src="/screenshots/android/datecalendarpickerandroid.gif" width="40%" height="40%" />
-</div>
-
-### 3. Time (Mode: Spinner)
-
-
-### 4. Time (Mode: Clock)
-
-
-### 5. List
-<div align="center">
-  <img src="/screenshots/android/listpickerandroid.gif" width="40%" height="40%" />
-</div>
-
-
-### 6. State (50 United States)
-<div align="center">
-  <img src="/screenshots/android/statepickerandroid.gif" width="40%" height="40%" />
-</div>
 
 ## Getting Started
 **1. Install Package:**
@@ -169,3 +114,58 @@ const App = () => {
   )
 }
 ```
+
+## Picker Types (iOS)
+### 1. Date
+<div align="center">
+  <img src="/screenshots/ios/datepicker.gif" width="40%" height="40%" />
+</div>
+
+### 2. Time
+<div align="center">
+  <img src="/screenshots/ios/timepicker.gif" width="40%" height="40%" />
+</div>
+
+### 3. Date/Time (iOS Only)
+<div align="center">
+  <img src="/screenshots/ios/datetimepicker.gif" width="40%" height="40%" />
+</div>
+
+### 4. List
+<div align="center">
+  <img src="/screenshots/ios/listpicker.gif" width="40%" height="40%" />
+</div>
+
+
+### 5. State (50 United States)
+<div align="center">
+  <img src="/screenshots/ios/statepicker.gif" width="40%" height="40%" />
+</div>
+
+## Picker Types (Android)
+### 1. Date (Mode: Spinner)
+<div align="center">
+  <img src="/screenshots/android/datespinnerpickerandroid.gif" width="40%" height="40%" />
+</div>
+
+### 2. Date (Mode: Calendar)
+<div align="center">
+  <img src="/screenshots/android/datecalendarpickerandroid.gif" width="40%" height="40%" />
+</div>
+
+### 3. Time (Mode: Spinner)
+
+
+### 4. Time (Mode: Clock)
+
+
+### 5. List
+<div align="center">
+  <img src="/screenshots/android/listpickerandroid.gif" width="40%" height="40%" />
+</div>
+
+
+### 6. State (50 United States)
+<div align="center">
+  <img src="/screenshots/android/statepickerandroid.gif" width="40%" height="40%" />
+</div>
