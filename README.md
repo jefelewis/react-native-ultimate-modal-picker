@@ -74,40 +74,40 @@ import {
 const App = () => {
   return (
     <SafeAreaView style={{ display: 'flex', flex: 1 }}>
-      // Date Picker (Modes: spinner/calendar)
+      {/* Date Picker (Modes: spinner/calendar) */}
       <DatePicker
         title="Date"
-        onChange={(date) => console.log(`Date Value: ${date}`)}
+        onChange={(date) => console.log(date)}
         mode="spinner"
       />
 
-      // Time Picker (Modes: spinner/clock)
+      {/* Time Picker (Modes: spinner/clock) */}
       <TimePicker
         title="Time"
-        onChange={(date) => console.log(`Time Value: ${date}`)}
+        onChange={(date) => console.log(date)}
         mode="spinner"
       />
 
-      // Date Time Picker (iOS Only)
+      {/* Date Time Picker (iOS Only) */}
       <DateTimePicker
         title="Date/Time"
-        onChange={(date) => console.log(`Date/Time Value: ${date}`)}
+        onChange={(date) => console.log(date)}
       />
 
-      // List Picker
-      <ListPicker title="List" items={items} onValueChange={(value) => console.log(`List Value: ${value}`)}/>
+      {/* List Picker */}
+      <ListPicker title="List" items={items} onChange={(item) => console.log(item)}/>
 
-      // State Picker
-      <StatePicker onValueChange={(state) => console.log(`State Value: ${state}`)}/>
+      {/* State Picker */}
+      <StatePicker onChange={(state) => console.log(state)}/>
 
-      // State Picker (Small)
-      <StatePickerSmall onValueChange={(state) => console.log(`State Value: ${state}`)}/>
+      {/* State Picker (Small) */}
+      <StatePickerSmall onChange={(state) => console.log(state)}/>
 
-      // Date Range Picker
+      {/* Date Range Picker */}
       <DateRangePicker
         title="Date/Range"
-        onFromValueChange={(date) => console.log(`From Date Value: ${date}`)}
-        onToValueChange={(date) => console.log(`To Date Value: ${date}`)}
+        onFromChange={(date) => console.log(date)}
+        onToChange={(date) => console.log(date)}
         mode="spinner"
       />
     </SafeAreaView>
