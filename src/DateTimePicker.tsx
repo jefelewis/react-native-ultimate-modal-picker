@@ -1,7 +1,7 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
 import { Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 import moment from 'moment';
 // import Icon from 'react-native-vector-icons/Ionicons';
@@ -11,14 +11,15 @@ const { height, width } = Dimensions.get('window');
 
 // TypeScript: Types
 interface Props {
-  title: string;
-  onChange: (date: Date) => any;
+  title?: string;
+  onChange: (date: any) => any;
 }
 
 // Component: Datetime Picker
 const DatetimePicker = (props: Props) => {
   // React Hooks: State
   const [ modalVisible, toggle ] = useState(false);
+  const [ tempDate, setTempDate ] = useState();
   const [ date, setDate ] = useState(new Date());
 
   // Toggle Modal
@@ -38,11 +39,8 @@ const DatetimePicker = (props: Props) => {
   // Select Date
   const selectDate = (date: Date) => {
     try {
-      // React Hook: Set Date
-      setDate(date);
-
-      // React Props: onValueChange
-      props.onChange(date);
+      // React Hook: Set Temp State
+      setTempDate(date);
     }
     catch (error) {
       console.log(error);
@@ -53,12 +51,43 @@ const DatetimePicker = (props: Props) => {
   const renderIOSPicker = () => {
     try {
       return (
-        <DateTimePicker
+        <RNDateTimePicker
           mode="datetime"
-          value={date}
-          onChange={(event: any, date: Date) => selectDate(date)}
+          value={tempDate !== undefined ? tempDate : date}
+          onChange={(event: any, date: any) => selectDate(date)}
         />
       )
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Press Cancel
+  const pressCancel = () => {
+    try {
+      // React Hook: Set Temp Date
+      setTempDate(date);
+
+      // Toggle Modal
+      toggleModal(); 
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Press Done
+  const pressDone = () => {
+    try {
+      // React Hook: Set Date
+      setDate(tempDate);
+
+      // Props: onChange
+      props.onChange(date);
+
+      // Toggle Modal
+      toggleModal(); 
     }
     catch (error) {
       console.log(error);
@@ -85,7 +114,11 @@ const DatetimePicker = (props: Props) => {
             <Modal isVisible={modalVisible} style={styles.modal}>
               <View style={styles.modalContainer}>
                 <View style={styles.pickerHeaderContainer}>
-                  <TouchableOpacity onPress={() => toggleModal()} >
+                  <TouchableOpacity onPress={() => pressCancel()} >
+                    <Text style={styles.cancelText}>Cancel</Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity onPress={() => pressDone()} >
                     <Text style={styles.doneText}>Done</Text>
                   </TouchableOpacity>
                 </View>
@@ -136,7 +169,7 @@ const styles = StyleSheet.create({
   pickerHeaderContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     alignItems: 'center',
     height: 40,
     width: width,
@@ -155,6 +188,13 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 17,
     marginRight: 16,
+  },
+  cancelText: {
+    fontFamily: 'System',
+    color: '#007AFF',
+    fontWeight: '400',
+    fontSize: 17,
+    marginLeft: 16,
   },
   stateContainer: {
     alignItems: 'center',
