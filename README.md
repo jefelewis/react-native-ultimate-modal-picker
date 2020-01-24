@@ -29,13 +29,16 @@
 
 ### Added
 
+- Added cancel button to iOS ListPicker
 - Added test data items for ListPicker on README.
+- Added props to App.tsx for testing.
 - Title props can be added to any Picker. Default titles are shown if no prop is added.
 
 ### Changed
 
 - Reformatting App.tsx for when testing.
 - Fixed onChange TypeScript Typings.
+- Updated README screenshot GIFs.
 
 ## [1.1.41] - 1/23/2020
 
@@ -135,17 +138,27 @@ const App = () => {
       />
 
       {/* List Picker */}
-      <ListPicker title="List" items={items} onChange={(item) => console.log(item)}/>
+      <ListPicker
+        title="List"
+        items={items}
+        onChange={(item) => console.log(item)}
+      />
 
       {/* State Picker */}
-      <StatePicker onChange={(state) => console.log(state)}/>
+      <StatePicker
+        title="State"
+        onChange={(state) => console.log(state)}
+      />
 
       {/* State Picker (Small) */}
-      <StatePickerSmall onChange={(state) => console.log(state)}/>
+      <StatePickerSmall
+        title="State"
+        onChange={(state) => console.log(state)}
+      />
 
       {/* Date Range Picker */}
       <DateRangePicker
-        title="Date/Range"
+        title="Date Range"
         onFromChange={(date) => console.log(date)}
         onToChange={(date) => console.log(date)}
         mode="spinner"
