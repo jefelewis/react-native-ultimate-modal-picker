@@ -25,25 +25,37 @@
 
 ## Changelog
 
+## [1.1.42] - 1/24/2020
+
+### Added
+
+- Added test data items for ListPicker on README.
+- Title props can be added to any Picker. Default titles are shown if no prop is added.
+
+### Changed
+
+- Reformatting App.tsx for when testing.
+- Fixed onChange TypeScript Typings.
+
 ## [1.1.41] - 1/23/2020
 
 ### Changed
 
-- Updated README for NPM package
+- Updated README for NPM package.
 
 ## [1.1.40] - 1/23/2020
 
 ### Added
 
-- Added podfile installation instructions to README
-- Added cancel button for iOS modals
+- Added podfile installation instructions to README.
+- Added cancel button for iOS modals.
 
 ### Changed
 
-- Fixed if/else toggle issue
-- Fixed undefined date issue
-- Fixed onChange issue
-- Change if statements for Platform to else/if so only one would ever run
+- Fixed if/else toggle issue.
+- Fixed undefined date issue.
+- Fixed onChange issue.
+- Change if statements for Platform to else/if so only one would ever run.
 
 ## Getting Started
 **1. Install Package:**
@@ -85,6 +97,21 @@ import {
 
 // React Native App
 const App = () => {
+
+  // Test Data
+  const items = [
+    { label: '1', value: '1' },
+    { label: '2', value: '2' },
+    { label: '3', value: '3' },
+    { label: '4', value: '4' },
+    { label: '5', value: '5' },
+    { label: '6', value: '6' },
+    { label: '7', value: '7' },
+    { label: '8', value: '8' },
+    { label: '9', value: '9' },
+    { label: '10', value: '10' }
+  ];
+
   return (
     <SafeAreaView style={{ display: 'flex', flex: 1 }}>
       {/* Date Picker (Modes: spinner/calendar) */}
@@ -125,7 +152,7 @@ const App = () => {
       />
     </SafeAreaView>
   )
-}
+};
 ```
 
 ## Picker Types (iOS)
