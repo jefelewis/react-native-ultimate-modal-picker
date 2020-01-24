@@ -31,49 +31,55 @@ const App = () => {
   ];
 
   return (
-    <SafeAreaView style={{ justifyContent: 'center', alignItems: 'center', height: '100%'}}>
+    <SafeAreaView style={{ display: 'flex', flex: 1 }}>
+      {/* Date Picker (Modes: spinner/calendar) */}
       <DatePicker
         title="Date"
-        onChange={(date) => console.log(`Date Value: ${date}`)}
-        // mode="spinner"
-        mode="calendar"
+        onChange={(date) => console.log(date)}
+        mode="spinner"
       />
 
-      {/* <TimePicker
+      {/* Time Picker (Modes: spinner/clock) */}
+      <TimePicker
         title="Time"
-        onValueChange={(date) => console.log(`Time Value: ${date}`)}
+        onChange={(date) => console.log(date)}
         mode="spinner"
-        // mode="clock"
-      /> */}
+      />
 
-
-      {/* <DateTimePicker
+      {/* Date Time Picker (iOS Only) */}
+      <DateTimePicker
         title="Date/Time"
-        onValueChange={(date) => console.log(`Date/Time Value: ${date}`)}
-      /> */}
+        onChange={(date) => console.log(date)}
+      />
 
-
-      {/* <ListPicker
+      {/* List Picker */}
+      <ListPicker
         title="List"
         items={items}
-        onValueChange={(value) => console.log(`List Value: ${value}`)}
-      /> */}
+        onChange={(item) => console.log(item)}
+      />
 
+      {/* State Picker */}
+      <StatePicker
+        title="State"
+        onChange={(state) => console.log(state)}
+      />
 
-      {/* <StatePicker onValueChange={(state) => console.log(`State Value: ${state}`)}/> */}
+      {/* State Picker (Small) */}
+      <StatePickerSmall
+        title="State"
+        onChange={(state) => console.log(state)}
+      />
 
-
-
-      {/* <StatePickerSmall onValueChange={(state) => console.log(`State Value: ${state}`)}/> */}
-
+      {/* Date Range Picker */}
       <DateRangePicker
-        title="Date/Range"
-        onFromValueChange={(date) => console.log(`From Date Value: ${date}`)}
-        onToValueChange={(date) => console.log(`To Date Value: ${date}`)}
+        title="Date Range"
+        onFromChange={(date) => console.log(date)}
+        onToChange={(date) => console.log(date)}
         mode="spinner"
       />
     </SafeAreaView>
-  );
+  )
 };
 
 // Exports
