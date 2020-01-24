@@ -5,8 +5,8 @@
 
 *  [Built With](#built-with)
 *  [Known Issues](#known-issues)
-*  [Changelog](#changelog)
 *  [Pending Items](#pending-items)
+*  [Changelog](#changelog)
 *  [Getting Started](#getting-started)
 *  [Example Code](#example-code)
 *  [Picker Types (iOS)](#picker-types-ios)
@@ -19,6 +19,16 @@
 * [React Native Datetime Picker](https://github.com/react-native-community/react-native-datetimepicker) - Native Date/Time Picker
 * [React Hooks](https://reactjs.org/docs/hooks-intro.html) - Functional Component State/Lifecycle Methods
 * [Moment](https://github.com/moment/moment) - Date/Time Formatting
+
+## Pending Items
+- [X] React Native Vector Icons iOS React Issue
+- [X] React Native Vector Icons iOS Linking Issue
+- [X] Update Deprecated Date/Time Pickers to React Native Datetime Picker
+- [X] Android Time Picker (Spinner) Time Fix
+- [X] Android Time Picker (Clock) Time Fix
+- [X] onValueChange passing state back up issue.
+- [X] Deploy NPM Package
+- [ ] React Native Vector Icon Android Issue
 
 ## Changelog
 
@@ -35,16 +45,6 @@
 - Fixed undefined date issue
 - Fixed onChange issue
 - Change if statements for Platform to else/if so only one would ever run
-
-## Pending Items
-- [X] React Native Vector Icons iOS React Issue
-- [X] React Native Vector Icons iOS Linking Issue
-- [X] Update Deprecated Date/Time Pickers to React Native Datetime Picker
-- [X] Android Time Picker (Spinner) Time Fix
-- [X] Android Time Picker (Clock) Time Fix
-- [X] onValueChange passing state back up issue.
-- [X] Deploy NPM Package
-- [ ] React Native Vector Icon Android Issue
 
 ## Getting Started
 **1. Install Package:**
