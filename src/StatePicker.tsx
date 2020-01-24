@@ -9,16 +9,14 @@ const { height, width } = Dimensions.get('window');
 
 // TypeScript: Types
 interface Props {
-  title: string;
-  onChange: (state: State) => string;
-  onPress?: () => void;
+  title?: string;
+  onChange: (state: State) => any;
 }
 
 interface Item {
   label: string;
   value: string;
   key: number | string;
-  // color: string,
 };
 
 interface UnitedStates {
@@ -35,6 +33,7 @@ interface State {
 const StatePicker = (props: Props) => {
   // React Hooks: State
   const [ modalVisible, toggle ] = useState(false);
+  const [ tempState, setTempState ] = useState();
   const [ state, setState ] = useState();
 
   // United States
@@ -101,8 +100,8 @@ const StatePicker = (props: Props) => {
       }
 
       // Check Platform (Android)
-      if (Platform.OS === 'android') {
-
+      else if (Platform.OS === 'android') {
+        // Do Nothing (Android Uses Dropdown List)
       }
     }
     catch (error) {
@@ -111,19 +110,22 @@ const StatePicker = (props: Props) => {
   };
 
   // Select State
-  const selectState = (state: State) => {
+  const selectState = (state: any) => {
     try {
-      console.log('Select State (From onChange)');
-      console.log(state);
-      console.log('Select State Type');
-      console.log(typeof state);
-      console.log('Select State End');
+      // Check Platform (iOS)
+      if (Platform.OS === 'ios') {
+        // React Hook: Set Temp State
+        setTempState(state);
+      }
 
-      // React Hook: Set State
-      setState(state);
-
-      // React Props: onChange
-      props.onChange(state);
+      // Check Platform (Android)
+      else if (Platform.OS === 'android') {
+        // React Hook: Set State
+        setState(state);
+  
+        // React Props: onChange
+        props.onChange(state);
+      }
     }
     catch (error) {
       console.log(error);
@@ -135,20 +137,50 @@ const StatePicker = (props: Props) => {
     try {
       return (
         <Picker
-          selectedValue={state}
-          onChange={() => selectState(state)}>
-          {unitedStates.map((state: State) => {
+          selectedValue={tempState !== undefined ? tempState : state}
+          onValueChange={(state) => selectState(state)}>
+          {unitedStates.map((state: any) => {
             return (
               <Picker.Item
                 label={state.label}
                 value={state.value}
-                key={state.label}
-                // key={state.key || state.label}
+                key={state.key || state.label}
               />
             );
           })}
         </Picker>
       )
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Press Cancel
+  const pressCancel = () => {
+    try {
+      // Do Nothing To State
+      setTempState(state);
+
+      // Toggle Modal
+      toggleModal(); 
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Press Done
+  const pressDone = () => {
+    try {
+      // React Hook: Set State
+      setState(tempState);
+
+      // Props: onChange
+      props.onChange(state);
+
+      // Toggle Modal
+      toggleModal(); 
     }
     catch (error) {
       console.log(error);
@@ -175,7 +207,11 @@ const StatePicker = (props: Props) => {
             <Modal isVisible={modalVisible} style={styles.modal}>
               <View style={styles.modalContainer}>
                 <View style={styles.pickerHeaderContainer}>
-                  <TouchableOpacity onPress={() => toggleModal()} >
+                  <TouchableOpacity onPress={() => pressCancel()} >
+                    <Text style={styles.cancelText}>Cancel</Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity onPress={() => pressDone()} >
                     <Text style={styles.doneText}>Done</Text>
                   </TouchableOpacity>
                 </View>
@@ -201,17 +237,13 @@ const StatePicker = (props: Props) => {
               <Picker
                 selectedValue={state}
                 style={{height: 60, width: width - 16}}
-                onChange={(state) => selectState(state)}>
-                {unitedStates.map((state: State) => {
+                onValueChange={(state) => selectState(state.value)}>
+                {unitedStates.map((state: any) => {
                   return (
                     <Picker.Item
-                      // label={item.label}
-                      // value={item.value}
-                      // key={item.key || item.label}
                       label={state.label}
                       value={state.value}
-                      key={state.label}
-                      // color={item.color}
+                      key={state.key || state.label}
                     />
                   );
                 })}
@@ -253,7 +285,7 @@ const styles = StyleSheet.create({
   pickerHeaderContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     alignItems: 'center',
     height: 40,
     width: width,
@@ -264,7 +296,6 @@ const styles = StyleSheet.create({
   pickerContainer: {
     height: 220,
     width: width,
-    // backgroundColor: '#CFD3D9',
     backgroundColor: 'white',
   },
   doneText: {
@@ -273,6 +304,13 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 17,
     marginRight: 16,
+  },
+  cancelText: {
+    fontFamily: 'System',
+    color: '#007AFF',
+    fontWeight: '400',
+    fontSize: 17,
+    marginLeft: 16,
   },
   stateContainer: {
     alignItems: 'center',
