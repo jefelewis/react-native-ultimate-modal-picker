@@ -24,6 +24,7 @@ interface Item {
 const ListPicker = (props: Props) => {
   // React Hooks: State
   const [ modalVisible, toggle ] = useState(false);
+  const [ tempItem, setTempItem ] = useState();
   const [ item, setItem ] = useState();
 
   // Toggle Modal
@@ -43,11 +44,20 @@ const ListPicker = (props: Props) => {
   // Select Item
   const selectItem = (item: string) => {
     try {
-      // React Hook: Set Item
-      setItem(item);
+      // Check Platform (iOS)
+      if (Platform.OS === 'ios') {
+        // React Hook: Set Temp State
+        setTempItem(item);
+      }
 
-      // React Props: onChange
-      props.onChange(item);
+      // Check Platform (Android)
+      else if (Platform.OS === 'android') {
+        // React Hook: Set Item
+        setItem(item);
+
+        // React Props: onChange
+        props.onChange(item);
+      }
     }
     catch (error) {
       console.log(error);
@@ -59,7 +69,7 @@ const ListPicker = (props: Props) => {
     try {
       return (
         <Picker
-          selectedValue={item}
+          selectedValue={tempItem !== undefined ? tempItem : item}
           onValueChange={(item) => selectItem(item)}>
           {props.items.map((item: Item) => {
             return (
@@ -72,6 +82,37 @@ const ListPicker = (props: Props) => {
           })}
         </Picker>
       )
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Press Cancel
+  const pressCancel = () => {
+    try {
+      // Set Temp Item
+      setTempItem(item);
+
+      // Toggle Modal
+      toggleModal(); 
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Press Done
+  const pressDone = () => {
+    try {
+      // React Hook: Set Item
+      setItem(tempItem);
+
+      // Props: onChange
+      props.onChange(item);
+
+      // Toggle Modal
+      toggleModal(); 
     }
     catch (error) {
       console.log(error);
@@ -98,9 +139,13 @@ const ListPicker = (props: Props) => {
             <Modal isVisible={modalVisible} style={styles.modal}>
               <View style={styles.modalContainer}>
                 <View style={styles.pickerHeaderContainer}>
-                  <TouchableOpacity onPress={() => toggleModal()} >
-                    <Text style={styles.doneText}>Done</Text>
-                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => pressCancel()} >
+                      <Text style={styles.cancelText}>Cancel</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity onPress={() => pressDone()} >
+                      <Text style={styles.doneText}>Done</Text>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.pickerContainer}>
@@ -125,7 +170,6 @@ const ListPicker = (props: Props) => {
                 selectedValue={item}
                 style={{height: 60, width: width - 16}}
                 onValueChange={selectItem}
-                prompt="Fuck"
                 mode="dropdown">
                 {props.items.map((item: Item) => {
                   return (
@@ -174,7 +218,7 @@ const styles = StyleSheet.create({
   pickerHeaderContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     alignItems: 'center',
     height: 40,
     width: width,
@@ -193,6 +237,13 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 17,
     marginRight: 16,
+  },
+  cancelText: {
+    fontFamily: 'System',
+    color: '#007AFF',
+    fontWeight: '400',
+    fontSize: 17,
+    marginLeft: 16,
   },
   stateContainer: {
     alignItems: 'center',
