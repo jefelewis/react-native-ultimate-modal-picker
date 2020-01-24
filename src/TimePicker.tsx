@@ -20,6 +20,7 @@ const TimePicker = (props: Props) => {
   // React Hooks: State
   const [ modalVisible, toggle ] = useState(false);
   const [ androidModalVisible, toggleAndroid ] = useState(false);
+  const [ tempDate, setTempDate ] = useState();
   const [ date, setDate ] = useState(new Date());
 
   // Toggle Modal
@@ -32,7 +33,7 @@ const TimePicker = (props: Props) => {
       }
 
       // Check Platform (iOS)
-      if (Platform.OS === 'ios') {
+      else if (Platform.OS === 'ios') {
         // React Hook: Toggle Modal
         toggle((modalVisible: boolean) => !modalVisible);
       }
@@ -50,13 +51,13 @@ const TimePicker = (props: Props) => {
 
         // Undefined
         if (date === undefined) {
-          // React Hook: Toggle Android
+          // React Hook: Toggle Android 
           toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
         }
 
         // Event Type: Set Date
-        if (event.type === 'set') {
-          // React Hook: Toggle Android
+        else if (event.type === 'set') {
+          // React Hook: Toggle Android 
           toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
 
           // React Hook: Set From Date
@@ -67,18 +68,16 @@ const TimePicker = (props: Props) => {
         }
 
         // Event Type: Dismissed
-        if (event.type === 'dismissed') {
+        else if (event.type === 'dismissed') {
           // React Hook: Toggle Android
-          toggleAndroid(false);
+          toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
         }
       }
 
       // Check Platform: Android
       if (Platform.OS === 'ios') {
-        setDate(date);
-
-        // React Props: onChange
-        props.onChange(date);
+        // React Hook: Set Temp State
+        setTempDate(date);
       }
     }
     catch (error) {
@@ -92,10 +91,41 @@ const TimePicker = (props: Props) => {
       return (
         <RNDateTimePicker
           mode="time"
-          value={date}
+          value={tempDate !== undefined ? tempDate : date}
           onChange={(event: any, date: any) => selectDate(event, date)}
         />
       )
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Press Cancel
+  const pressCancel = () => {
+    try {
+      // React Hook: Set Temp Date
+      setTempDate(date);
+
+      // Toggle Modal
+      toggleModal(); 
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Press Done
+  const pressDone = () => {
+    try {
+      // React Hook: Set Date
+      setDate(tempDate);
+
+      // Props: onChange
+      props.onChange(date);
+
+      // Toggle Modal
+      toggleModal(); 
     }
     catch (error) {
       console.log(error);
@@ -140,7 +170,11 @@ const TimePicker = (props: Props) => {
       <Modal isVisible={modalVisible} style={styles.modal}>
         <View style={styles.modalContainer}>
           <View style={styles.pickerHeaderContainer}>
-            <TouchableOpacity onPress={() => toggleModal()} >
+            <TouchableOpacity onPress={() => pressCancel()} >
+              <Text style={styles.cancelText}>Cancel</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => pressDone()} >
               <Text style={styles.doneText}>Done</Text>
             </TouchableOpacity>
           </View>
@@ -174,7 +208,7 @@ const styles = StyleSheet.create({
   pickerHeaderContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     alignItems: 'center',
     height: 40,
     width: width,
@@ -185,7 +219,6 @@ const styles = StyleSheet.create({
   pickerContainer: {
     height: 220,
     width: width,
-    // backgroundColor: '#CFD3D9',
     backgroundColor: 'white',
   },
   doneText: {
@@ -194,6 +227,13 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 17,
     marginRight: 16,
+  },
+  cancelText: {
+    fontFamily: 'System',
+    color: '#007AFF',
+    fontWeight: '400',
+    fontSize: 17,
+    marginLeft: 16,
   },
   stateContainer: {
     alignItems: 'center',
