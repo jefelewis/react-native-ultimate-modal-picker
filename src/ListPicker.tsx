@@ -11,14 +11,13 @@ const { height, width } = Dimensions.get('window');
 interface Props {
   title?: string;
   items: Array<Item>;
-  onChange: (item: string) => string;
+  onChange: (item: any) => any;
 }
 
 interface Item {
   label: string;
   value: string;
   key: number | string;
-  color: string;
 };
 
 // Component: List Picker
@@ -134,7 +133,6 @@ const ListPicker = (props: Props) => {
                       label={item.label}
                       value={item.value}
                       key={item.key || item.label}
-                      color={item.color}
                     />
                   );
                 })}
@@ -187,7 +185,6 @@ const styles = StyleSheet.create({
   pickerContainer: {
     height: 220,
     width: width,
-    // backgroundColor: '#CFD3D9',
     backgroundColor: 'white',
   },
   doneText: {
