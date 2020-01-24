@@ -66,22 +66,38 @@
 npm i react-native-ultimate-modal-picker
 ```
 
-**2. Add Pod**
+**2. Add Pod (For iOS)**
 Add the following line to ios/podfile:
 ```
 pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec
 ```
 
-**3. Install Pods**
+**3. Install Pods (For iOS)**
 ```
 cd ios
 pod install
 ```
 
-**4. Run Project:**
+**4. Add Dependencies (For Android)**
+Add the following lines to android/settings.gradle:
+```
+include ':react-native-datetimepicker'
+project(':react-native-datetimepicker').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-community/datetimepicker/android')
+```
+
+Add the following line to android/app/build.gradle:
+```
+dependencies {
+  ...
+  implementation project(':react-native-datetimepicker')
+}
+```
+
+**5. Run Project:**
 ```
 react-native run-ios
 ```
+
 
 ## Example Code
 ```javascript
