@@ -32,6 +32,12 @@
 
 ## Changelog
 
+## [1.1.41] - 1/23/2020
+
+### Changed
+
+- Updated README for NPM package
+
 ## [1.1.40] - 1/23/2020
 
 ### Added
