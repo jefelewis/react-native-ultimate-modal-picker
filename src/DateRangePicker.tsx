@@ -23,6 +23,8 @@ const DateRangePicker = (props: Props) => {
   const [ toDateModalVisible, toggleToDate ] = useState(false);
   const [ androidFromDateVisible, toggleFromDateAndroid ] = useState(false);
   const [ androidToDateVisible, toggleToDateAndroid ] = useState(false);
+  const [ tempToDate, setTempToDate ] = useState(new Date());
+  const [ tempFromDate, setTempFromDate ] = useState(new Date());
   const [ fromDate, setFromDate ] = useState(new Date());
   const [ toDate, setToDate ] = useState(new Date());
 
@@ -36,7 +38,7 @@ const DateRangePicker = (props: Props) => {
       }
 
       // Check Platform (Android)
-      if (Platform.OS === 'android') {
+      else if (Platform.OS === 'android') {
         // React Hook: Toggle Android
         toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
       }
@@ -56,7 +58,7 @@ const DateRangePicker = (props: Props) => {
       }
 
       // Check Platform (Android)
-      if (Platform.OS === 'android') {
+      else if (Platform.OS === 'android') {
         // React Hook: Toggle Android
         toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
       }
@@ -97,8 +99,8 @@ const DateRangePicker = (props: Props) => {
       }
 
       // Check Platform: Android
-      if (Platform.OS === 'ios') {
-        setFromDate(date);
+      else if (Platform.OS === 'ios') {
+        setTempFromDate(date);
 
         // React Props: onChange
         props.onFromChange(date);
@@ -140,8 +142,8 @@ const DateRangePicker = (props: Props) => {
       }
 
       // Check Platform: Android
-      if (Platform.OS === 'ios') {
-        setToDate(date);
+      else if (Platform.OS === 'ios') {
+        setTempToDate(date);
 
         // React Props: onChange
         props.onToChange(date);
@@ -158,7 +160,7 @@ const DateRangePicker = (props: Props) => {
       return (
         <RNDateTimePicker
           mode="date"
-          value={fromDate}
+          value={tempFromDate !== undefined ? tempFromDate : fromDate}
           onChange={(event: any, date: any) => selectFromDate(event, date)}
         />
       )
@@ -168,16 +170,78 @@ const DateRangePicker = (props: Props) => {
     }
   };
 
-  // Render To iOS Date Picker
+  // Press Cancel (From Date)
+  const pressCancelFromDate = () => {
+    try {
+      // React Hook: Set Temp Date
+      setTempFromDate(fromDate);
+
+      // Toggle Modal
+      toggleFromDateModal(); 
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Press Done (From Date)
+  const pressDoneFromDate = () => {
+    try {
+      // React Hook: Set Date
+      setFromDate(tempFromDate);
+
+      // Props: onChange
+      props.onFromChange(fromDate);
+
+      // Toggle Modal
+      toggleFromDateModal(); 
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Render To iOS Date Picker (To Date)
   const renderToIOSDatePicker = () => {
     try {
       return (
         <RNDateTimePicker
           mode="date"
-          value={toDate}
+          value={tempToDate !== undefined ? tempToDate : toDate}
           onChange={(event: any, date: any) => selectToDate(event, date)}
         />
       )
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Press Cancel (To Date)
+  const pressCancelToDate = () => {
+    try {
+      // React Hook: Set Temp Date
+      setTempToDate(toDate);
+
+      // Toggle Modal
+      toggleToDateModal(); 
+    }
+    catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Press Done (To Date)
+  const pressDoneToDate = () => {
+    try {
+      // React Hook: Set Date
+      setToDate(tempToDate);
+
+      // Props: onChange
+      props.onToChange(toDate);
+
+      // Toggle Modal
+      toggleToDateModal(); 
     }
     catch (error) {
       console.log(error);
@@ -241,7 +305,11 @@ const DateRangePicker = (props: Props) => {
         <Modal isVisible={fromDateModalVisible} style={styles.modal}>
           <View style={styles.modalContainer}>
             <View style={styles.pickerHeaderContainer}>
-              <TouchableOpacity onPress={() => toggleFromDateModal()} >
+              <TouchableOpacity onPress={() => pressCancelFromDate()} >
+                <Text style={styles.cancelText}>Cancel</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => pressDoneFromDate()} >
                 <Text style={styles.doneText}>Done</Text>
               </TouchableOpacity>
             </View>
@@ -268,7 +336,11 @@ const DateRangePicker = (props: Props) => {
         <Modal isVisible={toDateModalVisible} style={styles.modal}>
           <View style={styles.modalContainer}>
             <View style={styles.pickerHeaderContainer}>
-              <TouchableOpacity onPress={() => toggleToDateModal()} >
+              <TouchableOpacity onPress={() => pressCancelToDate()} >
+                <Text style={styles.cancelText}>Cancel</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => pressDoneToDate()} >
                 <Text style={styles.doneText}>Done</Text>
               </TouchableOpacity>
             </View>
@@ -351,7 +423,7 @@ const styles = StyleSheet.create({
   pickerHeaderContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     alignItems: 'center',
     height: 40,
     width: width,
@@ -362,7 +434,6 @@ const styles = StyleSheet.create({
   pickerContainer: {
     height: 220,
     width: width,
-    // backgroundColor: '#CFD3D9',
     backgroundColor: 'white',
   },
   doneText: {
@@ -371,6 +442,13 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontSize: 17,
     marginRight: 16,
+  },
+  cancelText: {
+    fontFamily: 'System',
+    color: '#007AFF',
+    fontWeight: '400',
+    fontSize: 17,
+    marginLeft: 16,
   },
 });
 
