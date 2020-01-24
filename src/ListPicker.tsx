@@ -9,10 +9,9 @@ const { height, width } = Dimensions.get('window');
 
 // TypeScript: Types
 interface Props {
-  title: string;
+  title?: string;
   items: Array<Item>;
   onChange: (item: string) => string;
-  onPress?: () => void;
 }
 
 interface Item {
@@ -88,7 +87,7 @@ const ListPicker = (props: Props) => {
         return (
           <View style={styles.container}>
             <View style={styles.inputTitleContainer}>
-            <Text style={styles.inputTitle}>{props.title}</Text>
+            <Text style={styles.inputTitle}>{props.title === undefined ? 'List' : props.title}</Text>
             </View>
 
             <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>

@@ -10,7 +10,7 @@ const { height, width } = Dimensions.get('window');
 
 // TypeScript: Types
 interface Props {
-  title: string;
+  title?: string;
   mode: 'calendar' | 'spinner' | 'default';
   onChange: (date: any) => any;
 }
@@ -154,7 +154,7 @@ const DatePicker = (props: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.inputTitleContainer}>
-      <Text style={styles.inputTitle}>{props.title}</Text>
+      <Text style={styles.inputTitle}>{props.title === undefined ? 'Date' : props.title}</Text>
       </View>
 
       <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>

@@ -10,7 +10,7 @@ const { height, width } = Dimensions.get('window');
 
 // TypeScript: Types
 interface Props {
-  title: string;
+  title?: string;
   mode: 'calendar' | 'spinner' | 'default';
   onFromChange: (date: any) => any;
   onToChange: (date: any) => any;
@@ -288,8 +288,8 @@ const DateRangePicker = (props: Props) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>{props.title}</Text>
+      <View style={styles.inputTitleContainer}>
+      <Text style={styles.inputTitle}>{props.title === undefined ? 'Date Range' : props.title}</Text>
       </View>
 
       <View style={styles.toFromDateContainer}>
@@ -364,12 +364,12 @@ const styles = StyleSheet.create({
     marginLeft: 16,
     justifyContent: 'center',
   },
-  titleContainer: {
+  inputTitleContainer: {
     width: width,
     flexDirection: 'row',
     alignItems: 'center',
   },
-  titleText: {
+  inputTitle: {
     alignSelf: 'flex-start',
     fontFamily: 'System',
     fontSize: 24,

@@ -10,7 +10,7 @@ const { height, width } = Dimensions.get('window');
 
 // TypeScript: Types
 interface Props {
-  title: string;
+  title?: string;
   mode: 'spinner' | 'default' | 'clock';
   onChange: (date: any) => any;
 }
@@ -154,7 +154,7 @@ const TimePicker = (props: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.inputTitleContainer}>
-      <Text style={styles.inputTitle}>{props.title}</Text>
+        <Text style={styles.inputTitle}>{props.title === undefined ? 'Time' : props.title}</Text>
       </View>
 
       <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>

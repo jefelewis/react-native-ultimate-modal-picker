@@ -195,7 +195,7 @@ const StatePicker = (props: Props) => {
         return (
           <View style={styles.container}>
             <View style={styles.inputTitleContainer}>
-              <Text style={styles.inputTitle}>State</Text>
+              <Text style={styles.inputTitle}>{props.title === undefined ? 'State' : props.title}</Text>
             </View>
       
             <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
