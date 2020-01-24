@@ -5,6 +5,7 @@
 
 *  [Built With](#built-with)
 *  [Known Issues](#known-issues)
+*  [Changelog](#changelog)
 *  [Pending Items](#pending-items)
 *  [Getting Started](#getting-started)
 *  [Example Code](#example-code)
@@ -19,8 +20,21 @@
 * [React Hooks](https://reactjs.org/docs/hooks-intro.html) - Functional Component State/Lifecycle Methods
 * [Moment](https://github.com/moment/moment) - Date/Time Formatting
 
-## Known Issues
-**PACKAGE DOES NOT WORK YET. STILL IN TESTING**
+## Changelog
+
+## [1.1.40] - 1/23/2020
+
+### Added
+
+- Added podfile installation instructions to README
+- Added cancel button for iOS modals
+
+### Changed
+
+- Fixed if/else toggle issue
+- Fixed undefined date issue
+- Fixed onChange issue
+- Change if statements for Platform to else/if so only one would ever run
 
 ## Pending Items
 - [X] React Native Vector Icons iOS React Issue
@@ -28,9 +42,9 @@
 - [X] Update Deprecated Date/Time Pickers to React Native Datetime Picker
 - [X] Android Time Picker (Spinner) Time Fix
 - [X] Android Time Picker (Clock) Time Fix
+- [X] onValueChange passing state back up issue.
+- [X] Deploy NPM Package
 - [ ] React Native Vector Icon Android Issue
-- [ ] onValueChange passing state back up issue.
-- [ ] Deploy NPM Package
 
 ## Getting Started
 **1. Install Package:**
