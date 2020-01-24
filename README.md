@@ -25,6 +25,12 @@
 
 ## Changelog
 
+## [1.1.43] - 1/24/2020
+
+### Changed
+
+- Fixed README Formatting
+
 ## [1.1.42] - 1/24/2020
 
 ### Added
@@ -67,6 +73,7 @@ npm i react-native-ultimate-modal-picker
 ```
 
 **2. Add Pod (For iOS)**
+
 Add the following line to ios/podfile:
 ```
 pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec
@@ -79,6 +86,7 @@ pod install
 ```
 
 **4. Add Dependencies (For Android)**
+
 Add the following lines to android/settings.gradle:
 ```
 include ':react-native-datetimepicker'
