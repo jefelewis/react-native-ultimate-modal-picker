@@ -62,7 +62,7 @@ const ListPicker = (props: Props) => {
       return (
         <Picker
           selectedValue={item}
-          onChange={() => selectItem(item)}>
+          onValueChange={() => selectItem(item)}>
           {props.items.map((item: Item) => {
             return (
               <Picker.Item
@@ -126,7 +126,7 @@ const ListPicker = (props: Props) => {
               <Picker
                 selectedValue={item}
                 style={{height: 60, width: width - 16}}
-                onChange={selectItem}
+                onValueChange={selectItem}
                 prompt="Fuck"
                 mode="dropdown">
                 {props.items.map((item: Item) => {
