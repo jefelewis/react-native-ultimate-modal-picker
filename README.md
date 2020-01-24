@@ -36,7 +36,7 @@
 
 ### Changed
 
-- Reformatting App.tsx for when testing.
+- Reformatted App.tsx for when testing.
 - Fixed onChange TypeScript Typings.
 - Updated README screenshot GIFs.
 
@@ -58,7 +58,7 @@
 - Fixed if/else toggle issue.
 - Fixed undefined date issue.
 - Fixed onChange issue.
-- Change if statements for Platform to else/if so only one would ever run.
+- Changes if statements for Platform to else/if so only one would ever run.
 
 ## Getting Started
 **1. Install Package:**
@@ -171,54 +171,58 @@ const App = () => {
 ## Picker Types (iOS)
 ### 1. Date
 <div align="center">
-  <img src="/screenshots/ios/datepicker.gif" width="40%" height="40%" />
+  <img src="/screenshots/ios/iosDate.gif" width="40%" height="40%" />
 </div>
 
 ### 2. Time
 <div align="center">
-  <img src="/screenshots/ios/timepicker.gif" width="40%" height="40%" />
+  <img src="/screenshots/ios/iosTime.gif" width="40%" height="40%" />
 </div>
 
 ### 3. Date/Time (iOS Only)
 <div align="center">
-  <img src="/screenshots/ios/datetimepicker.gif" width="40%" height="40%" />
+  <img src="/screenshots/ios/iosDateTime.gif" width="40%" height="40%" />
 </div>
 
 ### 4. List
 <div align="center">
-  <img src="/screenshots/ios/listpicker.gif" width="40%" height="40%" />
+  <img src="/screenshots/ios/iosList.gif" width="40%" height="40%" />
 </div>
 
 
 ### 5. State (50 United States)
 <div align="center">
-  <img src="/screenshots/ios/statepicker.gif" width="40%" height="40%" />
+  <img src="/screenshots/ios/iosState.gif" width="40%" height="40%" />
 </div>
 
 ## Picker Types (Android)
 ### 1. Date (Mode: Spinner)
 <div align="center">
-  <img src="/screenshots/android/datespinnerpickerandroid.gif" width="40%" height="40%" />
+  <img src="/screenshots/android/androidDateSpinner.gif" width="40%" height="40%" />
 </div>
 
 ### 2. Date (Mode: Calendar)
 <div align="center">
-  <img src="/screenshots/android/datecalendarpickerandroid.gif" width="40%" height="40%" />
+  <img src="/screenshots/android/androidDateCalendar.gif" width="40%" height="40%" />
 </div>
 
 ### 3. Time (Mode: Spinner)
-
+<div align="center">
+  <img src="/screenshots/android/androidTimeSpinner.gif" width="40%" height="40%" />
+</div>
 
 ### 4. Time (Mode: Clock)
-
+<div align="center">
+  <img src="/screenshots/android/androidTimeClock.gif" width="40%" height="40%" />
+</div>
 
 ### 5. List
 <div align="center">
-  <img src="/screenshots/android/listpickerandroid.gif" width="40%" height="40%" />
+  <img src="/screenshots/android/androidList.gif" width="40%" height="40%" />
 </div>
 
 
 ### 6. State (50 United States)
 <div align="center">
-  <img src="/screenshots/android/statepickerandroid.gif" width="40%" height="40%" />
+  <img src="/screenshots/android/androidState.gif" width="40%" height="40%" />
 </div>
