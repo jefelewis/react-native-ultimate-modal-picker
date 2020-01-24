@@ -237,7 +237,7 @@ const StatePicker = (props: Props) => {
               <Picker
                 selectedValue={state}
                 style={{height: 60, width: width - 16}}
-                onValueChange={(state) => selectState(state.value)}>
+                onValueChange={(state) => selectState(state)}>
                 {unitedStates.map((state: any) => {
                   return (
                     <Picker.Item
