@@ -29,7 +29,7 @@
 
 ### Changed
 
-- Fixed README Formatting
+- Fixed README Formatting.
 
 ## [1.1.42] - 1/24/2020
 
