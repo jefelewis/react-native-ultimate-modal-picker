@@ -21,14 +21,7 @@
 * [Moment](https://github.com/moment/moment) - Date/Time Formatting
 
 ## Pending Items
-- [X] React Native Vector Icons iOS React Issue
-- [X] React Native Vector Icons iOS Linking Issue
-- [X] Update Deprecated Date/Time Pickers to React Native Datetime Picker
-- [X] Android Time Picker (Spinner) Time Fix
-- [X] Android Time Picker (Clock) Time Fix
-- [X] onValueChange passing state back up issue.
-- [X] Deploy NPM Package
-- [ ] React Native Vector Icon Android Issue
+- [ ] Add React Native Vector Icon Android?
 
 ## Changelog
 
