@@ -4,7 +4,6 @@
 [![npm downloads](https://img.shields.io/npm/dm/react-native-ultimate-modal-picker.svg?style=flat-square)](https://www.npmjs.com/package/react-native-ultimate-modal-picker)
 
 *  [Built With](#built-with)
-*  [Known Issues](#known-issues)
 *  [Pending Items](#pending-items)
 *  [Changelog](#changelog)
 *  [Getting Started](#getting-started)
