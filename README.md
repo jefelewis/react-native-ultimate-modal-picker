@@ -64,7 +64,7 @@
 - Fixed if/else toggle issue.
 - Fixed undefined date issue.
 - Fixed onChange issue.
-- Changes if statements for Platform to else/if so only one would ever run.
+- Changed if statements for Platform to else/if so only one would ever run.
 
 ## Getting Started
 **1. Install Package:**
