@@ -24,6 +24,19 @@
 
 ## Changelog
 
+## [1.1.47] - 1/26/2020
+
+### Changed
+
+- Fixed onChange TypeScript typings.
+
+## [1.1.46] - 1/26/2020
+
+### Changed
+
+- Fixed React Hook state + onValueChange issue due to having the same name of "state."
+
+
 ## [1.1.45] - 1/26/2020
 
 ### Changed
