@@ -113,21 +113,21 @@ const StatePicker = (props: Props) => {
   };
 
   // Select State
-  const selectState = (state: any) => {
+  const selectState = (value: any) => {
     try {
       // Check Platform (iOS)
       if (Platform.OS === 'ios') {
         // React Hook: Set Temp State
-        setTempState(state);
+        setTempState(value);
       }
 
       // Check Platform (Android)
       else if (Platform.OS === 'android') {
         // React Hook: Set State
-        setState(state);
+        setState(value);
   
         // React Props: onChange
-        props.onChange(state);
+        props.onChange(value);
       }
     }
     catch (error) {
@@ -141,7 +141,7 @@ const StatePicker = (props: Props) => {
       return (
         <Picker
           selectedValue={tempState !== undefined ? tempState : state}
-          onValueChange={(state) => selectState(state)}>
+          onValueChange={(value) => selectState(value)}>
           {unitedStates.map((state: any) => {
             return (
               <Picker.Item
