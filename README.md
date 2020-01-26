@@ -24,6 +24,15 @@
 
 ## Changelog
 
+## [1.1.45] - 1/26/2020
+
+### Changed
+
+- Added keyboard dismiss to toggleModal().
+
+
+## Changelog
+
 ## [1.1.44] - 1/25/2020
 
 ### Added
