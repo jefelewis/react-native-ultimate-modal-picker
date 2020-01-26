@@ -1,5 +1,5 @@
 // Imports: Dependencies
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
@@ -26,7 +26,13 @@ const DateRangePicker = (props: Props) => {
   const [ tempToDate, setTempToDate ] = useState(new Date());
   const [ tempFromDate, setTempFromDate ] = useState(new Date());
   const [ fromDate, setFromDate ] = useState(new Date());
-  const [ toDate, setToDate ] = useState(new Date());
+  const [ toDate, setToDate ] = useState();
+
+  // React Hooks: Lifecycle Methods
+  useEffect(() => {
+    // To Date Default Value
+    props.onToChange(toDate);
+  });
 
   // Toggle From Date Modal
   const toggleFromDateModal = () => {
@@ -75,7 +81,7 @@ const DateRangePicker = (props: Props) => {
   };
 
   // Select From Date
-  const selectFromDate = (event: any, date: Date) => {
+  const selectFromDate = async (event: any, date: Date) => {
     try {
       // Check Platform: Android
       if (Platform.OS === 'android') {
@@ -94,7 +100,7 @@ const DateRangePicker = (props: Props) => {
           setFromDate(date);
   
           // React Props: onChange
-          props.onFromChange(date);
+          await props.onFromChange(date);
         }
   
         // Event Type: Dismissed
@@ -109,7 +115,7 @@ const DateRangePicker = (props: Props) => {
         setTempFromDate(date);
 
         // React Props: onChange
-        props.onFromChange(date);
+        await props.onFromChange(date);
       }
     }
     catch (error) {
@@ -118,7 +124,7 @@ const DateRangePicker = (props: Props) => {
   };
 
   // Select To Date
-  const selectToDate = (event: any, date: Date) => {
+  const selectToDate = async (event: any, date: Date) => {
     try {
       // Check Platform: Android
       if (Platform.OS === 'android') {
@@ -137,7 +143,7 @@ const DateRangePicker = (props: Props) => {
           setToDate(date);
   
           // React Props: onChange
-          props.onToChange(date);
+          await props.onToChange(date);
         }
   
         // Event Type: Dismissed
@@ -152,7 +158,7 @@ const DateRangePicker = (props: Props) => {
         setTempToDate(date);
 
         // React Props: onChange
-        props.onToChange(date);
+        await props.onToChange(date);
       }
     }
     catch (error) {
@@ -344,7 +350,7 @@ const DateRangePicker = (props: Props) => {
       <View style={styles.toFromDateContainer}>
         <TouchableOpacity onPress={() => toggleToDateModal()} style={styles.dateInfoContainer}>
           <Text style={styles.dateText}>To</Text>
-          <Text style={styles.text}>{moment(toDate).format('MMM Do, YYYY')}</Text>
+          <Text style={styles.text}>{toDate !== undefined ? moment(toDate).format('MMM Do, YYYY') : 'Select'}</Text>
         </TouchableOpacity>
 
         <View>

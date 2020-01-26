@@ -109,13 +109,13 @@ const ListPicker = (props: Props) => {
   };
 
   // Press Done
-  const pressDone = () => {
+  const pressDone = async () => {
     try {
       // React Hook: Set Item
       setItem(tempItem);
 
       // Props: onChange
-      props.onChange(item);
+      await props.onChange(item);
 
       // Toggle Modal
       toggleModal();

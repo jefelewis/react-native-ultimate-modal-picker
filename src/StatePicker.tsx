@@ -10,7 +10,7 @@ const { height, width } = Dimensions.get('window');
 // TypeScript: Types
 interface Props {
   title?: string;
-  onChange: (state: State) => any;
+  onChange: (state: any) => any;
 }
 
 interface Item {
@@ -113,7 +113,7 @@ const StatePicker = (props: Props) => {
   };
 
   // Select State
-  const selectState = (value: any) => {
+  const selectState = async (value: any) => {
     try {
       // Check Platform (iOS)
       if (Platform.OS === 'ios') {
@@ -127,7 +127,7 @@ const StatePicker = (props: Props) => {
         setState(value);
   
         // React Props: onChange
-        props.onChange(value);
+        await props.onChange(value);
       }
     }
     catch (error) {
@@ -177,13 +177,13 @@ const StatePicker = (props: Props) => {
   };
 
   // Press Done
-  const pressDone = () => {
+  const pressDone = async () => {
     try {
       // React Hook: Set State
       setState(tempState);
 
       // Props: onChange
-      props.onChange(state);
+      await props.onChange(state);
 
       // Toggle Modal
       toggleModal();

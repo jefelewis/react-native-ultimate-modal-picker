@@ -47,7 +47,7 @@ const TimePicker = (props: Props) => {
   };
 
   // Select Date
-  const selectDate = (event: any, date: Date) => {
+  const selectDate = async (event: any, date: Date) => {
     try {
       // Check Platform: Android
       if (Platform.OS === 'android') {
@@ -67,7 +67,7 @@ const TimePicker = (props: Props) => {
           setDate(date);
 
           // React Props: onChange
-          props.onChange(date);
+          await props.onChange(date);
         }
 
         // Event Type: Dismissed
@@ -122,13 +122,13 @@ const TimePicker = (props: Props) => {
   };
 
   // Press Done
-  const pressDone = () => {
+  const pressDone = async () => {
     try {
       // React Hook: Set Date
       setDate(tempDate);
 
       // Props: onChange
-      props.onChange(date);
+      await props.onChange(date);
 
       // Toggle Modal
       toggleModal();

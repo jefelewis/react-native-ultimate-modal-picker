@@ -10,7 +10,7 @@ const { height, width } = Dimensions.get('window');
 // TypeScript: Types
 interface Props {
   title?: string;
-  onChange: (state: State) => any;
+  onChange: (state: any) => any;
 }
 
 interface Item {

@@ -84,13 +84,13 @@ const DatetimePicker = (props: Props) => {
   };
 
   // Press Done
-  const pressDone = () => {
+  const pressDone = async () => {
     try {
       // React Hook: Set Date
       setDate(tempDate);
 
       // Props: onChange
-      props.onChange(date);
+      await props.onChange(date);
 
       // Toggle Modal
       toggleModal();
