@@ -37,6 +37,9 @@ const DatePicker = (props: Props) => {
         // React Hook: Toggle Modal
         toggle((modalVisible: boolean) => !modalVisible);
       }
+
+      // Dismiss Keyboard
+      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);

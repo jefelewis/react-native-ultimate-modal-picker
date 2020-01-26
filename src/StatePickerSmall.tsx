@@ -103,6 +103,9 @@ const StatePickerSmall = (props: Props) => {
       else if (Platform.OS === 'android') {
         // Do Nothing (Android Uses Dropdown List)
       }
+
+      // Dismiss Keyboard
+      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);

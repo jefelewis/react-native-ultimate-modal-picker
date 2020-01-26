@@ -42,6 +42,9 @@ const DateRangePicker = (props: Props) => {
         // React Hook: Toggle Android
         toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
       }
+
+      // Dismiss Keyboard
+      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -62,6 +65,9 @@ const DateRangePicker = (props: Props) => {
         // React Hook: Toggle Android
         toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
       }
+
+      // Dismiss Keyboard
+      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
