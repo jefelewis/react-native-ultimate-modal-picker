@@ -1,6 +1,6 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
-import { Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 import moment from 'moment';
@@ -177,7 +177,10 @@ const DateRangePicker = (props: Props) => {
       setTempFromDate(fromDate);
 
       // Toggle Modal
-      toggleFromDateModal(); 
+      toggleFromDateModal();
+
+      // Dismiss Keyboard
+      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -194,7 +197,10 @@ const DateRangePicker = (props: Props) => {
       props.onFromChange(fromDate);
 
       // Toggle Modal
-      toggleFromDateModal(); 
+      toggleFromDateModal();
+
+      // Dismiss Keyboard
+      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -224,7 +230,10 @@ const DateRangePicker = (props: Props) => {
       setTempToDate(toDate);
 
       // Toggle Modal
-      toggleToDateModal(); 
+      toggleToDateModal();
+
+      // Dismiss Keyboard
+      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -241,7 +250,10 @@ const DateRangePicker = (props: Props) => {
       props.onToChange(toDate);
 
       // Toggle Modal
-      toggleToDateModal(); 
+      toggleToDateModal();
+
+      // Dismiss Keyboard
+      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);

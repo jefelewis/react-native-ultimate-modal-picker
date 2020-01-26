@@ -1,6 +1,6 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
-import { Dimensions, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Dimensions, Keyboard, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
 // import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -163,7 +163,10 @@ const StatePickerSmall = (props: Props) => {
       setTempState(state);
 
       // Toggle Modal
-      toggleModal(); 
+      toggleModal();
+
+      // Dismiss Keyboard
+      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -180,7 +183,10 @@ const StatePickerSmall = (props: Props) => {
       props.onChange(state);
 
       // Toggle Modal
-      toggleModal(); 
+      toggleModal();
+
+      // Dismiss Keyboard
+      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
