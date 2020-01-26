@@ -24,6 +24,14 @@
 
 ## Changelog
 
+## [1.1.44] - 1/25/2020
+
+### Added
+
+- Added keyboard dismiss to work better with form fields.
+
+## Changelog
+
 ## [1.1.43] - 1/24/2020
 
 ### Changed
