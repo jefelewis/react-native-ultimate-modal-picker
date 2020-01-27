@@ -77,7 +77,7 @@ const DatePicker = (props: Props) => {
       // Check Platform: Android
       else if (Platform.OS === 'ios') {
         // Undefined
-        if (date !== undefined) {
+        if (newDate !== undefined) {
           // React Hook: Set Temp State
           setTempDate(newDate);
         }
