@@ -81,7 +81,7 @@ const DatePicker = (props: Props) => {
           // React Hook: Set Temp State
           setTempDate(newDate);
         }
-      } 
+      }
     }
     catch (error) {
       console.log(error);
