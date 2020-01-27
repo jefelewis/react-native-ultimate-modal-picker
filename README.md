@@ -24,6 +24,17 @@
 
 ## Changelog
 
+## [1.1.53] - 1/27/2020
+
+### Changed
+
+- Fixed Picker Done button issue. Done button is now disabled unless new date is picked.
+- Increased Picker container size for iOS
+
+### Removed
+
+- Removed async/await due to that it was not the root cause of the issue.
+
 ## [1.1.47] - 1/26/2020
 
 ### Changed
