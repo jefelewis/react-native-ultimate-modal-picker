@@ -1,6 +1,6 @@
 // Imports: Dependencies
-import React, { useState, useEffect } from 'react';
-import { Button, Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { Button, Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 import moment from 'moment';
@@ -37,9 +37,6 @@ const DatePicker = (props: Props) => {
         // React Hook: Toggle Modal
         toggle((modalVisible: boolean) => !modalVisible);
       }
-
-      // Dismiss Keyboard
-      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
