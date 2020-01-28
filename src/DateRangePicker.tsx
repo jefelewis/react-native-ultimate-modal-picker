@@ -12,8 +12,8 @@ const { height, width } = Dimensions.get('window');
 interface Props {
   title?: string;
   mode: 'calendar' | 'spinner' | 'default';
-  onFromChange: (newDate: Date | string) => Date | string;
-  onToChange: (newDate: Date | string) => Date | string;
+  onFromChange: (newDate: Date | string) => Date | string | void;
+  onToChange: (newDate: Date | string) => Date | string | void;
 }
 
 // Component: Date Range Picker

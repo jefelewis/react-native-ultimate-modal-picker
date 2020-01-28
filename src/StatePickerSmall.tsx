@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   pickerContainer: {
-    height: 220,
+    height: 250,
     width: width,
     backgroundColor: 'white',
   },
