@@ -26,9 +26,13 @@
 
 ## [1.1.54] - 1/28/2020
 
+### Added
+
+- Adding typings for onChange.
+- Passing initial date to parent component (useEffect) for Date, Time, Datetime, and Date Range Pickers.
+
 ### Changed
 
-- Passing initial date to parent component (useEffect) for Date, Time, Datetime, and Date Range Pickers.
 - Date Range's `toDate` is now defaulted to "Select."
 
 ## [1.1.53] - 1/27/2020
