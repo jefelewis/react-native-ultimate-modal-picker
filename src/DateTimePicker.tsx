@@ -1,6 +1,6 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
-import { Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Button, Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 import moment from 'moment';
@@ -19,8 +19,8 @@ interface Props {
 const DatetimePicker = (props: Props) => {
   // React Hooks: State
   const [ modalVisible, toggle ] = useState(false);
-  const [ tempDate, setTempDate ] = useState();
   const [ date, setDate ] = useState(new Date());
+  const [ tempDate, setTempDate ] = useState(date);
 
   // Toggle Modal
   const toggleModal = () => {
@@ -40,10 +40,10 @@ const DatetimePicker = (props: Props) => {
   };
 
   // Select Date
-  const selectDate = (date: Date) => {
+  const selectDate = (event: any, newDate: Date) => {
     try {
       // React Hook: Set Temp State
-      setTempDate(date);
+      setTempDate(newDate);
     }
     catch (error) {
       console.log(error);
@@ -56,8 +56,8 @@ const DatetimePicker = (props: Props) => {
       return (
         <RNDateTimePicker
           mode="datetime"
-          value={tempDate !== undefined ? tempDate : date}
-          onChange={(event: any, date: any) => selectDate(date)}
+          value={tempDate ? tempDate : date}
+          onChange={(event: any, newDate: any) => selectDate(event, newDate)}
         />
       )
     }
@@ -84,19 +84,16 @@ const DatetimePicker = (props: Props) => {
   };
 
   // Press Done
-  const pressDone = async () => {
+  const pressDone = () => {
     try {
       // React Hook: Set Date
       setDate(tempDate);
 
       // Props: onChange
-      await props.onChange(date);
+      props.onChange(tempDate);
 
       // Toggle Modal
       toggleModal();
-
-      // Dismiss Keyboard
-      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -127,9 +124,13 @@ const DatetimePicker = (props: Props) => {
                     <Text style={styles.cancelText}>Cancel</Text>
                   </TouchableOpacity>
 
-                  <TouchableOpacity onPress={() => pressDone()} >
-                    <Text style={styles.doneText}>Done</Text>
-                  </TouchableOpacity>
+                  <View style={styles.doneButton}>
+                    <Button
+                      onPress={() => pressDone()}
+                      title="Done"
+                      disabled={date === tempDate ? true : false}
+                    />
+                  </View>
                 </View>
 
                 <View style={styles.pickerContainer}>
@@ -190,6 +191,9 @@ const styles = StyleSheet.create({
     height: 220,
     width: width,
     backgroundColor: 'white',
+  },
+  doneButton: {
+    marginRight: 7,
   },
   doneText: {
     fontFamily: 'System',
