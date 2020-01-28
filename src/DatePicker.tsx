@@ -12,7 +12,7 @@ const { height, width } = Dimensions.get('window');
 interface Props {
   title?: string;
   mode: 'calendar' | 'spinner' | 'default';
-  onChange: (date: any) => any;
+  onChange: (date: Date | string) => Date | string | void;
 }
 
 // Component: Date Picker

@@ -12,7 +12,7 @@ const { height, width } = Dimensions.get('window');
 interface Props {
   title?: string;
   mode: 'spinner' | 'default' | 'clock';
-  onChange: (newDate: any) => any;
+  onChange: (date: Date | string) => Date | string | void;
 }
 
 // Component: Time Picker

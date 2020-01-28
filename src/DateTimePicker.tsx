@@ -12,7 +12,7 @@ const { height, width } = Dimensions.get('window');
 // TypeScript: Types
 interface Props {
   title?: string;
-  onChange: (date: any) => any;
+  onChange: (date: Date | string) => Date | string | void;
 }
 
 // Component: Datetime Picker
