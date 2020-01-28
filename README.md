@@ -24,12 +24,19 @@
 
 ## Changelog
 
+## [1.1.54] - 1/28/2020
+
+### Changed
+
+- Passing initial date to parent component (useEffect) for Date, Time, Datetime, and Date Range Pickers.
+- Date Range's `toDate` is now defaulted to "Select."
+
 ## [1.1.53] - 1/27/2020
 
 ### Changed
 
 - Fixed Picker Done button issue. Done button is now disabled unless new date is picked.
-- Increased Picker container size for iOS
+- Increased Picker container size for iOS.
 
 ### Removed
 
