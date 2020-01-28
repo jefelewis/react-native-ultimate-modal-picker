@@ -1,5 +1,5 @@
 // Imports: Dependencies
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
@@ -12,8 +12,8 @@ const { height, width } = Dimensions.get('window');
 interface Props {
   title?: string;
   mode: 'calendar' | 'spinner' | 'default';
-  onFromChange: (date: any) => any;
-  onToChange: (date: any) => any;
+  onFromChange: (newDate: Date | string) => Date | string;
+  onToChange: (newDate: Date | string) => Date | string;
 }
 
 // Component: Date Range Picker
@@ -27,6 +27,20 @@ const DateRangePicker = (props: Props) => {
   const [ toDate, setToDate ] = useState(new Date());
   const [ tempToDate, setTempToDate ] = useState(toDate);
   const [ tempFromDate, setTempFromDate ] = useState(fromDate);
+  const [ today , todaySent ] = useState(false);
+
+
+  // React Hooks: Lifecycle Methods (Every time?)
+  useEffect(() => {
+    // Send Initial Date
+    if (today === false) {
+      // Props: onFromChange
+      props.onFromChange(new Date());
+
+      // Today's Date Has Been Sent To Parent Component
+      todaySent(true);
+    }
+  });
 
   // Toggle From Date Modal
   const toggleFromDateModal = () => {
@@ -262,7 +276,7 @@ const DateRangePicker = (props: Props) => {
             mode="date"
             display={props.mode}
             value={toDate}
-            onChange={(event: any, date: any) => selectToDate(event, date)}
+            onChange={(event: any, newDate: any) => selectToDate(event, newDate)}
           />
         )
       }
@@ -281,7 +295,7 @@ const DateRangePicker = (props: Props) => {
             mode="date"
             display={props.mode}
             value={fromDate}
-            onChange={(event: any, date: any) => selectFromDate(event, date)}
+            onChange={(event: any, newDate: any) => selectFromDate(event, newDate)}
           />
         )
       }
@@ -335,7 +349,7 @@ const DateRangePicker = (props: Props) => {
       <View style={styles.toFromDateContainer}>
         <TouchableOpacity onPress={() => toggleToDateModal()} style={styles.dateInfoContainer}>
           <Text style={styles.dateText}>To</Text>
-          <Text style={styles.text}>{toDate === fromDate ? 'Select' : moment(toDate).format('MMM Do, YYYY')}</Text>
+          <Text style={styles.text}>{String(toDate) === String(fromDate) ? 'Select' : moment(toDate).format('MMM Do, YYYY')}</Text>
         </TouchableOpacity>
 
         <View>
