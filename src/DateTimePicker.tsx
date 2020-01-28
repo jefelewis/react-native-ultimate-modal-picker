@@ -1,5 +1,5 @@
 // Imports: Dependencies
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
@@ -21,6 +21,19 @@ const DatetimePicker = (props: Props) => {
   const [ modalVisible, toggle ] = useState(false);
   const [ date, setDate ] = useState(new Date());
   const [ tempDate, setTempDate ] = useState(date);
+  const [ today , todaySent ] = useState(false);
+
+  // React Hooks: Lifecycle Methods
+  useEffect(() => {
+    // Send Initial Date
+    if (today === false) {
+      // Props: onFromChange
+      props.onChange(new Date());
+
+      // Today's Date Has Been Sent To Parent Component
+      todaySent(true);
+    }
+  });
 
   // Toggle Modal
   const toggleModal = () => {
