@@ -29,8 +29,7 @@ const DateRangePicker = (props: Props) => {
   const [ tempFromDate, setTempFromDate ] = useState(fromDate);
   const [ today , todaySent ] = useState(false);
 
-
-  // React Hooks: Lifecycle Methods (Every time?)
+  // React Hooks: Lifecycle Methods
   useEffect(() => {
     // Send Initial Date
     if (today === false) {
