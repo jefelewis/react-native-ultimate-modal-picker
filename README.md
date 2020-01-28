@@ -5,11 +5,11 @@
 
 *  [Built With](#built-with)
 *  [Pending Items](#pending-items)
-*  [Changelog](#changelog)
 *  [Getting Started](#getting-started)
 *  [Example Code](#example-code)
 *  [Picker Types (iOS)](#picker-types-ios)
 *  [Picker Types (Android)](#picker-types-android)
+*  [Changelog](#changelog)
 
 ## Built With
 * [TypeScript](https://github.com/microsoft/TypeScript) - Programming Language
@@ -21,101 +21,6 @@
 
 ## Pending Items
 - [ ] Add React Native Vector Icon Android?
-
-## Changelog
-
-## [1.1.54] - 1/28/2020
-
-### Added
-
-- Adding typings for onChange.
-- Passing initial date to parent component (useEffect) for Date, Time, Datetime, and Date Range Pickers.
-
-### Changed
-
-- Date Range's `toDate` is now defaulted to "Select."
-
-## [1.1.53] - 1/27/2020
-
-### Changed
-
-- Fixed Picker Done button issue. Done button is now disabled unless new date is picked.
-- Increased Picker container size for iOS.
-
-### Removed
-
-- Removed async/await due to that it was not the root cause of the issue.
-
-## [1.1.47] - 1/26/2020
-
-### Changed
-
-- Fixed onChange TypeScript typings.
-
-## [1.1.46] - 1/26/2020
-
-### Changed
-
-- Fixed React Hook state + onValueChange issue due to having the same name of "state."
-
-
-## [1.1.45] - 1/26/2020
-
-### Changed
-
-- Added keyboard dismiss to toggleModal().
-
-
-## Changelog
-
-## [1.1.44] - 1/25/2020
-
-### Added
-
-- Added keyboard dismiss to work better with form fields.
-
-## Changelog
-
-## [1.1.43] - 1/24/2020
-
-### Changed
-
-- Fixed README Formatting.
-
-## [1.1.42] - 1/24/2020
-
-### Added
-
-- Added cancel button to iOS ListPicker
-- Added test data items for ListPicker on README.
-- Added props to App.tsx for testing.
-- Title props can be added to any Picker. Default titles are shown if no prop is added.
-
-### Changed
-
-- Reformatted App.tsx for when testing.
-- Fixed onChange TypeScript Typings.
-- Updated README screenshot GIFs.
-
-## [1.1.41] - 1/23/2020
-
-### Changed
-
-- Updated README for NPM package.
-
-## [1.1.40] - 1/23/2020
-
-### Added
-
-- Added podfile installation instructions to README.
-- Added cancel button for iOS modals.
-
-### Changed
-
-- Fixed if/else toggle issue.
-- Fixed undefined date issue.
-- Fixed onChange issue.
-- Changed if statements for Platform to else/if so only one would ever run.
 
 ## Getting Started
 **1. Install Package:**
@@ -301,3 +206,93 @@ const App = () => {
 <div align="center">
   <img src="/screenshots/android/androidState.gif" width="40%" height="40%" />
 </div>
+
+## Changelog
+
+### [1.1.54] - 1/28/2020
+
+### Added
+
+- Adding typings for onChange.
+- Passing initial date to parent component (useEffect) for Date, Time, Datetime, and Date Range Pickers.
+
+### Changed
+
+- Date Range's `toDate` is now defaulted to "Select."
+
+### [1.1.53] - 1/27/2020
+
+### Changed
+
+- Fixed Picker Done button issue. Done button is now disabled unless new date is picked.
+- Increased Picker container size for iOS.
+
+### Removed
+
+- Removed async/await due to that it was not the root cause of the issue.
+
+## [1.1.47] - 1/26/2020
+
+### Changed
+
+- Fixed onChange TypeScript typings.
+
+### [1.1.46] - 1/26/2020
+
+### Changed
+
+- Fixed React Hook state + onValueChange issue due to having the same name of "state."
+
+
+### [1.1.45] - 1/26/2020
+
+### Changed
+
+- Added keyboard dismiss to toggleModal().
+
+### [1.1.44] - 1/25/2020
+
+### Added
+
+- Added keyboard dismiss to work better with form fields.
+
+### [1.1.43] - 1/24/2020
+
+### Changed
+
+- Fixed README Formatting.
+
+### [1.1.42] - 1/24/2020
+
+### Added
+
+- Added cancel button to iOS ListPicker
+- Added test data items for ListPicker on README.
+- Added props to App.tsx for testing.
+- Title props can be added to any Picker. Default titles are shown if no prop is added.
+
+### Changed
+
+- Reformatted App.tsx for when testing.
+- Fixed onChange TypeScript Typings.
+- Updated README screenshot GIFs.
+
+### [1.1.41] - 1/23/2020
+
+### Changed
+
+- Updated README for NPM package.
+
+### [1.1.40] - 1/23/2020
+
+#### Added
+
+- Added podfile installation instructions to README.
+- Added cancel button for iOS modals.
+
+#### Changed
+
+- Fixed if/else toggle issue.
+- Fixed undefined date issue.
+- Fixed onChange issue.
+- Changed if statements for Platform to else/if so only one would ever run.
