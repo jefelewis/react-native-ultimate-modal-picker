@@ -209,6 +209,13 @@ const App = () => {
 
 ## Changelog
 
+### [1.1.55] - 1/28/2020
+
+***Changed***
+
+- Fixed onChange issue.
+- Done button is now disabled unless new item or state has is picked.
+
 ### [1.1.54] - 1/28/2020
 
 ***Added***
