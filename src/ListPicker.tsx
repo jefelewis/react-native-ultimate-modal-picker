@@ -1,6 +1,6 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
-import { Dimensions, Keyboard, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Button, Dimensions, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
 // import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -35,9 +35,6 @@ const ListPicker = (props: Props) => {
         // React Hook: Toggle Modal
         toggle((modalVisible: boolean) => !modalVisible);
       }
-
-      // Dismiss Keyboard
-      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -99,9 +96,6 @@ const ListPicker = (props: Props) => {
 
       // Toggle Modal
       toggleModal();
-
-      // Dismiss Keyboard
-      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -109,19 +103,16 @@ const ListPicker = (props: Props) => {
   };
 
   // Press Done
-  const pressDone = async () => {
+  const pressDone = () => {
     try {
       // React Hook: Set Item
       setItem(tempItem);
 
       // Props: onChange
-      await props.onChange(item);
+      props.onChange(tempItem);
 
       // Toggle Modal
       toggleModal();
-
-      // Dismiss Keyboard
-      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -152,9 +143,13 @@ const ListPicker = (props: Props) => {
                       <Text style={styles.cancelText}>Cancel</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => pressDone()} >
-                      <Text style={styles.doneText}>Done</Text>
-                    </TouchableOpacity>
+                    <View style={styles.doneButton}>
+                      <Button
+                        onPress={() => pressDone()}
+                        title="Done"
+                        disabled={item === tempItem ? true : false}
+                      />
+                    </View>
                 </View>
 
                 <View style={styles.pickerContainer}>
@@ -239,6 +234,9 @@ const styles = StyleSheet.create({
     height: 250,
     width: width,
     backgroundColor: 'white',
+  },
+  doneButton: {
+    marginRight: 7,
   },
   doneText: {
     fontFamily: 'System',

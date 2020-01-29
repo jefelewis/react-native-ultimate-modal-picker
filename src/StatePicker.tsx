@@ -1,6 +1,6 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
-import { Dimensions, Keyboard, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Button, Dimensions, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
 // import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -103,9 +103,6 @@ const StatePicker = (props: Props) => {
       else if (Platform.OS === 'android') {
         // Do Nothing (Android Uses Dropdown List)
       }
-
-      // Dismiss Keyboard
-      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -113,7 +110,7 @@ const StatePicker = (props: Props) => {
   };
 
   // Select State
-  const selectState = async (value: any) => {
+  const selectState = (value: any) => {
     try {
       // Check Platform (iOS)
       if (Platform.OS === 'ios') {
@@ -127,7 +124,7 @@ const StatePicker = (props: Props) => {
         setState(value);
   
         // React Props: onChange
-        await props.onChange(value);
+        props.onChange(value);
       }
     }
     catch (error) {
@@ -167,9 +164,6 @@ const StatePicker = (props: Props) => {
 
       // Toggle Modal
       toggleModal();
-
-      // Dismiss Keyboard
-      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -177,19 +171,16 @@ const StatePicker = (props: Props) => {
   };
 
   // Press Done
-  const pressDone = async () => {
+  const pressDone = () => {
     try {
       // React Hook: Set State
       setState(tempState);
 
       // Props: onChange
-      await props.onChange(state);
+      props.onChange(tempState);
 
       // Toggle Modal
       toggleModal();
-
-      // Dismiss Keyboard
-      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -220,9 +211,13 @@ const StatePicker = (props: Props) => {
                     <Text style={styles.cancelText}>Cancel</Text>
                   </TouchableOpacity>
 
-                  <TouchableOpacity onPress={() => pressDone()} >
-                    <Text style={styles.doneText}>Done</Text>
-                  </TouchableOpacity>
+                  <View style={styles.doneButton}>
+                    <Button
+                      onPress={() => pressDone()}
+                      title="Done"
+                      disabled={state === tempState ? true : false}
+                    />
+                  </View>
                 </View>
       
                 <View style={styles.pickerContainer}>
@@ -235,7 +230,7 @@ const StatePicker = (props: Props) => {
       }
 
       // Check Platform (Android)
-      if (Platform.OS === 'android') {
+      else if (Platform.OS === 'android') {
         return (
           <View style={styles.container}>
             <View style={styles.inputTitleContainer}>
@@ -306,6 +301,9 @@ const styles = StyleSheet.create({
     height: 250,
     width: width,
     backgroundColor: 'white',
+  },
+  doneButton: {
+    marginRight: 7,
   },
   doneText: {
     fontFamily: 'System',

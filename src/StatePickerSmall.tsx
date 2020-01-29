@@ -1,6 +1,6 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
-import { Dimensions, Keyboard, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Button, Dimensions, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
 // import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -103,9 +103,6 @@ const StatePickerSmall = (props: Props) => {
       else if (Platform.OS === 'android') {
         // Do Nothing (Android Uses Dropdown List)
       }
-
-      // Dismiss Keyboard
-      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -167,9 +164,6 @@ const StatePickerSmall = (props: Props) => {
 
       // Toggle Modal
       toggleModal();
-
-      // Dismiss Keyboard
-      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -183,13 +177,10 @@ const StatePickerSmall = (props: Props) => {
       setState(tempState);
 
       // Props: onChange
-      props.onChange(state);
+      props.onChange(tempState);
 
       // Toggle Modal
       toggleModal();
-
-      // Dismiss Keyboard
-      Keyboard.dismiss();
     }
     catch (error) {
       console.log(error);
@@ -220,9 +211,13 @@ const StatePickerSmall = (props: Props) => {
                     <Text style={styles.cancelText}>Cancel</Text>
                   </TouchableOpacity>
 
-                  <TouchableOpacity onPress={() => pressDone()} >
-                    <Text style={styles.doneText}>Done</Text>
-                  </TouchableOpacity>
+                  <View style={styles.doneButton}>
+                    <Button
+                      onPress={() => pressDone()}
+                      title="Done"
+                      disabled={state === tempState ? true : false}
+                    />
+                  </View>
                 </View>
       
                 <View style={styles.pickerContainer}>
@@ -305,6 +300,9 @@ const styles = StyleSheet.create({
     height: 250,
     width: width,
     backgroundColor: 'white',
+  },
+  doneButton: {
+    marginRight: 7,
   },
   doneText: {
     fontFamily: 'System',
