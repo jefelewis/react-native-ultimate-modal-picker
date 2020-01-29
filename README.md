@@ -214,7 +214,7 @@ const App = () => {
 ***Changed***
 
 - Fixed onChange issue.
-- Done button is now disabled unless new item or state has is picked.
+- Done button is now disabled unless a new item or state is picked.
 
 ### [1.1.54] - 1/28/2020
 
