@@ -220,7 +220,7 @@ const App = () => {
 
 ***Removed***
 
-- Removing React Native Vector Icons.
+- Removed React Native Vector Icons.
 
 ### [1.1.55] - 1/28/2020
 
