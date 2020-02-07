@@ -17,7 +17,7 @@ import {
 const App = () => {
 
   // Test Data
-  const items = [
+  const items: any = [
     { label: '1', value: '1' },
     { label: '2', value: '2' },
     { label: '3', value: '3' },
