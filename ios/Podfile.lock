@@ -219,8 +219,6 @@ PODS:
     - ReactCommon/jscallinvoker (= 0.61.5)
   - RNDateTimePicker (2.1.1):
     - React
-  - RNVectorIcons (6.6.0):
-    - React
   - Yoga (1.14.0)
 
 DEPENDENCIES:
@@ -252,7 +250,6 @@ DEPENDENCIES:
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec`)"
-  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -310,8 +307,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNDateTimePicker:
     :path: "../node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec"
-  RNVectorIcons:
-    :path: "../node_modules/react-native-vector-icons"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -342,9 +337,8 @@ SPEC CHECKSUMS:
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   RNDateTimePicker: 96b758a7479022b8e7f4ac840c7b5a04bfa6fd30
-  RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 5314354a770820467cbfef5580190eeba9b476a7
+PODFILE CHECKSUM: f47c128d4b720bab0b07bd0806fad270714f7780
 
 COCOAPODS: 1.8.3
