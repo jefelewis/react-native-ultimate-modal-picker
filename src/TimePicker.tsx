@@ -28,7 +28,7 @@ const TimePicker = (props: Props) => {
   useEffect(() => {
     // Send Initial Date
     if (today === false) {
-      // Props: onFromChange
+      // Props: onChange
       props.onChange(new Date());
 
       // Today's Date Has Been Sent To Parent Component
@@ -175,15 +175,15 @@ const TimePicker = (props: Props) => {
 
       <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
         <Text style={styles.fieldText} numberOfLines={1}>{moment(date).format('h:mm a')}</Text>
-
-        {/* <Icon name="ios-arrow-forward" size={22} style={styles.arrowForward}/> */}
       </TouchableOpacity>
 
-      <View>
-        {androidModalVisible === true ? renderAndroidPicker(): null}
-      </View>
+      <View>{androidModalVisible === true ? renderAndroidPicker(): null}</View>
 
-      <Modal isVisible={modalVisible} style={styles.modal}>
+      <Modal
+        isVisible={modalVisible}
+        style={styles.modal}
+        backdropOpacity={.30}
+      >
         <View style={styles.modalContainer}>
           <View style={styles.pickerHeaderContainer}>
             <TouchableOpacity onPress={() => pressCancel()} >
@@ -199,9 +199,7 @@ const TimePicker = (props: Props) => {
             </View>
           </View>
 
-          <View style={styles.pickerContainer}>
-            {renderIOSPicker()}
-          </View>
+          <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
         </View>
       </Modal>
     </View>
@@ -230,7 +228,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 40,
+    height: 45,
     width: width,
     backgroundColor: '#FAFAF8',
     borderColor: '#7D7D7D',

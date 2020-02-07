@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Button, Dimensions, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
-// import Icon from 'react-native-vector-icons/Ionicons';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
@@ -200,11 +199,13 @@ const StatePickerSmall = (props: Props) => {
       
             <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
               <Text style={styles.fieldText}>{state !== undefined ? state : 'Select'}</Text>
-      
-              {/* <Icon name="ios-arrow-forward" size={22} style={styles.arrowForward}/> */}
             </TouchableOpacity>
       
-            <Modal isVisible={modalVisible} style={styles.modal}>
+            <Modal
+              isVisible={modalVisible}
+              style={styles.modal}
+              backdropOpacity={.30}
+            >
               <View style={styles.modalContainer}>
                 <View style={styles.pickerHeaderContainer}>
                   <TouchableOpacity onPress={() => pressCancel()} >
@@ -220,9 +221,7 @@ const StatePickerSmall = (props: Props) => {
                   </View>
                 </View>
       
-                <View style={styles.pickerContainer}>
-                  {renderIOSPicker()}
-                </View>
+                <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
               </View>
             </Modal>
           </View>
@@ -263,9 +262,7 @@ const StatePickerSmall = (props: Props) => {
   };
 
   return (
-    <View>
-      {renderPlatform()}
-    </View>
+    <View>{renderPlatform()}</View>
   )
 }
 
@@ -290,7 +287,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 40,
+    height: 45,
     width: width,
     backgroundColor: '#FAFAF8',
     borderColor: '#7D7D7D',

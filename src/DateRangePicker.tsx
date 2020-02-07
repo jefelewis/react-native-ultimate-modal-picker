@@ -307,7 +307,7 @@ const DateRangePicker = (props: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.inputTitleContainer}>
-      <Text style={styles.inputTitle}>{props.title === undefined ? 'Date Range' : props.title}</Text>
+        <Text style={styles.inputTitle}>{props.title === undefined ? 'Date Range' : props.title}</Text>
       </View>
 
       <View style={styles.toFromDateContainer}>
@@ -316,11 +316,13 @@ const DateRangePicker = (props: Props) => {
           <Text style={styles.text}>{moment(fromDate).format('MMM Do, YYYY')}</Text>
         </TouchableOpacity>
 
-        <View>
-          {androidFromDateVisible === true ? renderFromDateAndroidPicker() : null}
-        </View>
+        <View>{androidFromDateVisible === true ? renderFromDateAndroidPicker() : null}</View>
 
-        <Modal isVisible={fromDateModalVisible} style={styles.modal}>
+        <Modal
+          isVisible={fromDateModalVisible}
+          style={styles.modal}
+          backdropOpacity={.30}
+        >
           <View style={styles.modalContainer}>
             <View style={styles.pickerHeaderContainer}>
               <TouchableOpacity onPress={() => pressCancelFromDate()} >
@@ -336,9 +338,7 @@ const DateRangePicker = (props: Props) => {
               </View>
             </View>
 
-            <View style={styles.pickerContainer}>
-              {renderFromIOSDatePicker()}
-            </View>
+            <View style={styles.pickerContainer}>{renderFromIOSDatePicker()}</View>
           </View>
         </Modal>
       </View>
@@ -351,11 +351,13 @@ const DateRangePicker = (props: Props) => {
           <Text style={styles.text}>{String(toDate) === String(fromDate) ? 'Select' : moment(toDate).format('MMM Do, YYYY')}</Text>
         </TouchableOpacity>
 
-        <View>
-          {androidToDateVisible === true ? renderToDateAndroidPicker(): null}
-        </View>
+        <View>{androidToDateVisible === true ? renderToDateAndroidPicker(): null}</View>
 
-        <Modal isVisible={toDateModalVisible} style={styles.modal}>
+        <Modal
+          isVisible={toDateModalVisible}
+          style={styles.modal}
+          backdropOpacity={.30}
+        >
           <View style={styles.modalContainer}>
             <View style={styles.pickerHeaderContainer}>
               <TouchableOpacity onPress={() => pressCancelToDate()} >
@@ -371,9 +373,7 @@ const DateRangePicker = (props: Props) => {
               </View>
             </View>
 
-            <View style={styles.pickerContainer}>
-              {renderToIOSDatePicker()}
-            </View>
+            <View style={styles.pickerContainer}>{renderToIOSDatePicker()}</View>
           </View>
         </Modal>
       </View>
@@ -414,6 +414,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: width - 32,
+    paddingTop: 15,
+    paddingBottom: 15,
   },
   dateText: {
     fontFamily: 'System',
@@ -451,7 +453,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 40,
+    height: 45,
     width: width,
     backgroundColor: '#FAFAF8',
     borderColor: '#7D7D7D',

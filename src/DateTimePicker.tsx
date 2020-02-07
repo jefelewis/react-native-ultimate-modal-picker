@@ -4,7 +4,6 @@ import { Button, Dimensions, Keyboard, Platform, StyleSheet, Text, View, Touchab
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 import moment from 'moment';
-// import Icon from 'react-native-vector-icons/Ionicons';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
@@ -121,16 +120,18 @@ const DatetimePicker = (props: Props) => {
         return (
           <View style={styles.container}>
             <View style={styles.inputTitleContainer}>
-            <Text style={styles.inputTitle}>{props.title === undefined ? 'Date/Time' : props.title}</Text>
+              <Text style={styles.inputTitle}>{props.title === undefined ? 'Date/Time' : props.title}</Text>
             </View>
 
             <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
               <Text style={styles.fieldText} numberOfLines={1}>{date ? moment(date).format('MMM Do, YYYY h:mm a') : 'Select'}</Text>
-
-              {/* <Icon name="ios-arrow-forward" size={22} style={styles.arrowForward}/> */}
             </TouchableOpacity>
 
-            <Modal isVisible={modalVisible} style={styles.modal}>
+            <Modal
+              isVisible={modalVisible}
+              style={styles.modal}
+              backdropOpacity={.30}
+            >
               <View style={styles.modalContainer}>
                 <View style={styles.pickerHeaderContainer}>
                   <TouchableOpacity onPress={() => pressCancel()} >
@@ -146,9 +147,7 @@ const DatetimePicker = (props: Props) => {
                   </View>
                 </View>
 
-                <View style={styles.pickerContainer}>
-                  {renderIOSPicker()}
-                </View>
+                <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
               </View>
             </Modal>
           </View>
@@ -194,7 +193,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 40,
+    height: 45,
     width: width,
     backgroundColor: '#FAFAF8',
     borderColor: '#7D7D7D',

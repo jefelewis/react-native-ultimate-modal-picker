@@ -65,7 +65,7 @@ const ListPicker = (props: Props) => {
   };
 
   // Render iOS Picker
-  const renderIOSPicker = (props: Props) => {
+  const renderIOSPicker = () => {
     try {
       return (
         <Picker
@@ -127,16 +127,18 @@ const ListPicker = (props: Props) => {
         return (
           <View style={styles.container}>
             <View style={styles.inputTitleContainer}>
-            <Text style={styles.inputTitle}>{props.title === undefined ? 'List' : props.title}</Text>
+              <Text style={styles.inputTitle}>{props.title === undefined ? 'List' : props.title}</Text>
             </View>
 
             <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
               <Text style={styles.fieldText} numberOfLines={1}>{item !== undefined ? item : 'Select'}</Text>
-
-              {/* <Icon name="ios-arrow-forward" size={22} style={styles.arrowForward}/> */}
             </TouchableOpacity>
 
-            <Modal isVisible={modalVisible} style={styles.modal}>
+            <Modal
+              isVisible={modalVisible}
+              style={styles.modal}
+              backdropOpacity={.30}
+            >
               <View style={styles.modalContainer}>
                 <View style={styles.pickerHeaderContainer}>
                   <TouchableOpacity onPress={() => pressCancel()} >
@@ -152,9 +154,7 @@ const ListPicker = (props: Props) => {
                     </View>
                 </View>
 
-                <View style={styles.pickerContainer}>
-                  {renderIOSPicker(props)}
-                </View>
+                <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
               </View>
             </Modal>
           </View>
@@ -196,9 +196,7 @@ const ListPicker = (props: Props) => {
   };
 
   return (
-    <View>
-      {renderPlatform()}
-    </View>
+    <View>{renderPlatform()}</View>
   )
 }
 
@@ -224,7 +222,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 40,
+    height: 45,
     width: width,
     backgroundColor: '#FAFAF8',
     borderColor: '#7D7D7D',
