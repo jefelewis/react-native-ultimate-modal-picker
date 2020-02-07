@@ -32,7 +32,7 @@ npm i react-native-ultimate-modal-picker
 
 Add the following line to ios/podfile:
 ```
-pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec
+pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec`
 ```
 
 **3. Install Pods (For iOS)**
@@ -217,6 +217,7 @@ const App = () => {
 - Changing backdrop opacity to 30%.
 - Increased `TouchableOpacity` size for `DateRangePicker`.
 - Increased `pickerHeaderContainer` height to 45px.
+- Fixed README podspec issue.
 
 ***Removed***
 
