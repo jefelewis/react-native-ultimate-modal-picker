@@ -82,7 +82,7 @@ import {
 const App = () => {
 
   // Test Data
-  const items = [
+  const items: any = [
     { label: '1', value: '1' },
     { label: '2', value: '2' },
     { label: '3', value: '3' },
@@ -209,11 +209,24 @@ const App = () => {
 
 ## Changelog
 
+### [1.1.56] - 2/7/2020
+
+***Changed***
+
+- Updating `@react-native-community/datetimepicker` to 2.1.1.
+- Changing backdrop opacity to 30%.
+- Increased `TouchableOpacity` size for `DateRangePicker`.
+- Increased `pickerHeaderContainer` height to 45px.
+
+***Removed***
+
+- Removing React Native Vector Icons.
+
 ### [1.1.55] - 1/28/2020
 
 ***Changed***
 
-- Fixed onChange issue.
+- Fixed `onChange` issue.
 - Done button is now disabled unless a new item or state is picked.
 
 ### [1.1.54] - 1/28/2020
@@ -221,7 +234,7 @@ const App = () => {
 ***Added***
 
 - Adding typings for onChange.
-- Passing initial date to parent component (useEffect) for Date, Time, Datetime, and Date Range Pickers.
+- Passing initial date to parent component (`useEffect`) for Date, Time, Datetime, and Date Range Pickers.
 
 ***Changed***
 
@@ -242,20 +255,20 @@ const App = () => {
 
 ***Changed***
 
-- Fixed onChange TypeScript typings.
+- Fixed `onChange` TypeScript typings.
 
 ### [1.1.46] - 1/26/2020
 
 ***Changed***
 
-- Fixed React Hook state + onValueChange issue due to having the same name of "state."
+- Fixed React Hook state + `onValueChange` issue due to having the same name of "state."
 
 
 ### [1.1.45] - 1/26/2020
 
 ***Changed***
 
-- Added keyboard dismiss to toggleModal().
+- Added keyboard dismiss to `toggleModal()`.
 
 ### [1.1.44] - 1/25/2020
 
@@ -273,7 +286,7 @@ const App = () => {
 
 ***Added***
 
-- Added cancel button to iOS ListPicker
+- Added cancel button to iOS ListPicker.
 - Added test data items for ListPicker on README.
 - Added props to App.tsx for testing.
 - Title props can be added to any Picker. Default titles are shown if no prop is added.
@@ -281,7 +294,7 @@ const App = () => {
 ***Changed***
 
 - Reformatted App.tsx for when testing.
-- Fixed onChange TypeScript Typings.
+- Fixed `onChange` TypeScript Typings.
 - Updated README screenshot GIFs.
 
 ### [1.1.41] - 1/23/2020
@@ -294,12 +307,12 @@ const App = () => {
 
 ***Added***
 
-- Added podfile installation instructions to README.
+- Added `podfile` installation instructions to README.
 - Added cancel button for iOS modals.
 
 ***Changed***
 
 - Fixed if/else toggle issue.
 - Fixed undefined date issue.
-- Fixed onChange issue.
+- Fixed `onChange` issue.
 - Changed if statements for Platform to else/if so only one would ever run.
