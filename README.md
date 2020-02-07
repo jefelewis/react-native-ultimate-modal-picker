@@ -209,7 +209,7 @@ const App = () => {
 
 ## Changelog
 
-### [1.1.56] - 2/7/2020
+### [0.1.56] - 2/7/2020
 
 ***Changed***
 
@@ -223,14 +223,14 @@ const App = () => {
 
 - Removed React Native Vector Icons.
 
-### [1.1.55] - 1/28/2020
+### [0.1.55] - 1/28/2020
 
 ***Changed***
 
 - Fixed `onChange` issue.
 - Done button is now disabled unless a new item or state is picked.
 
-### [1.1.54] - 1/28/2020
+### [0.1.54] - 1/28/2020
 
 ***Added***
 
@@ -241,7 +241,7 @@ const App = () => {
 
 - Date Range's `toDate` is now defaulted to "Select."
 
-### [1.1.53] - 1/27/2020
+### [0.1.53] - 1/27/2020
 
 ***Changed***
 
@@ -252,38 +252,38 @@ const App = () => {
 
 - Removed async/await due to that it was not the root cause of the issue.
 
-### [1.1.47] - 1/26/2020
+### [0.1.47] - 1/26/2020
 
 ***Changed***
 
 - Fixed `onChange` TypeScript typings.
 
-### [1.1.46] - 1/26/2020
+### [0.1.46] - 1/26/2020
 
 ***Changed***
 
 - Fixed React Hook state + `onValueChange` issue due to having the same name of "state."
 
 
-### [1.1.45] - 1/26/2020
+### [0.1.45] - 1/26/2020
 
 ***Changed***
 
 - Added keyboard dismiss to `toggleModal()`.
 
-### [1.1.44] - 1/25/2020
+### [0.1.44] - 1/25/2020
 
 ***Added***
 
 - Added keyboard dismiss to work better with form fields.
 
-### [1.1.43] - 1/24/2020
+### [0.1.43] - 1/24/2020
 
 ***Changed***
 
 - Fixed README Formatting.
 
-### [1.1.42] - 1/24/2020
+### [0.1.42] - 1/24/2020
 
 ***Added***
 
@@ -298,13 +298,13 @@ const App = () => {
 - Fixed `onChange` TypeScript Typings.
 - Updated README screenshot GIFs.
 
-### [1.1.41] - 1/23/2020
+### [0.1.41] - 1/23/2020
 
 ***Changed***
 
 - Updated README for NPM package.
 
-### [1.1.40] - 1/23/2020
+### [0.1.40] - 1/23/2020
 
 ***Added***
 
