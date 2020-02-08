@@ -183,7 +183,6 @@ const DatePicker = (props: Props) => {
         isVisible={modalVisible}
         style={styles.modal}
         backdropOpacity={.30}
-        onBackdropPress={() => toggle(false)}
       >
         <View style={styles.modalContainer}>
           <View style={styles.pickerHeaderContainer}>
