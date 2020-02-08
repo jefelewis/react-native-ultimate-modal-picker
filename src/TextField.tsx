@@ -1,5 +1,5 @@
 // Imports: Dependencies
-import React from 'react';
+import React, { useState } from 'react';
 import { Dimensions, StyleSheet, Text, TextInput, View } from 'react-native';
 
 // Screen Dimensions
@@ -8,12 +8,15 @@ const { height, width } = Dimensions.get('window');
 // TypeScript: Types
 interface Props {
   title: string;
-  currentValue: string;
-  newValue: (text: string | number) => string | number | void;
+  // currentValue: string;
+  value: (text: string) => string | void;
+  // onChange: any
 }
 
 // Component: Text Field
 const TextField = (props: Props) => {
+  // React Hooks: State
+  const [ value, setValue ] = useState();
 
   // Text Input: Reference
   const textInputRef: React.RefObject<TextInput> = React.createRef();
@@ -22,9 +25,13 @@ const TextField = (props: Props) => {
   const { title, ...otherProps } = props;
 
   // Handle Change
-  const handleChange = (text: string | number) => {
+  const handleChange = (text: string) => {
     try {
-      props.newValue(text);
+      // Set Value
+      setValue(text);
+
+      // Send Value To Props
+      props.value(text);
     }
     catch (error) {
       console.log(error);
@@ -34,11 +41,11 @@ const TextField = (props: Props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.inputTitle}>{props.title}</Text>
+
       <TextInput
         ref={textInputRef}
         style={styles.input}
-        onChangeText={handleChange}
-        {...otherProps}
+        // {...otherProps}
       >
       </TextInput>
     </View>
