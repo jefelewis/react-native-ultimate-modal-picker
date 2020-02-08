@@ -339,7 +339,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 4,
+    marginBottom: 12,
     borderColor: '#7D7D7D',
     borderBottomWidth: StyleSheet.hairlineWidth,   
   },
