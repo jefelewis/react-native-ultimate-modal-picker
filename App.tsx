@@ -11,6 +11,7 @@ import {
   ListPicker,
   StatePicker,
   StatePickerSmall,
+  TextField,
 } from './src/index';
 
 // React Native App
@@ -78,6 +79,12 @@ const App = () => {
         onToChange={(date) => console.log(date)}
         mode="spinner"
       />
+
+      {/* Text Field */}
+      {/* <TextField
+        title="Text"
+        value={(text: string) => console.log(text)}
+      /> */}
     </SafeAreaView>
   )
 };
