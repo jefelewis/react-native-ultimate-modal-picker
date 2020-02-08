@@ -218,10 +218,6 @@ const App = () => {
 
 ### [0.1.58] - 2/7/2020
 
-***Added***
-
-- Added `TextField`.
-
 ***Changed***
 
 - Increased `fieldTextContainer` height to 12px.
