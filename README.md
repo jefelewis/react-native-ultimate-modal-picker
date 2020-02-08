@@ -232,7 +232,7 @@ const App = () => {
 
 ***Changed***
 
-- Updating `@react-native-community/datetimepicker` to 2.1.1.
+- Updated `@react-native-community/datetimepicker` to 2.1.1.
 - Changing backdrop opacity to 30%.
 - Increased `TouchableOpacity` size for `DateRangePicker`.
 - Increased `pickerHeaderContainer` height to 45px.
@@ -253,7 +253,7 @@ const App = () => {
 
 ***Added***
 
-- Adding typings for onChange.
+- Adding typings for `onChange`.
 - Passing initial date to parent component (`useEffect`) for Date, Time, Datetime, and Date Range Pickers.
 
 ***Changed***
