@@ -6,6 +6,7 @@ import DateTimePicker from './DateTimePicker';
 import ListPicker from './ListPicker';
 import StatePicker from './StatePicker';
 import StatePickerSmall from './StatePickerSmall';
+import TextField from './TextField';
 
 // Exports
 export {
@@ -16,4 +17,5 @@ export {
   ListPicker,
   StatePicker,
   StatePickerSmall,
+  TextField,
 };
