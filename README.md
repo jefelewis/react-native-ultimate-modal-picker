@@ -76,6 +76,7 @@ import {
   ListPicker,
   StatePicker,
   StatePickerSmall,
+  TextField,
 } from 'react-native-ultimate-modal-picker';
 
 // React Native App
@@ -142,6 +143,12 @@ const App = () => {
         onFromChange={(date) => console.log(date)}
         onToChange={(date) => console.log(date)}
         mode="spinner"
+      />
+
+      {/* Text Field */}
+      <TextField
+        title="Text"
+        value={(text: string | number) => console.log(text)}
       />
     </SafeAreaView>
   )
@@ -213,7 +220,7 @@ const App = () => {
 
 ***Added***
 
-- Added `TextInput`.
+- Added `TextField`.
 
 ***Changed***
 
