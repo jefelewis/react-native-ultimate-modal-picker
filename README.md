@@ -220,13 +220,13 @@ const App = () => {
 
 ***Changed***
 
-- Increased `fieldTextContainer` height to 12px.
+- Increased `fieldTextContainer` marginBottom to 12px.
 
 ### [0.1.57] - 2/7/2020
 
 ***Changed***
 
-- Fixing `@react-native-community/datetimepicker` to ^2.1.1 vs 2.1.1 issue.
+- Fixed `@react-native-community/datetimepicker` ^2.1.1 vs 2.1.1 issue.
 
 ### [0.1.56] - 2/7/2020
 
