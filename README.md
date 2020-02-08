@@ -20,7 +20,7 @@
 * [Moment](https://github.com/moment/moment) - Date/Time Formatting
 
 ## Pending Items
-- [ ] Add React Native Vector Icon Android?
+- [ ] 
 
 ## Getting Started
 **1. Install Package:**
@@ -208,6 +208,16 @@ const App = () => {
 </div>
 
 ## Changelog
+
+### [0.1.58] - 2/7/2020
+
+***Added***
+
+- Added `TextInput`.
+
+***Changed***
+
+- Increased `fieldTextContainer` height to 12px.
 
 ### [0.1.57] - 2/7/2020
 
