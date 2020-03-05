@@ -16,7 +16,7 @@ interface Props {
 
 interface Item {
   label: string;
-  value: string | number;
+  value: number | string;
   key: number | string;
 };
 
