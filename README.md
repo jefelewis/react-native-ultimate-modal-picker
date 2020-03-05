@@ -135,7 +135,7 @@ const App = () => {
 
       {/* Cooking Measurement Picker */}
       <CookingMeasurementPicker
-        title="Number"
+        title="Measurement"
         onChange={(item) => console.log(item)}
       />
 
@@ -229,6 +229,17 @@ const App = () => {
 </div>
 
 ## Changelog
+
+### [0.1.59] - 3/5/2020
+
+***Added***
+
+- Added NumberPicker.
+- Added CookingMeasurementPicker.
+
+***Changed***
+
+- Increased `inputTitleContainer` width.
 
 ### [0.1.58] - 2/7/2020
 
