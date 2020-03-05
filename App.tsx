@@ -9,9 +9,10 @@ import {
   TimePicker,
   DateTimePicker,
   ListPicker,
+  NumberPicker,
+  CookingMeasurementPicker,
   StatePicker,
   StatePickerSmall,
-  TextField,
 } from './src/index';
 
 // React Native App
@@ -60,6 +61,18 @@ const App = () => {
         onChange={(item) => console.log(item)}
       />
 
+      {/* Number Picker */}
+      <NumberPicker
+        title="Number"
+        onChange={(item) => console.log(item)}
+      />
+
+      {/* Cooking Measurement Picker */}
+      <CookingMeasurementPicker
+        title="Measurement"
+        onChange={(item) => console.log(item)}
+      />
+
       {/* State Picker */}
       <StatePicker
         title="State"
@@ -79,12 +92,6 @@ const App = () => {
         onToChange={(date) => console.log(date)}
         mode="spinner"
       />
-
-      {/* Text Field */}
-      {/* <TextField
-        title="Text"
-        value={(text: string) => console.log(text)}
-      /> */}
     </SafeAreaView>
   )
 };
