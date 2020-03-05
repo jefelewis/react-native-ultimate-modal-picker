@@ -32,7 +32,7 @@ npm i react-native-ultimate-modal-picker
 
 Add the following line to ios/podfile:
 ```
-pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec`
+pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec'
 ```
 
 **3. Install Pods (For iOS)**
@@ -74,6 +74,8 @@ import {
   TimePicker,
   DateTimePicker,
   ListPicker,
+  NumberPicker,
+  CookingMeasurementPicker,
   StatePicker,
   StatePickerSmall,
   TextField,
@@ -122,6 +124,18 @@ const App = () => {
       <ListPicker
         title="List"
         items={items}
+        onChange={(item) => console.log(item)}
+      />
+
+      {/* Number Picker */}
+      <NumberPicker
+        title="Number"
+        onChange={(item) => console.log(item)}
+      />
+
+      {/* Cooking Measurement Picker */}
+      <CookingMeasurementPicker
+        title="Number"
         onChange={(item) => console.log(item)}
       />
 
