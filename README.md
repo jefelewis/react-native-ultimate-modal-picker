@@ -232,6 +232,12 @@ const App = () => {
 
 ### [0.1.59] - 3/5/2020
 
+***Changed***
+
+- Fixed `selectItem` string/number type issue.
+
+### [0.1.59] - 3/5/2020
+
 ***Added***
 
 - Added NumberPicker.
