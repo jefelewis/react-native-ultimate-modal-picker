@@ -280,7 +280,7 @@ const NumberPicker = (props: Props) => {
                 style={{height: 60, width: width - 16}}
                 onValueChange={selectItem}
                 mode="dropdown">
-                {props.items.map((item: Item) => {
+                {numbers.map((item: any) => {
                   return (
                     <Picker.Item
                       label={item.label}

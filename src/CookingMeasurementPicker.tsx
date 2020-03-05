@@ -27,8 +27,8 @@ const CookingMeasurementPicker = (props: Props) => {
   const [ tempItem, setTempItem ] = useState();
   const [ item, setItem ] = useState();
 
-  // Numbers
-  const numbers = [
+  // Cooking Measurements
+  const cookingMeasurements = [
     { label: 'Select', value: 'Select' },
     { label: '1/8', value: '1/8' },
     { label: '1/4', value: '1/4' },
@@ -180,7 +180,7 @@ const CookingMeasurementPicker = (props: Props) => {
         <Picker
           selectedValue={tempItem !== undefined ? tempItem : item}
           onValueChange={(item) => selectItem(item)}>
-          {numbers.map((item: any) => {
+          {cookingMeasurements.map((item: any) => {
             return (
               <Picker.Item
                 label={item.label}
@@ -284,7 +284,7 @@ const CookingMeasurementPicker = (props: Props) => {
                 style={{height: 60, width: width - 16}}
                 onValueChange={selectItem}
                 mode="dropdown">
-                {props.items.map((item: Item) => {
+                {cookingMeasurements.map((item: any) => {
                   return (
                     <Picker.Item
                       label={item.label}
