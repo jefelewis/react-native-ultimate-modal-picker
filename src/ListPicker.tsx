@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   inputTitleContainer: {
-    width: 75,
+    width: width - 32,
     marginBottom: 4,
   },
   inputTitle: {
