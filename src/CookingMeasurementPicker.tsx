@@ -10,7 +10,6 @@ const { height, width } = Dimensions.get('window');
 // TypeScript: Types
 interface Props {
   title?: string;
-  items: Array<Item>;
   onChange: (item: any) => any;
 }
 
