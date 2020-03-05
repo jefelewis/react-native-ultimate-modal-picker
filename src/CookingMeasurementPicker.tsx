@@ -150,7 +150,7 @@ const CookingMeasurementPicker = (props: Props) => {
   };
 
   // Select Item
-  const selectItem = (item: string) => {
+  const selectItem = (item: string | number) => {
     try {
       // Check Platform (iOS)
       if (Platform.OS === 'ios') {
