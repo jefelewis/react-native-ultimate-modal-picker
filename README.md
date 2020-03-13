@@ -75,7 +75,7 @@ import {
   DateTimePicker,
   ListPicker,
   NumberPicker,
-  CookingMeasurementPicker,
+  CookingAmountPicker,
   StatePicker,
   StatePickerSmall,
   TextField,
@@ -134,7 +134,7 @@ const App = () => {
       />
 
       {/* Cooking Measurement Picker */}
-      <CookingMeasurementPicker
+      <CookingAmountPicker
         title="Measurement"
         onChange={(item) => console.log(item)}
       />
@@ -233,14 +233,14 @@ const App = () => {
 ### [0.1.63] - 3/13/2020
 
 ***Changed***
-- Changed `CookingMeasurementPicker` to `CookingAmountPicker`.
+- Changed `CookingAmountPicker` to `CookingAmountPicker`.
 - Fixed `defaultValue` prop for `CookingAmountPicker` and `ListPicker`.
 
 ### [0.1.62] - 3/13/2020
 
 ***Added***
 
-- Added `defaultValue` prop for `CookingMeasurementPicker` and `ListPicker`.
+- Added `defaultValue` prop for `CookingAmountPicker` and `ListPicker`.
 
 ### [0.1.59] - 3/5/2020
 
@@ -253,7 +253,7 @@ const App = () => {
 ***Added***
 
 - Added NumberPicker.
-- Added CookingMeasurementPicker.
+- Added CookingAmountPicker.
 
 ***Changed***
 
