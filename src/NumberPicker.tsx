@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Button, Dimensions, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
-// import Icon from 'react-native-vector-icons/Ionicons';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
@@ -146,7 +145,7 @@ const NumberPicker = (props: Props) => {
   };
 
   // Select Item
-  const selectItem = (item: string | number) => {
+  const selectItem = (item: any) => {
     try {
       // Check Platform (iOS)
       if (Platform.OS === 'ios') {
@@ -277,7 +276,7 @@ const NumberPicker = (props: Props) => {
               <Picker
                 selectedValue={item}
                 style={{height: 60, width: width - 16}}
-                onValueChange={selectItem}
+                onValueChange={(item) => selectItem(item)}
                 mode="dropdown">
                 {numbers.map((item: any) => {
                   return (
