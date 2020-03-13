@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Dimensions, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
-// import Icon from 'react-native-vector-icons/Ionicons';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
@@ -34,7 +33,7 @@ const CookingAmountPicker = (props: Props) => {
 
     // Check If Default Value Exists
     if (props.defaultValue) {
-      setItem(props.defaultValue)
+      setItem(props.defaultValue);
     }
   }, []);
 
@@ -293,7 +292,7 @@ const CookingAmountPicker = (props: Props) => {
               <Picker
                 selectedValue={item}
                 style={{height: 60, width: width - 16}}
-                onValueChange={selectItem}
+                onValueChange={(item) => selectItem(item)}
                 mode="dropdown">
                 {cookingAmounts.map((item: any) => {
                   return (
