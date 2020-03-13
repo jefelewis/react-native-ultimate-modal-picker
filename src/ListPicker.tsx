@@ -1,5 +1,5 @@
 // Imports: Dependencies
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Dimensions, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
 // import Icon from 'react-native-vector-icons/Ionicons';
@@ -10,6 +10,7 @@ const { height, width } = Dimensions.get('window');
 // TypeScript: Types
 interface Props {
   title?: string;
+  defaultValue?: string;
   items: Array<Item>;
   onChange: (item: any) => any;
 }
@@ -24,8 +25,16 @@ interface Item {
 const ListPicker = (props: Props) => {
   // React Hooks: State
   const [ modalVisible, toggle ] = useState(false);
-  const [ tempItem, setTempItem ] = useState();
-  const [ item, setItem ] = useState();
+  const [ tempItem, setTempItem ] = useState('');
+  const [ item, setItem ] = useState('');
+
+  // React Hooks: Lifecycle Method
+  useEffect(() => {
+    // Check If Default Value Exists
+    if (props.defaultValue) {
+      setItem(props.defaultValue)
+    }
+  }, []);
 
   // Toggle Modal
   const toggleModal = () => {
