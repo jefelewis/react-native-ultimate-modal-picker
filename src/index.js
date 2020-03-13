@@ -5,7 +5,7 @@ import TimePicker from './TimePicker';
 import DateTimePicker from './DateTimePicker';
 import ListPicker from './ListPicker';
 import NumberPicker from './NumberPicker';
-import CookingMeasurementPicker from './CookingMeasurementPicker';
+import CookingAmountPicker from './CookingAmountPicker';
 import StatePicker from './StatePicker';
 import StatePickerSmall from './StatePickerSmall';
 
@@ -17,7 +17,7 @@ export {
   DateTimePicker,
   ListPicker,
   NumberPicker,
-  CookingMeasurementPicker,
+  CookingAmountPicker,
   StatePicker,
   StatePickerSmall,
 };
