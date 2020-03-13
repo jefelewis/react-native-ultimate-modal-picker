@@ -16,7 +16,7 @@ interface Props {
 // Component: Text Field
 const TextField = (props: Props) => {
   // React Hooks: State
-  const [ value, setValue ] = useState();
+  const [ value, setValue ] = useState('');
 
   // Text Input: Reference
   const textInputRef: React.RefObject<TextInput> = React.createRef();
