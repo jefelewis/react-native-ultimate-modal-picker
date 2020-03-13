@@ -140,7 +140,7 @@ const ListPicker = (props: Props) => {
             </View>
 
             <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-              <Text style={styles.fieldText} numberOfLines={1}>{item !== undefined ? item : 'Select'}</Text>
+              <Text style={styles.fieldText} numberOfLines={1}>{item ? item : 'Select'}</Text>
             </TouchableOpacity>
 
             <Modal
