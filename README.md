@@ -230,6 +230,12 @@ const App = () => {
 
 ## Changelog
 
+### [0.1.62] - 3/13/2020
+
+***Added***
+
+- Added `defaultValue` prop for `CookingMeasurementPicker` and `ListPicker`.
+
 ### [0.1.59] - 3/5/2020
 
 ***Changed***
