@@ -20,8 +20,8 @@ interface Item {
   key: number | string;
 };
 
-// Component: Cooking Measurement Picker
-const CookingMeasurementPicker = (props: Props) => {
+// Component: Cooking Amount Picker
+const CookingAmountPicker = (props: Props) => {
   // React Hooks: State
   const [ modalVisible, toggle ] = useState(false);
   const [ tempItem, setTempItem ] = useState('');
@@ -29,14 +29,17 @@ const CookingMeasurementPicker = (props: Props) => {
 
   // React Hooks: Lifecycle Method
   useEffect(() => {
+    console.log('Cooking Amount Picker');
+    console.log(props.defaultValue);
+
     // Check If Default Value Exists
     if (props.defaultValue) {
       setItem(props.defaultValue)
     }
   }, []);
 
-  // Cooking Measurements
-  const cookingMeasurements = [
+  // Cooking Amounts
+  const cookingAmounts = [
     { label: 'Select', value: 'Select' },
     { label: '1/8', value: '1/8' },
     { label: '1/4', value: '1/4' },
@@ -188,7 +191,7 @@ const CookingMeasurementPicker = (props: Props) => {
         <Picker
           selectedValue={tempItem !== undefined ? tempItem : item}
           onValueChange={(item) => selectItem(item)}>
-          {cookingMeasurements.map((item: any) => {
+          {cookingAmounts.map((item: any) => {
             return (
               <Picker.Item
                 label={item.label}
@@ -248,7 +251,7 @@ const CookingMeasurementPicker = (props: Props) => {
             </View>
 
             <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-              <Text style={styles.fieldText} numberOfLines={1}>{item !== undefined ? item : 'Select'}</Text>
+              <Text style={styles.fieldText} numberOfLines={1}>{item ? item : 'Select'}</Text>
             </TouchableOpacity>
 
             <Modal
@@ -292,7 +295,7 @@ const CookingMeasurementPicker = (props: Props) => {
                 style={{height: 60, width: width - 16}}
                 onValueChange={selectItem}
                 mode="dropdown">
-                {cookingMeasurements.map((item: any) => {
+                {cookingAmounts.map((item: any) => {
                   return (
                     <Picker.Item
                       label={item.label}
@@ -410,4 +413,4 @@ const styles = StyleSheet.create({
 });
 
 // Exports
-export default CookingMeasurementPicker;
+export default CookingAmountPicker;
