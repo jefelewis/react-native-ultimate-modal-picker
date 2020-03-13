@@ -10,7 +10,7 @@ import {
   DateTimePicker,
   ListPicker,
   NumberPicker,
-  CookingMeasurementPicker,
+  CookingAmountPicker,
   StatePicker,
   StatePickerSmall,
 } from './src/index';
@@ -67,9 +67,9 @@ const App = () => {
         onChange={(item) => console.log(item)}
       />
 
-      {/* Cooking Measurement Picker */}
-      <CookingMeasurementPicker
-        title="Measurement"
+      {/* Cooking Amount Picker */}
+      <CookingAmountPicker
+        title="Amount"
         onChange={(item) => console.log(item)}
       />
 
