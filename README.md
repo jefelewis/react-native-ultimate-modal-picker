@@ -230,6 +230,11 @@ const App = () => {
 
 ## Changelog
 
+### [0.1.64] - 3/13/2020
+
+***Changed***
+- Updating dependencies.
+
 ### [0.1.63] - 3/13/2020
 
 ***Changed***
