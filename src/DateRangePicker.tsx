@@ -43,264 +43,204 @@ const DateRangePicker = (props: Props) => {
 
   // Toggle From Date Modal
   const toggleFromDateModal = () => {
-    try {
-      // Check Platform (iOS)
-      if (Platform.OS === 'ios') {
-        // React Hook: Toggle Modal
-        toggleFromDate((fromDateModalVisible: boolean) => !fromDateModalVisible);
-      }
-
-      // Check Platform (Android)
-      else if (Platform.OS === 'android') {
-        // React Hook: Toggle Android
-        toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
-      }
+    // Check Platform (iOS)
+    if (Platform.OS === 'ios') {
+      // React Hook: Toggle Modal
+      toggleFromDate((fromDateModalVisible: boolean) => !fromDateModalVisible);
     }
-    catch (error) {
-      console.log(error);
+
+    // Check Platform (Android)
+    else if (Platform.OS === 'android') {
+      // React Hook: Toggle Android
+      toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
     }
   };
 
   // Toggle To Date Modal
   const toggleToDateModal = () => {
-    try {
-      // Check Platform (iOS)
-      if (Platform.OS === 'ios') {
-        // React Hook: Toggle Modal
-        toggleToDate((toDateModalVisible: boolean) => !toDateModalVisible);
-      }
-
-      // Check Platform (Android)
-      else if (Platform.OS === 'android') {
-        // React Hook: Toggle Android
-        toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
-      }
-
-      // Dismiss Keyboard
-      Keyboard.dismiss();
+    // Check Platform (iOS)
+    if (Platform.OS === 'ios') {
+      // React Hook: Toggle Modal
+      toggleToDate((toDateModalVisible: boolean) => !toDateModalVisible);
     }
-    catch (error) {
-      console.log(error);
+
+    // Check Platform (Android)
+    else if (Platform.OS === 'android') {
+      // React Hook: Toggle Android
+      toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
     }
+
+    // Dismiss Keyboard
+    Keyboard.dismiss();
   };
 
   // Select From Date
   const selectFromDate = (event: any, newDate: Date) => {
-    try {
-      // Check Platform: Android
-      if (Platform.OS === 'android') {
-        // Undefined
-        if (newDate === undefined) {
-          // React Hook: Toggle From Date Android 
-          toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
-        }
-
-        // Event Type: Set Date
-        else if (event.type === 'set') {
-          // React Hook: Toggle Android 
-          toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
-  
-          // React Hook: Set From Date
-          setFromDate(newDate);
-  
-          // React Props: onChange
-          props.onFromChange(newDate);
-        }
-  
-        // Event Type: Dismissed
-        else if (event.type === 'dismissed') {
-          // React Hook: Toggle Android
-          toggleFromDate(false);
-        }
+    // Check Platform: Android
+    if (Platform.OS === 'android') {
+      // Undefined
+      if (newDate === undefined) {
+        // React Hook: Toggle From Date Android 
+        toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
       }
 
-      // Check Platform: Android
-      else if (Platform.OS === 'ios') {
-        // Undefined
-        if (newDate !== undefined) {
-          // React Hook: Set Temp State
-          setTempFromDate(newDate);
-        }
+      // Event Type: Set Date
+      else if (event.type === 'set') {
+        // React Hook: Toggle Android 
+        toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
+
+        // React Hook: Set From Date
+        setFromDate(newDate);
+
+        // React Props: onChange
+        props.onFromChange(newDate);
+      }
+
+      // Event Type: Dismissed
+      else if (event.type === 'dismissed') {
+        // React Hook: Toggle Android
+        toggleFromDate(false);
       }
     }
-    catch (error) {
-      console.log(error);
+
+    // Check Platform: Android
+    else if (Platform.OS === 'ios') {
+      // Undefined
+      if (newDate !== undefined) {
+        // React Hook: Set Temp State
+        setTempFromDate(newDate);
+      }
     }
   };
 
   // Select To Date
   const selectToDate = (event: any, newDate: Date) => {
-    try {
-      // Check Platform: Android
-      if (Platform.OS === 'android') {
-        // Undefined
-        if (newDate === undefined) {
-          // React Hook: Toggle From Date Android 
-          toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
-        }
-
-        // Event Type: Set Date
-        else if (event.type === 'set') {
-          // React Hook: Toggle Android 
-          toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
-  
-          // React Hook: Set To Date
-          setToDate(newDate);
-  
-          // React Props: onChange
-          props.onToChange(newDate);
-        }
-  
-        // Event Type: Dismissed
-        else if (event.type === 'dismissed') {
-          // React Hook: Toggle Android
-          toggleToDate(false);
-        }
+    // Check Platform: Android
+    if (Platform.OS === 'android') {
+      // Undefined
+      if (newDate === undefined) {
+        // React Hook: Toggle From Date Android 
+        toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
       }
 
-      // Check Platform: Android
-      else if (Platform.OS === 'ios') {
-        // Undefined
-        if (newDate !== undefined) {
-          // React Hook: Set Temp State
-          setTempToDate(newDate);
-        }
+      // Event Type: Set Date
+      else if (event.type === 'set') {
+        // React Hook: Toggle Android 
+        toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
+
+        // React Hook: Set To Date
+        setToDate(newDate);
+
+        // React Props: onChange
+        props.onToChange(newDate);
+      }
+
+      // Event Type: Dismissed
+      else if (event.type === 'dismissed') {
+        // React Hook: Toggle Android
+        toggleToDate(false);
       }
     }
-    catch (error) {
-      console.log(error);
+
+    // Check Platform: Android
+    else if (Platform.OS === 'ios') {
+      // Undefined
+      if (newDate !== undefined) {
+        // React Hook: Set Temp State
+        setTempToDate(newDate);
+      }
     }
   };
 
   // Render From iOS Date Picker
   const renderFromIOSDatePicker = () => {
-    try {
-      return (
-        <RNDateTimePicker
-          mode="date"
-          value={tempFromDate ? tempFromDate : fromDate}
-          onChange={(event: any, newDate: any) => selectFromDate(event, newDate)}
-        />
-      )
-    }
-    catch (error) {
-      console.log(error);
-    }
+    return (
+      <RNDateTimePicker
+        mode="date"
+        value={tempFromDate ? tempFromDate : fromDate}
+        onChange={(event: any, newDate: any) => selectFromDate(event, newDate)}
+      />
+    )
   };
 
   // Press Cancel (From Date)
   const pressCancelFromDate = () => {
-    try {
-      // React Hook: Set Temp Date
-      setTempFromDate(fromDate);
+    // React Hook: Set Temp Date
+    setTempFromDate(fromDate);
 
-      // Toggle Modal
-      toggleFromDateModal();
-    }
-    catch (error) {
-      console.log(error);
-    }
+    // Toggle Modal
+    toggleFromDateModal();
   };
 
   // Press Done (From Date)
   const pressDoneFromDate = () => {
-    try {
-      // React Hook: Set Date
-      setFromDate(tempFromDate);
+    // React Hook: Set Date
+    setFromDate(tempFromDate);
 
-      // Props: onChange
-      props.onFromChange(tempFromDate);
+    // Props: onChange
+    props.onFromChange(tempFromDate);
 
-      // Toggle Modal
-      toggleFromDateModal();
-    }
-    catch (error) {
-      console.log(error);
-    }
+    // Toggle Modal
+    toggleFromDateModal();
   };
 
   // Render To iOS Date Picker (To Date)
   const renderToIOSDatePicker = () => {
-    try {
-      return (
-        <RNDateTimePicker
-          mode="date"
-          value={tempToDate ? tempToDate : toDate}
-          onChange={(event: any, newDate: any) => selectToDate(event, newDate)}
-        />
-      )
-    }
-    catch (error) {
-      console.log(error);
-    }
+    return (
+      <RNDateTimePicker
+        mode="date"
+        value={tempToDate ? tempToDate : toDate}
+        onChange={(event: any, newDate: any) => selectToDate(event, newDate)}
+      />
+    )
   };
 
   // Press Cancel (To Date)
   const pressCancelToDate = () => {
-    try {
-      // React Hook: Set Temp Date
-      setTempToDate(toDate);
+    // React Hook: Set Temp Date
+    setTempToDate(toDate);
 
-      // Toggle Modal
-      toggleToDateModal();
-    }
-    catch (error) {
-      console.log(error);
-    }
+    // Toggle Modal
+    toggleToDateModal();
   };
 
   // Press Done (To Date)
   const pressDoneToDate = () => {
-    try {
-      // React Hook: Set Date
-      setToDate(tempToDate);
+    // React Hook: Set Date
+    setToDate(tempToDate);
 
-      // Props: onChange
-      props.onToChange(tempToDate);
+    // Props: onChange
+    props.onToChange(tempToDate);
 
-      // Toggle Modal
-      toggleToDateModal();
-    }
-    catch (error) {
-      console.log(error);
-    }
+    // Toggle Modal
+    toggleToDateModal();
   };
 
   // Render To Date Android Picker
   const renderToDateAndroidPicker = () => {
-    try {
-      if (androidToDateVisible === true) {
-        return (
-          <RNDateTimePicker
-            mode="date"
-            display={props.mode}
-            value={toDate}
-            onChange={(event: any, newDate: any) => selectToDate(event, newDate)}
-          />
-        )
-      }
-    }
-    catch (error) {
-      console.log(error);
+    if (androidToDateVisible === true) {
+      return (
+        <RNDateTimePicker
+          mode="date"
+          display={props.mode}
+          value={toDate}
+          onChange={(event: any, newDate: any) => selectToDate(event, newDate)}
+        />
+      )
     }
   };
 
   // Render From Date Android Picker
   const renderFromDateAndroidPicker = () => {
-    try {
-      if (androidFromDateVisible === true) {
-        return (
-          <RNDateTimePicker
-            mode="date"
-            display={props.mode}
-            value={fromDate}
-            onChange={(event: any, newDate: any) => selectFromDate(event, newDate)}
-          />
-        )
-      }
-    }
-    catch (error) {
-      console.log(error);
+    if (androidFromDateVisible === true) {
+      return (
+        <RNDateTimePicker
+          mode="date"
+          display={props.mode}
+          value={fromDate}
+          onChange={(event: any, newDate: any) => selectFromDate(event, newDate)}
+        />
+      )
     }
   };
 

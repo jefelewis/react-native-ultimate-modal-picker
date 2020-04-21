@@ -91,173 +91,143 @@ const StatePicker = (props: Props) => {
 
   // Toggle Modal
   const toggleModal = () => {
-    try {
-      // Check Platform (iOS)
-      if (Platform.OS === 'ios') {
-        // React Hook: Toggle Modal
-        toggle((modalVisible: boolean) => !modalVisible);
-      }
-
-      // Check Platform (Android)
-      else if (Platform.OS === 'android') {
-        // Do Nothing (Android Uses Dropdown List)
-      }
+    // Check Platform (iOS)
+    if (Platform.OS === 'ios') {
+      // React Hook: Toggle Modal
+      toggle((modalVisible: boolean) => !modalVisible);
     }
-    catch (error) {
-      console.log(error);
+
+    // Check Platform (Android)
+    else if (Platform.OS === 'android') {
+      // Do Nothing (Android Uses Dropdown List)
     }
   };
 
   // Select State
   const selectState = (value: any) => {
-    try {
-      // Check Platform (iOS)
-      if (Platform.OS === 'ios') {
-        // React Hook: Set Temp State
-        setTempState(value);
-      }
-
-      // Check Platform (Android)
-      else if (Platform.OS === 'android') {
-        // React Hook: Set State
-        setState(value);
-  
-        // React Props: onChange
-        props.onChange(value);
-      }
+    // Check Platform (iOS)
+    if (Platform.OS === 'ios') {
+      // React Hook: Set Temp State
+      setTempState(value);
     }
-    catch (error) {
-      console.log(error);
+
+    // Check Platform (Android)
+    else if (Platform.OS === 'android') {
+      // React Hook: Set State
+      setState(value);
+
+      // React Props: onChange
+      props.onChange(value);
     }
   };
 
   // Render iOS Picker
   const renderIOSPicker = () => {
-    try {
-      return (
-        <Picker
-          selectedValue={tempState !== undefined ? tempState : state}
-          onValueChange={(value) => selectState(value)}>
-          {unitedStates.map((state: any) => {
-            return (
-              <Picker.Item
-                label={state.label}
-                value={state.value}
-                key={state.key || state.label}
-              />
-            );
-          })}
-        </Picker>
-      )
-    }
-    catch (error) {
-      console.log(error);
-    }
+    return (
+      <Picker
+        selectedValue={tempState !== undefined ? tempState : state}
+        onValueChange={(value) => selectState(value)}>
+        {unitedStates.map((state: any) => {
+          return (
+            <Picker.Item
+              label={state.label}
+              value={state.value}
+              key={state.key || state.label}
+            />
+          );
+        })}
+      </Picker>
+    )
   };
 
   // Press Cancel
   const pressCancel = () => {
-    try {
-      // Do Nothing To State
-      setTempState(state);
+    // Do Nothing To State
+    setTempState(state);
 
-      // Toggle Modal
-      toggleModal();
-    }
-    catch (error) {
-      console.log(error);
-    }
+    // Toggle Modal
+    toggleModal();
   };
 
   // Press Done
   const pressDone = () => {
-    try {
-      // React Hook: Set State
-      setState(tempState);
+    // React Hook: Set State
+    setState(tempState);
 
-      // Props: onChange
-      props.onChange(tempState);
+    // Props: onChange
+    props.onChange(tempState);
 
-      // Toggle Modal
-      toggleModal();
-    }
-    catch (error) {
-      console.log(error);
-    }
+    // Toggle Modal
+    toggleModal();
   };
 
   // Render Platform
   const renderPlatform = () => {
-    try {
-      // Check Platform (iOS)
-      if (Platform.OS === 'ios') {
-        return (
-          <View style={styles.container}>
-            <View style={styles.inputTitleContainer}>
-              <Text style={styles.inputTitle}>{props.title === undefined ? 'State' : props.title}</Text>
-            </View>
-      
-            <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-              <Text style={styles.fieldText}>{state !== undefined ? state : 'Select'}</Text>
-            </TouchableOpacity>
-      
-            <Modal
-              isVisible={modalVisible}
-              style={styles.modal}
-              backdropOpacity={.30}
-            >
-              <View style={styles.modalContainer}>
-                <View style={styles.pickerHeaderContainer}>
-                  <TouchableOpacity onPress={() => pressCancel()} >
-                    <Text style={styles.cancelText}>Cancel</Text>
-                  </TouchableOpacity>
+    // Check Platform (iOS)
+    if (Platform.OS === 'ios') {
+      return (
+        <View style={styles.container}>
+          <View style={styles.inputTitleContainer}>
+            <Text style={styles.inputTitle}>{props.title === undefined ? 'State' : props.title}</Text>
+          </View>
+    
+          <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
+            <Text style={styles.fieldText}>{state !== undefined ? state : 'Select'}</Text>
+          </TouchableOpacity>
+    
+          <Modal
+            isVisible={modalVisible}
+            style={styles.modal}
+            backdropOpacity={.30}
+          >
+            <View style={styles.modalContainer}>
+              <View style={styles.pickerHeaderContainer}>
+                <TouchableOpacity onPress={() => pressCancel()} >
+                  <Text style={styles.cancelText}>Cancel</Text>
+                </TouchableOpacity>
 
-                  <View style={styles.doneButton}>
-                    <Button
-                      onPress={() => pressDone()}
-                      title="Done"
-                      disabled={state === tempState ? true : false}
-                    />
-                  </View>
+                <View style={styles.doneButton}>
+                  <Button
+                    onPress={() => pressDone()}
+                    title="Done"
+                    disabled={state === tempState ? true : false}
+                  />
                 </View>
-      
-                <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
               </View>
-            </Modal>
-          </View>
-        );
-      }
-
-      // Check Platform (Android)
-      else if (Platform.OS === 'android') {
-        return (
-          <View style={styles.container}>
-            <View style={styles.inputTitleContainer}>
-              <Text style={styles.inputTitle}>State</Text>
+    
+              <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
             </View>
-
-            <View style={styles.fieldTextContainer}>
-              <Picker
-                selectedValue={state}
-                style={{height: 60, width: width - 16}}
-                onValueChange={(state) => selectState(state)}>
-                {unitedStates.map((state: any) => {
-                  return (
-                    <Picker.Item
-                      label={state.label}
-                      value={state.value}
-                      key={state.key || state.label}
-                    />
-                  );
-                })}
-              </Picker>
-            </View>
-          </View>
-        )
-      }
+          </Modal>
+        </View>
+      );
     }
-    catch (error) {
-      console.log(error);
+
+    // Check Platform (Android)
+    else if (Platform.OS === 'android') {
+      return (
+        <View style={styles.container}>
+          <View style={styles.inputTitleContainer}>
+            <Text style={styles.inputTitle}>State</Text>
+          </View>
+
+          <View style={styles.fieldTextContainer}>
+            <Picker
+              selectedValue={state}
+              style={{height: 60, width: width - 16}}
+              onValueChange={(state) => selectState(state)}>
+              {unitedStates.map((state: any) => {
+                return (
+                  <Picker.Item
+                    label={state.label}
+                    value={state.value}
+                    key={state.key || state.label}
+                  />
+                );
+              })}
+            </Picker>
+          </View>
+        </View>
+      )
     }
   };
 

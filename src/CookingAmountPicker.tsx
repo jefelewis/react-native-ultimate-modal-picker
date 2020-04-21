@@ -28,9 +28,6 @@ const CookingAmountPicker = (props: Props) => {
 
   // React Hooks: Lifecycle Method
   useEffect(() => {
-    console.log('Cooking Amount Picker');
-    console.log(props.defaultValue);
-
     // Check If Default Value Exists
     if (props.defaultValue) {
       setItem(props.defaultValue);
@@ -148,38 +145,28 @@ const CookingAmountPicker = (props: Props) => {
 
   // Toggle Modal
   const toggleModal = () => {
-    try {
-      // Check Platform (iOS)
-      if (Platform.OS === 'ios') {
-        // React Hook: Toggle Modal
-        toggle((modalVisible: boolean) => !modalVisible);
-      }
-    }
-    catch (error) {
-      console.log(error);
+    // Check Platform (iOS)
+    if (Platform.OS === 'ios') {
+      // React Hook: Toggle Modal
+      toggle((modalVisible: boolean) => !modalVisible);
     }
   };
 
   // Select Item
   const selectItem = (item: string) => {
-    try {
-      // Check Platform (iOS)
-      if (Platform.OS === 'ios') {
-        // React Hook: Set Temp State
-        setTempItem(item);
-      }
-
-      // Check Platform (Android)
-      else if (Platform.OS === 'android') {
-        // React Hook: Set Item
-        setItem(item);
-
-        // React Props: onChange
-        props.onChange(item);
-      }
+    // Check Platform (iOS)
+    if (Platform.OS === 'ios') {
+      // React Hook: Set Temp State
+      setTempItem(item);
     }
-    catch (error) {
-      console.log(error);
+
+    // Check Platform (Android)
+    else if (Platform.OS === 'android') {
+      // React Hook: Set Item
+      setItem(item);
+
+      // React Props: onChange
+      props.onChange(item);
     }
   };
 

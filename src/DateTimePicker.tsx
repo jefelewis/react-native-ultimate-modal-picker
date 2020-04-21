@@ -36,131 +36,101 @@ const DatetimePicker = (props: Props) => {
 
   // Toggle Modal
   const toggleModal = () => {
-    try {
-      // Check Platform (iOS)
-      if (Platform.OS === 'ios') {
-        // React Hook: Toggle Modal
-        toggle((modalVisible: boolean) => !modalVisible);
-      }
+    // Check Platform (iOS)
+    if (Platform.OS === 'ios') {
+      // React Hook: Toggle Modal
+      toggle((modalVisible: boolean) => !modalVisible);
+    }
 
-      // Dismiss Keyboard
-      Keyboard.dismiss();
-    }
-    catch (error) {
-      console.log(error);
-    }
+    // Dismiss Keyboard
+    Keyboard.dismiss();
   };
 
   // Select Date
   const selectDate = (event: any, newDate: Date) => {
-    try {
-      // React Hook: Set Temp State
-      setTempDate(newDate);
-    }
-    catch (error) {
-      console.log(error);
-    }
+    // React Hook: Set Temp State
+    setTempDate(newDate);
   };
 
   // Render iOS Picker
   const renderIOSPicker = () => {
-    try {
-      return (
-        <RNDateTimePicker
-          mode="datetime"
-          value={tempDate ? tempDate : date}
-          onChange={(event: any, newDate: any) => selectDate(event, newDate)}
-        />
-      )
-    }
-    catch (error) {
-      console.log(error);
-    }
+    return (
+      <RNDateTimePicker
+        mode="datetime"
+        value={tempDate ? tempDate : date}
+        onChange={(event: any, newDate: any) => selectDate(event, newDate)}
+      />
+    )
   };
 
   // Press Cancel
   const pressCancel = () => {
-    try {
-      // React Hook: Set Temp Date
-      setTempDate(date);
+    // React Hook: Set Temp Date
+    setTempDate(date);
 
-      // Toggle Modal
-      toggleModal();
+    // Toggle Modal
+    toggleModal();
 
-      // Dismiss Keyboard
-      Keyboard.dismiss();
-    }
-    catch (error) {
-      console.log(error);
-    }
+    // Dismiss Keyboard
+    Keyboard.dismiss();
   };
 
   // Press Done
   const pressDone = () => {
-    try {
-      // React Hook: Set Date
-      setDate(tempDate);
+    // React Hook: Set Date
+    setDate(tempDate);
 
-      // Props: onChange
-      props.onChange(tempDate);
+    // Props: onChange
+    props.onChange(tempDate);
 
-      // Toggle Modal
-      toggleModal();
-    }
-    catch (error) {
-      console.log(error);
-    }
+    // Toggle Modal
+    toggleModal();
   };
 
   // Render Platform
   const renderPlatform = () => {
-    try {
-      // Check Platform (iOS)
-      if (Platform.OS == 'ios') {
-        return (
-          <View style={styles.container}>
-            <View style={styles.inputTitleContainer}>
-              <Text style={styles.inputTitle}>{props.title === undefined ? 'Date/Time' : props.title}</Text>
-            </View>
-
-            <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-              <Text style={styles.fieldText} numberOfLines={1}>{date ? moment(date).format('MMM Do, YYYY h:mm a') : 'Select'}</Text>
-            </TouchableOpacity>
-
-            <Modal
-              isVisible={modalVisible}
-              style={styles.modal}
-              backdropOpacity={.30}
-            >
-              <View style={styles.modalContainer}>
-                <View style={styles.pickerHeaderContainer}>
-                  <TouchableOpacity onPress={() => pressCancel()} >
-                    <Text style={styles.cancelText}>Cancel</Text>
-                  </TouchableOpacity>
-
-                  <View style={styles.doneButton}>
-                    <Button
-                      onPress={() => pressDone()}
-                      title="Done"
-                      disabled={date === tempDate ? true : false}
-                    />
-                  </View>
-                </View>
-
-                <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
-              </View>
-            </Modal>
+    // Check Platform (iOS)
+    if (Platform.OS == 'ios') {
+      return (
+        <View style={styles.container}>
+          <View style={styles.inputTitleContainer}>
+            <Text style={styles.inputTitle}>{props.title === undefined ? 'Date/Time' : props.title}</Text>
           </View>
-        );
-      }
 
-      // Check Platform (Android)
-      if (Platform.OS === 'android') {
-        return null;
-      }
+          <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
+            <Text style={styles.fieldText} numberOfLines={1}>{date ? moment(date).format('MMM Do, YYYY h:mm a') : 'Select'}</Text>
+          </TouchableOpacity>
+
+          <Modal
+            isVisible={modalVisible}
+            style={styles.modal}
+            backdropOpacity={.30}
+          >
+            <View style={styles.modalContainer}>
+              <View style={styles.pickerHeaderContainer}>
+                <TouchableOpacity onPress={() => pressCancel()} >
+                  <Text style={styles.cancelText}>Cancel</Text>
+                </TouchableOpacity>
+
+                <View style={styles.doneButton}>
+                  <Button
+                    onPress={() => pressDone()}
+                    title="Done"
+                    disabled={date === tempDate ? true : false}
+                  />
+                </View>
+              </View>
+
+              <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
+            </View>
+          </Modal>
+        </View>
+      );
     }
-    catch (error) {
-      console.log(error);
+
+    // Check Platform (Android)
+    else if (Platform.OS === 'android') {
+      return null;
     }
   };
   
