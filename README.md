@@ -230,10 +230,16 @@ const App = () => {
 
 ## Changelog
 
+
+### [0.1.65] - 4/21/2020
+
+***Changed***
+- Updated `@react-native-community/datetimepicker` to 2.3.2.
+
 ### [0.1.64] - 3/13/2020
 
 ***Changed***
-- Updating dependencies.
+- Updated dependencies.
 
 ### [0.1.63] - 3/13/2020
 
