@@ -231,10 +231,11 @@ const App = () => {
 ## Changelog
 
 
-### [0.1.65] - 4/21/2020
+### [0.2.0] - 4/21/2020
 
 ***Changed***
 - Updated `@react-native-community/datetimepicker` to 2.3.2.
+- Removed unnecessary try/catch blocks.
 
 ### [0.1.64] - 3/13/2020
 
