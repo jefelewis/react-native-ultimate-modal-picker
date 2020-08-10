@@ -17,7 +17,6 @@
 * [React Native Modal](https://github.com/react-native-community/react-native-modal) - Modal
 * [React Native Datetime Picker](https://github.com/react-native-community/react-native-datetimepicker) - Native Date/Time Picker
 * [React Hooks](https://reactjs.org/docs/hooks-intro.html) - Functional Component State/Lifecycle Methods
-* [Moment](https://github.com/moment/moment) - Date/Time Formatting
 
 ## Pending Items
 - [ ] 
@@ -165,7 +164,7 @@ const App = () => {
         value={(text: string | number) => console.log(text)}
       />
     </SafeAreaView>
-  )
+  );
 };
 ```
 
@@ -230,6 +229,15 @@ const App = () => {
 
 ## Changelog
 
+### [0.2.1] - 8/10/2020
+
+***Changed***
+- Updated `react` dependency.
+- Updated `react-native` dependency.
+- Updated `react-native-modal` dependency.
+
+***Removed***
+- Removed 'moment' dependency.
 
 ### [0.2.0] - 4/21/2020
 
