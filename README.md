@@ -237,11 +237,13 @@ const App = () => {
 
 ## Changelog
 
-### [0.2.1] - 8/10/2020
+### [0.2.2] - 8/10/2020
 
 ***Added***
 - Added Dark Mode support. Please upgrade to React Native 0.62 for this to work.
 - Added `@react-native-community/picker` dependency (Picker is soon to be deprecated).
+
+### [0.2.1] - 8/10/2020
 
 ***Changed***
 - Updated `react` dependency.
