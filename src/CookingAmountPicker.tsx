@@ -182,7 +182,7 @@ const CookingAmountPicker = (props: Props) => {
     return (
       <Picker
         selectedValue={tempItem !== undefined ? tempItem : item}
-        onValueChange={(item) => selectItem(item)}
+        onValueChange={(item: any) => selectItem(item)}
       >
         {cookingAmounts.map((item: any) => {
           return (
@@ -273,7 +273,7 @@ const CookingAmountPicker = (props: Props) => {
               <Picker
                 selectedValue={item}
                 style={{ height: 60, width: width - 16 }}
-                onValueChange={(item) => selectItem(item)}
+                onValueChange={(item: any) => selectItem(item)}
                 mode="dropdown"
               >
                 {cookingAmounts.map((item: any) => {
