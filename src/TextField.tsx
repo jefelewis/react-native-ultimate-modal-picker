@@ -1,9 +1,12 @@
 // Imports: Dependencies
-import React, { useState } from 'react';
-import { Dimensions, StyleSheet, Text, TextInput, View } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { Appearance, Dimensions, StyleSheet, Text, TextInput, View } from 'react-native';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
+
+// Dark Mode
+const colorScheme = Appearance.getColorScheme();
 
 // TypeScript: Types
 interface Props {
@@ -19,23 +22,18 @@ const TextField = (props: Props) => {
   const [ value, setValue ] = useState('');
 
   // Text Input: Reference
-  const textInputRef: React.RefObject<TextInput> = React.createRef();
+  // const textInputRef: React.RefObject<TextInput> = React.useRef();
 
   // Props
   const { title, ...otherProps } = props;
 
   // Handle Change
   const handleChange = (text: string) => {
-    try {
-      // Set Value
-      setValue(text);
+    // Set Value
+    setValue(text);
 
-      // Send Value To Props
-      props.value(text);
-    }
-    catch (error) {
-      console.log(error);
-    }
+    // Send Value To Props
+    props.value(text);
   };
 
   return (
@@ -43,14 +41,14 @@ const TextField = (props: Props) => {
       <Text style={styles.inputTitle}>{props.title}</Text>
 
       <TextInput
-        ref={textInputRef}
+        // ref={textInputRef}
         style={styles.input}
         // {...otherProps}
       >
       </TextInput>
     </View>
   );
-}
+};
 
 // Styles
 const styles = StyleSheet.create({

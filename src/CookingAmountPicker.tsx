@@ -1,10 +1,14 @@
 // Imports: Dependencies
 import React, { useState, useEffect } from 'react';
-import { Button, Dimensions, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Appearance, Button, Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Picker } from '@react-native-community/picker';
 import Modal from 'react-native-modal';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
+
+// Dark Mode
+const colorScheme = Appearance.getColorScheme();
 
 // TypeScript: Types
 interface Props {
@@ -178,12 +182,14 @@ const CookingAmountPicker = (props: Props) => {
     return (
       <Picker
         selectedValue={tempItem !== undefined ? tempItem : item}
-        onValueChange={(item) => selectItem(item)}>
+        onValueChange={(item) => selectItem(item)}
+      >
         {cookingAmounts.map((item: any) => {
           return (
             <Picker.Item
               label={item.label}
               value={item.value}
+              color={colorScheme === 'dark' ? '#FFFFFF' : '#000000'}
               key={item.key || item.label}
             />
           );
@@ -266,9 +272,10 @@ const CookingAmountPicker = (props: Props) => {
             <View style={styles.fieldTextContainer}>
               <Picker
                 selectedValue={item}
-                style={{height: 60, width: width - 16}}
+                style={{ height: 60, width: width - 16 }}
                 onValueChange={(item) => selectItem(item)}
-                mode="dropdown">
+                mode="dropdown"
+              >
                 {cookingAmounts.map((item: any) => {
                   return (
                     <Picker.Item
@@ -281,7 +288,7 @@ const CookingAmountPicker = (props: Props) => {
               </Picker>
             </View>
           </View>
-        )
+        );
       }
     }
     catch (error) {
@@ -298,10 +305,10 @@ const CookingAmountPicker = (props: Props) => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    width: width - 32,
-    marginLeft: 16,
-    marginRight: 16,
-    justifyContent: 'center',
+    width: width,
+    paddingLeft: 16,
+    paddingRight: 16,
+    backgroundColor: colorScheme === 'dark' ? '#000000' : '#FFFFFF',
   },
   modal: {
     margin: 0,
@@ -318,14 +325,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 45,
     width: width,
-    backgroundColor: '#FAFAF8',
+    backgroundColor: colorScheme === 'dark' ? '#383838' : '#FFFFFF',
     borderColor: '#7D7D7D',
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   pickerContainer: {
     height: 250,
     width: width,
-    backgroundColor: 'white',
+    backgroundColor: colorScheme === 'dark' ? '#000000' : '#FFFFFF',
   },
   doneButton: {
     marginRight: 7,
@@ -376,7 +383,7 @@ const styles = StyleSheet.create({
     fontFamily: 'System',
     fontSize: 17,
     fontWeight: '400',
-    color: '#000000',
+    color: colorScheme === 'dark' ? '#FFFFFF' : '#000000',
     alignSelf: 'center',
   },
   arrowForward: {

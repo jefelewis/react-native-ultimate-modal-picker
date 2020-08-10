@@ -1,10 +1,14 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
-import { Button, Dimensions, Platform, Picker, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Appearance, Button, Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Picker } from '@react-native-community/picker';
 import Modal from 'react-native-modal';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
+
+// Dark Mode
+const colorScheme = Appearance.getColorScheme();
 
 // TypeScript: Types
 interface Props {
@@ -132,6 +136,7 @@ const StatePicker = (props: Props) => {
             <Picker.Item
               label={state.label}
               value={state.value}
+              color={colorScheme === 'dark' ? '#FFFFFF' : '#000000'}
               key={state.key || state.label}
             />
           );
@@ -220,6 +225,7 @@ const StatePicker = (props: Props) => {
                   <Picker.Item
                     label={state.label}
                     value={state.value}
+                    color={colorScheme === 'dark' ? '#FFFFFF' : '#000000'}
                     key={state.key || state.label}
                   />
                 );
@@ -240,10 +246,10 @@ const StatePicker = (props: Props) => {
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
-    width: width - 32,
-    justifyContent: 'center',
-    marginLeft: 16,
-    marginRight: 16,
+    width: width,
+    paddingLeft: 16,
+    paddingRight: 16,
+    backgroundColor: colorScheme === 'dark' ? '#000000' : '#FFFFFF',
   },
   modal: {
     margin: 0,
@@ -260,14 +266,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 45,
     width: width,
-    backgroundColor: '#FAFAF8',
+    backgroundColor: colorScheme === 'dark' ? '#383838' : '#FFFFFF',
     borderColor: '#7D7D7D',
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   pickerContainer: {
     height: 250,
     width: width,
-    backgroundColor: 'white',
+    backgroundColor: colorScheme === 'dark' ? '#000000' : '#FFFFFF',
   },
   doneButton: {
     marginRight: 7,
@@ -318,7 +324,7 @@ const styles = StyleSheet.create({
     fontFamily: 'System',
     fontSize: 17,
     fontWeight: '400',
-    color: '#000000',
+    color: colorScheme === 'dark' ? '#FFFFFF' : '#000000',
     alignSelf: 'center',
   },
   arrowForward: {
