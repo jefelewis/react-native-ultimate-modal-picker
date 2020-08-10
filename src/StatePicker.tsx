@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
   pickerContainer: {
     height: 250,
     width: width,
-    backgroundColor: colorScheme === 'dark' ? '#000000' : '#FFFFFF',
+    backgroundColor: colorScheme === 'dark' ? '#121312' : '#FFFFFF',
   },
   doneButton: {
     marginRight: 7,
