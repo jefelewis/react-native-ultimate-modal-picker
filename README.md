@@ -3,6 +3,7 @@
 [![npm version](https://badge.fury.io/js/react-native-ultimate-modal-picker.svg)](https://badge.fury.io/js/react-native-ultimate-modal-picker)
 [![npm downloads](https://img.shields.io/npm/dm/react-native-ultimate-modal-picker.svg)](https://www.npmjs.com/package/react-native-ultimate-modal-picker)
 
+*  [Features](#features)
 *  [Built With](#built-with)
 *  [Pending Items](#pending-items)
 *  [Getting Started](#getting-started)
@@ -11,10 +12,17 @@
 *  [Picker Types (Android)](#picker-types-android)
 *  [Changelog](#changelog)
 
+## Features
+✅ iOS/Android
+✅ Dark Mode
+✅ Built with TypeScript
+✅ Built with React Hooks
+
 ## Built With
 * [TypeScript](https://github.com/microsoft/TypeScript) - Programming Language
 * [React Native](https://facebook.github.io/react-native/) - Mobile (iOS/Android) Framework
 * [React Native Modal](https://github.com/react-native-community/react-native-modal) - Modal
+* [React Native Picker](https://github.com/react-native-community/react-native-picker#readme) - Native Picker
 * [React Native Datetime Picker](https://github.com/react-native-community/react-native-datetimepicker) - Native Date/Time Picker
 * [React Hooks](https://reactjs.org/docs/hooks-intro.html) - Functional Component State/Lifecycle Methods
 
@@ -231,13 +239,17 @@ const App = () => {
 
 ### [0.2.1] - 8/10/2020
 
+***Added***
+- Added Dark Mode support. Please upgrade to React Native 0.62 for this to work.
+- Added `@react-native-community/picker` dependency (Picker is soon to be deprecated).
+
 ***Changed***
 - Updated `react` dependency.
 - Updated `react-native` dependency.
 - Updated `react-native-modal` dependency.
 
 ***Removed***
-- Removed 'moment' dependency.
+- Removed `moment` dependency.
 
 ### [0.2.0] - 4/21/2020
 
