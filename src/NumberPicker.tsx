@@ -32,6 +32,9 @@ const NumberPicker = (props: Props) => {
     if (props.defaultValue) {
       setItem(props.defaultValue);
     }
+    else {
+      setItem('Select');
+    }
   }, []);
 
   // Numbers
@@ -273,14 +276,14 @@ const NumberPicker = (props: Props) => {
             </Picker>
           </View>
         </View>
-      )
+      );
     }
   };
 
   return (
     <View>{renderPlatform()}</View>
-  )
-}
+  );
+};
 
 // Styles
 const styles = StyleSheet.create({
@@ -357,7 +360,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 12,
     borderColor: '#7D7D7D',
-    borderBottomWidth: StyleSheet.hairlineWidth,    
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   fieldText: {
     width: width - 32 - 20,

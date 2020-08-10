@@ -137,7 +137,7 @@ const StatePicker = (props: Props) => {
           );
         })}
       </Picker>
-    )
+    );
   };
 
   // Press Cancel
@@ -170,11 +170,11 @@ const StatePicker = (props: Props) => {
           <View style={styles.inputTitleContainer}>
             <Text style={styles.inputTitle}>{props.title === undefined ? 'State' : props.title}</Text>
           </View>
-    
+
           <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
             <Text style={styles.fieldText}>{state !== undefined ? state : 'Select'}</Text>
           </TouchableOpacity>
-    
+
           <Modal
             isVisible={modalVisible}
             style={styles.modal}
@@ -194,7 +194,7 @@ const StatePicker = (props: Props) => {
                   />
                 </View>
               </View>
-    
+
               <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
             </View>
           </Modal>
@@ -227,14 +227,14 @@ const StatePicker = (props: Props) => {
             </Picker>
           </View>
         </View>
-      )
+      );
     }
   };
 
   return (
     <View>{renderPlatform()}</View>
-  )
-}
+  );
+};
 
 // Styles
 const styles = StyleSheet.create({
@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 12,
     borderColor: '#7D7D7D',
-    borderBottomWidth: StyleSheet.hairlineWidth,   
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   fieldText: {
     width: width - 32 - 20,
