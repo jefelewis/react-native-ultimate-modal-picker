@@ -32,6 +32,9 @@ const CookingAmountPicker = (props: Props) => {
     if (props.defaultValue) {
       setItem(props.defaultValue);
     }
+    else {
+      setItem('Select');
+    }
   }, []);
 
   // Cooking Amounts
@@ -172,57 +175,42 @@ const CookingAmountPicker = (props: Props) => {
 
   // Render iOS Picker
   const renderIOSPicker = () => {
-    try {
-      return (
-        <Picker
-          selectedValue={tempItem !== undefined ? tempItem : item}
-          onValueChange={(item) => selectItem(item)}>
-          {cookingAmounts.map((item: any) => {
-            return (
-              <Picker.Item
-                label={item.label}
-                value={item.value}
-                key={item.key || item.label}
-              />
-            );
-          })}
-        </Picker>
-      )
-    }
-    catch (error) {
-      console.log(error);
-    }
+    return (
+      <Picker
+        selectedValue={tempItem !== undefined ? tempItem : item}
+        onValueChange={(item) => selectItem(item)}>
+        {cookingAmounts.map((item: any) => {
+          return (
+            <Picker.Item
+              label={item.label}
+              value={item.value}
+              key={item.key || item.label}
+            />
+          );
+        })}
+      </Picker>
+    );
   };
 
   // Press Cancel
   const pressCancel = () => {
-    try {
-      // Set Temp Item
-      setTempItem(item);
+    // Set Temp Item
+    setTempItem(item);
 
-      // Toggle Modal
-      toggleModal();
-    }
-    catch (error) {
-      console.log(error);
-    }
+    // Toggle Modal
+    toggleModal();
   };
 
   // Press Done
   const pressDone = () => {
-    try {
-      // React Hook: Set Item
-      setItem(tempItem);
+    // React Hook: Set Item
+    setItem(tempItem);
 
-      // Props: onChange
-      props.onChange(tempItem);
+    // Props: onChange
+    props.onChange(tempItem);
 
-      // Toggle Modal
-      toggleModal();
-    }
-    catch (error) {
-      console.log(error);
-    }
+    // Toggle Modal
+    toggleModal();
   };
 
   // Render Platform
@@ -303,8 +291,8 @@ const CookingAmountPicker = (props: Props) => {
 
   return (
     <View>{renderPlatform()}</View>
-  )
-}
+  );
+};
 
 // Styles
 const styles = StyleSheet.create({
@@ -381,7 +369,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 12,
     borderColor: '#7D7D7D',
-    borderBottomWidth: StyleSheet.hairlineWidth,    
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   fieldText: {
     width: width - 32 - 20,
