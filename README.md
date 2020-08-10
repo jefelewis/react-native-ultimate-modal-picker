@@ -13,10 +13,10 @@
 *  [Changelog](#changelog)
 
 ## Features
-✅ iOS/Android
-✅ Dark Mode
-✅ Built with TypeScript
-✅ Built with React Hooks
+*  ✅ iOS/Android
+*  ✅ Dark Mode
+*  ✅ Built with TypeScript
+*  ✅ Built with React Hooks
 
 ## Built With
 * [TypeScript](https://github.com/microsoft/TypeScript) - Programming Language
