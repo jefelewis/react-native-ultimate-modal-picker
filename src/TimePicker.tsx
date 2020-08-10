@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Button, Dimensions, Keyboard, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
-import moment from 'moment';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
@@ -34,7 +33,7 @@ const TimePicker = (props: Props) => {
       // Today's Date Has Been Sent To Parent Component
       todaySent(true);
     }
-  });
+  }, [props]);
 
   // Toggle Modal
   const toggleModal = () => {
@@ -61,13 +60,13 @@ const TimePicker = (props: Props) => {
 
       // Undefined
       if (newDate === undefined) {
-        // React Hook: Toggle Android 
+        // React Hook: Toggle Android
         toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
       }
 
       // Event Type: Set Date
       else if (event.type === 'set') {
-        // React Hook: Toggle Android 
+        // React Hook: Toggle Android
         toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
 
         // React Hook: Set From Date
@@ -99,7 +98,7 @@ const TimePicker = (props: Props) => {
         value={tempDate ? tempDate : date}
         onChange={(event: any, newDate: any) => selectDate(event, newDate)}
       />
-    )
+    );
   };
 
   // Press Cancel
@@ -133,8 +132,19 @@ const TimePicker = (props: Props) => {
           value={date}
           onChange={(event: any, newDate: any) => selectDate(event, newDate)}
         />
-      )
+      );
     }
+  };
+
+  // Format Time
+  const formatTime = (date: Date) => {
+    // Options
+    const options = {
+      hour: 'numeric',
+      minute: 'numeric',
+    };
+
+    return date.toLocaleTimeString('en-US', options);
   };
 
   return (
@@ -144,7 +154,7 @@ const TimePicker = (props: Props) => {
       </View>
 
       <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-        <Text style={styles.fieldText} numberOfLines={1}>{moment(date).format('h:mm a')}</Text>
+        <Text style={styles.fieldText} numberOfLines={1}>{formatTime(date)}</Text>
       </TouchableOpacity>
 
       <View>{androidModalVisible === true ? renderAndroidPicker(): null}</View>
@@ -174,7 +184,7 @@ const TimePicker = (props: Props) => {
       </Modal>
     </View>
   );
-}
+};
 
 // Styles
 const styles = StyleSheet.create({

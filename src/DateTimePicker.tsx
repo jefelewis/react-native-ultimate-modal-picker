@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Button, Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
-import moment from 'moment';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
@@ -60,7 +59,7 @@ const DatetimePicker = (props: Props) => {
         value={tempDate ? tempDate : date}
         onChange={(event: any, newDate: any) => selectDate(event, newDate)}
       />
-    )
+    );
   };
 
   // Press Cancel
@@ -87,6 +86,29 @@ const DatetimePicker = (props: Props) => {
     toggleModal();
   };
 
+  // Format Date
+  const formatDate = (date: Date) => {
+    // Options
+    const options = {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    };
+
+    return date.toLocaleDateString('en-US', options);
+  };
+
+  // Format Time
+  const formatTime = (date: Date) => {
+    // Options
+    const options = {
+      hour: 'numeric',
+      minute: 'numeric',
+    };
+
+    return date.toLocaleTimeString('en-US', options);
+  };
+
   // Render Platform
   const renderPlatform = () => {
     // Check Platform (iOS)
@@ -98,7 +120,7 @@ const DatetimePicker = (props: Props) => {
           </View>
 
           <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-            <Text style={styles.fieldText} numberOfLines={1}>{date ? moment(date).format('MMM Do, YYYY h:mm a') : 'Select'}</Text>
+            <Text style={styles.fieldText} numberOfLines={1}>{date ? `${formatDate(date)} ${formatTime(date)}` : 'Select'}</Text>
           </TouchableOpacity>
 
           <Modal
@@ -133,13 +155,13 @@ const DatetimePicker = (props: Props) => {
       return null;
     }
   };
-  
+
   return (
     <View>
       {renderPlatform()}
     </View>
-  )
-}
+  );
+};
 
 // Styles
 const styles = StyleSheet.create({

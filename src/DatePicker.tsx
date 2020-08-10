@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Button, Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
-import moment from 'moment';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
@@ -58,13 +57,13 @@ const DatePicker = (props: Props) => {
 
       // Undefined
       if (newDate === undefined) {
-        // React Hook: Toggle Android 
+        // React Hook: Toggle Android
         toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
       }
 
       // Event Type: Set Date
       else if (event.type === 'set') {
-        // React Hook: Toggle Android 
+        // React Hook: Toggle Android
         toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
 
         // React Hook: Set From Date
@@ -99,7 +98,7 @@ const DatePicker = (props: Props) => {
         value={tempDate ? tempDate : date}
         onChange={(event: any, newDate: any) => selectDate(event, newDate)}
       />
-    )
+    );
   };
 
   // Press Cancel
@@ -133,8 +132,20 @@ const DatePicker = (props: Props) => {
           value={date}
           onChange={(event: any, date: any) => selectDate(event, date)}
         />
-      )
+      );
     }
+  };
+
+  // Format Date
+  const formatDate = (date: Date) => {
+    // Options
+    const options = {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    };
+
+    return date.toLocaleDateString('en-US', options);
   };
 
   return (
@@ -144,7 +155,7 @@ const DatePicker = (props: Props) => {
       </View>
 
       <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-        <Text style={styles.fieldText} numberOfLines={1}>{moment(date).format('MMM Do, YYYY')}</Text>
+        <Text style={styles.fieldText} numberOfLines={1}>{formatDate(date)}</Text>
       </TouchableOpacity>
 
       <View>{androidModalVisible === true ? renderAndroidPicker(): null}</View>
@@ -175,7 +186,7 @@ const DatePicker = (props: Props) => {
       </Modal>
     </View>
   );
-}
+};
 
 // Styles
 const styles = StyleSheet.create({

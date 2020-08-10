@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Button, Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
-import moment from 'moment';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
@@ -80,13 +79,13 @@ const DateRangePicker = (props: Props) => {
     if (Platform.OS === 'android') {
       // Undefined
       if (newDate === undefined) {
-        // React Hook: Toggle From Date Android 
+        // React Hook: Toggle From Date Android
         toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
       }
 
       // Event Type: Set Date
       else if (event.type === 'set') {
-        // React Hook: Toggle Android 
+        // React Hook: Toggle Android
         toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
 
         // React Hook: Set From Date
@@ -119,13 +118,13 @@ const DateRangePicker = (props: Props) => {
     if (Platform.OS === 'android') {
       // Undefined
       if (newDate === undefined) {
-        // React Hook: Toggle From Date Android 
+        // React Hook: Toggle From Date Android
         toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
       }
 
       // Event Type: Set Date
       else if (event.type === 'set') {
-        // React Hook: Toggle Android 
+        // React Hook: Toggle Android
         toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
 
         // React Hook: Set To Date
@@ -160,7 +159,7 @@ const DateRangePicker = (props: Props) => {
         value={tempFromDate ? tempFromDate : fromDate}
         onChange={(event: any, newDate: any) => selectFromDate(event, newDate)}
       />
-    )
+    );
   };
 
   // Press Cancel (From Date)
@@ -192,7 +191,7 @@ const DateRangePicker = (props: Props) => {
         value={tempToDate ? tempToDate : toDate}
         onChange={(event: any, newDate: any) => selectToDate(event, newDate)}
       />
-    )
+    );
   };
 
   // Press Cancel (To Date)
@@ -226,7 +225,7 @@ const DateRangePicker = (props: Props) => {
           value={toDate}
           onChange={(event: any, newDate: any) => selectToDate(event, newDate)}
         />
-      )
+      );
     }
   };
 
@@ -240,8 +239,20 @@ const DateRangePicker = (props: Props) => {
           value={fromDate}
           onChange={(event: any, newDate: any) => selectFromDate(event, newDate)}
         />
-      )
+      );
     }
+  };
+
+  // Format Date
+  const formatDate = (date: Date) => {
+    // Options
+    const options = {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    };
+
+    return date.toLocaleDateString('en-US', options);
   };
 
   return (
@@ -253,7 +264,7 @@ const DateRangePicker = (props: Props) => {
       <View style={styles.toFromDateContainer}>
         <TouchableOpacity onPress={() => toggleFromDateModal()} style={styles.dateInfoContainer}>
           <Text style={styles.dateText}>From</Text>
-          <Text style={styles.text}>{moment(fromDate).format('MMM Do, YYYY')}</Text>
+          <Text style={styles.text}>{formatDate(fromDate)}</Text>
         </TouchableOpacity>
 
         <View>{androidFromDateVisible === true ? renderFromDateAndroidPicker() : null}</View>
@@ -288,7 +299,7 @@ const DateRangePicker = (props: Props) => {
       <View style={styles.toFromDateContainer}>
         <TouchableOpacity onPress={() => toggleToDateModal()} style={styles.dateInfoContainer}>
           <Text style={styles.dateText}>To</Text>
-          <Text style={styles.text}>{String(toDate) === String(fromDate) ? 'Select' : moment(toDate).format('MMM Do, YYYY')}</Text>
+          <Text style={styles.text}>{String(toDate) === String(fromDate) ? 'Select' : formatDate(toDate)}</Text>
         </TouchableOpacity>
 
         <View>{androidToDateVisible === true ? renderToDateAndroidPicker(): null}</View>
@@ -319,7 +330,7 @@ const DateRangePicker = (props: Props) => {
       </View>
     </View>
   );
-}
+};
 
 // Styles
 const styles = StyleSheet.create({
