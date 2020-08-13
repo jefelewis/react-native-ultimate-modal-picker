@@ -30,7 +30,7 @@
     "lint": "eslint ."
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/jefelewis"
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "^2.6.1",
