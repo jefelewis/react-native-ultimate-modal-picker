@@ -1,6 +1,16 @@
 // Imports: Dependencies
 import React, { useState, useEffect } from 'react';
-import { Appearance, Button, Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
+import {
+  Appearance,
+  Button,
+  Dimensions,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import { Picker } from '@react-native-community/picker';
 import Modal from 'react-native-modal';
 
@@ -11,32 +21,63 @@ const { height, width } = Dimensions.get('window');
 const colorScheme = Appearance.getColorScheme();
 
 // TypeScript: Types
+interface Style {
+  container?: ViewStyle;
+  modal?: ViewStyle;
+  modalContainer?: ViewStyle;
+  pickerHeaderContainer?: ViewStyle;
+  pickerContainer?: ViewStyle;
+  doneButton?: ViewStyle;
+  cancelText?: TextStyle;
+  inputTitleContainer?: ViewStyle;
+  inputTitle?: TextStyle;
+  fieldTextContainer?: ViewStyle;
+  fieldText?: TextStyle;
+}
+
 interface Props {
   title?: string;
   defaultValue?: string;
   onChange: (item: any) => any;
+  style?: Style;
 }
 
 interface Item {
   label: string;
   value: number | string;
   key: number | string;
-};
+}
 
 // Component: Number Picker
-const NumberPicker = (props: Props) => {
+const NumberPicker = ({
+  defaultValue,
+  onChange,
+  title,
+  style = {
+    container: {},
+    modal: {},
+    modalContainer: {},
+    pickerHeaderContainer: {},
+    pickerContainer: {},
+    doneButton: {},
+    cancelText: {},
+    inputTitleContainer: {},
+    inputTitle: {},
+    fieldTextContainer: {},
+    fieldText: {},
+  },
+}: Props) => {
   // React Hooks: State
-  const [ modalVisible, toggle ] = useState(false);
-  const [ tempItem, setTempItem ] = useState('');
-  const [ item, setItem ] = useState('');
+  const [modalVisible, toggle] = useState(false);
+  const [tempItem, setTempItem] = useState('');
+  const [item, setItem] = useState('');
 
   // React Hooks: Lifecycle Method
   useEffect(() => {
     // Check If Default Value Exists
-    if (props.defaultValue) {
-      setItem(props.defaultValue);
-    }
-    else {
+    if (defaultValue) {
+      setItem(defaultValue);
+    } else {
       setItem('Select');
     }
   }, []);
@@ -169,7 +210,7 @@ const NumberPicker = (props: Props) => {
       setItem(item);
 
       // React Props: onChange
-      props.onChange(item);
+      onChange(item);
     }
   };
 
@@ -190,7 +231,7 @@ const NumberPicker = (props: Props) => {
           );
         })}
       </Picker>
-    )
+    );
   };
 
   // Press Cancel
@@ -208,7 +249,7 @@ const NumberPicker = (props: Props) => {
     setItem(tempItem);
 
     // Props: onChange
-    props.onChange(tempItem);
+    onChange(tempItem);
 
     // Toggle Modal
     toggleModal();
@@ -219,36 +260,63 @@ const NumberPicker = (props: Props) => {
     // Check Platform (iOS)
     if (Platform.OS === 'ios') {
       return (
-        <View style={styles.container}>
-          <View style={styles.inputTitleContainer}>
-            <Text style={styles.inputTitle}>{props.title === undefined ? 'Number' : props.title}</Text>
+        <View style={{ ...styles.container, ...style.container }}>
+          <View
+            style={{
+              ...styles.inputTitleContainer,
+              ...style.inputTitleContainer,
+            }}>
+            <Text
+              style={{
+                ...styles.inputTitle,
+                ...style.inputTitle,
+              }}>
+              {title === undefined ? 'Number' : title}
+            </Text>
           </View>
 
-          <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-            <Text style={styles.fieldText} numberOfLines={1}>{item !== undefined ? item : 'Select'}</Text>
+          <TouchableOpacity
+            onPress={() => toggleModal()}
+            style={{
+              ...styles.fieldTextContainer,
+              ...style.fieldTextContainer,
+            }}>
+            <Text
+              style={{ ...styles.fieldText, ...style.fieldText }}
+              numberOfLines={1}>
+              {item !== undefined ? item : 'Select'}
+            </Text>
           </TouchableOpacity>
 
           <Modal
             isVisible={modalVisible}
-            style={styles.modal}
-            backdropOpacity={.30}
-          >
-            <View style={styles.modalContainer}>
-              <View style={styles.pickerHeaderContainer}>
-                <TouchableOpacity onPress={() => pressCancel()} >
-                    <Text style={styles.cancelText}>Cancel</Text>
-                  </TouchableOpacity>
+            style={{ ...styles.modal, ...style.modal }}
+            backdropOpacity={0.3}>
+            <View style={{ ...styles.modalContainer, ...style.modalContainer }}>
+              <View
+                style={{
+                  ...styles.pickerHeaderContainer,
+                  ...style.pickerHeaderContainer,
+                }}>
+                <TouchableOpacity onPress={() => pressCancel()}>
+                  <Text style={{ ...styles.cancelText, ...style.cancelText }}>
+                    Cancel
+                  </Text>
+                </TouchableOpacity>
 
-                  <View style={styles.doneButton}>
-                    <Button
-                      onPress={() => pressDone()}
-                      title="Done"
-                      disabled={item === tempItem ? true : false}
-                    />
-                  </View>
+                <View style={{ ...styles.doneButton, ...style.doneButton }}>
+                  <Button
+                    onPress={() => pressDone()}
+                    title="Done"
+                    disabled={item === tempItem ? true : false}
+                  />
+                </View>
               </View>
 
-              <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
+              <View
+                style={{ ...styles.pickerContainer, ...style.pickerContainer }}>
+                {renderIOSPicker()}
+              </View>
             </View>
           </Modal>
         </View>
@@ -258,15 +326,29 @@ const NumberPicker = (props: Props) => {
     // Check Platform (Android)
     else if (Platform.OS === 'android') {
       return (
-        <View style={styles.container}>
-          <View style={styles.inputTitleContainer}>
-            <Text style={styles.inputTitle}>{props.title}</Text>
+        <View style={{ ...styles.container, ...style.container }}>
+          <View
+            style={{
+              ...styles.inputTitleContainer,
+              ...style.inputTitleContainer,
+            }}>
+            <Text
+              style={{
+                ...styles.inputTitle,
+                ...style.inputTitle,
+              }}>
+              {title}
+            </Text>
           </View>
 
-          <View style={styles.fieldTextContainer}>
+          <View
+            style={{
+              ...styles.fieldTextContainer,
+              ...style.fieldTextContainer,
+            }}>
             <Picker
               selectedValue={item}
-              style={{height: 60, width: width - 16}}
+              style={{ height: 60, width: width - 16 }}
               onValueChange={(item) => selectItem(item)}
               mode="dropdown">
               {numbers.map((item: any) => {
@@ -286,9 +368,7 @@ const NumberPicker = (props: Props) => {
     }
   };
 
-  return (
-    <View>{renderPlatform()}</View>
-  );
+  return <View>{renderPlatform()}</View>;
 };
 
 // Styles
@@ -378,7 +458,7 @@ const styles = StyleSheet.create({
   },
   arrowForward: {
     color: 'black',
-    opacity: .3,
+    opacity: 0.3,
     marginRight: 7,
   },
 });

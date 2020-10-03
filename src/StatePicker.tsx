@@ -1,6 +1,16 @@
 // Imports: Dependencies
 import React, { useState } from 'react';
-import { Appearance, Button, Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
+import {
+  Appearance,
+  Button,
+  Dimensions,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import { Picker } from '@react-native-community/picker';
 import Modal from 'react-native-modal';
 
@@ -11,16 +21,30 @@ const { height, width } = Dimensions.get('window');
 const colorScheme = Appearance.getColorScheme();
 
 // TypeScript: Types
+interface Style {
+  container?: ViewStyle;
+  modal?: ViewStyle;
+  modalContainer?: ViewStyle;
+  pickerHeaderContainer?: ViewStyle;
+  pickerContainer?: ViewStyle;
+  doneButton?: ViewStyle;
+  cancelText?: TextStyle;
+  inputTitleContainer?: ViewStyle;
+  inputTitle?: TextStyle;
+  fieldTextContainer?: ViewStyle;
+  fieldText?: TextStyle;
+}
 interface Props {
   title?: string;
   onChange: (state: any) => any;
+  style?: Style;
 }
 
 interface Item {
   label: string;
   value: string;
   key: number | string;
-};
+}
 
 interface UnitedStates {
   [key: number]: State;
@@ -33,11 +57,27 @@ interface State {
 }
 
 // Component: State Picker
-const StatePicker = (props: Props) => {
+const StatePicker = ({
+  onChange,
+  title,
+  style = {
+    container: {},
+    modal: {},
+    modalContainer: {},
+    pickerHeaderContainer: {},
+    pickerContainer: {},
+    doneButton: {},
+    cancelText: {},
+    inputTitleContainer: {},
+    inputTitle: {},
+    fieldTextContainer: {},
+    fieldText: {},
+  },
+}: Props) => {
   // React Hooks: State
-  const [ modalVisible, toggle ] = useState(false);
-  const [ tempState, setTempState ] = useState();
-  const [ state, setState ] = useState();
+  const [modalVisible, toggle] = useState(false);
+  const [tempState, setTempState] = useState();
+  const [state, setState] = useState();
 
   // United States
   const unitedStates: UnitedStates = [
@@ -121,7 +161,7 @@ const StatePicker = (props: Props) => {
       setState(value);
 
       // React Props: onChange
-      props.onChange(value);
+      onChange(value);
     }
   };
 
@@ -160,7 +200,7 @@ const StatePicker = (props: Props) => {
     setState(tempState);
 
     // Props: onChange
-    props.onChange(tempState);
+    onChange(tempState);
 
     // Toggle Modal
     toggleModal();
@@ -171,27 +211,49 @@ const StatePicker = (props: Props) => {
     // Check Platform (iOS)
     if (Platform.OS === 'ios') {
       return (
-        <View style={styles.container}>
-          <View style={styles.inputTitleContainer}>
-            <Text style={styles.inputTitle}>{props.title === undefined ? 'State' : props.title}</Text>
+        <View style={{ ...styles.container, ...style.container }}>
+          <View
+            style={{
+              ...styles.inputTitleContainer,
+              ...style.inputTitleContainer,
+            }}>
+            <Text
+              style={{
+                ...styles.inputTitle,
+                ...style.inputTitle,
+              }}>
+              {title === undefined ? 'State' : title}
+            </Text>
           </View>
 
-          <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-            <Text style={styles.fieldText}>{state !== undefined ? state : 'Select'}</Text>
+          <TouchableOpacity
+            onPress={() => toggleModal()}
+            style={{
+              ...styles.fieldTextContainer,
+              ...style.fieldTextContainer,
+            }}>
+            <Text style={{ ...styles.fieldText, ...style.fieldText }}>
+              {state !== undefined ? state : 'Select'}
+            </Text>
           </TouchableOpacity>
 
           <Modal
             isVisible={modalVisible}
-            style={styles.modal}
-            backdropOpacity={.30}
-          >
-            <View style={styles.modalContainer}>
-              <View style={styles.pickerHeaderContainer}>
-                <TouchableOpacity onPress={() => pressCancel()} >
-                  <Text style={styles.cancelText}>Cancel</Text>
+            style={{ ...styles.modal, ...style.modal }}
+            backdropOpacity={0.3}>
+            <View style={{ ...styles.modalContainer, ...style.modalContainer }}>
+              <View
+                style={{
+                  ...styles.pickerHeaderContainer,
+                  ...style.pickerHeaderContainer,
+                }}>
+                <TouchableOpacity onPress={() => pressCancel()}>
+                  <Text style={{ ...styles.cancelText, ...style.cancelText }}>
+                    Cancel
+                  </Text>
                 </TouchableOpacity>
 
-                <View style={styles.doneButton}>
+                <View style={{ ...styles.doneButton, ...style.doneButton }}>
                   <Button
                     onPress={() => pressDone()}
                     title="Done"
@@ -200,7 +262,10 @@ const StatePicker = (props: Props) => {
                 </View>
               </View>
 
-              <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
+              <View
+                style={{ ...styles.pickerContainer, ...style.pickerContainer }}>
+                {renderIOSPicker()}
+              </View>
             </View>
           </Modal>
         </View>
@@ -210,15 +275,29 @@ const StatePicker = (props: Props) => {
     // Check Platform (Android)
     else if (Platform.OS === 'android') {
       return (
-        <View style={styles.container}>
-          <View style={styles.inputTitleContainer}>
-            <Text style={styles.inputTitle}>State</Text>
+        <View style={{ ...styles.container, ...style.container }}>
+          <View
+            style={{
+              ...styles.inputTitleContainer,
+              ...style.inputTitleContainer,
+            }}>
+            <Text
+              style={{
+                ...styles.inputTitle,
+                ...style.inputTitle,
+              }}>
+              State
+            </Text>
           </View>
 
-          <View style={styles.fieldTextContainer}>
+          <View
+            style={{
+              ...styles.fieldTextContainer,
+              ...style.fieldTextContainer,
+            }}>
             <Picker
               selectedValue={state}
-              style={{height: 60, width: width - 16}}
+              style={{ height: 60, width: width - 16 }}
               onValueChange={(state) => selectState(state)}>
               {unitedStates.map((state: any) => {
                 return (
@@ -237,9 +316,7 @@ const StatePicker = (props: Props) => {
     }
   };
 
-  return (
-    <View>{renderPlatform()}</View>
-  );
+  return <View>{renderPlatform()}</View>;
 };
 
 // Styles
@@ -329,7 +406,7 @@ const styles = StyleSheet.create({
   },
   arrowForward: {
     color: 'black',
-    opacity: .3,
+    opacity: 0.3,
     marginRight: 7,
   },
 });

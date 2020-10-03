@@ -1,6 +1,16 @@
 // Imports: Dependencies
 import React, { useState, useEffect } from 'react';
-import { Appearance, Button, Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
+import {
+  Appearance,
+  Button,
+  Dimensions,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 
@@ -11,27 +21,59 @@ const { height, width } = Dimensions.get('window');
 const colorScheme = Appearance.getColorScheme();
 
 // TypeScript: Types
+
+interface Style {
+  container?: ViewStyle;
+  modal?: ViewStyle;
+  modalContainer?: ViewStyle;
+  pickerHeaderContainer?: ViewStyle;
+  pickerContainer?: ViewStyle;
+  doneButton?: ViewStyle;
+  cancelText?: TextStyle;
+  inputTitleContainer?: ViewStyle;
+  inputTitle?: TextStyle;
+  fieldTextContainer?: ViewStyle;
+  fieldText?: TextStyle;
+}
 interface Props {
   title?: string;
   mode: 'calendar' | 'spinner' | 'default';
   onChange: (date: Date | string) => Date | string | void;
+  style?: Style;
 }
 
 // Component: Date Picker
-const DatePicker = (props: Props) => {
+const DatePicker = ({
+  onChange,
+  mode,
+  title,
+  style = {
+    container: {},
+    modal: {},
+    modalContainer: {},
+    pickerHeaderContainer: {},
+    pickerContainer: {},
+    doneButton: {},
+    cancelText: {},
+    inputTitleContainer: {},
+    inputTitle: {},
+    fieldTextContainer: {},
+    fieldText: {},
+  },
+}: Props) => {
   // React Hooks: State
-  const [ modalVisible, toggle ] = useState(false);
-  const [ androidModalVisible, toggleAndroid ] = useState(false);
-  const [ date, setDate ] = useState(new Date());
-  const [ tempDate, setTempDate ] = useState(date);
-  const [ today, todaySent ] = useState(false);
+  const [modalVisible, toggle] = useState(false);
+  const [androidModalVisible, toggleAndroid] = useState(false);
+  const [date, setDate] = useState(new Date());
+  const [tempDate, setTempDate] = useState(date);
+  const [today, todaySent] = useState(false);
 
   // React Hooks: Lifecycle Methods
   useEffect(() => {
     // Send Initial Date
     if (today === false) {
       // Props: onFromChange
-      props.onChange(new Date());
+      onChange(new Date());
 
       // Today's Date Has Been Sent To Parent Component
       todaySent(true);
@@ -57,7 +99,6 @@ const DatePicker = (props: Props) => {
   const selectDate = (event: any, newDate: Date) => {
     // Check Platform: Android
     if (Platform.OS === 'android') {
-
       // Undefined
       if (newDate === undefined) {
         // React Hook: Toggle Android
@@ -73,7 +114,7 @@ const DatePicker = (props: Props) => {
         setDate(newDate);
 
         // React Props: onChange
-        props.onChange(newDate);
+        onChange(newDate);
       }
 
       // Event Type: Dismissed
@@ -119,7 +160,7 @@ const DatePicker = (props: Props) => {
     setDate(tempDate);
 
     // Props: onChange
-    props.onChange(tempDate);
+    onChange(tempDate);
 
     // Toggle Modal
     toggleModal();
@@ -131,7 +172,7 @@ const DatePicker = (props: Props) => {
       return (
         <RNDateTimePicker
           mode="date"
-          display={props.mode}
+          display={mode}
           value={date}
           onChange={(event: any, date: any) => selectDate(event, date)}
         />
@@ -152,30 +193,47 @@ const DatePicker = (props: Props) => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.inputTitleContainer}>
-        <Text style={styles.inputTitle}>{props.title === undefined ? 'Date' : props.title}</Text>
+    <View style={{ ...styles.container, ...style.container }}>
+      <View
+        style={{ ...styles.inputTitleContainer, ...style.inputTitleContainer }}>
+        <Text
+          style={{
+            ...styles.inputTitle,
+            ...style.inputTitle,
+          }}>
+          {title === undefined ? 'Date' : title}
+        </Text>
       </View>
 
-      <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-        <Text style={styles.fieldText} numberOfLines={1}>{formatDate(date)}</Text>
+      <TouchableOpacity
+        onPress={() => toggleModal()}
+        style={{ ...styles.fieldTextContainer, ...style.fieldTextContainer }}>
+        <Text
+          style={{ ...styles.fieldText, ...style.fieldText }}
+          numberOfLines={1}>
+          {formatDate(date)}
+        </Text>
       </TouchableOpacity>
 
-      <View>{androidModalVisible === true ? renderAndroidPicker(): null}</View>
+      <View>{androidModalVisible === true ? renderAndroidPicker() : null}</View>
 
       <Modal
         isVisible={modalVisible}
-        style={styles.modal}
-        backdropOpacity={.30}
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.pickerHeaderContainer}>
-            <TouchableOpacity
-              onPress={() => pressCancel()} >
-              <Text style={styles.cancelText}>Cancel</Text>
+        style={{ ...styles.modal, ...style.modal }}
+        backdropOpacity={0.3}>
+        <View style={{ ...styles.modalContainer, ...style.modalContainer }}>
+          <View
+            style={{
+              ...styles.pickerHeaderContainer,
+              ...style.pickerHeaderContainer,
+            }}>
+            <TouchableOpacity onPress={() => pressCancel()}>
+              <Text style={{ ...styles.cancelText, ...style.cancelText }}>
+                Cancel
+              </Text>
             </TouchableOpacity>
 
-            <View style={styles.doneButton}>
+            <View style={{ ...styles.doneButton, ...style.doneButton }}>
               <Button
                 onPress={() => pressDone()}
                 title="Done"
@@ -184,7 +242,9 @@ const DatePicker = (props: Props) => {
             </View>
           </View>
 
-          <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
+          <View style={{ ...styles.pickerContainer, ...style.pickerContainer }}>
+            {renderIOSPicker()}
+          </View>
         </View>
       </Modal>
     </View>
@@ -278,7 +338,7 @@ const styles = StyleSheet.create({
   },
   arrowForward: {
     color: 'black',
-    opacity: .3,
+    opacity: 0.3,
     marginRight: 7,
   },
 });

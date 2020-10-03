@@ -1,6 +1,17 @@
 // Imports: Dependencies
 import React, { useState, useEffect } from 'react';
-import { Appearance, Button, Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
+import {
+  Appearance,
+  Button,
+  Dimensions,
+  Keyboard,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 
@@ -11,25 +22,57 @@ const { height, width } = Dimensions.get('window');
 const colorScheme = Appearance.getColorScheme();
 
 // TypeScript: Types
+
+interface Style {
+  container?: ViewStyle;
+  modal?: ViewStyle;
+  modalContainer?: ViewStyle;
+  pickerHeaderContainer?: ViewStyle;
+  pickerContainer?: ViewStyle;
+  doneButton?: ViewStyle;
+  cancelText?: TextStyle;
+  inputTitleContainer?: ViewStyle;
+  inputTitle?: TextStyle;
+  fieldTextContainer?: ViewStyle;
+  fieldText?: TextStyle;
+}
+
 interface Props {
   title?: string;
   onChange: (date: Date | string) => Date | string | void;
+  style?: Style;
 }
 
 // Component: Datetime Picker
-const DatetimePicker = (props: Props) => {
+const DatetimePicker = ({
+  onChange,
+  title,
+  style = {
+    container: {},
+    modal: {},
+    modalContainer: {},
+    pickerHeaderContainer: {},
+    pickerContainer: {},
+    doneButton: {},
+    cancelText: {},
+    inputTitleContainer: {},
+    inputTitle: {},
+    fieldTextContainer: {},
+    fieldText: {},
+  },
+}: Props) => {
   // React Hooks: State
-  const [ modalVisible, toggle ] = useState(false);
-  const [ date, setDate ] = useState(new Date());
-  const [ tempDate, setTempDate ] = useState(date);
-  const [ today , todaySent ] = useState(false);
+  const [modalVisible, toggle] = useState(false);
+  const [date, setDate] = useState(new Date());
+  const [tempDate, setTempDate] = useState(date);
+  const [today, todaySent] = useState(false);
 
   // React Hooks: Lifecycle Methods
   useEffect(() => {
     // Send Initial Date
     if (today === false) {
       // Props: onFromChange
-      props.onChange(new Date());
+      onChange(new Date());
 
       // Today's Date Has Been Sent To Parent Component
       todaySent(true);
@@ -83,7 +126,7 @@ const DatetimePicker = (props: Props) => {
     setDate(tempDate);
 
     // Props: onChange
-    props.onChange(tempDate);
+    onChange(tempDate);
 
     // Toggle Modal
     toggleModal();
@@ -117,27 +160,51 @@ const DatetimePicker = (props: Props) => {
     // Check Platform (iOS)
     if (Platform.OS == 'ios') {
       return (
-        <View style={styles.container}>
-          <View style={styles.inputTitleContainer}>
-            <Text style={styles.inputTitle}>{props.title === undefined ? 'Date/Time' : props.title}</Text>
+        <View style={{ ...styles.container, ...style.container }}>
+          <View
+            style={{
+              ...styles.inputTitleContainer,
+              ...style.inputTitleContainer,
+            }}>
+            <Text
+              style={{
+                ...styles.inputTitle,
+                ...style.inputTitle,
+              }}>
+              {title === undefined ? 'Date/Time' : title}
+            </Text>
           </View>
 
-          <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-            <Text style={styles.fieldText} numberOfLines={1}>{date ? `${formatDate(date)} ${formatTime(date)}` : 'Select'}</Text>
+          <TouchableOpacity
+            onPress={() => toggleModal()}
+            style={{
+              ...styles.fieldTextContainer,
+              ...style.fieldTextContainer,
+            }}>
+            <Text
+              style={{ ...styles.fieldText, ...style.fieldText }}
+              numberOfLines={1}>
+              {date ? `${formatDate(date)} ${formatTime(date)}` : 'Select'}
+            </Text>
           </TouchableOpacity>
 
           <Modal
             isVisible={modalVisible}
-            style={styles.modal}
-            backdropOpacity={.30}
-          >
-            <View style={styles.modalContainer}>
-              <View style={styles.pickerHeaderContainer}>
-                <TouchableOpacity onPress={() => pressCancel()} >
-                  <Text style={styles.cancelText}>Cancel</Text>
+            style={{ ...styles.modal, ...style.modal }}
+            backdropOpacity={0.3}>
+            <View style={{ ...styles.modalContainer, ...style.modalContainer }}>
+              <View
+                style={{
+                  ...styles.pickerHeaderContainer,
+                  ...style.pickerHeaderContainer,
+                }}>
+                <TouchableOpacity onPress={() => pressCancel()}>
+                  <Text style={{ ...styles.cancelText, ...style.cancelText }}>
+                    Cancel
+                  </Text>
                 </TouchableOpacity>
 
-                <View style={styles.doneButton}>
+                <View style={{ ...styles.doneButton, ...style.doneButton }}>
                   <Button
                     onPress={() => pressDone()}
                     title="Done"
@@ -146,7 +213,10 @@ const DatetimePicker = (props: Props) => {
                 </View>
               </View>
 
-              <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
+              <View
+                style={{ ...styles.pickerContainer, ...style.pickerContainer }}>
+                {renderIOSPicker()}
+              </View>
             </View>
           </Modal>
         </View>
@@ -159,11 +229,7 @@ const DatetimePicker = (props: Props) => {
     }
   };
 
-  return (
-    <View>
-      {renderPlatform()}
-    </View>
-  );
+  return <View>{renderPlatform()}</View>;
 };
 
 // Styles
@@ -232,7 +298,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: '600',
     textTransform: 'uppercase',
-
   },
   fieldTextContainer: {
     height: 40,
@@ -254,7 +319,7 @@ const styles = StyleSheet.create({
   },
   arrowForward: {
     color: 'black',
-    opacity: .3,
+    opacity: 0.3,
     marginRight: 7,
   },
 });

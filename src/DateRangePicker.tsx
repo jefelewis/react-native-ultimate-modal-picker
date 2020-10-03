@@ -1,6 +1,17 @@
 // Imports: Dependencies
 import React, { useState, useEffect } from 'react';
-import { Appearance, Button, Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
+import {
+  Appearance,
+  Button,
+  Dimensions,
+  Keyboard,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from 'react-native';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 
@@ -11,32 +22,71 @@ const { height, width } = Dimensions.get('window');
 const colorScheme = Appearance.getColorScheme();
 
 // TypeScript: Types
+interface Style {
+  container?: ViewStyle;
+  modal?: ViewStyle;
+  modalContainer?: ViewStyle;
+  pickerHeaderContainer?: ViewStyle;
+  pickerContainer?: ViewStyle;
+  doneButton?: ViewStyle;
+  cancelText?: TextStyle;
+  inputTitleContainer?: ViewStyle;
+  inputTitle?: TextStyle;
+  divider?: ViewStyle;
+  toFromDateContainer?: ViewStyle;
+  dateInfoContainer?: ViewStyle;
+  dateText?: TextStyle;
+  text?: TextStyle;
+}
+
 interface Props {
   title?: string;
   mode: 'calendar' | 'spinner' | 'default';
   onFromChange: (newDate: Date | string) => Date | string | void;
   onToChange: (newDate: Date | string) => Date | string | void;
+  style?: Style;
 }
 
 // Component: Date Range Picker
-const DateRangePicker = (props: Props) => {
+const DateRangePicker = ({
+  onFromChange,
+  onToChange,
+  mode,
+  title,
+  style = {
+    container: {},
+    modal: {},
+    modalContainer: {},
+    pickerHeaderContainer: {},
+    pickerContainer: {},
+    doneButton: {},
+    cancelText: {},
+    inputTitleContainer: {},
+    inputTitle: {},
+    divider: {},
+    toFromDateContainer: {},
+    dateInfoContainer: {},
+    dateText: {},
+    text: {},
+  },
+}: Props) => {
   // React Hooks: State
-  const [ fromDateModalVisible, toggleFromDate ] = useState(false);
-  const [ toDateModalVisible, toggleToDate ] = useState(false);
-  const [ androidFromDateVisible, toggleFromDateAndroid ] = useState(false);
-  const [ androidToDateVisible, toggleToDateAndroid ] = useState(false);
-  const [ fromDate, setFromDate ] = useState(new Date());
-  const [ toDate, setToDate ] = useState(new Date());
-  const [ tempToDate, setTempToDate ] = useState(toDate);
-  const [ tempFromDate, setTempFromDate ] = useState(fromDate);
-  const [ today , todaySent ] = useState(false);
+  const [fromDateModalVisible, toggleFromDate] = useState(false);
+  const [toDateModalVisible, toggleToDate] = useState(false);
+  const [androidFromDateVisible, toggleFromDateAndroid] = useState(false);
+  const [androidToDateVisible, toggleToDateAndroid] = useState(false);
+  const [fromDate, setFromDate] = useState(new Date());
+  const [toDate, setToDate] = useState(new Date());
+  const [tempToDate, setTempToDate] = useState(toDate);
+  const [tempFromDate, setTempFromDate] = useState(fromDate);
+  const [today, todaySent] = useState(false);
 
   // React Hooks: Lifecycle Methods
   useEffect(() => {
     // Send Initial Date
     if (today === false) {
       // Props: onFromChange
-      props.onFromChange(new Date());
+      onFromChange(new Date());
 
       // Today's Date Has Been Sent To Parent Component
       todaySent(true);
@@ -54,7 +104,9 @@ const DateRangePicker = (props: Props) => {
     // Check Platform (Android)
     else if (Platform.OS === 'android') {
       // React Hook: Toggle Android
-      toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
+      toggleFromDateAndroid(
+        (androidFromDateVisible: boolean) => !androidFromDateVisible,
+      );
     }
   };
 
@@ -69,7 +121,9 @@ const DateRangePicker = (props: Props) => {
     // Check Platform (Android)
     else if (Platform.OS === 'android') {
       // React Hook: Toggle Android
-      toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
+      toggleToDateAndroid(
+        (androidToDateVisible: boolean) => !androidToDateVisible,
+      );
     }
 
     // Dismiss Keyboard
@@ -83,19 +137,23 @@ const DateRangePicker = (props: Props) => {
       // Undefined
       if (newDate === undefined) {
         // React Hook: Toggle From Date Android
-        toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
+        toggleFromDateAndroid(
+          (androidFromDateVisible: boolean) => !androidFromDateVisible,
+        );
       }
 
       // Event Type: Set Date
       else if (event.type === 'set') {
         // React Hook: Toggle Android
-        toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
+        toggleFromDateAndroid(
+          (androidFromDateVisible: boolean) => !androidFromDateVisible,
+        );
 
         // React Hook: Set From Date
         setFromDate(newDate);
 
         // React Props: onChange
-        props.onFromChange(newDate);
+        onFromChange(newDate);
       }
 
       // Event Type: Dismissed
@@ -122,19 +180,23 @@ const DateRangePicker = (props: Props) => {
       // Undefined
       if (newDate === undefined) {
         // React Hook: Toggle From Date Android
-        toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
+        toggleToDateAndroid(
+          (androidToDateVisible: boolean) => !androidToDateVisible,
+        );
       }
 
       // Event Type: Set Date
       else if (event.type === 'set') {
         // React Hook: Toggle Android
-        toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
+        toggleToDateAndroid(
+          (androidToDateVisible: boolean) => !androidToDateVisible,
+        );
 
         // React Hook: Set To Date
         setToDate(newDate);
 
         // React Props: onChange
-        props.onToChange(newDate);
+        onToChange(newDate);
       }
 
       // Event Type: Dismissed
@@ -180,7 +242,7 @@ const DateRangePicker = (props: Props) => {
     setFromDate(tempFromDate);
 
     // Props: onChange
-    props.onFromChange(tempFromDate);
+    onFromChange(tempFromDate);
 
     // Toggle Modal
     toggleFromDateModal();
@@ -212,7 +274,7 @@ const DateRangePicker = (props: Props) => {
     setToDate(tempToDate);
 
     // Props: onChange
-    props.onToChange(tempToDate);
+    onToChange(tempToDate);
 
     // Toggle Modal
     toggleToDateModal();
@@ -224,7 +286,7 @@ const DateRangePicker = (props: Props) => {
       return (
         <RNDateTimePicker
           mode="date"
-          display={props.mode}
+          display={mode}
           value={toDate}
           onChange={(event: any, newDate: any) => selectToDate(event, newDate)}
         />
@@ -238,9 +300,11 @@ const DateRangePicker = (props: Props) => {
       return (
         <RNDateTimePicker
           mode="date"
-          display={props.mode}
+          display={mode}
           value={fromDate}
-          onChange={(event: any, newDate: any) => selectFromDate(event, newDate)}
+          onChange={(event: any, newDate: any) =>
+            selectFromDate(event, newDate)
+          }
         />
       );
     }
@@ -259,31 +323,51 @@ const DateRangePicker = (props: Props) => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.inputTitleContainer}>
-        <Text style={styles.inputTitle}>{props.title === undefined ? 'Date Range' : props.title}</Text>
+    <View style={{ ...styles.container, ...style.container }}>
+      <View
+        style={{ ...styles.inputTitleContainer, ...style.inputTitleContainer }}>
+        <Text
+          style={{
+            ...styles.inputTitle,
+            ...style.inputTitle,
+          }}>
+          {title === undefined ? 'Date Range' : title}
+        </Text>
       </View>
 
       <View style={styles.toFromDateContainer}>
-        <TouchableOpacity onPress={() => toggleFromDateModal()} style={styles.dateInfoContainer}>
-          <Text style={styles.dateText}>From</Text>
-          <Text style={styles.text}>{formatDate(fromDate)}</Text>
+        <TouchableOpacity
+          onPress={() => toggleFromDateModal()}
+          style={styles.dateInfoContainer}>
+          <Text style={{ ...styles.dateText, ...style.dateText }}>From</Text>
+          <Text style={{ ...styles.text, ...style.text }}>
+            {formatDate(fromDate)}
+          </Text>
         </TouchableOpacity>
 
-        <View>{androidFromDateVisible === true ? renderFromDateAndroidPicker() : null}</View>
+        <View>
+          {androidFromDateVisible === true
+            ? renderFromDateAndroidPicker()
+            : null}
+        </View>
 
         <Modal
           isVisible={fromDateModalVisible}
-          style={styles.modal}
-          backdropOpacity={.30}
-        >
-          <View style={styles.modalContainer}>
-            <View style={styles.pickerHeaderContainer}>
-              <TouchableOpacity onPress={() => pressCancelFromDate()} >
-                <Text style={styles.cancelText}>Cancel</Text>
+          style={{ ...styles.modal, ...style.modal }}
+          backdropOpacity={0.3}>
+          <View style={{ ...styles.modalContainer, ...style.modalContainer }}>
+            <View
+              style={{
+                ...styles.pickerHeaderContainer,
+                ...style.pickerHeaderContainer,
+              }}>
+              <TouchableOpacity onPress={() => pressCancelFromDate()}>
+                <Text style={{ ...styles.cancelText, ...style.cancelText }}>
+                  Cancel
+                </Text>
               </TouchableOpacity>
 
-              <View style={styles.doneButton}>
+              <View style={{ ...styles.doneButton, ...style.doneButton }}>
                 <Button
                   onPress={() => pressDoneFromDate()}
                   title="Done"
@@ -292,33 +376,50 @@ const DateRangePicker = (props: Props) => {
               </View>
             </View>
 
-            <View style={styles.pickerContainer}>{renderFromIOSDatePicker()}</View>
+            <View
+              style={{ ...styles.pickerContainer, ...style.pickerContainer }}>
+              {renderFromIOSDatePicker()}
+            </View>
           </View>
         </Modal>
       </View>
 
-      <View style={styles.divider}></View>
+      <View style={{ ...styles.divider, ...style.divider }}></View>
 
-      <View style={styles.toFromDateContainer}>
-        <TouchableOpacity onPress={() => toggleToDateModal()} style={styles.dateInfoContainer}>
-          <Text style={styles.dateText}>To</Text>
-          <Text style={styles.text}>{String(toDate) === String(fromDate) ? 'Select' : formatDate(toDate)}</Text>
+      <View
+        style={{ ...styles.toFromDateContainer, ...style.toFromDateContainer }}>
+        <TouchableOpacity
+          onPress={() => toggleToDateModal()}
+          style={{ ...styles.dateInfoContainer, ...style.dateInfoContainer }}>
+          <Text style={{ ...styles.dateText, ...style.dateText }}>To</Text>
+          <Text style={{ ...styles.text, ...style.text }}>
+            {String(toDate) === String(fromDate)
+              ? 'Select'
+              : formatDate(toDate)}
+          </Text>
         </TouchableOpacity>
 
-        <View>{androidToDateVisible === true ? renderToDateAndroidPicker(): null}</View>
+        <View>
+          {androidToDateVisible === true ? renderToDateAndroidPicker() : null}
+        </View>
 
         <Modal
           isVisible={toDateModalVisible}
-          style={styles.modal}
-          backdropOpacity={.30}
-        >
-          <View style={styles.modalContainer}>
-            <View style={styles.pickerHeaderContainer}>
-              <TouchableOpacity onPress={() => pressCancelToDate()} >
-                <Text style={styles.cancelText}>Cancel</Text>
+          style={{ ...styles.modal, ...style.modal }}
+          backdropOpacity={0.3}>
+          <View style={{ ...styles.modalContainer, ...style.modalContainer }}>
+            <View
+              style={{
+                ...styles.pickerHeaderContainer,
+                ...style.pickerHeaderContainer,
+              }}>
+              <TouchableOpacity onPress={() => pressCancelToDate()}>
+                <Text style={{ ...styles.cancelText, ...style.cancelText }}>
+                  Cancel
+                </Text>
               </TouchableOpacity>
 
-              <View style={styles.doneButton}>
+              <View style={{ ...styles.doneButton, ...style.doneButton }}>
                 <Button
                   onPress={() => pressDoneToDate()}
                   title="Done"
@@ -327,7 +428,10 @@ const DateRangePicker = (props: Props) => {
               </View>
             </View>
 
-            <View style={styles.pickerContainer}>{renderToIOSDatePicker()}</View>
+            <View
+              style={{ ...styles.pickerContainer, ...style.pickerContainer }}>
+              {renderToIOSDatePicker()}
+            </View>
           </View>
         </Modal>
       </View>
@@ -385,7 +489,7 @@ const styles = StyleSheet.create({
   },
   arrowForward: {
     color: 'black',
-    opacity: .3,
+    opacity: 0.3,
     marginRight: 7,
   },
   divider: {
