@@ -74,7 +74,7 @@ react-native run-ios
 ```javascript
 // Imports: Dependencies
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import {
   DateRangePicker,
   DatePicker,
@@ -87,6 +87,21 @@ import {
   StatePickerSmall,
   TextField,
 } from 'react-native-ultimate-modal-picker';
+
+// Override styles
+const overrideStyles = StyleSheet.create({
+  inputTitle: {
+    color: '#7D7D7D',
+    borderColor: '#7D7D7D',
+    fontSize: 17,
+    fontWeight: '600',
+    textTransform: 'uppercase',
+  },
+  fieldTextContainer: {
+    borderColor: '#029cf5',
+    borderBottomWidth: 2,
+  },
+});
 
 // React Native App
 const App = () => {
@@ -171,6 +186,72 @@ const App = () => {
         title="Text"
         value={(text: string | number) => console.log(text)}
       />
+
+      {/* Date Picker (Modes: spinner/calendar) styled*/}
+      <DatePicker
+        title="Date"
+        onChange={(date) => console.log(date)}
+        mode="spinner"
+        style={overrideStyles}
+      />
+      {/* Time Picker (Modes: spinner/clock) styled*/}
+      <TimePicker
+        title="Time"
+        onChange={(date) => console.log(date)}
+        mode="spinner"
+        style={overrideStyles}
+      />
+
+      {/* Date Time Picker (iOS Only) styled*/}
+      <DateTimePicker
+        title="Date/Time"
+        onChange={(date) => console.log(date)}
+        style={overrideStyles}
+      />
+
+      {/* List Picker styled*/}
+      <ListPicker
+        title="List"
+        items={items}
+        onChange={(item) => console.log(item)}
+        style={overrideStyles}
+      />
+
+      {/* Number Picker styled*/}
+      <NumberPicker
+        title="Number"
+        onChange={(item) => console.log(item)}
+        style={overrideStyles}
+      />
+
+      {/* Cooking Amount Picker styled*/}
+      <CookingAmountPicker
+        title="Amount"
+        onChange={(item) => console.log(item)}
+        style={overrideStyles}
+      />
+      {/* State Picker styled*/}
+      <StatePicker
+        title="State"
+        onChange={(state) => console.log(state)}
+        style={overrideStyles}
+      />
+
+      {/* State Picker (Small) styled*/}
+      <StatePickerSmall
+        title="State"
+        onChange={(state) => console.log(state)}
+        style={overrideStyles}
+      />
+
+      {/* Date Range Picker styled*/}
+      <DateRangePicker
+        title="Date Range"
+        onFromChange={(date) => console.log(date)}
+        onToChange={(date) => console.log(date)}
+        mode="spinner"
+        style={overrideStyles}
+      />
     </SafeAreaView>
   );
 };
@@ -236,6 +317,11 @@ const App = () => {
 </div>
 
 ## Changelog
+
+### [0.2.3] - 10/03/2020
+
+***Added***
+- Added support to override styles.
 
 ### [0.2.2] - 8/10/2020
 
