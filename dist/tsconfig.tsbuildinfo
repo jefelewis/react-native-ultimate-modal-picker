@@ -147,8 +147,8 @@
         "affectsGlobalScope": false
       },
       "../src/cookingamountpicker.tsx": {
-        "version": "4a05cb40e01ba196b175d8703a5e5240179e151a57e85dcbd31cf904228819bf",
-        "signature": "0ed6975419964a40bcd73afc0588164177a84e9f2fedd584c6f7bc6f390e7a77",
+        "version": "97a1afdfac11590ffeb21b3a0d063306303b5c14ca9c5094642a51a087efaf7e",
+        "signature": "26796880330ba5194493f546652b0f38439eb15d04f5c5d24fc33ef045a6db36",
         "affectsGlobalScope": false
       },
       "../node_modules/@react-native-community/datetimepicker/src/index.d.ts": {
@@ -157,38 +157,38 @@
         "affectsGlobalScope": false
       },
       "../src/datepicker.tsx": {
-        "version": "90d1124b4e69ff88a88cbdb6f6db0a6104aadec4ecf35a06f94457c509dc5987",
-        "signature": "d1bf8e051892fde11900ca2703bec6556250f39ac0f8812f93d9e7295144ac47",
+        "version": "c21837537f5e949a1939cd441b6fd50f252937c2462a231359924915cf4f3694",
+        "signature": "0cde7dd19b49cc6ea67949bcfb282b0202e6c54d920243ef47eeabb63758da60",
         "affectsGlobalScope": false
       },
       "../src/daterangepicker.tsx": {
-        "version": "ad13a4e516e09b22208dc6893e23e82d5a48ba033935a64a16d1e361bc018f47",
-        "signature": "dca69c424a6a913b6d382d9f8411269c0869e46a8e8917909b982d42d9f396a0",
+        "version": "6d2b7b02eacd23fe5548889b0eaa530ca4ce5703da93bedd6e8136688890e569",
+        "signature": "c4d3d49cac32cb1e2532976dbca17413f9e39f7e2607676324147566abcc7293",
         "affectsGlobalScope": false
       },
       "../src/datetimepicker.tsx": {
-        "version": "35bf96b269d0ac7e16ac169bdb9844fc56adc0b98a2e6559dec00267d382c7ee",
-        "signature": "f68c4a24b67750c27ceb94714ac68c350fe9284173508854837a1ce87705b197",
+        "version": "78f9d41a6f6c4ebdf1467ce8d15e5b5cdd7fa45489d1e64cd5e0b6146a32b936",
+        "signature": "151a316246d4e1515c5f5801551ccb5d346f6790f8218501e6d66fa91c27a645",
         "affectsGlobalScope": false
       },
       "../src/listpicker.tsx": {
-        "version": "dce69adf238f9f249b890ff432947c6c97ccd020798cd05957da193e4738e321",
-        "signature": "08faf9a6d1902adff8b0c6167f4399fbf33abde0a607c47fb9bae62e36597500",
+        "version": "6883c811123c4c49451db8f7d161cb2a4282b57356ab91aafeb5be9cf06cd3b1",
+        "signature": "f1a1c4d4e1ce85db1b3dac70c5e69630efcc6201230f1479e3a3ee3fcf7df0e2",
         "affectsGlobalScope": false
       },
       "../src/numberpicker.tsx": {
-        "version": "f542bf631dee21ff9612aad5aa8fcae3c4ca52ee28758aaa17264fd98d9e3d97",
-        "signature": "fd5607414b746bebd6c879dce4a4332e9e06e7f38c50e44a4717e47e78d51104",
+        "version": "5930d0fe5d11f731c9046cb72a8fefb186abbbee648602d761ab9820d2ae7544",
+        "signature": "33c2c98503903c3a254f0f23f6e7bb31cf613ab5c85fe4f021985933c55b4bfd",
         "affectsGlobalScope": false
       },
       "../src/statepicker.tsx": {
-        "version": "9eb05887d7cc043c009d6b47d7e67bb81d8f52ce35be0ae858e549ab6f41b11a",
-        "signature": "8a4aacbe0bfeb2611451aabd87c7df8618b9a305ba7eacf0c2cda8fc142dfd02",
+        "version": "2a438c53f3a2a14fd1c1f7c9fd237bb7e82bb44d845c21de75debd456be401ad",
+        "signature": "c19046c66cb0fb727cd100dd0d0d2ea0940567aaae90488590b6b5038cc36a27",
         "affectsGlobalScope": false
       },
       "../src/statepickersmall.tsx": {
-        "version": "3c5ba42b618eda2e5ccc67c4a15c765f18a2893d9db7de93729b66c77619fad2",
-        "signature": "fb6f88b4175afc25615da5690b48c68ff1602c81e3b25a899b91248e2e7e3154",
+        "version": "6e7b28fc5efc13458e6e374fdf0f86ba4e7ca447d89bf254cff53cc60eeec6bb",
+        "signature": "956bc1dc868132f8030e62cb8070fe47b03ee1254dcbeca5e5664e0d14e8bed5",
         "affectsGlobalScope": false
       },
       "../src/textfield.tsx": {
@@ -197,8 +197,8 @@
         "affectsGlobalScope": false
       },
       "../src/timepicker.tsx": {
-        "version": "fdf698272d42d0bfbc33299e2f42f65c2877148518f88f29b8d48543431b197a",
-        "signature": "36305164794e2a828e76a38eaa6f4338a3e22e7875c8126006dc247a7adacfbb",
+        "version": "2e6349122609a5ce20df635324b3edbf53afc5709ac801b4a48478980b7747a6",
+        "signature": "a88a3f301f5f625d5b97f77a8b14360a8f169d9250ceca723fd7738fdd0e2b0c",
         "affectsGlobalScope": false
       },
       "../src/index.js": {
@@ -417,6 +417,33 @@
       "../node_modules/react-native-modal/dist/types.d.ts": [
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts"
+      ],
+      "../src/cookingamountpicker.tsx": [
+        "../node_modules/@types/react-native/index.d.ts"
+      ],
+      "../src/datepicker.tsx": [
+        "../node_modules/@types/react-native/index.d.ts"
+      ],
+      "../src/daterangepicker.tsx": [
+        "../node_modules/@types/react-native/index.d.ts"
+      ],
+      "../src/datetimepicker.tsx": [
+        "../node_modules/@types/react-native/index.d.ts"
+      ],
+      "../src/listpicker.tsx": [
+        "../node_modules/@types/react-native/index.d.ts"
+      ],
+      "../src/numberpicker.tsx": [
+        "../node_modules/@types/react-native/index.d.ts"
+      ],
+      "../src/statepicker.tsx": [
+        "../node_modules/@types/react-native/index.d.ts"
+      ],
+      "../src/statepickersmall.tsx": [
+        "../node_modules/@types/react-native/index.d.ts"
+      ],
+      "../src/timepicker.tsx": [
+        "../node_modules/@types/react-native/index.d.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [

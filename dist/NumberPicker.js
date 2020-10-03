@@ -31,9 +31,20 @@ const react_native_modal_1 = __importDefault(require("react-native-modal"));
 const { height, width } = react_native_1.Dimensions.get('window');
 // Dark Mode
 const colorScheme = react_native_1.Appearance.getColorScheme();
-;
 // Component: Number Picker
-const NumberPicker = (props) => {
+const NumberPicker = ({ defaultValue, onChange, title, style = {
+    container: {},
+    modal: {},
+    modalContainer: {},
+    pickerHeaderContainer: {},
+    pickerContainer: {},
+    doneButton: {},
+    cancelText: {},
+    inputTitleContainer: {},
+    inputTitle: {},
+    fieldTextContainer: {},
+    fieldText: {},
+}, }) => {
     // React Hooks: State
     const [modalVisible, toggle] = react_1.useState(false);
     const [tempItem, setTempItem] = react_1.useState('');
@@ -41,8 +52,8 @@ const NumberPicker = (props) => {
     // React Hooks: Lifecycle Method
     react_1.useEffect(() => {
         // Check If Default Value Exists
-        if (props.defaultValue) {
-            setItem(props.defaultValue);
+        if (defaultValue) {
+            setItem(defaultValue);
         }
         else {
             setItem('Select');
@@ -172,7 +183,7 @@ const NumberPicker = (props) => {
             // React Hook: Set Item
             setItem(item);
             // React Props: onChange
-            props.onChange(item);
+            onChange(item);
         }
     };
     // Render iOS Picker
@@ -193,7 +204,7 @@ const NumberPicker = (props) => {
         // React Hook: Set Item
         setItem(tempItem);
         // Props: onChange
-        props.onChange(tempItem);
+        onChange(tempItem);
         // Toggle Modal
         toggleModal();
     };
@@ -201,32 +212,53 @@ const NumberPicker = (props) => {
     const renderPlatform = () => {
         // Check Platform (iOS)
         if (react_native_1.Platform.OS === 'ios') {
-            return (react_1.default.createElement(react_native_1.View, { style: styles.container },
-                react_1.default.createElement(react_native_1.View, { style: styles.inputTitleContainer },
-                    react_1.default.createElement(react_native_1.Text, { style: styles.inputTitle }, props.title === undefined ? 'Number' : props.title)),
-                react_1.default.createElement(react_native_1.TouchableOpacity, { onPress: () => toggleModal(), style: styles.fieldTextContainer },
-                    react_1.default.createElement(react_native_1.Text, { style: styles.fieldText, numberOfLines: 1 }, item !== undefined ? item : 'Select')),
-                react_1.default.createElement(react_native_modal_1.default, { isVisible: modalVisible, style: styles.modal, backdropOpacity: .30 },
-                    react_1.default.createElement(react_native_1.View, { style: styles.modalContainer },
-                        react_1.default.createElement(react_native_1.View, { style: styles.pickerHeaderContainer },
+            return (react_1.default.createElement(react_native_1.View, { style: { ...styles.container, ...style.container } },
+                react_1.default.createElement(react_native_1.View, { style: {
+                        ...styles.inputTitleContainer,
+                        ...style.inputTitleContainer,
+                    } },
+                    react_1.default.createElement(react_native_1.Text, { style: {
+                            ...styles.inputTitle,
+                            ...style.inputTitle,
+                        } }, title === undefined ? 'Number' : title)),
+                react_1.default.createElement(react_native_1.TouchableOpacity, { onPress: () => toggleModal(), style: {
+                        ...styles.fieldTextContainer,
+                        ...style.fieldTextContainer,
+                    } },
+                    react_1.default.createElement(react_native_1.Text, { style: { ...styles.fieldText, ...style.fieldText }, numberOfLines: 1 }, item !== undefined ? item : 'Select')),
+                react_1.default.createElement(react_native_modal_1.default, { isVisible: modalVisible, style: { ...styles.modal, ...style.modal }, backdropOpacity: 0.3 },
+                    react_1.default.createElement(react_native_1.View, { style: { ...styles.modalContainer, ...style.modalContainer } },
+                        react_1.default.createElement(react_native_1.View, { style: {
+                                ...styles.pickerHeaderContainer,
+                                ...style.pickerHeaderContainer,
+                            } },
                             react_1.default.createElement(react_native_1.TouchableOpacity, { onPress: () => pressCancel() },
-                                react_1.default.createElement(react_native_1.Text, { style: styles.cancelText }, "Cancel")),
-                            react_1.default.createElement(react_native_1.View, { style: styles.doneButton },
+                                react_1.default.createElement(react_native_1.Text, { style: { ...styles.cancelText, ...style.cancelText } }, "Cancel")),
+                            react_1.default.createElement(react_native_1.View, { style: { ...styles.doneButton, ...style.doneButton } },
                                 react_1.default.createElement(react_native_1.Button, { onPress: () => pressDone(), title: "Done", disabled: item === tempItem ? true : false }))),
-                        react_1.default.createElement(react_native_1.View, { style: styles.pickerContainer }, renderIOSPicker())))));
+                        react_1.default.createElement(react_native_1.View, { style: { ...styles.pickerContainer, ...style.pickerContainer } }, renderIOSPicker())))));
         }
         // Check Platform (Android)
         else if (react_native_1.Platform.OS === 'android') {
-            return (react_1.default.createElement(react_native_1.View, { style: styles.container },
-                react_1.default.createElement(react_native_1.View, { style: styles.inputTitleContainer },
-                    react_1.default.createElement(react_native_1.Text, { style: styles.inputTitle }, props.title)),
-                react_1.default.createElement(react_native_1.View, { style: styles.fieldTextContainer },
+            return (react_1.default.createElement(react_native_1.View, { style: { ...styles.container, ...style.container } },
+                react_1.default.createElement(react_native_1.View, { style: {
+                        ...styles.inputTitleContainer,
+                        ...style.inputTitleContainer,
+                    } },
+                    react_1.default.createElement(react_native_1.Text, { style: {
+                            ...styles.inputTitle,
+                            ...style.inputTitle,
+                        } }, title)),
+                react_1.default.createElement(react_native_1.View, { style: {
+                        ...styles.fieldTextContainer,
+                        ...style.fieldTextContainer,
+                    } },
                     react_1.default.createElement(picker_1.Picker, { selectedValue: item, style: { height: 60, width: width - 16 }, onValueChange: (item) => selectItem(item), mode: "dropdown" }, numbers.map((item) => {
                         return (react_1.default.createElement(picker_1.Picker.Item, { label: item.label, value: item.value, color: colorScheme === 'dark' ? '#FFFFFF' : '#000000', key: item.key || item.label }));
                     })))));
         }
     };
-    return (react_1.default.createElement(react_native_1.View, null, renderPlatform()));
+    return react_1.default.createElement(react_native_1.View, null, renderPlatform());
 };
 // Styles
 const styles = react_native_1.StyleSheet.create({
@@ -315,7 +347,7 @@ const styles = react_native_1.StyleSheet.create({
     },
     arrowForward: {
         color: 'black',
-        opacity: .3,
+        opacity: 0.3,
         marginRight: 7,
     },
 });

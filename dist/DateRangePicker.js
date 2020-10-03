@@ -32,7 +32,22 @@ const { height, width } = react_native_1.Dimensions.get('window');
 // Dark Mode
 const colorScheme = react_native_1.Appearance.getColorScheme();
 // Component: Date Range Picker
-const DateRangePicker = (props) => {
+const DateRangePicker = ({ onFromChange, onToChange, mode, title, style = {
+    container: {},
+    modal: {},
+    modalContainer: {},
+    pickerHeaderContainer: {},
+    pickerContainer: {},
+    doneButton: {},
+    cancelText: {},
+    inputTitleContainer: {},
+    inputTitle: {},
+    divider: {},
+    toFromDateContainer: {},
+    dateInfoContainer: {},
+    dateText: {},
+    text: {},
+}, }) => {
     // React Hooks: State
     const [fromDateModalVisible, toggleFromDate] = react_1.useState(false);
     const [toDateModalVisible, toggleToDate] = react_1.useState(false);
@@ -48,7 +63,7 @@ const DateRangePicker = (props) => {
         // Send Initial Date
         if (today === false) {
             // Props: onFromChange
-            props.onFromChange(new Date());
+            onFromChange(new Date());
             // Today's Date Has Been Sent To Parent Component
             todaySent(true);
         }
@@ -97,7 +112,7 @@ const DateRangePicker = (props) => {
                 // React Hook: Set From Date
                 setFromDate(newDate);
                 // React Props: onChange
-                props.onFromChange(newDate);
+                onFromChange(newDate);
             }
             // Event Type: Dismissed
             else if (event.type === 'dismissed') {
@@ -130,7 +145,7 @@ const DateRangePicker = (props) => {
                 // React Hook: Set To Date
                 setToDate(newDate);
                 // React Props: onChange
-                props.onToChange(newDate);
+                onToChange(newDate);
             }
             // Event Type: Dismissed
             else if (event.type === 'dismissed') {
@@ -163,7 +178,7 @@ const DateRangePicker = (props) => {
         // React Hook: Set Date
         setFromDate(tempFromDate);
         // Props: onChange
-        props.onFromChange(tempFromDate);
+        onFromChange(tempFromDate);
         // Toggle Modal
         toggleFromDateModal();
     };
@@ -183,20 +198,20 @@ const DateRangePicker = (props) => {
         // React Hook: Set Date
         setToDate(tempToDate);
         // Props: onChange
-        props.onToChange(tempToDate);
+        onToChange(tempToDate);
         // Toggle Modal
         toggleToDateModal();
     };
     // Render To Date Android Picker
     const renderToDateAndroidPicker = () => {
         if (androidToDateVisible === true) {
-            return (react_1.default.createElement(datetimepicker_1.default, { mode: "date", display: props.mode, value: toDate, onChange: (event, newDate) => selectToDate(event, newDate) }));
+            return (react_1.default.createElement(datetimepicker_1.default, { mode: "date", display: mode, value: toDate, onChange: (event, newDate) => selectToDate(event, newDate) }));
         }
     };
     // Render From Date Android Picker
     const renderFromDateAndroidPicker = () => {
         if (androidFromDateVisible === true) {
-            return (react_1.default.createElement(datetimepicker_1.default, { mode: "date", display: props.mode, value: fromDate, onChange: (event, newDate) => selectFromDate(event, newDate) }));
+            return (react_1.default.createElement(datetimepicker_1.default, { mode: "date", display: mode, value: fromDate, onChange: (event, newDate) => selectFromDate(event, newDate) }));
         }
     };
     // Format Date
@@ -209,36 +224,49 @@ const DateRangePicker = (props) => {
         };
         return date.toLocaleDateString('en-US', options);
     };
-    return (react_1.default.createElement(react_native_1.View, { style: styles.container },
-        react_1.default.createElement(react_native_1.View, { style: styles.inputTitleContainer },
-            react_1.default.createElement(react_native_1.Text, { style: styles.inputTitle }, props.title === undefined ? 'Date Range' : props.title)),
+    return (react_1.default.createElement(react_native_1.View, { style: { ...styles.container, ...style.container } },
+        react_1.default.createElement(react_native_1.View, { style: { ...styles.inputTitleContainer, ...style.inputTitleContainer } },
+            react_1.default.createElement(react_native_1.Text, { style: {
+                    ...styles.inputTitle,
+                    ...style.inputTitle,
+                } }, title === undefined ? 'Date Range' : title)),
         react_1.default.createElement(react_native_1.View, { style: styles.toFromDateContainer },
             react_1.default.createElement(react_native_1.TouchableOpacity, { onPress: () => toggleFromDateModal(), style: styles.dateInfoContainer },
-                react_1.default.createElement(react_native_1.Text, { style: styles.dateText }, "From"),
-                react_1.default.createElement(react_native_1.Text, { style: styles.text }, formatDate(fromDate))),
-            react_1.default.createElement(react_native_1.View, null, androidFromDateVisible === true ? renderFromDateAndroidPicker() : null),
-            react_1.default.createElement(react_native_modal_1.default, { isVisible: fromDateModalVisible, style: styles.modal, backdropOpacity: .30 },
-                react_1.default.createElement(react_native_1.View, { style: styles.modalContainer },
-                    react_1.default.createElement(react_native_1.View, { style: styles.pickerHeaderContainer },
+                react_1.default.createElement(react_native_1.Text, { style: { ...styles.dateText, ...style.dateText } }, "From"),
+                react_1.default.createElement(react_native_1.Text, { style: { ...styles.text, ...style.text } }, formatDate(fromDate))),
+            react_1.default.createElement(react_native_1.View, null, androidFromDateVisible === true
+                ? renderFromDateAndroidPicker()
+                : null),
+            react_1.default.createElement(react_native_modal_1.default, { isVisible: fromDateModalVisible, style: { ...styles.modal, ...style.modal }, backdropOpacity: 0.3 },
+                react_1.default.createElement(react_native_1.View, { style: { ...styles.modalContainer, ...style.modalContainer } },
+                    react_1.default.createElement(react_native_1.View, { style: {
+                            ...styles.pickerHeaderContainer,
+                            ...style.pickerHeaderContainer,
+                        } },
                         react_1.default.createElement(react_native_1.TouchableOpacity, { onPress: () => pressCancelFromDate() },
-                            react_1.default.createElement(react_native_1.Text, { style: styles.cancelText }, "Cancel")),
-                        react_1.default.createElement(react_native_1.View, { style: styles.doneButton },
+                            react_1.default.createElement(react_native_1.Text, { style: { ...styles.cancelText, ...style.cancelText } }, "Cancel")),
+                        react_1.default.createElement(react_native_1.View, { style: { ...styles.doneButton, ...style.doneButton } },
                             react_1.default.createElement(react_native_1.Button, { onPress: () => pressDoneFromDate(), title: "Done", disabled: fromDate === tempFromDate ? true : false }))),
-                    react_1.default.createElement(react_native_1.View, { style: styles.pickerContainer }, renderFromIOSDatePicker())))),
-        react_1.default.createElement(react_native_1.View, { style: styles.divider }),
-        react_1.default.createElement(react_native_1.View, { style: styles.toFromDateContainer },
-            react_1.default.createElement(react_native_1.TouchableOpacity, { onPress: () => toggleToDateModal(), style: styles.dateInfoContainer },
-                react_1.default.createElement(react_native_1.Text, { style: styles.dateText }, "To"),
-                react_1.default.createElement(react_native_1.Text, { style: styles.text }, String(toDate) === String(fromDate) ? 'Select' : formatDate(toDate))),
+                    react_1.default.createElement(react_native_1.View, { style: { ...styles.pickerContainer, ...style.pickerContainer } }, renderFromIOSDatePicker())))),
+        react_1.default.createElement(react_native_1.View, { style: { ...styles.divider, ...style.divider } }),
+        react_1.default.createElement(react_native_1.View, { style: { ...styles.toFromDateContainer, ...style.toFromDateContainer } },
+            react_1.default.createElement(react_native_1.TouchableOpacity, { onPress: () => toggleToDateModal(), style: { ...styles.dateInfoContainer, ...style.dateInfoContainer } },
+                react_1.default.createElement(react_native_1.Text, { style: { ...styles.dateText, ...style.dateText } }, "To"),
+                react_1.default.createElement(react_native_1.Text, { style: { ...styles.text, ...style.text } }, String(toDate) === String(fromDate)
+                    ? 'Select'
+                    : formatDate(toDate))),
             react_1.default.createElement(react_native_1.View, null, androidToDateVisible === true ? renderToDateAndroidPicker() : null),
-            react_1.default.createElement(react_native_modal_1.default, { isVisible: toDateModalVisible, style: styles.modal, backdropOpacity: .30 },
-                react_1.default.createElement(react_native_1.View, { style: styles.modalContainer },
-                    react_1.default.createElement(react_native_1.View, { style: styles.pickerHeaderContainer },
+            react_1.default.createElement(react_native_modal_1.default, { isVisible: toDateModalVisible, style: { ...styles.modal, ...style.modal }, backdropOpacity: 0.3 },
+                react_1.default.createElement(react_native_1.View, { style: { ...styles.modalContainer, ...style.modalContainer } },
+                    react_1.default.createElement(react_native_1.View, { style: {
+                            ...styles.pickerHeaderContainer,
+                            ...style.pickerHeaderContainer,
+                        } },
                         react_1.default.createElement(react_native_1.TouchableOpacity, { onPress: () => pressCancelToDate() },
-                            react_1.default.createElement(react_native_1.Text, { style: styles.cancelText }, "Cancel")),
-                        react_1.default.createElement(react_native_1.View, { style: styles.doneButton },
+                            react_1.default.createElement(react_native_1.Text, { style: { ...styles.cancelText, ...style.cancelText } }, "Cancel")),
+                        react_1.default.createElement(react_native_1.View, { style: { ...styles.doneButton, ...style.doneButton } },
                             react_1.default.createElement(react_native_1.Button, { onPress: () => pressDoneToDate(), title: "Done", disabled: toDate === tempToDate ? true : false }))),
-                    react_1.default.createElement(react_native_1.View, { style: styles.pickerContainer }, renderToIOSDatePicker()))))));
+                    react_1.default.createElement(react_native_1.View, { style: { ...styles.pickerContainer, ...style.pickerContainer } }, renderToIOSDatePicker()))))));
 };
 // Styles
 const styles = react_native_1.StyleSheet.create({
@@ -290,7 +318,7 @@ const styles = react_native_1.StyleSheet.create({
     },
     arrowForward: {
         color: 'black',
-        opacity: .3,
+        opacity: 0.3,
         marginRight: 7,
     },
     divider: {

@@ -31,9 +31,20 @@ const react_native_modal_1 = __importDefault(require("react-native-modal"));
 const { height, width } = react_native_1.Dimensions.get('window');
 // Dark Mode
 const colorScheme = react_native_1.Appearance.getColorScheme();
-;
 // Component: State Picker
-const StatePicker = (props) => {
+const StatePicker = ({ onChange, title, style = {
+    container: {},
+    modal: {},
+    modalContainer: {},
+    pickerHeaderContainer: {},
+    pickerContainer: {},
+    doneButton: {},
+    cancelText: {},
+    inputTitleContainer: {},
+    inputTitle: {},
+    fieldTextContainer: {},
+    fieldText: {},
+}, }) => {
     // React Hooks: State
     const [modalVisible, toggle] = react_1.useState(false);
     const [tempState, setTempState] = react_1.useState();
@@ -115,7 +126,7 @@ const StatePicker = (props) => {
             // React Hook: Set State
             setState(value);
             // React Props: onChange
-            props.onChange(value);
+            onChange(value);
         }
     };
     // Render iOS Picker
@@ -136,7 +147,7 @@ const StatePicker = (props) => {
         // React Hook: Set State
         setState(tempState);
         // Props: onChange
-        props.onChange(tempState);
+        onChange(tempState);
         // Toggle Modal
         toggleModal();
     };
@@ -144,32 +155,53 @@ const StatePicker = (props) => {
     const renderPlatform = () => {
         // Check Platform (iOS)
         if (react_native_1.Platform.OS === 'ios') {
-            return (react_1.default.createElement(react_native_1.View, { style: styles.container },
-                react_1.default.createElement(react_native_1.View, { style: styles.inputTitleContainer },
-                    react_1.default.createElement(react_native_1.Text, { style: styles.inputTitle }, props.title === undefined ? 'State' : props.title)),
-                react_1.default.createElement(react_native_1.TouchableOpacity, { onPress: () => toggleModal(), style: styles.fieldTextContainer },
-                    react_1.default.createElement(react_native_1.Text, { style: styles.fieldText }, state !== undefined ? state : 'Select')),
-                react_1.default.createElement(react_native_modal_1.default, { isVisible: modalVisible, style: styles.modal, backdropOpacity: .30 },
-                    react_1.default.createElement(react_native_1.View, { style: styles.modalContainer },
-                        react_1.default.createElement(react_native_1.View, { style: styles.pickerHeaderContainer },
+            return (react_1.default.createElement(react_native_1.View, { style: { ...styles.container, ...style.container } },
+                react_1.default.createElement(react_native_1.View, { style: {
+                        ...styles.inputTitleContainer,
+                        ...style.inputTitleContainer,
+                    } },
+                    react_1.default.createElement(react_native_1.Text, { style: {
+                            ...styles.inputTitle,
+                            ...style.inputTitle,
+                        } }, title === undefined ? 'State' : title)),
+                react_1.default.createElement(react_native_1.TouchableOpacity, { onPress: () => toggleModal(), style: {
+                        ...styles.fieldTextContainer,
+                        ...style.fieldTextContainer,
+                    } },
+                    react_1.default.createElement(react_native_1.Text, { style: { ...styles.fieldText, ...style.fieldText } }, state !== undefined ? state : 'Select')),
+                react_1.default.createElement(react_native_modal_1.default, { isVisible: modalVisible, style: { ...styles.modal, ...style.modal }, backdropOpacity: 0.3 },
+                    react_1.default.createElement(react_native_1.View, { style: { ...styles.modalContainer, ...style.modalContainer } },
+                        react_1.default.createElement(react_native_1.View, { style: {
+                                ...styles.pickerHeaderContainer,
+                                ...style.pickerHeaderContainer,
+                            } },
                             react_1.default.createElement(react_native_1.TouchableOpacity, { onPress: () => pressCancel() },
-                                react_1.default.createElement(react_native_1.Text, { style: styles.cancelText }, "Cancel")),
-                            react_1.default.createElement(react_native_1.View, { style: styles.doneButton },
+                                react_1.default.createElement(react_native_1.Text, { style: { ...styles.cancelText, ...style.cancelText } }, "Cancel")),
+                            react_1.default.createElement(react_native_1.View, { style: { ...styles.doneButton, ...style.doneButton } },
                                 react_1.default.createElement(react_native_1.Button, { onPress: () => pressDone(), title: "Done", disabled: state === tempState ? true : false }))),
-                        react_1.default.createElement(react_native_1.View, { style: styles.pickerContainer }, renderIOSPicker())))));
+                        react_1.default.createElement(react_native_1.View, { style: { ...styles.pickerContainer, ...style.pickerContainer } }, renderIOSPicker())))));
         }
         // Check Platform (Android)
         else if (react_native_1.Platform.OS === 'android') {
-            return (react_1.default.createElement(react_native_1.View, { style: styles.container },
-                react_1.default.createElement(react_native_1.View, { style: styles.inputTitleContainer },
-                    react_1.default.createElement(react_native_1.Text, { style: styles.inputTitle }, "State")),
-                react_1.default.createElement(react_native_1.View, { style: styles.fieldTextContainer },
+            return (react_1.default.createElement(react_native_1.View, { style: { ...styles.container, ...style.container } },
+                react_1.default.createElement(react_native_1.View, { style: {
+                        ...styles.inputTitleContainer,
+                        ...style.inputTitleContainer,
+                    } },
+                    react_1.default.createElement(react_native_1.Text, { style: {
+                            ...styles.inputTitle,
+                            ...style.inputTitle,
+                        } }, "State")),
+                react_1.default.createElement(react_native_1.View, { style: {
+                        ...styles.fieldTextContainer,
+                        ...style.fieldTextContainer,
+                    } },
                     react_1.default.createElement(picker_1.Picker, { selectedValue: state, style: { height: 60, width: width - 16 }, onValueChange: (state) => selectState(state) }, unitedStates.map((state) => {
                         return (react_1.default.createElement(picker_1.Picker.Item, { label: state.label, value: state.value, color: colorScheme === 'dark' ? '#FFFFFF' : '#000000', key: state.key || state.label }));
                     })))));
         }
     };
-    return (react_1.default.createElement(react_native_1.View, null, renderPlatform()));
+    return react_1.default.createElement(react_native_1.View, null, renderPlatform());
 };
 // Styles
 const styles = react_native_1.StyleSheet.create({
@@ -258,7 +290,7 @@ const styles = react_native_1.StyleSheet.create({
     },
     arrowForward: {
         color: 'black',
-        opacity: .3,
+        opacity: 0.3,
         marginRight: 7,
     },
 });
