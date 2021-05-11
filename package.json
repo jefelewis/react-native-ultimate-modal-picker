@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "^3.4.7",
-    "@react-native-community/picker": "^1.8.1",
+    "@react-native-picker/picker": "^1.16.0",
     "react-native-modal": "^11.10.0"
   },
   "devDependencies": {
@@ -51,6 +51,10 @@
     "react-native": "^0.64.1",
     "react-test-renderer": "17.0.1",
     "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
   },
   "resolutions": {
     "@types/react": "^17"
