@@ -24,11 +24,11 @@ interface Item {
 };
 
 // Component: Cooking Amount Picker
-const CookingAmountPicker = (props: Props) => {
+const CookingAmountPicker: React.FC<Props> = (props): JSX.Element => {
   // React Hooks: State
-  const [ modalVisible, toggle ] = useState(false);
-  const [ tempItem, setTempItem ] = useState('');
-  const [ item, setItem ] = useState('');
+  const [ modalVisible, toggle ] = useState<boolean>(false);
+  const [ tempItem, setTempItem ] = useState<string>('');
+  const [ item, setItem ] = useState<string>('');
 
   // React Hooks: Lifecycle Method
   useEffect(() => {
@@ -37,12 +37,13 @@ const CookingAmountPicker = (props: Props) => {
       setItem(props.defaultValue);
     }
     else {
+      // Set State
       setItem('Select');
     }
-  }, []);
+  }, [props.defaultValue]);
 
   // Cooking Amounts
-  const cookingAmounts = [
+  const cookingAmounts: Array<any> = [
     { label: 'Select', value: 'Select' },
     { label: '1/8', value: '1/8' },
     { label: '1/4', value: '1/4' },
@@ -152,33 +153,33 @@ const CookingAmountPicker = (props: Props) => {
 
   // Toggle Modal
   const toggleModal = () => {
-    // Check Platform (iOS)
+    // Platform: iOS
     if (Platform.OS === 'ios') {
-      // React Hook: Toggle Modal
+      // Toggle Modal
       toggle((modalVisible: boolean) => !modalVisible);
     }
   };
 
   // Select Item
   const selectItem = (item: string) => {
-    // Check Platform (iOS)
+    // Platform: iOS
     if (Platform.OS === 'ios') {
-      // React Hook: Set Temp State
+      // Set State
       setTempItem(item);
     }
 
-    // Check Platform (Android)
+    // Platform: Android
     else if (Platform.OS === 'android') {
-      // React Hook: Set Item
+      // Set State
       setItem(item);
 
-      // React Props: onChange
+      // Props: onChange
       props.onChange(item);
     }
   };
 
   // Render iOS Picker
-  const renderIOSPicker = () => {
+  const renderIOSPicker = (): JSX.Element => {
     return (
       <Picker
         selectedValue={tempItem !== undefined ? tempItem : item}
@@ -199,7 +200,7 @@ const CookingAmountPicker = (props: Props) => {
   };
 
   // Press Cancel
-  const pressCancel = () => {
+  const pressCancel = (): void => {
     // Set Temp Item
     setTempItem(item);
 
@@ -208,8 +209,8 @@ const CookingAmountPicker = (props: Props) => {
   };
 
   // Press Done
-  const pressDone = () => {
-    // React Hook: Set Item
+  const pressDone = (): void => {
+    // Set State
     setItem(tempItem);
 
     // Props: onChange
@@ -222,7 +223,7 @@ const CookingAmountPicker = (props: Props) => {
   // Render Platform
   const renderPlatform = () => {
     try {
-      // Check Platform (iOS)
+      // Platform: iOS
       if (Platform.OS === 'ios') {
         return (
           <View style={styles.container}>
@@ -261,7 +262,7 @@ const CookingAmountPicker = (props: Props) => {
         );
       }
 
-      // Check Platform (Android)
+      // Platform: Android
       if (Platform.OS === 'android') {
         return (
           <View style={styles.container}>
