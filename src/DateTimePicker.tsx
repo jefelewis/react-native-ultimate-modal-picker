@@ -10,19 +10,19 @@ const { height, width } = Dimensions.get('window');
 // Dark Mode
 const colorScheme = Appearance.getColorScheme();
 
-// TypeScript: Types
+// TypeScript Types: Props
 interface Props {
   title?: string;
   onChange: (date: Date | string) => Date | string | void;
 }
 
 // Component: Datetime Picker
-const DatetimePicker = (props: Props) => {
+const DatetimePicker: React.FC<Props> = (props): JSX.Element => {
   // React Hooks: State
-  const [ modalVisible, toggle ] = useState(false);
-  const [ date, setDate ] = useState(new Date());
-  const [ tempDate, setTempDate ] = useState(date);
-  const [ today , todaySent ] = useState(false);
+  const [ modalVisible, toggle ] = useState<boolean>(false);
+  const [ date, setDate ] = useState<Date>(new Date());
+  const [ tempDate, setTempDate ] = useState<Date>(date);
+  const [ today , todaySent ] = useState<boolean>(false);
 
   // React Hooks: Lifecycle Methods
   useEffect(() => {
@@ -34,11 +34,11 @@ const DatetimePicker = (props: Props) => {
       // Today's Date Has Been Sent To Parent Component
       todaySent(true);
     }
-  });
+  }, [today]);
 
   // Toggle Modal
-  const toggleModal = () => {
-    // Check Platform (iOS)
+  const toggleModal = (): void => {
+    // Platform: iOS
     if (Platform.OS === 'ios') {
       // React Hook: Toggle Modal
       toggle((modalVisible: boolean) => !modalVisible);
@@ -49,13 +49,13 @@ const DatetimePicker = (props: Props) => {
   };
 
   // Select Date
-  const selectDate = (event: any, newDate: Date) => {
-    // React Hook: Set Temp State
+  const selectDate = (event: any, newDate: Date): void => {
+    // Set State
     setTempDate(newDate);
   };
 
   // Render iOS Picker
-  const renderIOSPicker = () => {
+  const renderIOSPicker = (): JSX.Element => {
     return (
       <RNDateTimePicker
         mode="datetime"
@@ -66,8 +66,8 @@ const DatetimePicker = (props: Props) => {
   };
 
   // Press Cancel
-  const pressCancel = () => {
-    // React Hook: Set Temp Date
+  const pressCancel = (): void => {
+    // Set State
     setTempDate(date);
 
     // Toggle Modal
@@ -78,7 +78,7 @@ const DatetimePicker = (props: Props) => {
   };
 
   // Press Done
-  const pressDone = () => {
+  const pressDone = (): void => {
     // React Hook: Set Date
     setDate(tempDate);
 
@@ -90,7 +90,7 @@ const DatetimePicker = (props: Props) => {
   };
 
   // Format Date
-  const formatDate = (date: Date) => {
+  const formatDate = (date: Date): string => {
     // Options
     const options = {
       month: 'short',
@@ -102,7 +102,7 @@ const DatetimePicker = (props: Props) => {
   };
 
   // Format Time
-  const formatTime = (date: Date) => {
+  const formatTime = (date: Date): string => {
     // Options
     const options = {
       hour: 'numeric',
@@ -113,8 +113,8 @@ const DatetimePicker = (props: Props) => {
   };
 
   // Render Platform
-  const renderPlatform = () => {
-    // Check Platform (iOS)
+  const renderPlatform = (): JSX.Element | undefined => {
+    // Platform: iOS
     if (Platform.OS == 'ios') {
       return (
         <View style={styles.container}>
@@ -133,14 +133,14 @@ const DatetimePicker = (props: Props) => {
           >
             <View style={styles.modalContainer}>
               <View style={styles.pickerHeaderContainer}>
-                <TouchableOpacity onPress={() => pressCancel()} >
+                <TouchableOpacity onPress={() => pressCancel()}>
                   <Text style={styles.cancelText}>Cancel</Text>
                 </TouchableOpacity>
 
                 <View style={styles.doneButton}>
                   <Button
-                    onPress={() => pressDone()}
                     title="Done"
+                    onPress={() => pressDone()}
                     disabled={date === tempDate ? true : false}
                   />
                 </View>
@@ -152,17 +152,14 @@ const DatetimePicker = (props: Props) => {
         </View>
       );
     }
-
-    // Check Platform (Android)
+    // Platform: Android
     else if (Platform.OS === 'android') {
       return null;
     }
   };
 
   return (
-    <View>
-      {renderPlatform()}
-    </View>
+    <>{renderPlatform()}</>
   );
 };
 

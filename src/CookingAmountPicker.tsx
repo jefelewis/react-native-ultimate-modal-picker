@@ -10,13 +10,14 @@ const { height, width } = Dimensions.get('window');
 // Dark Mode
 const colorScheme = Appearance.getColorScheme();
 
-// TypeScript: Types
+// TypeScript Types: Props
 interface Props {
   title?: string;
   defaultValue?: string;
   onChange: (item: any) => any;
 }
 
+// TypeScript Type: Item
 interface Item {
   label: string;
   value: string;
@@ -241,7 +242,7 @@ const CookingAmountPicker: React.FC<Props> = (props): JSX.Element => {
           >
             <View style={styles.modalContainer}>
               <View style={styles.pickerHeaderContainer}>
-                <TouchableOpacity onPress={() => pressCancel()} >
+                <TouchableOpacity onPress={() => pressCancel()}>
                     <Text style={styles.cancelText}>Cancel</Text>
                   </TouchableOpacity>
 

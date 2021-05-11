@@ -10,7 +10,7 @@ const { height, width } = Dimensions.get('window');
 // Dark Mode
 const colorScheme = Appearance.getColorScheme();
 
-// TypeScript: Types
+// TypeScript Types: Props
 interface Props {
   title?: string;
   defaultValue?: string;
@@ -20,15 +20,15 @@ interface Props {
 interface Item {
   label: string;
   value: number | string;
-  key: number | string;
+  // key: number | string;
 };
 
 // Component: Number Picker
-const NumberPicker = (props: Props) => {
+const NumberPicker: React.FC<Props> = (props): JSX.Element => {
   // React Hooks: State
-  const [ modalVisible, toggle ] = useState(false);
-  const [ tempItem, setTempItem ] = useState('');
-  const [ item, setItem ] = useState('');
+  const [ modalVisible, toggle ] = useState<boolean>(false);
+  const [ tempItem, setTempItem ] = useState<string>('');
+  const [ item, setItem ] = useState<string>('');
 
   // React Hooks: Lifecycle Method
   useEffect(() => {
@@ -37,12 +37,13 @@ const NumberPicker = (props: Props) => {
       setItem(props.defaultValue);
     }
     else {
+      // Set State
       setItem('Select');
     }
-  }, []);
+  }, [props.defaultValue]);
 
   // Numbers
-  const numbers = [
+  const numbers: Array<Item> = [
     { label: 'Select', value: 'Select' },
     { label: '1', value: '1' },
     { label: '2', value: '2' },
@@ -147,8 +148,8 @@ const NumberPicker = (props: Props) => {
   ];
 
   // Toggle Modal
-  const toggleModal = () => {
-    // Check Platform (iOS)
+  const toggleModal = (): void => {
+    // Platform: iOS
     if (Platform.OS === 'ios') {
       // React Hook: Toggle Modal
       toggle((modalVisible: boolean) => !modalVisible);
@@ -156,19 +157,18 @@ const NumberPicker = (props: Props) => {
   };
 
   // Select Item
-  const selectItem = (item: any) => {
-    // Check Platform (iOS)
+  const selectItem = (item: any): void => {
+    // Platform: iOS)
     if (Platform.OS === 'ios') {
-      // React Hook: Set Temp State
+      // Set State
       setTempItem(item);
     }
-
-    // Check Platform (Android)
+    // Platform: Android)
     else if (Platform.OS === 'android') {
-      // React Hook: Set Item
+      // Set State
       setItem(item);
 
-      // React Props: onChange
+      // Props: onChange
       props.onChange(item);
     }
   };
@@ -194,7 +194,7 @@ const NumberPicker = (props: Props) => {
   };
 
   // Press Cancel
-  const pressCancel = () => {
+  const pressCancel = (): void => {
     // Set Temp Item
     setTempItem(item);
 
@@ -203,8 +203,8 @@ const NumberPicker = (props: Props) => {
   };
 
   // Press Done
-  const pressDone = () => {
-    // React Hook: Set Item
+  const pressDone = (): void => {
+    // Set State
     setItem(tempItem);
 
     // Props: onChange
@@ -216,7 +216,7 @@ const NumberPicker = (props: Props) => {
 
   // Render Platform
   const renderPlatform = () => {
-    // Check Platform (iOS)
+    // Platform: iOS
     if (Platform.OS === 'ios') {
       return (
         <View style={styles.container}>
@@ -235,14 +235,14 @@ const NumberPicker = (props: Props) => {
           >
             <View style={styles.modalContainer}>
               <View style={styles.pickerHeaderContainer}>
-                <TouchableOpacity onPress={() => pressCancel()} >
+                <TouchableOpacity onPress={() => pressCancel()}>
                     <Text style={styles.cancelText}>Cancel</Text>
                   </TouchableOpacity>
 
                   <View style={styles.doneButton}>
                     <Button
-                      onPress={() => pressDone()}
                       title="Done"
+                      onPress={() => pressDone()}
                       disabled={item === tempItem ? true : false}
                     />
                   </View>
@@ -254,8 +254,7 @@ const NumberPicker = (props: Props) => {
         </View>
       );
     }
-
-    // Check Platform (Android)
+    // Platform: Android
     else if (Platform.OS === 'android') {
       return (
         <View style={styles.container}>
@@ -287,7 +286,7 @@ const NumberPicker = (props: Props) => {
   };
 
   return (
-    <View>{renderPlatform()}</View>
+    <>{renderPlatform()}</>
   );
 };
 

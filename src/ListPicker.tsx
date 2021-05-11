@@ -10,7 +10,7 @@ const { height, width } = Dimensions.get('window');
 // Dark Mode
 const colorScheme = Appearance.getColorScheme();
 
-// TypeScript: Types
+// TypeScript Types: Props
 interface Props {
   title?: string;
   defaultValue?: string;
@@ -25,11 +25,11 @@ interface Item {
 };
 
 // Component: List Picker
-const ListPicker = (props: Props) => {
+const ListPicker: React.FC<Props> = (props): JSX.Element => {
   // React Hooks: State
-  const [ modalVisible, toggle ] = useState(false);
-  const [ tempItem, setTempItem ] = useState('');
-  const [ item, setItem ] = useState('');
+  const [ modalVisible, toggle ] = useState<boolean>(false);
+  const [ tempItem, setTempItem ] = useState<string>('');
+  const [ item, setItem ] = useState<string>('');
 
   // React Hooks: Lifecycle Method
   useEffect(() => {
@@ -38,13 +38,14 @@ const ListPicker = (props: Props) => {
       setItem(props.defaultValue);
     }
     else {
+      // Set State
       setItem('Select');
     }
-  }, []);
+  }, [props.defaultValue]);
 
   // Toggle Modal
-  const toggleModal = () => {
-    // Check Platform (iOS)
+  const toggleModal = (): void => {
+    // Platform: iOS
     if (Platform.OS === 'ios') {
       // React Hook: Toggle Modal
       toggle((modalVisible: boolean) => !modalVisible);
@@ -53,24 +54,24 @@ const ListPicker = (props: Props) => {
 
   // Select Item
   const selectItem = (item: string) => {
-    // Check Platform (iOS)
+    // Platform: iOS
     if (Platform.OS === 'ios') {
-      // React Hook: Set Temp State
+      // Set State
       setTempItem(item);
     }
 
-    // Check Platform (Android)
+    // Platform: Android
     else if (Platform.OS === 'android') {
-      // React Hook: Set Item
+      // Set State
       setItem(item);
 
-      // React Props: onChange
+      // Props: onChange
       props.onChange(item);
     }
   };
 
   // Render iOS Picker
-  const renderIOSPicker = () => {
+  const renderIOSPicker = (): JSX.Element => {
     return (
       <Picker
         selectedValue={tempItem !== undefined ? tempItem : item}
@@ -90,8 +91,8 @@ const ListPicker = (props: Props) => {
   };
 
   // Press Cancel
-  const pressCancel = () => {
-    // Set Temp Item
+  const pressCancel = (): void => {
+    // Set State
     setTempItem(item);
 
     // Toggle Modal
@@ -99,8 +100,8 @@ const ListPicker = (props: Props) => {
   };
 
   // Press Done
-  const pressDone = () => {
-    // React Hook: Set Item
+  const pressDone = (): void => {
+    // Set State
     setItem(tempItem);
 
     // Props: onChange
@@ -111,8 +112,8 @@ const ListPicker = (props: Props) => {
   };
 
   // Render Platform
-  const renderPlatform = () => {
-    // Check Platform (iOS)
+  const renderPlatform = (): JSX.Element | undefined => {
+    // Platform: iOS:
     if (Platform.OS === 'ios') {
       return (
         <View style={styles.container}>
@@ -131,7 +132,7 @@ const ListPicker = (props: Props) => {
           >
             <View style={styles.modalContainer}>
               <View style={styles.pickerHeaderContainer}>
-                <TouchableOpacity onPress={() => pressCancel()} >
+                <TouchableOpacity onPress={() => pressCancel()}>
                     <Text style={styles.cancelText}>Cancel</Text>
                   </TouchableOpacity>
 
@@ -150,8 +151,7 @@ const ListPicker = (props: Props) => {
         </View>
       );
     }
-
-    // Check Platform (Android)
+    // Platform: Android
     else if (Platform.OS === 'android') {
       return (
         <View style={styles.container}>
@@ -182,7 +182,7 @@ const ListPicker = (props: Props) => {
   };
 
   return (
-    <View>{renderPlatform()}</View>
+    <>{renderPlatform()}</>
   );
 };
 

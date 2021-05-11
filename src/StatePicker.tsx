@@ -10,34 +10,33 @@ const { height, width } = Dimensions.get('window');
 // Dark Mode
 const colorScheme = Appearance.getColorScheme();
 
-// TypeScript: Types
+// TypeScript Type: State
+export type State = 'AL' | 'AK' | 'AS' | 'AZ' | 'AR' | 'CA' | 'CO' | 'CT' | 'DE' | 'DC' | 'FL' | 'FM' | 'GA' | 'GU' | 'HI' | 'ID' | 'IL' | 'IN' | 'IA' | 'KS' | 'KY' | 'LA' | 'ME' | 'MD' | 'MA' | 'MH' | 'MI' | 'MN' | 'MS' | 'MO' | 'MT' | 'NE' | 'NV' | 'NH' | 'NJ' | 'NM' | 'NY' | 'NC' | 'ND' | 'MP' | 'OH' | 'OK' | 'OR' | 'PA' | 'PR' | 'PW' | 'RI' | 'SC' | 'SD' | 'TN' | 'TX' | 'UM' | 'UT' | 'VT' | 'VI' | 'VA' | 'WA' | 'WV' | 'WI' | 'WY';
+
+// TypeScript Types: Props
 interface Props {
   title?: string;
-  onChange: (state: any) => any;
+  onChange: (state: State) => void;
 }
 
 interface Item {
   label: string;
   value: string;
-  key: number | string;
 };
 
 interface UnitedStates {
-  [key: number]: State;
-  map: (state: any) => any;
+  // [key: number]: State;
+  // map: (state: State) => void;
 }
 
-interface State {
-  label: string;
-  value: string;
-}
+
 
 // Component: State Picker
-const StatePicker = (props: Props) => {
+const StatePicker: React.FC<Props> = (props): JSX.Element => {
   // React Hooks: State
-  const [ modalVisible, toggle ] = useState(false);
-  const [ tempState, setTempState ] = useState();
-  const [ state, setState ] = useState();
+  const [ modalVisible, toggle ] = useState<boolean>(false);
+  const [ tempState, setTempState ] = useState<State | ''>('');
+  const [ state, setState ] = useState<State | ''>('');
 
   // United States
   const unitedStates: UnitedStates = [
@@ -94,50 +93,48 @@ const StatePicker = (props: Props) => {
   ];
 
   // Toggle Modal
-  const toggleModal = () => {
-    // Check Platform (iOS)
+  const toggleModal = (): void => {
+    // Platform: iOS
     if (Platform.OS === 'ios') {
-      // React Hook: Toggle Modal
+      // Toggle Modal
       toggle((modalVisible: boolean) => !modalVisible);
     }
-
-    // Check Platform (Android)
+    // Platform: Android
     else if (Platform.OS === 'android') {
       // Do Nothing (Android Uses Dropdown List)
     }
   };
 
   // Select State
-  const selectState = (value: any) => {
-    // Check Platform (iOS)
+  const selectState = (value: any): void => {
+    // Platform: iOS
     if (Platform.OS === 'ios') {
-      // React Hook: Set Temp State
+      // Set State
       setTempState(value);
     }
-
-    // Check Platform (Android)
+    // Platform: Android
     else if (Platform.OS === 'android') {
-      // React Hook: Set State
+      // Set State
       setState(value);
 
-      // React Props: onChange
+      // Props: onChange
       props.onChange(value);
     }
   };
 
   // Render iOS Picker
-  const renderIOSPicker = () => {
+  const renderIOSPicker = (): JSX.Element => {
     return (
       <Picker
         selectedValue={tempState !== undefined ? tempState : state}
         onValueChange={(value) => selectState(value)}>
-        {unitedStates.map((state: any) => {
+        {unitedStates.map((item: Item) => {
           return (
             <Picker.Item
-              label={state.label}
-              value={state.value}
+              label={item.label}
+              value={item.value}
               color={colorScheme === 'dark' ? '#FFFFFF' : '#000000'}
-              key={state.key || state.label}
+              key={item.key || item.label}
             />
           );
         })}
@@ -146,7 +143,7 @@ const StatePicker = (props: Props) => {
   };
 
   // Press Cancel
-  const pressCancel = () => {
+  const pressCancel = (): void => {
     // Do Nothing To State
     setTempState(state);
 
@@ -155,8 +152,8 @@ const StatePicker = (props: Props) => {
   };
 
   // Press Done
-  const pressDone = () => {
-    // React Hook: Set State
+  const pressDone = (): void => {
+    // Set State
     setState(tempState);
 
     // Props: onChange
@@ -168,7 +165,7 @@ const StatePicker = (props: Props) => {
 
   // Render Platform
   const renderPlatform = () => {
-    // Check Platform (iOS)
+    // Platform: iOS)
     if (Platform.OS === 'ios') {
       return (
         <View style={styles.container}>
@@ -187,14 +184,14 @@ const StatePicker = (props: Props) => {
           >
             <View style={styles.modalContainer}>
               <View style={styles.pickerHeaderContainer}>
-                <TouchableOpacity onPress={() => pressCancel()} >
+                <TouchableOpacity onPress={() => pressCancel()}>
                   <Text style={styles.cancelText}>Cancel</Text>
                 </TouchableOpacity>
 
                 <View style={styles.doneButton}>
                   <Button
-                    onPress={() => pressDone()}
                     title="Done"
+                    onPress={() => pressDone()}
                     disabled={state === tempState ? true : false}
                   />
                 </View>
@@ -207,7 +204,7 @@ const StatePicker = (props: Props) => {
       );
     }
 
-    // Check Platform (Android)
+    // Platform: Android)
     else if (Platform.OS === 'android') {
       return (
         <View style={styles.container}>

@@ -10,7 +10,7 @@ const { height, width } = Dimensions.get('window');
 // Dark Mode
 const colorScheme = Appearance.getColorScheme();
 
-// TypeScript: Types
+// TypeScript Types: Props
 interface Props {
   title?: string;
   mode: 'calendar' | 'spinner' | 'default';
@@ -18,83 +18,78 @@ interface Props {
 }
 
 // Component: Date Picker
-const DatePicker = (props: Props) => {
+const DatePicker: React.FC<Props> = (props): JSX.Element => {
   // React Hooks: State
-  const [ modalVisible, toggle ] = useState(false);
-  const [ androidModalVisible, toggleAndroid ] = useState(false);
-  const [ date, setDate ] = useState(new Date());
-  const [ tempDate, setTempDate ] = useState(date);
-  const [ today, todaySent ] = useState(false);
+  const [ modalVisible, toggle ] = useState<boolean>(false);
+  const [ androidModalVisible, toggleAndroid ] = useState<boolean>(false);
+  const [ date, setDate ] = useState<Date>(new Date());
+  const [ tempDate, setTempDate ] = useState<Date>(date);
+  const [ today, todaySent ] = useState<boolean>(false);
 
   // React Hooks: Lifecycle Methods
   useEffect(() => {
     // Send Initial Date
     if (today === false) {
-      // Props: onFromChange
+      // Props: onChange
       props.onChange(new Date());
 
       // Today's Date Has Been Sent To Parent Component
       todaySent(true);
     }
-  });
+  }), [today];
 
   // Toggle Modal
   const toggleModal = () => {
-    // Check Platform (Android)
+    // Platform: Android
     if (Platform.OS === 'android') {
-      // React Hook: Toggle Android
+      // Toggle Android
       toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
     }
-
-    // Check Platform (iOS)
+    // Platform: iOS
     else if (Platform.OS === 'ios') {
-      // React Hook: Toggle Modal
+      // Toggle Modal
       toggle((modalVisible: boolean) => !modalVisible);
     }
   };
 
   // Select Date
   const selectDate = (event: any, newDate: Date) => {
-    // Check Platform: Android
+    // Platform: Android
     if (Platform.OS === 'android') {
-
       // Undefined
       if (newDate === undefined) {
-        // React Hook: Toggle Android
+        // Toggle Android
         toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
       }
-
       // Event Type: Set Date
       else if (event.type === 'set') {
-        // React Hook: Toggle Android
+        // Toggle Android
         toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
 
-        // React Hook: Set From Date
+        // Set From Date
         setDate(newDate);
 
         // React Props: onChange
         props.onChange(newDate);
       }
-
       // Event Type: Dismissed
       else if (event.type === 'dismissed') {
-        // React Hook: Toggle Android
+        // Toggle Android
         toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
       }
     }
-
-    // Check Platform: Android
+    // Platform: Android
     else if (Platform.OS === 'ios') {
       // Undefined
       if (newDate !== undefined) {
-        // React Hook: Set Temp State
+        // Set State
         setTempDate(newDate);
       }
     }
   };
 
   // Render iOS Picker
-  const renderIOSPicker = () => {
+  const renderIOSPicker = (): JSX.Element => {
     return (
       <RNDateTimePicker
         mode="date"
@@ -105,8 +100,8 @@ const DatePicker = (props: Props) => {
   };
 
   // Press Cancel
-  const pressCancel = () => {
-    // React Hook: Set Temp Date
+  const pressCancel = (): void => {
+    // Set State
     setTempDate(date);
 
     // Toggle Modal
@@ -114,8 +109,8 @@ const DatePicker = (props: Props) => {
   };
 
   // Press Done
-  const pressDone = () => {
-    // React Hook: Set Date
+  const pressDone = (): void => {
+    // Set State
     setDate(tempDate);
 
     // Props: onChange
@@ -126,7 +121,8 @@ const DatePicker = (props: Props) => {
   };
 
   // Render Android Picker
-  const renderAndroidPicker = () => {
+  const renderAndroidPicker = (): JSX.Element | undefined => {
+    // Check If Android Modal Visible
     if (androidModalVisible === true) {
       return (
         <RNDateTimePicker
@@ -140,7 +136,7 @@ const DatePicker = (props: Props) => {
   };
 
   // Format Date
-  const formatDate = (date: Date) => {
+  const formatDate = (date: Date): string => {
     // Options
     const options = {
       month: 'short',
@@ -170,15 +166,14 @@ const DatePicker = (props: Props) => {
       >
         <View style={styles.modalContainer}>
           <View style={styles.pickerHeaderContainer}>
-            <TouchableOpacity
-              onPress={() => pressCancel()} >
+            <TouchableOpacity onPress={() => pressCancel()}>
               <Text style={styles.cancelText}>Cancel</Text>
             </TouchableOpacity>
 
             <View style={styles.doneButton}>
               <Button
-                onPress={() => pressDone()}
                 title="Done"
+                onPress={() => pressDone()}
                 disabled={date === tempDate ? true : false}
               />
             </View>
