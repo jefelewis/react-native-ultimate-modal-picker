@@ -3,12 +3,16 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '10.0'
 
-target 'reactNativeUltimateModalPicker' do
+target 'ReactNativeUltimateModalPicker' do
   config = use_native_modules!
 
-  use_react_native!(:path => config["reactNativePath"])
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # to enable hermes on iOS, change `false` to `true` and then install pods
+    :hermes_enabled => false
+  )
 
-  target 'reactNativeUltimateModalPickerTests' do
+  target 'ReactNativeUltimateModalPickerTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -16,18 +20,10 @@ target 'reactNativeUltimateModalPicker' do
   # Enables Flipper.
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
-  # you should disable these next few lines.
-  use_flipper!
-  post_install do |installer|
-    flipper_post_install(installer)
-  end
-end
+  # you should disable the next line.
+  # use_flipper!()
 
-target 'reactNativeUltimateModalPicker-tvOS' do
-  # Pods for reactNativeUltimateModalPicker-tvOS
-
-  target 'reactNativeUltimateModalPicker-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  # post_install do |installer|
+  #   react_native_post_install(installer)
+  # end
 end
