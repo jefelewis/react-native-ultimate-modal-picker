@@ -34,6 +34,7 @@ const CookingAmountPicker: React.FC<Props> = (props): JSX.Element => {
   useEffect(() => {
     // Check If Default Value Exists
     if (props.defaultValue) {
+      // Set State
       setItem(props.defaultValue);
     }
     else {
@@ -152,7 +153,7 @@ const CookingAmountPicker: React.FC<Props> = (props): JSX.Element => {
   ];
 
   // Toggle Modal
-  const toggleModal = () => {
+  const toggleModal = (): void => {
     // Platform: iOS
     if (Platform.OS === 'ios') {
       // Toggle Modal
@@ -161,13 +162,12 @@ const CookingAmountPicker: React.FC<Props> = (props): JSX.Element => {
   };
 
   // Select Item
-  const selectItem = (item: string) => {
+  const selectItem = (item: string): void => {
     // Platform: iOS
     if (Platform.OS === 'ios') {
       // Set State
       setTempItem(item);
     }
-
     // Platform: Android
     else if (Platform.OS === 'android') {
       // Set State
@@ -221,84 +221,78 @@ const CookingAmountPicker: React.FC<Props> = (props): JSX.Element => {
   };
 
   // Render Platform
-  const renderPlatform = () => {
-    try {
-      // Platform: iOS
-      if (Platform.OS === 'ios') {
-        return (
-          <View style={styles.container}>
-            <View style={styles.inputTitleContainer}>
-              <Text style={styles.inputTitle}>{props.title === undefined ? 'Number' : props.title}</Text>
-            </View>
-
-            <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-              <Text style={styles.fieldText} numberOfLines={1}>{item ? item : 'Select'}</Text>
-            </TouchableOpacity>
-
-            <Modal
-              isVisible={modalVisible}
-              style={styles.modal}
-              backdropOpacity={.30}
-            >
-              <View style={styles.modalContainer}>
-                <View style={styles.pickerHeaderContainer}>
-                  <TouchableOpacity onPress={() => pressCancel()} >
-                      <Text style={styles.cancelText}>Cancel</Text>
-                    </TouchableOpacity>
-
-                    <View style={styles.doneButton}>
-                      <Button
-                        onPress={() => pressDone()}
-                        title="Done"
-                        disabled={item === tempItem ? true : false}
-                      />
-                    </View>
-                </View>
-
-                <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
-              </View>
-            </Modal>
+  const renderPlatform = (): JSX.Element | undefined => {
+    // Platform: iOS
+    if (Platform.OS === 'ios') {
+      return (
+        <View style={styles.container}>
+          <View style={styles.inputTitleContainer}>
+            <Text style={styles.inputTitle}>{props.title === undefined ? 'Number' : props.title}</Text>
           </View>
-        );
-      }
 
-      // Platform: Android
-      if (Platform.OS === 'android') {
-        return (
-          <View style={styles.container}>
-            <View style={styles.inputTitleContainer}>
-              <Text style={styles.inputTitle}>{props.title}</Text>
-            </View>
+          <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
+            <Text style={styles.fieldText} numberOfLines={1}>{item ? item : 'Select'}</Text>
+          </TouchableOpacity>
 
-            <View style={styles.fieldTextContainer}>
-              <Picker
-                selectedValue={item}
-                style={{ height: 60, width: width - 16 }}
-                onValueChange={(item: any) => selectItem(item)}
-                mode="dropdown"
-              >
-                {cookingAmounts.map((item: any) => {
-                  return (
-                    <Picker.Item
-                      label={item.label}
-                      value={item.value}
-                      key={item.key || item.label}
+          <Modal
+            isVisible={modalVisible}
+            style={styles.modal}
+            backdropOpacity={.30}
+          >
+            <View style={styles.modalContainer}>
+              <View style={styles.pickerHeaderContainer}>
+                <TouchableOpacity onPress={() => pressCancel()} >
+                    <Text style={styles.cancelText}>Cancel</Text>
+                  </TouchableOpacity>
+
+                  <View style={styles.doneButton}>
+                    <Button
+                      onPress={() => pressDone()}
+                      title="Done"
+                      disabled={item === tempItem ? true : false}
                     />
-                  );
-                })}
-              </Picker>
+                  </View>
+              </View>
+
+              <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
             </View>
-          </View>
-        );
-      }
+          </Modal>
+        </View>
+      );
     }
-    catch (error) {
-      console.log(error);
+    // Platform: Android
+    else if (Platform.OS === 'android') {
+      return (
+        <View style={styles.container}>
+          <View style={styles.inputTitleContainer}>
+            <Text style={styles.inputTitle}>{props.title}</Text>
+          </View>
+
+          <View style={styles.fieldTextContainer}>
+            <Picker
+              selectedValue={item}
+              style={{ height: 60, width: width - 16 }}
+              onValueChange={(item: any) => selectItem(item)}
+              mode="dropdown"
+            >
+              {cookingAmounts.map((item: any) => {
+                return (
+                  <Picker.Item
+                    label={item.label}
+                    value={item.value}
+                    key={item.key || item.label}
+                  />
+                );
+              })}
+            </Picker>
+          </View>
+        </View>
+      );
     }
   };
 
   return (
-    <View>{renderPlatform()}</View>
+    <>{renderPlatform()}</>
   );
 };
 
