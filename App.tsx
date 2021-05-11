@@ -16,8 +16,7 @@ import {
 } from './src/index';
 
 // React Native App
-const App = () => {
-
+const App: React.FC = (): JSX.Element => {
   // Test Data
   const items: any = [
     { label: '1', value: '1' },
@@ -93,7 +92,7 @@ const App = () => {
         mode="spinner"
       />
     </SafeAreaView>
-  )
+  );
 };
 
 // Exports
