@@ -46,7 +46,7 @@ const App: React.FC = (): JSX.Element => {
           title="Date (Custom Styles)"
           onChange={(date) => console.log(date)}
           mode="spinner"
-          customStyle={{
+          customStyleContainer={{
             containerLight: {
               backgroundColor: '#000000',
               borderColor: '#000000',
@@ -57,6 +57,8 @@ const App: React.FC = (): JSX.Element => {
               borderColor: '#000000',
               borderBottomWidth: 2,
             },
+          }}
+          customStyleLabelText={{
             labelTextLight: {
               fontFamily: 'System',
               fontSize: 22,
@@ -86,7 +88,7 @@ const App: React.FC = (): JSX.Element => {
           title="Time (Custom Styles)"
           onChange={(date) => console.log(date)}
           mode="spinner"
-          customStyle={{
+          customStyleContainer={{
             containerLight: {
               backgroundColor: '#000000',
               borderColor: '#000000',
@@ -97,6 +99,8 @@ const App: React.FC = (): JSX.Element => {
               borderColor: '#000000',
               borderBottomWidth: 2,
             },
+          }}
+          customStyleLabelText={{
             labelTextLight: {
               fontFamily: 'System',
               fontSize: 22,
@@ -124,7 +128,7 @@ const App: React.FC = (): JSX.Element => {
         <PickerDateTime
           title="Date/Time (Custom Styles)"
           onChange={(date) => console.log(date)}
-          customStyle={{
+          customStyleContainer={{
             containerLight: {
               backgroundColor: '#000000',
               borderColor: '#000000',
@@ -135,6 +139,8 @@ const App: React.FC = (): JSX.Element => {
               borderColor: '#000000',
               borderBottomWidth: 2,
             },
+          }}
+          customStyleLabelText={{
             labelTextLight: {
               fontFamily: 'System',
               fontSize: 22,
