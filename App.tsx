@@ -4,11 +4,11 @@ import { SafeAreaView, ScrollView } from 'react-native';
 
 // Imports: Components
 import {
-  DateRangePicker,
+  PickerDateRange,
   PickerDate,
   PickerTime,
   PickerDateTime,
-  ListPicker,
+  PickerList,
   NumberPicker,
   CookingAmountPicker,
   StatePicker,
@@ -34,16 +34,16 @@ const App: React.FC = (): JSX.Element => {
     <SafeAreaView style={{ display: 'flex', flex: 1 }}>
       <ScrollView>
 
-        {/* Picker Date (Modes: spinner/calendar) */}
+        {/* Picker: Date (Modes: spinner/calendar) */}
         <PickerDate
           title="Date"
           onChange={(date) => console.log(date)}
           mode="spinner"
         />
 
-        {/* Picker Date (Custom Styles) */}
+        {/* Picker: Date (Custom Styles) */}
         <PickerDate
-          title="Date"
+          title="Date (Custom Styles)"
           onChange={(date) => console.log(date)}
           mode="spinner"
           customStyle={{
@@ -74,16 +74,16 @@ const App: React.FC = (): JSX.Element => {
           }}
         />
 
-        {/* Picker Time (Modes: spinner/clock) */}
+        {/* Picker: Time (Modes: spinner/clock) */}
         <PickerTime
           title="Time"
           onChange={(date) => console.log(date)}
           mode="spinner"
         />
 
-        {/* Picker Time (Custom Styles) */}
+        {/* Picker: Time (Custom Styles) */}
         <PickerTime
-          title="Time"
+          title="Time (Custom Styles)"
           onChange={(date) => console.log(date)}
           mode="spinner"
           customStyle={{
@@ -114,15 +114,15 @@ const App: React.FC = (): JSX.Element => {
           }}
         />
 
-        {/* Picker Date Time (iOS Only) */}
+        {/* Picker: Date Time (iOS Only) */}
         <PickerDateTime
           title="Date/Time"
           onChange={(date) => console.log(date)}
         />
 
-        {/* Picker Date Time (Custom Styles) */}
+        {/* Picker: Date Time (Custom Styles) */}
         <PickerDateTime
-          title="Date/Time"
+          title="Date/Time (Custom Styles)"
           onChange={(date) => console.log(date)}
           customStyle={{
             containerLight: {
@@ -152,11 +152,96 @@ const App: React.FC = (): JSX.Element => {
           }}
         />
 
-        {/* List Picker */}
-        <ListPicker
+        {/* Picker: List */}
+        <PickerList
           title="List"
           items={items}
           onChange={(item) => console.log(item)}
+        />
+
+        {/* Picker: List (Custom Styles) */}
+        <PickerList
+          title="List (Custom Styles)"
+          items={items}
+          onChange={(item) => console.log(item)}
+          customStyle={{
+            containerLight: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            containerDark: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            labelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            labelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            fieldTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            fieldTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            cancelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+            cancelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+            modalHeaderContainerLight: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            modalHeaderContainerDark: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            modalContentContainerLight: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+            modalContentContainerDark: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+            pickerItemTextLight: {
+              color: 'red',
+            },
+            pickerItemTextDark: {
+              color: 'red',
+            }
+          }}
         />
 
         {/* Number Picker */}
@@ -177,8 +262,8 @@ const App: React.FC = (): JSX.Element => {
           onChange={(state) => console.log(state)}
         />
 
-        {/* Date Range Picker */}
-        <DateRangePicker
+        {/* Picker (Date Range) */}
+        <PickerDateRange
           title="Date Range"
           onFromChange={(date) => console.log(date)}
           onToChange={(date) => console.log(date)}
