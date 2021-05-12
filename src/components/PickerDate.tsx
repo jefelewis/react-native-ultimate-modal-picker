@@ -7,7 +7,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 const { height, width } = Dimensions.get('window');
 
 // Imports: TypeScript Types
-import { DateTimePickerStyles, Container, LabelText } from './types/types';
+import { DateTimePickerStyles, Container, LabelText } from '../types/types';
 
 // TypeScript Types: Props
 interface Props {
