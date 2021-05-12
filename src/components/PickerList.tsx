@@ -5,7 +5,7 @@ import { Picker } from '@react-native-picker/picker';
 import Modal from 'react-native-modal';
 
 // Imports: TypeScript Types
-import { PickerItem } from '../types/types';
+import { ContainerStyle, LabelTextStyle, FieldTextStyle, CancelTextStyle, DoneTextStyle, ModalHeaderContainerStyle, ModalContentContainerStyle, PickerItemTextStyle, PickerItem } from '../types/types';
 
 // TypeScript Types: Props
 interface Props {
@@ -14,13 +14,14 @@ interface Props {
   title?: string;
   defaultValue?: string;
   darkMode?: boolean,
-  customStyleContainer?: any,
-  customStyleLabelText?: any,
-  customStyleFieldText?: any,
-  customStyleCancelText?: any,
-  customStyleModalHeaderContainer?: any,
-  customStyleModalContentContainer?: any,
-  customStylePickerItemText?: any,
+  customStyleContainer?: ContainerStyle,
+  customStyleLabelText?: LabelTextStyle,
+  customStyleFieldText?: FieldTextStyle,
+  customStyleModalHeaderContainer?: ModalHeaderContainerStyle,
+  customStyleCancelText?: CancelTextStyle,
+  customStyleDoneText?: DoneTextStyle,
+  customStyleModalContentContainer?: ModalContentContainerStyle,
+  customStylePickerItemText?: PickerItemTextStyle,
 };
 
 // Screen Dimensions
@@ -57,9 +58,9 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
           paddingRight: 16,
           paddingBottom: 12,
           marginBottom: 12,
-          borderColor: props.customStyleContainer?.containerDark ? props.customStyleContainer.containerDark.borderColor : '#8D8D93',
-          borderBottomWidth: props.customStyleContainer?.containerDark ? props.customStyleContainer.containerDark.borderBottomWidth : StyleSheet.hairlineWidth,
-          backgroundColor: props.customStyleContainer?.containerDark ? props.customStyleContainer.containerDark.backgroundColor : undefined,
+          borderColor: props.customStyleContainer?.containerDark.borderColor ? props.customStyleContainer.containerDark.borderColor : '#8D8D93',
+          borderBottomWidth: props.customStyleContainer?.containerDark.borderBottomWidth ? props.customStyleContainer.containerDark.borderBottomWidth : StyleSheet.hairlineWidth,
+          backgroundColor: props.customStyleContainer?.containerDark.backgroundColor ? props.customStyleContainer.containerDark.backgroundColor : undefined,
         }
       );
     }
@@ -73,9 +74,9 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
           paddingRight: 16,
           paddingBottom: 12,
           marginBottom: 12,
-          borderColor: props.customStyleContainer?.containerLight ? props.customStyleContainer.containerLight.borderColor : '#8A8A8E',
-          borderBottomWidth: props.customStyleContainer?.containerLight ? props.customStyleContainer.containerLight.borderBottomWidth : StyleSheet.hairlineWidth,
-          backgroundColor: props.customStyleContainer?.containerLight ? props.customStyleContainer.containerLight.backgroundColor : undefined,
+          borderColor: props.customStyleContainer?.containerLight.borderColor ? props.customStyleContainer.containerLight.borderColor : '#8A8A8E',
+          borderBottomWidth: props.customStyleContainer?.containerLight.borderBottomWidth ? props.customStyleContainer.containerLight.borderBottomWidth : StyleSheet.hairlineWidth,
+          backgroundColor: props.customStyleContainer?.containerLight.backgroundColor ? props.customStyleContainer.containerLight.backgroundColor : undefined,
         }
       );
     }
@@ -87,11 +88,11 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
     if (props.darkMode) {
       return (
         {
-          fontFamily: props.customStyleLabelText?.labelTextDark ? props.customStyleLabelText.labelTextDark.fontFamily : 'System',
-          fontSize: props.customStyleLabelText?.labelTextDark ? props.customStyleLabelText.labelTextDark.fontSize : 11,
-          fontWeight: props.customStyleLabelText?.labelTextDark ? props.customStyleLabelText.labelTextDark.fontWeight : '600',
-          textTransform: props.customStyleLabelText?.labelTextDark ? props.customStyleLabelText.labelTextDark.textTransform : 'uppercase',
-          color: props.customStyleLabelText?.labelTextDark ? props.customStyleLabelText.labelTextDark.color : '#8D8D93',
+          fontFamily: props.customStyleLabelText?.labelTextDark.fontFamily ? props.customStyleLabelText.labelTextDark.fontFamily : 'System',
+          fontSize: props.customStyleLabelText?.labelTextDark.fontSize ? props.customStyleLabelText.labelTextDark.fontSize : 11,
+          fontWeight: props.customStyleLabelText?.labelTextDark.fontWeight ? props.customStyleLabelText.labelTextDark.fontWeight : '600',
+          textTransform: props.customStyleLabelText?.labelTextDark.textTransform ? props.customStyleLabelText.labelTextDark.textTransform : 'uppercase',
+          color: props.customStyleLabelText?.labelTextDark.color ? props.customStyleLabelText.labelTextDark.color : '#8D8D93',
           marginBottom: 7,
         }
       );
@@ -100,11 +101,11 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
     else {
       return (
         {
-          fontFamily: props.customStyleLabelText?.labelTextLight ? props.customStyleLabelText.labelTextLight.fontFamily : 'System',
-          fontSize: props.customStyleLabelText?.labelTextLight ? props.customStyleLabelText.labelTextLight.fontSize : 11,
-          fontWeight: props.customStyleLabelText?.labelTextLight ? props.customStyleLabelText.labelTextLight.fontWeight : '600',
-          textTransform: props.customStyleLabelText?.labelTextLight ? props.customStyleLabelText.labelTextLight.textTransform : 'uppercase',
-          color: props.customStyleLabelText?.labelTextLight ? props.customStyleLabelText.labelTextLight.color : '#8A8A8E',
+          fontFamily: props.customStyleLabelText?.labelTextLight.fontFamily ? props.customStyleLabelText.labelTextLight.fontFamily : 'System',
+          fontSize: props.customStyleLabelText?.labelTextLight.fontSize ? props.customStyleLabelText.labelTextLight.fontSize : 11,
+          fontWeight: props.customStyleLabelText?.labelTextLight.fontWeight ? props.customStyleLabelText.labelTextLight.fontWeight : '600',
+          textTransform: props.customStyleLabelText?.labelTextLight.textTransform ? props.customStyleLabelText.labelTextLight.textTransform : 'uppercase',
+          color: props.customStyleLabelText?.labelTextLight.color ? props.customStyleLabelText.labelTextLight.color : '#8A8A8E',
           marginBottom: 7,
         }
       );
@@ -117,10 +118,10 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
     if (props.darkMode) {
       return (
         {
-          fontFamily: props.customStyleFieldText?.fieldTextDark ? props.customStyleFieldText.fieldTextDark.fontFamily : 'System',
-          fontSize: props.customStyleFieldText?.fieldTextDark ? props.customStyleFieldText.fieldTextDark.fontSize : 17,
-          fontWeight: props.customStyleFieldText?.fieldTextDark ? props.customStyleFieldText.fieldTextDark.fontWeight : '400',
-          color: props.customStyleFieldText?.fieldTextDark ? props.customStyleFieldText.fieldTextDark.color : '#FFFFFF',
+          fontFamily: props.customStyleFieldText?.fieldTextDark.fontFamily ? props.customStyleFieldText.fieldTextDark.fontFamily : 'System',
+          fontSize: props.customStyleFieldText?.fieldTextDark.fontSize ? props.customStyleFieldText.fieldTextDark.fontSize : 17,
+          fontWeight: props.customStyleFieldText?.fieldTextDark.fontWeight ? props.customStyleFieldText.fieldTextDark.fontWeight : '400',
+          color: props.customStyleFieldText?.fieldTextDark.color ? props.customStyleFieldText.fieldTextDark.color : '#FFFFFF',
           alignSelf: 'center',
         }
       );
@@ -129,67 +130,11 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
     else {
       return (
         {
-          fontFamily: props.customStyleFieldText?.fieldTextLight ? props.customStyleFieldText.fieldTextLight.fontFamily : 'System',
-          fontSize: props.customStyleFieldText?.fieldTextLight ? props.customStyleFieldText.fieldTextLight.fontSize : 17,
-          fontWeight: props.customStyleFieldText?.fieldTextLight ? props.customStyleFieldText.fieldTextLight.fontWeight : '400',
-          color: props.customStyleFieldText?.fieldTextLight ? props.customStyleFieldText.fieldTextLight.color : '#000000',
+          fontFamily: props.customStyleFieldText?.fieldTextLight.fontFamily ? props.customStyleFieldText.fieldTextLight.fontFamily : 'System',
+          fontSize: props.customStyleFieldText?.fieldTextLight.fontSize ? props.customStyleFieldText.fieldTextLight.fontSize : 17,
+          fontWeight: props.customStyleFieldText?.fieldTextLight.fontWeight ? props.customStyleFieldText.fieldTextLight.fontWeight : '400',
+          color: props.customStyleFieldText?.fieldTextLight.color ? props.customStyleFieldText.fieldTextLight.color : '#000000',
           alignSelf: 'center',
-        }
-      );
-    }
-  };
-
-  // Render Cancel Text Style
-  const renderCancelTextStyle = (): any => {
-    // Dark Mode
-    if (props.darkMode) {
-      return (
-        {
-          marginLeft: 16,
-          fontFamily: props.customStyleCancelText?.cancelTextDark ? props.customStyleCancelText.cancelTextDark.fontFamily : 'System',
-          color: props.customStyleCancelText?.cancelTextDark ? props.customStyleCancelText.cancelTextDark.color : '#0884FE',
-          fontWeight: props.customStyleCancelText?.cancelTextDark ? props.customStyleCancelText.cancelTextDark.fontWeight : '400',
-          fontSize: props.customStyleCancelText?.cancelTextDark ? props.customStyleCancelText.cancelTextDark.fontSize : 17,
-        }
-      );
-    }
-    // Light Mode
-    else {
-      return (
-        {
-          marginLeft: 16,
-          fontFamily: props.customStyleCancelText?.cancelTextLight ? props.customStyleCancelText.cancelTextLight.fontFamily : 'System',
-          color: props.customStyleCancelText?.cancelTextLight ? props.customStyleCancelText.cancelTextLight.color : '#007AFF',
-          fontWeight: props.customStyleCancelText?.cancelTextLight ? props.customStyleCancelText.cancelTextLight.fontWeight : '400',
-          fontSize: props.customStyleCancelText?.cancelTextLight ? props.customStyleCancelText.cancelTextLight.fontSize : 17,
-        }
-      );
-    }
-  };
-
-  // Render Done Text Style
-  const renderDoneTextStyle = () => {
-    // Dark Mode
-    if (props.darkMode) {
-      return (
-        {
-          fontFamily: 'System',
-          color: '#007AFF',
-          fontWeight: '600',
-          fontSize: 17,
-          marginRight: 16,
-        }
-      );
-    }
-    // Light Mode
-    else {
-      return (
-        {
-          fontFamily: 'System',
-          color: '#007AFF',
-          fontWeight: '600',
-          fontSize: 17,
-          marginRight: 16,
         }
       );
     }
@@ -206,10 +151,10 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
           justifyContent: 'space-between',
           alignItems: 'center',
           width: width,
-          height: props.customStyleModalHeaderContainer?.modalHeaderContainerDark ? props.customStyleModalHeaderContainer.modalHeaderContainerDark.height : 45,
-          backgroundColor: props.customStyleModalHeaderContainer?.modalHeaderContainerDark ? props.customStyleModalHeaderContainer.modalHeaderContainerDark.backgroundColor : '#383838',
-          borderColor: props.customStyleModalHeaderContainer?.modalHeaderContainerDark ? props.customStyleModalHeaderContainer.modalHeaderContainerDark.borderColor : '#E9E9EB',
-          borderBottomWidth: props.customStyleModalHeaderContainer?.modalHeaderContainerDark ? props.customStyleModalHeaderContainer.modalHeaderContainerDark.borderBottomWidth : StyleSheet.hairlineWidth,
+          height: props.customStyleModalHeaderContainer?.modalHeaderContainerDark.height ? props.customStyleModalHeaderContainer.modalHeaderContainerDark.height : 45,
+          backgroundColor: props.customStyleModalHeaderContainer?.modalHeaderContainerDark.backgroundColor ? props.customStyleModalHeaderContainer.modalHeaderContainerDark.backgroundColor : '#383838',
+          borderColor: props.customStyleModalHeaderContainer?.modalHeaderContainerDark.borderColor ? props.customStyleModalHeaderContainer.modalHeaderContainerDark.borderColor : '#E9E9EB',
+          borderBottomWidth: props.customStyleModalHeaderContainer?.modalHeaderContainerDark.borderBottomWidth ? props.customStyleModalHeaderContainer.modalHeaderContainerDark.borderBottomWidth : StyleSheet.hairlineWidth,
         }
       );
     }
@@ -222,12 +167,52 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
           justifyContent: 'space-between',
           alignItems: 'center',
           width: width,
-          height: props.customStyleModalHeaderContainer?.modalHeaderContainerLight ? props.customStyleModalHeaderContainer.modalHeaderContainerLight.height : 45,
-          backgroundColor: props.customStyleModalHeaderContainer?.modalHeaderContainerLight ? props.customStyleModalHeaderContainer.modalHeaderContainerLight.backgroundColor : '#FFFFFF',
-          borderColor: props.customStyleModalHeaderContainer?.modalHeaderContainerLight ? props.customStyleModalHeaderContainer.modalHeaderContainerLight.borderColor : '#CED4DA',
-          borderBottomWidth: props.customStyleModalHeaderContainer?.modalHeaderContainerLight ? props.customStyleModalHeaderContainer.modalHeaderContainerLight.borderBottomWidth : StyleSheet.hairlineWidth,
+          height: props.customStyleModalHeaderContainer?.modalHeaderContainerLight.height ? props.customStyleModalHeaderContainer.modalHeaderContainerLight.height : 45,
+          backgroundColor: props.customStyleModalHeaderContainer?.modalHeaderContainerLight.backgroundColor ? props.customStyleModalHeaderContainer.modalHeaderContainerLight.backgroundColor : '#FFFFFF',
+          borderColor: props.customStyleModalHeaderContainer?.modalHeaderContainerLight.borderColor ? props.customStyleModalHeaderContainer.modalHeaderContainerLight.borderColor : '#CED4DA',
+          borderBottomWidth: props.customStyleModalHeaderContainer?.modalHeaderContainerLight.borderBottomWidth ? props.customStyleModalHeaderContainer.modalHeaderContainerLight.borderBottomWidth : StyleSheet.hairlineWidth,
         }
       );
+    }
+  };
+
+  // Render Cancel Text Style
+  const renderCancelTextStyle = (): any => {
+    // Dark Mode
+    if (props.darkMode) {
+      return (
+        {
+          marginLeft: 16,
+          fontFamily: props.customStyleCancelText?.cancelTextDark.fontFamily ? props.customStyleCancelText.cancelTextDark.fontFamily : 'System',
+          color: props.customStyleCancelText?.cancelTextDark.color ? props.customStyleCancelText.cancelTextDark.color : '#0884FE',
+          fontWeight: props.customStyleCancelText?.cancelTextDark.fontWeight ? props.customStyleCancelText.cancelTextDark.fontWeight : '400',
+          fontSize: props.customStyleCancelText?.cancelTextDark.fontSize ? props.customStyleCancelText.cancelTextDark.fontSize : 17,
+        }
+      );
+    }
+    // Light Mode
+    else {
+      return (
+        {
+          marginLeft: 16,
+          fontFamily: props.customStyleCancelText?.cancelTextLight.fontFamily ? props.customStyleCancelText.cancelTextLight.fontFamily : 'System',
+          color: props.customStyleCancelText?.cancelTextLight.color ? props.customStyleCancelText.cancelTextLight.color : '#007AFF',
+          fontWeight: props.customStyleCancelText?.cancelTextLight.fontWeight ? props.customStyleCancelText.cancelTextLight.fontWeight : '400',
+          fontSize: props.customStyleCancelText?.cancelTextLight.fontSize ? props.customStyleCancelText.cancelTextLight.fontSize : 17,
+        }
+      );
+    }
+  };
+
+  // Render Done Text Style
+  const renderDoneTextStyle = (): string => {
+    // Dark Mode
+    if (props.darkMode) {
+      return props.customStylePickerItemText?.pickerItemTextDark.color ? props.customStylePickerItemText.pickerItemTextDark.color : '#FFFFFF';
+    }
+    // Light Mode
+    else {
+      return props.customStylePickerItemText?.pickerItemTextLight.color ? props.customStylePickerItemText.pickerItemTextLight.color : '#FFFFFF';
     }
   };
 
@@ -238,8 +223,8 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
       return (
         {
           width: width,
-          height: props.customStyleModalContentContainer?.modalContentContainerDark ? props.customStyleModalContentContainer.modalContentContainerDark.height : 250,
-          backgroundColor: props.customStyleModalContentContainer?.modalContentContainerDark ? props.customStyleModalContentContainer.modalContentContainerDark.backgroundColor : '#121312',
+          height: props.customStyleModalContentContainer?.modalContentContainerDark.height ? props.customStyleModalContentContainer.modalContentContainerDark.height : 250,
+          backgroundColor: props.customStyleModalContentContainer?.modalContentContainerDark.backgroundColor ? props.customStyleModalContentContainer.modalContentContainerDark.backgroundColor : '#121312',
         }
       );
     }
@@ -248,22 +233,30 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
       return (
         {
           width: width,
-          height: props.customStyleModalContentContainer?.modalContentContainerLight ? props.customStyleModalContentContainer.modalContentContainerLight.height : 250,
-          backgroundColor: props.customStyleModalContentContainer?.modalContentContainerLight ? props.customStyleModalContentContainer.modalContentContainerLight.backgroundColor : '#FFFFFF',
+          height: props.customStyleModalContentContainer?.modalContentContainerLight.height ? props.customStyleModalContentContainer.modalContentContainerLight.height : 250,
+          backgroundColor: props.customStyleModalContentContainer?.modalContentContainerLight.backgroundColor ? props.customStyleModalContentContainer.modalContentContainerLight.backgroundColor : '#FFFFFF',
         }
       );
     }
   };
 
   // Render Picker Item Text Style
-  const renderPickerItemStyle = (): string => {
+  const renderPickerItemStyle = (): any => {
     // Dark Mode
     if (props.darkMode) {
-      return props.customStylePickerItemText?.pickerItemTextDark ? props.customStylePickerItemText.pickerItemTextDark.color : '#FFFFFF';
+      return (
+        {
+          color: props.customStylePickerItemText?.pickerItemTextDark.color ? props.customStylePickerItemText.pickerItemTextDark.color : '#FFFFFF',
+        }
+      );
     }
     // Light Mode
     else {
-      return props.customStylePickerItemText?.pickerItemTextLight ? props.customStylePickerItemText.pickerItemTextLight.color : '#000000';
+      return (
+        {
+          color: props.customStylePickerItemText?.pickerItemTextLight.color ? props.customStylePickerItemText.pickerItemTextLight.color : '#000000',
+        }
+      );
     }
   };
 
@@ -274,43 +267,6 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
       // React Hook: Toggle Modal
       toggle((modalVisible: boolean) => !modalVisible);
     }
-  };
-
-  // Select Value
-  const selectValue = (value: string) => {
-    // Platform: iOS
-    if (Platform.OS === 'ios') {
-      // Set State
-      setTempValue(value);
-    }
-    // Platform: Android
-    else if (Platform.OS === 'android') {
-      // Set State
-      setValue(value);
-
-      // Props: onChange
-      props.onChange(value);
-    }
-  };
-
-  // Render iOS Picker
-  const renderIOSPicker = (): JSX.Element => {
-    return (
-      <Picker
-        selectedValue={tempValue !== undefined ? tempValue : value}
-        onValueChange={(value: string) => selectValue(value)}>
-        {props.items.map((item: PickerItem) => {
-          return (
-            <Picker.Item
-              label={item.label}
-              value={item.value}
-              key={item.key || item.label}
-              color={renderPickerItemStyle()}
-            />
-          );
-        })}
-      </Picker>
-    );
   };
 
   // Press Cancel
@@ -334,13 +290,30 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
     toggleModal();
   };
 
+  // Select Value
+  const selectValue = (value: string) => {
+    // Platform: iOS
+    if (Platform.OS === 'ios') {
+      // Set State
+      setTempValue(value);
+    }
+    // Platform: Android
+    else if (Platform.OS === 'android') {
+      // Set State
+      setValue(value);
+
+      // Props: onChange
+      props.onChange(value);
+    }
+  };
+
   // Render Picker
   const renderPicker = (): JSX.Element | undefined => {
     // Platform: iOS:
     if (Platform.OS === 'ios') {
       return (
         <View style={renderContainerStyle()}>
-          <View style={styles.inputTitleContainer}>
+          <View style={styles.labelContainer}>
             <Text style={renderLabelTextStyle()}>{props.title === undefined ? 'List' : props.title}</Text>
           </View>
 
@@ -359,17 +332,33 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
                     <Text style={renderCancelTextStyle()}>Cancel</Text>
                   </TouchableOpacity>
 
-                  <View style={styles.doneButton}>
+                  <View style={styles.doneButtonContainer}>
                     <Button
                       title="Done"
                       onPress={() => pressDone()}
                       disabled={value === tempValue ? true : false}
-                      // style={renderDoneTextStyle()}
+                      color={renderDoneTextStyle()}
                     />
                   </View>
               </View>
 
-              <View style={renderModalContentContainerStyle()}>{renderIOSPicker()}</View>
+              <View style={renderModalContentContainerStyle()}>
+                <Picker
+                  selectedValue={tempValue !== undefined ? tempValue : value}
+                  onValueChange={(value: string) => selectValue(value)}
+                >
+                  {props.items.map((item: PickerItem) => {
+                    return (
+                      <Picker.Item
+                        label={item.label}
+                        value={item.value}
+                        key={item.key || item.label}
+                        color={renderPickerItemStyle()}
+                      />
+                    );
+                  })}
+                </Picker>
+              </View>
             </View>
           </Modal>
         </View>
@@ -379,29 +368,27 @@ const PickerList: React.FC<Props> = (props): JSX.Element => {
     else if (Platform.OS === 'android') {
       return (
         <View style={renderContainerStyle()}>
-          <View style={styles.inputTitleContainer}>
+          <View style={styles.labelContainer}>
             <Text style={renderLabelTextStyle()}>{props.title}</Text>
           </View>
 
-          {/* <View style={styles.fieldTextContainer}> */}
-          <View>
-            <Picker
-              selectedValue={value}
-              style={{height: 60, width: width - 16}}
-              onValueChange={(value: string) => setValue(value)}
-              mode="dropdown">
-              {props.items.map((item: PickerItem) => {
-                return (
-                  <Picker.Item
-                    key={item.key || item.label}
-                    label={item.label}
-                    value={item.value}
-                    color={renderPickerItemStyle()}
-                  />
-                );
-              })}
-            </Picker>
-          </View>
+          <Picker
+            mode="dropdown"
+            selectedValue={value}
+            style={{height: 60, width: width - 16}}
+            onValueChange={(value: string) => setValue(value)}
+          >
+            {props.items.map((item: PickerItem) => {
+              return (
+                <Picker.Item
+                  key={item.key || item.label}
+                  label={item.label}
+                  value={item.value}
+                  color={renderPickerItemStyle()}
+                />
+              );
+            })}
+          </Picker>
         </View>
       );
     }
@@ -422,29 +409,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
-  doneButton: {
+  doneButtonContainer: {
     marginRight: 7,
   },
-  doneText: {
-    fontFamily: 'System',
-    color: '#007AFF',
-    fontWeight: '600',
-    fontSize: 17,
-    marginRight: 16,
-  },
-  inputTitleContainer: {
+  labelContainer: {
     width: width - 32,
     marginBottom: 4,
   },
   fieldTextContainer: {
-    height: 40,
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
-    borderColor: '#7D7D7D',
-    borderBottomWidth: StyleSheet.hairlineWidth,
   },
 });
 
