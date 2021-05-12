@@ -1,7 +1,7 @@
 // Imports: Dependencies
 import React, { useState, useEffect } from 'react';
 import { Appearance, Button, Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import RNDateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import Modal from 'react-native-modal';
 
 // Screen Dimensions
@@ -42,37 +42,6 @@ const DateRangePicker: React.FC<Props> = (props): JSX.Element => {
       todaySent(true);
     }
   }, [today]);
-
-  // Toggle From Date Modal
-  const toggleFromDateModal = (): void => {
-    // Platform: iOS
-    if (Platform.OS === 'ios') {
-      // React Hook: Toggle Modal
-      toggleFromDate((fromDateModalVisible: boolean) => !fromDateModalVisible);
-    }
-    // Platform: Android
-    else if (Platform.OS === 'android') {
-      // React Hook: Toggle Android
-      toggleFromDateAndroid((androidFromDateVisible: boolean) => !androidFromDateVisible);
-    }
-  };
-
-  // Toggle To Date Modal
-  const toggleToDateModal = (): void => {
-    // Platform: iOS
-    if (Platform.OS === 'ios') {
-      // React Hook: Toggle Modal
-      toggleToDate((toDateModalVisible: boolean) => !toDateModalVisible);
-    }
-    // Platform: Android
-    else if (Platform.OS === 'android') {
-      // React Hook: Toggle Android
-      toggleToDateAndroid((androidToDateVisible: boolean) => !androidToDateVisible);
-    }
-
-    // Dismiss Keyboard
-    Keyboard.dismiss();
-  };
 
   // Select From Date
   const selectFromDate = (event: any, newDate: Date): void => {
@@ -146,89 +115,35 @@ const DateRangePicker: React.FC<Props> = (props): JSX.Element => {
     }
   };
 
-  // Render From iOS Date Picker
+  // Render iOS Date Picker (From Date)
   const renderFromIOSDatePicker = (): JSX.Element => {
     return (
-      <RNDateTimePicker
+      <DateTimePicker
         mode="date"
         value={tempFromDate ? tempFromDate : fromDate}
         onChange={(event: any, newDate: any) => selectFromDate(event, newDate)}
+        style={{width: 140}}
       />
     );
   };
 
-  // Press Cancel (From Date)
-  const pressCancelFromDate = (): void => {
-    // Set State
-    setTempFromDate(fromDate);
-
-    // Toggle Modal
-    toggleFromDateModal();
-  };
-
-  // Press Done (From Date)
-  const pressDoneFromDate = (): void => {
-    // React Hook: Set Date
-    setFromDate(tempFromDate);
-
-    // Props: onChange
-    props.onFromChange(tempFromDate);
-
-    // Toggle Modal
-    toggleFromDateModal();
-  };
-
-  // Render To iOS Date Picker (To Date)
+  // Render iOS Date Picker (To Date)
   const renderToIOSDatePicker = (): JSX.Element => {
     return (
-      <RNDateTimePicker
+      <DateTimePicker
         mode="date"
         value={tempToDate ? tempToDate : toDate}
         onChange={(event: any, newDate: any) => selectToDate(event, newDate)}
+        style={{width: 140}}
       />
     );
   };
 
-  // Press Cancel (To Date)
-  const pressCancelToDate = (): void => {
-    // Set State
-    setTempToDate(toDate);
-
-    // Toggle Modal
-    toggleToDateModal();
-  };
-
-  // Press Done (To Date)
-  const pressDoneToDate = (): void => {
-    // React Hook: Set Date
-    setToDate(tempToDate);
-
-    // Props: onChange
-    props.onToChange(tempToDate);
-
-    // Toggle Modal
-    toggleToDateModal();
-  };
-
-  // Render To Date Android Picker
-  const renderToDateAndroidPicker = (): JSX.Element => {
-    if (androidToDateVisible === true) {
-      return (
-        <RNDateTimePicker
-          mode="date"
-          display={props.mode}
-          value={toDate}
-          onChange={(event: any, newDate: any) => selectToDate(event, newDate)}
-        />
-      );
-    }
-  };
-
-  // Render From Date Android Picker
-  const renderFromDateAndroidPicker = (): JSX.Element => {
+  // Render Date Android Picker (From Date)
+  const renderFromDateAndroidPicker = (): JSX.Element | undefined => {
     if (androidFromDateVisible === true) {
       return (
-        <RNDateTimePicker
+        <DateTimePicker
           mode="date"
           display={props.mode}
           value={fromDate}
@@ -238,17 +153,31 @@ const DateRangePicker: React.FC<Props> = (props): JSX.Element => {
     }
   };
 
-  // Format Date
-  const formatDate = (date: Date): string => {
-    // Options
-    const options = {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-    };
-
-    return date.toLocaleDateString('en-US', options);
+  // Render Date Android Picker (To Date)
+  const renderToDateAndroidPicker = (): JSX.Element | undefined => {
+    if (androidToDateVisible === true) {
+      return (
+        <DateTimePicker
+          mode="date"
+          display={props.mode}
+          value={toDate}
+          onChange={(event: any, newDate: any) => selectToDate(event, newDate)}
+        />
+      );
+    }
   };
+
+  // Format Date
+  // const formatDate = (date: Date): string => {
+  //   // Options
+  //   const options = {
+  //     month: 'short',
+  //     day: 'numeric',
+  //     year: 'numeric',
+  //   };
+
+  //   return date.toLocaleDateString('en-US', options);
+  // };
 
   return (
     <View style={styles.container}>
@@ -257,71 +186,17 @@ const DateRangePicker: React.FC<Props> = (props): JSX.Element => {
       </View>
 
       <View style={styles.toFromDateContainer}>
-        <TouchableOpacity onPress={() => toggleFromDateModal()} style={styles.dateInfoContainer}>
-          <Text style={styles.dateText}>From</Text>
-          <Text style={styles.text}>{formatDate(fromDate)}</Text>
-        </TouchableOpacity>
+        <Text style={styles.dateText}>From</Text>
 
-        <View>{androidFromDateVisible === true ? renderFromDateAndroidPicker() : null}</View>
-
-        <Modal
-          isVisible={fromDateModalVisible}
-          style={styles.modal}
-          backdropOpacity={.30}
-        >
-          <View style={styles.modalContainer}>
-            <View style={styles.pickerHeaderContainer}>
-              <TouchableOpacity onPress={() => pressCancelFromDate()}>
-                <Text style={styles.cancelText}>Cancel</Text>
-              </TouchableOpacity>
-
-              <View style={styles.doneButton}>
-                <Button
-                  title="Done"
-                  onPress={() => pressDoneFromDate()}
-                  disabled={fromDate === tempFromDate ? true : false}
-                />
-              </View>
-            </View>
-
-            <View style={styles.pickerContainer}>{renderFromIOSDatePicker()}</View>
-          </View>
-        </Modal>
+        <>{renderFromIOSDatePicker()}</>
       </View>
 
       <View style={styles.divider}></View>
 
       <View style={styles.toFromDateContainer}>
-        <TouchableOpacity onPress={() => toggleToDateModal()} style={styles.dateInfoContainer}>
-          <Text style={styles.dateText}>To</Text>
-          <Text style={styles.text}>{String(toDate) === String(fromDate) ? 'Select' : formatDate(toDate)}</Text>
-        </TouchableOpacity>
+        <Text style={styles.dateText}>To</Text>
 
-        <View>{androidToDateVisible === true ? renderToDateAndroidPicker(): null}</View>
-
-        <Modal
-          isVisible={toDateModalVisible}
-          style={styles.modal}
-          backdropOpacity={.30}
-        >
-          <View style={styles.modalContainer}>
-            <View style={styles.pickerHeaderContainer}>
-              <TouchableOpacity onPress={() => pressCancelToDate()}>
-                <Text style={styles.cancelText}>Cancel</Text>
-              </TouchableOpacity>
-
-              <View style={styles.doneButton}>
-                <Button
-                  title="Done"
-                  onPress={() => pressDoneToDate()}
-                  disabled={toDate === tempToDate ? true : false}
-                />
-              </View>
-            </View>
-
-            <View style={styles.pickerContainer}>{renderToIOSDatePicker()}</View>
-          </View>
-        </Modal>
+        <>{renderToIOSDatePicker()}</>
       </View>
     </View>
   );
@@ -344,24 +219,17 @@ const styles = StyleSheet.create({
   inputTitle: {
     alignSelf: 'flex-start',
     fontFamily: 'System',
-    fontSize: 24,
+    fontSize: 27,
     fontWeight: '700',
     color: colorScheme === 'dark' ? '#FFFFFF' : '#000000',
+    marginBottom: 12,
   },
   toFromDateContainer: {
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 50,
-  },
-  dateInfoContainer: {
-    display: 'flex',
-    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: width - 32,
-    paddingTop: 15,
-    paddingBottom: 15,
+    flexDirection: 'row',
+    width: width - 16,
   },
   dateText: {
     fontFamily: 'System',
@@ -369,63 +237,11 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: colorScheme === 'dark' ? '#FFFFFF' : '#000000',
   },
-  text: {
-    fontFamily: 'System',
-    fontSize: 17,
-    fontWeight: '400',
-    color: '#007AFF',
-  },
-  arrowForward: {
-    color: 'black',
-    opacity: .3,
-    marginRight: 7,
-  },
   divider: {
     borderColor: '#7D7D7D',
     borderBottomWidth: StyleSheet.hairlineWidth,
     marginTop: 12,
     marginBottom: 12,
-  },
-  modal: {
-    margin: 0,
-  },
-  modalContainer: {
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-  },
-  pickerHeaderContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: 45,
-    width: width,
-    backgroundColor: colorScheme === 'dark' ? '#383838' : '#FFFFFF',
-    borderColor: '#7D7D7D',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  pickerContainer: {
-    height: 250,
-    width: width,
-    backgroundColor: colorScheme === 'dark' ? '#121312' : '#FFFFFF',
-  },
-  doneButton: {
-    marginRight: 7,
-  },
-  doneText: {
-    fontFamily: 'System',
-    color: '#007AFF',
-    fontWeight: '600',
-    fontSize: 17,
-    marginRight: 16,
-  },
-  cancelText: {
-    fontFamily: 'System',
-    color: '#007AFF',
-    fontWeight: '400',
-    fontSize: 17,
-    marginLeft: 16,
   },
 });
 
