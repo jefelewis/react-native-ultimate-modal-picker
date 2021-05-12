@@ -261,11 +261,11 @@ const DropdownUnitedStates: React.FC<Props> = (props): JSX.Element => {
   const renderDoneTextStyle = (): string => {
     // Dark Mode
     if (props.darkMode) {
-      return props.customStylePickerItemText?.pickerItemTextDark.color ? props.customStylePickerItemText.pickerItemTextDark.color : '#FFFFFF';
+      return props.customStylePickerItemText?.pickerItemTextDark.color ? props.customStylePickerItemText.pickerItemTextDark.color : '#0884FE';
     }
     // Light Mode
     else {
-      return props.customStylePickerItemText?.pickerItemTextLight.color ? props.customStylePickerItemText.pickerItemTextLight.color : '#FFFFFF';
+      return props.customStylePickerItemText?.pickerItemTextLight.color ? props.customStylePickerItemText.pickerItemTextLight.color : '#007AFF';
     }
   };
 
