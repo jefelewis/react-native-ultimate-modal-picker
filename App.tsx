@@ -4,14 +4,16 @@ import { SafeAreaView, ScrollView } from 'react-native';
 
 // Imports: Components
 import {
-  PickerDateRange,
-  PickerDate,
+  // Pickers
   PickerTime,
+  PickerDate,
   PickerDateTime,
-  PickerList,
-  NumberPicker,
-  CookingAmountPicker,
-  StatePicker,
+  PickerDateRange,
+  // Dropdowns
+  DropdownList,
+  DropdownMeasurements,
+  DropdownNumber,
+  DropdownState,
 } from './src/index';
 
 // React Native App
@@ -158,15 +160,23 @@ const App: React.FC = (): JSX.Element => {
           }}
         />
 
-        {/* Picker: List */}
-        <PickerList
+        {/* Picker (Date Range) */}
+        <PickerDateRange
+          title="Date Range"
+          onFromChange={(date) => console.log(date)}
+          onToChange={(date) => console.log(date)}
+          mode="spinner"
+        />
+
+        {/* Dropdown: List */}
+        <DropdownList
           title="List"
           items={items}
           onChange={(item) => console.log(item)}
         />
 
-        {/* Picker: List (Custom Styles) */}
-        <PickerList
+        {/* Dropdown: List (Custom Styles) */}
+        <DropdownList
           title="List (Custom Styles)"
           items={items}
           onChange={(item) => console.log(item)}
@@ -214,6 +224,20 @@ const App: React.FC = (): JSX.Element => {
               color: 'red',
             },
           }}
+          customStyleModalHeaderContainer={{
+            modalHeaderContainerLight: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            modalHeaderContainerDark: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
           customStyleCancelText={{
             cancelTextLight: {
               fontFamily: 'System',
@@ -228,18 +252,12 @@ const App: React.FC = (): JSX.Element => {
               color: 'red',
             },
           }}
-          customStyleModalHeaderContainer={{
-            modalHeaderContainerLight: {
-              height: 55,
-              backgroundColor: '#000000',
-              borderColor: '#000000',
-              borderBottomWidth: 2,
+          customStyleDoneText={{
+            doneTextLight: {
+              color: 'red',
             },
-            modalHeaderContainerDark: {
-              height: 55,
-              backgroundColor: '#000000',
-              borderColor: '#000000',
-              borderBottomWidth: 2,
+            doneTextDark: {
+              color: 'red',
             },
           }}
           customStyleModalContentContainer={{
@@ -262,30 +280,334 @@ const App: React.FC = (): JSX.Element => {
           }}
         />
 
-        {/* Number Picker */}
-        <NumberPicker
+        {/* Dropdown: Number */}
+        <DropdownNumber
           title="Number"
           onChange={(item) => console.log(item)}
         />
 
-        {/* Cooking Amount Picker */}
-        <CookingAmountPicker
+        {/* Dropdown: Number (Custom Styles) */}
+        <DropdownNumber
+          title="Number"
+          onChange={(item) => console.log(item)}
+          customStyleContainer={{
+            containerLight: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            containerDark: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleLabelText={{
+            labelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            labelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleFieldText={{
+            fieldTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            fieldTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleModalHeaderContainer={{
+            modalHeaderContainerLight: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            modalHeaderContainerDark: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleCancelText={{
+            cancelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+            cancelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+          }}
+          customStyleDoneText={{
+            doneTextLight: {
+              color: 'red',
+            },
+            doneTextDark: {
+              color: 'red',
+            },
+          }}
+          customStyleModalContentContainer={{
+            modalContentContainerLight: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+            modalContentContainerDark: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+          }}
+          customStylePickerItemText={{
+            pickerItemTextLight: {
+              color: 'red',
+            },
+            pickerItemTextDark: {
+              color: 'red',
+            }
+          }}
+        />
+
+        {/* Dropdown: Measurements */}
+        <DropdownMeasurements
           title="Amount"
           onChange={(item) => console.log(item)}
         />
 
-        {/* State Picker */}
-        <StatePicker
+        {/* Dropdown: Measurements (Custom Styles) */}
+        <DropdownMeasurements
+          title="Amount"
+          onChange={(item) => console.log(item)}
+          customStyleContainer={{
+            containerLight: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            containerDark: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleLabelText={{
+            labelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            labelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleFieldText={{
+            fieldTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            fieldTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleModalHeaderContainer={{
+            modalHeaderContainerLight: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            modalHeaderContainerDark: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleCancelText={{
+            cancelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+            cancelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+          }}
+          customStyleDoneText={{
+            doneTextLight: {
+              color: 'red',
+            },
+            doneTextDark: {
+              color: 'red',
+            },
+          }}
+          customStyleModalContentContainer={{
+            modalContentContainerLight: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+            modalContentContainerDark: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+          }}
+          customStylePickerItemText={{
+            pickerItemTextLight: {
+              color: 'red',
+            },
+            pickerItemTextDark: {
+              color: 'red',
+            }
+          }}
+        />
+
+        {/* Dropdown: State */}
+        <DropdownState
           title="State"
           onChange={(state) => console.log(state)}
         />
 
-        {/* Picker (Date Range) */}
-        <PickerDateRange
-          title="Date Range"
-          onFromChange={(date) => console.log(date)}
-          onToChange={(date) => console.log(date)}
-          mode="spinner"
+        {/* Dropdown: State (Custom Styles) */}
+        <DropdownState
+          title="State"
+          onChange={(state) => console.log(state)}
+          customStyleContainer={{
+            containerLight: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            containerDark: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleLabelText={{
+            labelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            labelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleFieldText={{
+            fieldTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            fieldTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleModalHeaderContainer={{
+            modalHeaderContainerLight: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            modalHeaderContainerDark: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleCancelText={{
+            cancelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+            cancelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+          }}
+          customStyleDoneText={{
+            doneTextLight: {
+              color: 'red',
+            },
+            doneTextDark: {
+              color: 'red',
+            },
+          }}
+          customStyleModalContentContainer={{
+            modalContentContainerLight: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+            modalContentContainerDark: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+          }}
+          customStylePickerItemText={{
+            pickerItemTextLight: {
+              color: 'red',
+            },
+            pickerItemTextDark: {
+              color: 'red',
+            }
+          }}
         />
       </ScrollView>
     </SafeAreaView>
