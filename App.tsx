@@ -164,7 +164,7 @@ const App: React.FC = (): JSX.Element => {
           title="List (Custom Styles)"
           items={items}
           onChange={(item) => console.log(item)}
-          customStyle={{
+          customStyleContainer={{
             containerLight: {
               backgroundColor: '#000000',
               borderColor: '#000000',
@@ -175,6 +175,8 @@ const App: React.FC = (): JSX.Element => {
               borderColor: '#000000',
               borderBottomWidth: 2,
             },
+          }}
+          customStyleLabelText={{
             labelTextLight: {
               fontFamily: 'System',
               fontSize: 22,
@@ -189,6 +191,8 @@ const App: React.FC = (): JSX.Element => {
               textTransform: 'lowercase',
               color: 'red',
             },
+          }}
+          customStyleFieldText={{
             fieldTextLight: {
               fontFamily: 'System',
               fontSize: 22,
@@ -203,6 +207,8 @@ const App: React.FC = (): JSX.Element => {
               textTransform: 'lowercase',
               color: 'red',
             },
+          }}
+          customStyleCancelText={{
             cancelTextLight: {
               fontFamily: 'System',
               fontSize: 22,
@@ -215,6 +221,8 @@ const App: React.FC = (): JSX.Element => {
               fontWeight: '800',
               color: 'red',
             },
+          }}
+          customStyleModalHeaderContainer={{
             modalHeaderContainerLight: {
               height: 55,
               backgroundColor: '#000000',
@@ -227,6 +235,8 @@ const App: React.FC = (): JSX.Element => {
               borderColor: '#000000',
               borderBottomWidth: 2,
             },
+          }}
+          customStyleModalContentContainer={{
             modalContentContainerLight: {
               height: 400,
               backgroundColor: '#000000',
@@ -235,6 +245,8 @@ const App: React.FC = (): JSX.Element => {
               height: 400,
               backgroundColor: '#000000',
             },
+          }}
+          customStylePickerItemText={{
             pickerItemTextLight: {
               color: 'red',
             },
