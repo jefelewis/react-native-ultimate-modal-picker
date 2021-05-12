@@ -1,3 +1,4 @@
+// STYLES
 // TypeScript Type: Font Weight
 type FontWeight = 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | undefined;
 
@@ -26,4 +27,13 @@ export interface DateTimePickerStyles {
   containerDark: Container,
   labelTextLight: LabelText,
   labelTextDark: LabelText,
+};
+
+
+// PICKER
+// TypeScript Types: Picker Item
+export interface PickerItem {
+  key: number | string;
+  label: string;
+  value: string;
 };
