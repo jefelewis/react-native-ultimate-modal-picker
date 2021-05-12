@@ -55,6 +55,22 @@ export interface FieldTextStyle {
   },
 };
 
+// TypeScript Type: Modal Header Container Style
+export interface ModalHeaderContainerStyle {
+  modalHeaderContainerLight: {
+    height?: number,
+    backgroundColor?: string,
+    borderColor?: string,
+    borderBottomWidth?: number,
+  },
+  modalHeaderContainerDark: {
+    height?: number,
+    backgroundColor?: string,
+    borderColor?: string,
+    borderBottomWidth?: number,
+  },
+};
+
 // TypeScript Type: Cancel Text Style
 export interface CancelTextStyle {
   cancelTextLight: {
@@ -73,30 +89,24 @@ export interface CancelTextStyle {
   },
 };
 
-// TypeScript Type: Modal Header Container Style
-export interface ModalHeaderContainerStyle {
-  modalHeaderContainerLight: {
-    height?: string,
-    backgroundColor?: string,
-    borderColor?: string,
-    borderBottomWidth?: number,
+// TypeScript Type: Done Text Style
+export interface DoneTextStyle {
+  doneTextLight: {
+    color?: string,
   },
-  modalHeaderContainerDark: {
-    height?: string,
-    backgroundColor?: string,
-    borderColor?: string,
-    borderBottomWidth?: number,
+  doneTextDark: {
+    color?: string,
   },
 };
 
 // TypeScript Type: Modal Content Container Style
 export interface ModalContentContainerStyle {
   modalContentContainerLight: {
-    height?: string,
+    height?: number,
     backgroundColor?: string,
   },
   modalContentContainerDark: {
-    height?: string,
+    height?: number,
     backgroundColor?: string,
   },
 };
