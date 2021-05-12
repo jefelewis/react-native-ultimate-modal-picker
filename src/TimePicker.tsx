@@ -1,26 +1,26 @@
 // Imports: Dependencies
 import React, { useState, useEffect } from 'react';
-import { Appearance, Button, Dimensions, Keyboard, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import RNDateTimePicker from '@react-native-community/datetimepicker';
-import Modal from 'react-native-modal';
+import { Dimensions, Keyboard, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
 
-// Dark Mode
-const colorScheme = Appearance.getColorScheme();
+// Imports: TypeScript Types
+import { DateTimePickerStyles, Container, LabelText } from './types/types';
 
 // TypeScript Types: Props
 interface Props {
-  title?: string;
   mode: 'spinner' | 'default' | 'clock';
-  onChange: (date: Date | string) => Date | string | void;
+  onChange: (date: Date) => void;
+  title?: string;
+  darkMode?: boolean,
+  customStyle?: DateTimePickerStyles,
 }
 
 // Component: Time Picker
 const TimePicker: React.FC<Props> = (props): JSX.Element => {
   // React Hooks: State
-  const [ modalVisible, toggle ] = useState<boolean>(false);
   const [ androidModalVisible, toggleAndroid ] = useState<boolean>(false);
   const [ date, setDate ] = useState<Date>(new Date());
   const [ tempDate, setTempDate ] = useState<Date>(date);
@@ -37,23 +37,6 @@ const TimePicker: React.FC<Props> = (props): JSX.Element => {
       todaySent(true);
     }
   }, [props]);
-
-  // Toggle Modal
-  const toggleModal = (): void => {
-    // Platform: Android
-    if (Platform.OS === 'android') {
-      // Toggle Android
-      toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
-    }
-    // Platform: iOS
-    else if (Platform.OS === 'ios') {
-      // Toggle Modal
-      toggle((modalVisible: boolean) => !modalVisible);
-    }
-
-    // Dismiss Keyboard
-    Keyboard.dismiss();
-  };
 
   // Select Date
   const selectDate = (event: any, newDate: Date) => {
@@ -88,193 +71,114 @@ const TimePicker: React.FC<Props> = (props): JSX.Element => {
     }
   };
 
-  // Render iOS Picker
-  const renderIOSPicker = (): JSX.Element => {
-    return (
-      <RNDateTimePicker
-        mode="time"
-        value={tempDate ? tempDate : date}
-        onChange={(event: any, newDate: any) => selectDate(event, newDate)}
-      />
-    );
-  };
+  // // Format Time
+  // const formatTime = (date: Date): string => {
+  //   // Options
+  //   const options = {
+  //     hour: 'numeric',
+  //     minute: 'numeric',
+  //   };
 
-  // Press Cancel
-  const pressCancel = (): void => {
-    // Set Temp Date
-    setTempDate(date);
+  //   return date.toLocaleTimeString('en-US', options);
+  // };
 
-    // Toggle Modal
-    toggleModal();
-  };
-
-  // Press Done
-  const pressDone = (): void => {
-    // Set Date
-    setDate(tempDate);
-
-    // Props: onChange
-    props.onChange(tempDate);
-
-    // Toggle Modal
-    toggleModal();
-  };
-
-  // Render Android Picker
-  const renderAndroidPicker = (): JSX.Element | undefined => {
-    if (androidModalVisible === true) {
+  // Render Picker
+  const renderPicker = (): JSX.Element | undefined => {
+    // Platform: Android
+    if (Platform.OS === 'android' && androidModalVisible === true) {
       return (
-        <RNDateTimePicker
+        <DateTimePicker
           mode="time"
           display={props.mode}
           value={date}
+          onChange={(event: any, date: any) => selectDate(event, date)}
+        />
+      );
+    }
+    // Platform: iOS
+    else if (Platform.OS === 'ios') {
+      return (
+        <DateTimePicker
+          mode="time"
+          value={tempDate ? tempDate : date}
           onChange={(event: any, newDate: any) => selectDate(event, newDate)}
         />
       );
     }
   };
 
-  // Format Time
-  const formatTime = (date: Date): string => {
-    // Options
-    const options = {
-      hour: 'numeric',
-      minute: 'numeric',
-    };
+  // Render Container Style
+  const renderContainerStyle = (): any => {
+    // Dark Mode?
+    if (props.darkMode) {
+      return (
+        {
+          display: 'flex',
+          width: width - 32,
+          marginLeft: 16,
+          paddingRight: 16,
+          paddingBottom: 12,
+          marginBottom: 12,
+          borderColor: props.customStyle?.containerDark ? props.customStyle.containerDark.borderColor : '#8D8D93',
+          borderBottomWidth: props.customStyle?.containerDark ? props.customStyle.containerDark.borderBottomWidth : StyleSheet.hairlineWidth,
+          backgroundColor: props.customStyle?.containerDark ? props.customStyle.containerDark.backgroundColor : undefined,
+        }
+      );
+    }
+    else {
+      return (
+        {
+          display: 'flex',
+          width: width - 32,
+          marginLeft: 16,
+          paddingRight: 16,
+          paddingBottom: 12,
+          marginBottom: 12,
+          borderColor: props.customStyle?.containerLight ? props.customStyle.containerLight.borderColor : '#8A8A8E',
+          borderBottomWidth: props.customStyle?.containerLight ? props.customStyle.containerLight.borderBottomWidth : StyleSheet.hairlineWidth,
+          backgroundColor: props.customStyle?.containerLight ? props.customStyle.containerLight.backgroundColor : undefined,
+        }
+      );
+    }
+  };
 
-    return date.toLocaleTimeString('en-US', options);
+  // Render Label Text Style
+  const renderLabelTextStyle = (): any => {
+    // Dark Mode?
+    if (props.darkMode) {
+      return (
+        {
+          fontFamily: props.customStyle?.labelTextDark ? props.customStyle.labelTextDark.fontFamily : 'System',
+          fontSize: props.customStyle?.labelTextDark ? props.customStyle.labelTextDark.fontSize : 11,
+          fontWeight: props.customStyle?.labelTextDark ? props.customStyle.labelTextDark.fontWeight : '600',
+          textTransform: props.customStyle?.labelTextDark ? props.customStyle.labelTextDark.textTransform : 'uppercase',
+          color: props.customStyle?.labelTextDark ? props.customStyle.labelTextDark.color : '#8D8D93',
+          marginBottom: 7,
+        }
+      );
+    }
+    else {
+      return (
+        {
+          fontFamily: props.customStyle?.labelTextLight ? props.customStyle.labelTextLight.fontFamily : 'System',
+          fontSize: props.customStyle?.labelTextLight ? props.customStyle.labelTextLight.fontSize : 11,
+          fontWeight: props.customStyle?.labelTextLight ? props.customStyle.labelTextLight.fontWeight : '600',
+          textTransform: props.customStyle?.labelTextLight ? props.customStyle.labelTextLight.textTransform : 'uppercase',
+          color: props.customStyle?.labelTextLight ? props.customStyle.labelTextLight.color : '#8A8A8E',
+          marginBottom: 7,
+        }
+      );
+    }
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.inputTitleContainer}>
-        <Text style={styles.inputTitle}>{props.title === undefined ? 'Time' : props.title}</Text>
-      </View>
+    <View style={renderContainerStyle()}>
+      <Text style={renderLabelTextStyle()}>{props.title ? props.title : 'Date'}</Text>
 
-      <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
-        <Text style={styles.fieldText} numberOfLines={1}>{formatTime(date)}</Text>
-      </TouchableOpacity>
-
-      <>{androidModalVisible === true ? renderAndroidPicker(): null}</>
-
-      <Modal
-        isVisible={modalVisible}
-        style={styles.modal}
-        backdropOpacity={.30}
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.pickerHeaderContainer}>
-            <TouchableOpacity onPress={() => pressCancel()}>
-              <Text style={styles.cancelText}>Cancel</Text>
-            </TouchableOpacity>
-
-            <View style={styles.doneButton}>
-              <Button
-                title="Done"
-                onPress={() => pressDone()}
-                disabled={date === tempDate ? true : false}
-              />
-            </View>
-          </View>
-
-          <View style={styles.pickerContainer}>{renderIOSPicker()}</View>
-        </View>
-      </Modal>
+      <>{renderPicker()}</>
     </View>
   );
 };
-
-// Styles
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    width: width,
-    paddingLeft: 16,
-    paddingRight: 16,
-    backgroundColor: colorScheme === 'dark' ? '#000000' : '#FFFFFF',
-  },
-  modal: {
-    margin: 0,
-  },
-  modalContainer: {
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-  },
-  pickerHeaderContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    height: 45,
-    width: width,
-    backgroundColor: colorScheme === 'dark' ? '#383838' : '#FFFFFF',
-    borderColor: '#7D7D7D',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  pickerContainer: {
-    height: 250,
-    width: width,
-    backgroundColor: colorScheme === 'dark' ? '#121312' : '#FFFFFF',
-  },
-  doneButton: {
-    marginRight: 7,
-  },
-  doneText: {
-    fontFamily: 'System',
-    color: '#007AFF',
-    fontWeight: '600',
-    fontSize: 17,
-    marginRight: 16,
-  },
-  cancelText: {
-    fontFamily: 'System',
-    color: '#007AFF',
-    fontWeight: '400',
-    fontSize: 17,
-    marginLeft: 16,
-  },
-  stateContainer: {
-    alignItems: 'center',
-    width: 75,
-    borderColor: '#7D7D7D',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  inputTitleContainer: {
-    width: 75,
-    marginBottom: 4,
-  },
-  inputTitle: {
-    color: '#7D7D7D',
-    borderColor: '#7D7D7D',
-    fontSize: 10,
-    fontWeight: '600',
-    textTransform: 'uppercase',
-  },
-  fieldTextContainer: {
-    height: 40,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 12,
-    borderColor: '#7D7D7D',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  fieldText: {
-    width: width - 32 - 20,
-    fontFamily: 'System',
-    fontSize: 17,
-    fontWeight: '400',
-    color: colorScheme === 'dark' ? '#FFFFFF' : '#000000',
-    alignSelf: 'center',
-  },
-  arrowForward: {
-    color: 'black',
-    opacity: .3,
-    marginRight: 7,
-  },
-});
 
 // Exports
 export default TimePicker;
