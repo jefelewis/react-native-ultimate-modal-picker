@@ -9,12 +9,12 @@ export interface DateTimePickerStyles {
   containerLight: {
     backgroundColor?: string,
     borderColor?: string,
-    borderBottomWidth?: string,
+    borderBottomWidth?: number,
   },
   containerDark: {
     backgroundColor?: string,
     borderColor?: string,
-    borderBottomWidth?: string,
+    borderBottomWidth?: number,
   },
   labelTextLight: {
     fontFamily?: string,
