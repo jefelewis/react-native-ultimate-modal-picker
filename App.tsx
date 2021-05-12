@@ -12,7 +12,6 @@ import {
   NumberPicker,
   CookingAmountPicker,
   StatePicker,
-  StatePickerSmall,
 } from './src/index';
 
 // React Native App
@@ -74,12 +73,6 @@ const App: React.FC = (): JSX.Element => {
 
       {/* State Picker */}
       <StatePicker
-        title="State"
-        onChange={(state) => console.log(state)}
-      />
-
-      {/* State Picker (Small) */}
-      <StatePickerSmall
         title="State"
         onChange={(state) => console.log(state)}
       />
