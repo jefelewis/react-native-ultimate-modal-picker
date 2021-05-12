@@ -101,7 +101,7 @@ const PickerDate: React.FC<Props> = (props): JSX.Element => {
 
   // Render Container Style
   const renderContainerStyle = (): any => {
-    // Dark Mode?
+    // Dark Mode
     if (props.darkMode) {
       return (
         {
@@ -117,6 +117,7 @@ const PickerDate: React.FC<Props> = (props): JSX.Element => {
         }
       );
     }
+    // Light Mode
     else {
       return (
         {
@@ -136,7 +137,7 @@ const PickerDate: React.FC<Props> = (props): JSX.Element => {
 
   // Render Label Text Style
   const renderLabelTextStyle = (): any => {
-    // Dark Mode?
+    // Dark Mode
     if (props.darkMode) {
       return (
         {
@@ -149,6 +150,7 @@ const PickerDate: React.FC<Props> = (props): JSX.Element => {
         }
       );
     }
+    // Light Mode
     else {
       return (
         {
