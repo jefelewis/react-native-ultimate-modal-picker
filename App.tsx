@@ -5,9 +5,9 @@ import { SafeAreaView } from 'react-native';
 // Imports: Components
 import {
   DateRangePicker,
-  DatePicker,
-  TimePicker,
-  DateTimePicker,
+  PickerDate,
+  PickerTime,
+  PickerDateTime,
   ListPicker,
   NumberPicker,
   CookingAmountPicker,
@@ -32,24 +32,122 @@ const App: React.FC = (): JSX.Element => {
 
   return (
     <SafeAreaView style={{ display: 'flex', flex: 1 }}>
-      {/* Date Picker (Modes: spinner/calendar) */}
-      <DatePicker
+      {/* Picker Date (Modes: spinner/calendar) */}
+      <PickerDate
         title="Date"
         onChange={(date) => console.log(date)}
         mode="spinner"
       />
 
-      {/* Time Picker (Modes: spinner/clock) */}
-      <TimePicker
+      {/* Picker Date (Custom Styles) */}
+      <PickerDate
+        title="Date"
+        onChange={(date) => console.log(date)}
+        mode="spinner"
+        customStyle={{
+          containerLight: {
+            backgroundColor: '#000000',
+            borderColor: '#000000',
+            borderBottomWidth: 2,
+          },
+          containerDark: {
+            backgroundColor: '#000000',
+            borderColor: '#000000',
+            borderBottomWidth: 2,
+          },
+          labelTextLight: {
+            fontFamily: 'System',
+            fontSize: 22,
+            fontWeight: '800',
+            textTransform: 'lowercase',
+            color: 'red',
+          },
+          labelTextDark: {
+            fontFamily: 'System',
+            fontSize: 22,
+            fontWeight: '800',
+            textTransform: 'lowercase',
+            color: 'red',
+          },
+        }}
+      />
+
+      {/* Picker Time (Modes: spinner/clock) */}
+      <PickerTime
         title="Time"
         onChange={(date) => console.log(date)}
         mode="spinner"
       />
 
-      {/* Date Time Picker (iOS Only) */}
-      <DateTimePicker
+      {/* Picker Time (Custom Styles) */}
+      <PickerTime
+        title="Time"
+        onChange={(date) => console.log(date)}
+        mode="spinner"
+        customStyle={{
+          containerLight: {
+            backgroundColor: '#000000',
+            borderColor: '#000000',
+            borderBottomWidth: 2,
+          },
+          containerDark: {
+            backgroundColor: '#000000',
+            borderColor: '#000000',
+            borderBottomWidth: 2,
+          },
+          labelTextLight: {
+            fontFamily: 'System',
+            fontSize: 22,
+            fontWeight: '800',
+            textTransform: 'lowercase',
+            color: 'red',
+          },
+          labelTextDark: {
+            fontFamily: 'System',
+            fontSize: 22,
+            fontWeight: '800',
+            textTransform: 'lowercase',
+            color: 'red',
+          },
+        }}
+      />
+
+      {/* Picker Date Time (iOS Only) */}
+      <PickerDateTime
         title="Date/Time"
         onChange={(date) => console.log(date)}
+      />
+
+      {/* Picker Date Time (Custom Styles) */}
+      <PickerDateTime
+        title="Date/Time"
+        onChange={(date) => console.log(date)}
+        customStyle={{
+          containerLight: {
+            backgroundColor: '#000000',
+            borderColor: '#000000',
+            borderBottomWidth: 2,
+          },
+          containerDark: {
+            backgroundColor: '#000000',
+            borderColor: '#000000',
+            borderBottomWidth: 2,
+          },
+          labelTextLight: {
+            fontFamily: 'System',
+            fontSize: 22,
+            fontWeight: '800',
+            textTransform: 'lowercase',
+            color: 'red',
+          },
+          labelTextDark: {
+            fontFamily: 'System',
+            fontSize: 22,
+            fontWeight: '800',
+            textTransform: 'lowercase',
+            color: 'red',
+          },
+        }}
       />
 
       {/* List Picker */}
