@@ -7,7 +7,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 const { height, width } = Dimensions.get('window');
 
 // Imports: TypeScript Types
-import { DateTimePickerStyles, LabelTextLight, LabelTextDark } from './types/types';
+import { DateTimePickerStyles, Container, LabelText } from './types/types';
 
 // TypeScript Types: Props
 interface Props {
@@ -113,7 +113,7 @@ const DatePicker: React.FC<Props> = (props): JSX.Element => {
           marginBottom: 12,
           borderColor: props.customStyle?.containerDark ? props.customStyle.containerDark.borderColor : '#8D8D93',
           borderBottomWidth: props.customStyle?.containerDark ? props.customStyle.containerDark.borderBottomWidth : StyleSheet.hairlineWidth,
-          backgroundColor: props.customStyle?.containerDark ? props.customStyle.containerDark.backgroundColor : null,
+          backgroundColor: props.customStyle?.containerDark ? props.customStyle.containerDark.backgroundColor : undefined,
         }
       );
     }
@@ -128,7 +128,7 @@ const DatePicker: React.FC<Props> = (props): JSX.Element => {
           marginBottom: 12,
           borderColor: props.customStyle?.containerLight ? props.customStyle.containerLight.borderColor : '#8A8A8E',
           borderBottomWidth: props.customStyle?.containerLight ? props.customStyle.containerLight.borderBottomWidth : StyleSheet.hairlineWidth,
-          backgroundColor: props.customStyle?.containerLight ? props.customStyle.containerLight.backgroundColor : null,
+          backgroundColor: props.customStyle?.containerLight ? props.customStyle.containerLight.backgroundColor : undefined,
         }
       );
     }
