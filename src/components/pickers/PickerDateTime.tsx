@@ -7,11 +7,10 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 const { height, width } = Dimensions.get('window');
 
 // Imports: TypeScript Types
-import { ContainerStyle, LabelTextStyle } from '../types/types';
+import { ContainerStyle, LabelTextStyle } from '../../types/types';
 
 // TypeScript Types: Props
 interface Props {
-  mode: 'calendar' | 'spinner' | 'default';
   onChange: (date: Date) => void;
   title?: string;
   darkMode?: boolean,
@@ -19,80 +18,63 @@ interface Props {
   customStyleLabelText?: LabelTextStyle,
 };
 
-// Component: Picker (Date)
-const PickerDate: React.FC<Props> = (props): JSX.Element => {
+// Component: Picker (Date/Time)
+const PickerDateTime: React.FC<Props> = (props): JSX.Element => {
   // React Hooks: State
-  const [ androidModalVisible, toggleAndroid ] = useState<boolean>(false);
+  const [ modalVisible, toggle ] = useState<boolean>(false);
   const [ date, setDate ] = useState<Date>(new Date());
   const [ tempDate, setTempDate ] = useState<Date>(date);
-  const [ today, todaySent ] = useState<boolean>(false);
+  const [ today , todaySent ] = useState<boolean>(false);
 
   // React Hooks: Lifecycle Methods
   useEffect(() => {
     // Send Initial Date
     if (today === false) {
-      // Props: onChange
+      // Props: onFromChange
       props.onChange(new Date());
 
       // Today's Date Has Been Sent To Parent Component
       todaySent(true);
     }
-  }), [today];
+  }, [today]);
 
   // Select Date
   const selectDate = (event: any, newDate: Date): void => {
-    // Platform: Android
-    if (Platform.OS === 'android') {
-      // Undefined
-      if (newDate === undefined) {
-        // Toggle Android
-        toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
-      }
-      // Event Type: Set Date
-      else if (event.type === 'set') {
-        // Toggle Android
-        toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
-
-        // Set From Date
-        setDate(newDate);
-
-        // React Props: onChange
-        props.onChange(newDate);
-      }
-      // Event Type: Dismissed
-      else if (event.type === 'dismissed') {
-        // Toggle Android
-        toggleAndroid((androidModalVisible: boolean) => !androidModalVisible);
-      }
-    }
-    // Platform: iOS
-    else if (Platform.OS === 'ios') {
-      // Undefined
-      if (newDate !== undefined) {
-        // Set State
-        setTempDate(newDate);
-      }
-    }
+    // Set State
+    setTempDate(newDate);
   };
+
+  // Format Date
+  // const formatDate = (date: Date): string => {
+  //   // Options
+  //   const options = {
+  //     month: 'short',
+  //     day: 'numeric',
+  //     year: 'numeric',
+  //   };
+
+  //   return date.toLocaleDateString('en-US', options);
+  // };
+
+  // // Format Time
+  // const formatTime = (date: Date): string => {
+  //   // Options
+  //   const options = {
+  //     hour: 'numeric',
+  //     minute: 'numeric',
+  //   };
+
+  //   return date.toLocaleTimeString('en-US', options);
+  // };
+
 
   // Render Picker
   const renderPicker = (): JSX.Element | undefined => {
-    // Platform: Android
-    if (Platform.OS === 'android' && androidModalVisible === true) {
-      return (
-        <DateTimePicker
-          mode="date"
-          display={props.mode}
-          value={date}
-          onChange={(event: any, date: any) => selectDate(event, date)}
-        />
-      );
-    }
     // Platform: iOS
-    else if (Platform.OS === 'ios') {
+    if (Platform.OS === 'ios') {
       return (
         <DateTimePicker
-          mode="date"
+          mode="datetime"
           value={tempDate ? tempDate : date}
           onChange={(event: any, newDate: any) => selectDate(event, newDate)}
         />
@@ -176,4 +158,4 @@ const PickerDate: React.FC<Props> = (props): JSX.Element => {
 };
 
 // Exports
-export default PickerDate;
+export default PickerDateTime;

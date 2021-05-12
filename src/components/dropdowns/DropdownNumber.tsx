@@ -5,7 +5,7 @@ import { Picker } from '@react-native-picker/picker';
 import Modal from 'react-native-modal';
 
 // Imports: TypeScript Types
-import { ContainerStyle, LabelTextStyle, FieldTextStyle, CancelTextStyle, DoneTextStyle, ModalHeaderContainerStyle, ModalContentContainerStyle, PickerItemTextStyle, PickerItem } from '../types/types';
+import { ContainerStyle, LabelTextStyle, FieldTextStyle, CancelTextStyle, DoneTextStyle, ModalHeaderContainerStyle, ModalContentContainerStyle, PickerItemTextStyle, PickerItem } from '../../types/types';
 
 // TypeScript Types: Props
 interface Props {
@@ -26,8 +26,8 @@ interface Props {
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
 
-// Component: Picker (Number)
-const PickerNumber: React.FC<Props> = (props): JSX.Element => {
+// Component: Dropdown (Number)
+const DropdownNumber: React.FC<Props> = (props): JSX.Element => {
   // React Hooks: State
   const [ modalVisible, toggle ] = useState<boolean>(false);
   const [ tempValue, setTempValue ] = useState<string>('');
@@ -529,4 +529,4 @@ const styles = StyleSheet.create({
 });
 
 // Exports
-export default PickerNumber;
+export default DropdownNumber;
