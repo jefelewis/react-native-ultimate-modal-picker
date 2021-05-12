@@ -7,7 +7,6 @@ import ListPicker from './ListPicker';
 import NumberPicker from './NumberPicker';
 import CookingAmountPicker from './CookingAmountPicker';
 import StatePicker from './StatePicker';
-import StatePickerSmall from './StatePickerSmall';
 
 // Exports
 export {
@@ -19,5 +18,4 @@ export {
   NumberPicker,
   CookingAmountPicker,
   StatePicker,
-  StatePickerSmall,
 };
