@@ -880,7 +880,7 @@ npm publish
 ### [0.2.2] - 8/10/2020
 
 ***Added***
-- Added Dark Mode support. Please upgrade to React Native `0.62` for this to work.
+- Added Dark Mode support. Please upgrade to `React Native 0.62` for this to work.
 - Added `@react-native-community/picker` dependency (Picker is soon to be deprecated).
 
 ### [0.2.1] - 8/10/2020
@@ -943,13 +943,13 @@ npm publish
 
 ***Changed***
 
-- Fixed `@react-native-community/datetimepicker` ^2.1.1 vs 2.1.1 issue.
+- Fixed `@react-native-community/datetimepicker` `^2.1.1` vs `2.1.1` issue.
 
 ### [0.1.56] - 2/7/2020
 
 ***Changed***
 
-- Updated `@react-native-community/datetimepicker` to 2.1.1.
+- Updated `@react-native-community/datetimepicker` to `2.1.1`.
 - Changing backdrop opacity to 30%.
 - Increased `TouchableOpacity` size for `DateRangePicker`.
 - Increased `pickerHeaderContainer` height to 45px.
@@ -1017,15 +1017,15 @@ npm publish
 
 ***Changed***
 
-- Fixed README Formatting.
+- Fixed `README` Formatting.
 
 ### [0.1.42] - 1/24/2020
 
 ***Added***
 
-- Added cancel button to iOS ListPicker.
-- Added test data items for ListPicker on README.
-- Added props to App.tsx for testing.
+- Added cancel button to iOS `ListPicker`.
+- Added test data items for `ListPicker` on `README`.
+- Added props to `App.tsx` for testing.
 - Title props can be added to any Picker. Default titles are shown if no prop is added.
 
 ***Changed***
