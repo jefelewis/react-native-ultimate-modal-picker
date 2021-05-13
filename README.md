@@ -15,6 +15,7 @@
 ## Features
 *  ✅ iOS/Android
 *  ✅ Dark Mode
+*  ✅ Custom Styles
 *  ✅ Built with TypeScript
 *  ✅ Built with React Hooks
 
@@ -27,7 +28,7 @@
 * [React Hooks](https://reactjs.org/docs/hooks-intro.html) - Functional Component State/Lifecycle Methods
 
 ## Pending Items
-- [ ] 
+- [ ] Fix Android issues
 
 ## Getting Started
 **1. Install Package:**
@@ -78,7 +79,7 @@ react-native run-ios
 
 
 ## Example Code
-```javascript
+```typescript
 // Imports: Dependencies
 import React from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
