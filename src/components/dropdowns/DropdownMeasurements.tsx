@@ -5,7 +5,7 @@ import { Picker } from '@react-native-picker/picker';
 import Modal from 'react-native-modal';
 
 // Imports: TypeScript Types
-import { ContainerStyle, LabelTextStyle, FieldTextStyle, CancelTextStyle, DoneTextStyle, ModalHeaderContainerStyle, ModalContentContainerStyle, PickerItemTextStyle, PickerItem } from '../../types/types';
+import { ContainerStyle, LabelTextStyle, FieldTextStyle, CancelTextStyle, DoneTextStyle, ModalHeaderContainerStyle, ModalContentContainerStyle, PickerItemTextStyle, PickerValue } from '../../types/types';
 
 // TypeScript Types: Props
 interface Props {
@@ -46,7 +46,7 @@ const DropdownMeasurements: React.FC<Props> = (props): JSX.Element => {
   }, [props.defaultValue]);
 
   // Measurements
-  const measurements: Array<any> = [
+  const measurements: Array<PickerValue> = [
     { label: 'Select', value: 'Select' },
     { label: '1/8', value: '1/8' },
     { label: '1/4', value: '1/4' },
@@ -422,7 +422,7 @@ const DropdownMeasurements: React.FC<Props> = (props): JSX.Element => {
       return (
         <View style={renderContainerStyle()}>
           <View style={styles.labelContainer}>
-            <Text style={renderLabelTextStyle()}>{props.title === undefined ? 'List' : props.title}</Text>
+            <Text style={renderLabelTextStyle()}>{props.title === undefined ? 'Measurements' : props.title}</Text>
           </View>
 
           <TouchableOpacity onPress={() => toggleModal()} style={styles.fieldTextContainer}>
@@ -455,12 +455,12 @@ const DropdownMeasurements: React.FC<Props> = (props): JSX.Element => {
                   selectedValue={tempValue !== undefined ? tempValue : value}
                   onValueChange={(value: string) => selectValue(value)}
                 >
-                  {measurements.map((item: PickerItem) => {
+                  {measurements.map((item: PickerValue, i: number) => {
                     return (
                       <Picker.Item
+                        key={i}
                         label={item.label}
                         value={item.value}
-                        key={item.key || item.label}
                         color={renderPickerItemStyle()}
                       />
                     );
@@ -486,10 +486,10 @@ const DropdownMeasurements: React.FC<Props> = (props): JSX.Element => {
             style={{height: 60, width: width - 16}}
             onValueChange={(value: string) => setValue(value)}
           >
-            {measurements.map((item: PickerItem) => {
+            {measurements.map((item: PickerValue, i: number) => {
               return (
                 <Picker.Item
-                  key={item.key || item.label}
+                  key={i}
                   label={item.label}
                   value={item.value}
                   color={renderPickerItemStyle()}
