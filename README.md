@@ -40,8 +40,9 @@ npm i react-native-ultimate-modal-picker
 **2. Add Pod (For iOS)**
 
 Add the following line to ios/podfile:
-```
-pod 'DateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker/DateTimePicker.podspec'
+```javascript
+# Pods for testing
+pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec'
 ```
 
 **3. Install Pods (For iOS)**
@@ -53,16 +54,16 @@ pod install
 **4. Add Dependencies (For Android)**
 
 Add the following lines to android/settings.gradle:
-```
-include ':react-native-datetimepicker'
-project(':react-native-datetimepicker').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-community/datetimepicker/android')
+```javascript
+include ':@react-native-community_datetimepicker'
+project(':@react-native-community_datetimepicker').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-community/datetimepicker/android')
 ```
 
 Add the following line to android/app/build.gradle:
-```
+```javascript
 dependencies {
   ...
-  implementation project(':react-native-datetimepicker')
+  implementation project(':@react-native-community_datetimepicker')
 }
 ```
 
@@ -852,6 +853,13 @@ npm publish
 
 
 ## Changelog
+
+### [0.3.4] - 5/13/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
+
+***Changed***
+
+- Updated `iOS` Getting Started for pods.
+- Updated `Android` Getting Started for dependencies.
 
 ### [0.3.3] - 5/13/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
 
