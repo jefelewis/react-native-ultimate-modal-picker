@@ -931,7 +931,7 @@ npm publish
 
 ***Changed***
 
-- Increased `inputTitleContainer` width.
+- Increased `inputTitleContainer` `width`.
 
 ### [0.1.58] - 2/7/2020
 
