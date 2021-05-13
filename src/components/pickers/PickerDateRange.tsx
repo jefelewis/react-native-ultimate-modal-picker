@@ -109,10 +109,10 @@ const DateRangePicker: React.FC<Props> = (props): JSX.Element => {
     if (props.darkMode) {
       return (
         {
-          borderColor: props.customStyleDivider?.dividerLight.borderColor ? props.customStyleDivider.dividerLight.borderColor : '#8A8A8E',
-          borderBottomWidth: props.customStyleDivider?.dividerLight.borderBottomWidth ? props.customStyleDivider.dividerLight.borderBottomWidth : StyleSheet.hairlineWidth,
-          marginTop: props.customStyleDivider?.dividerLight.marginTop ? props.customStyleDivider.dividerLight.marginTop : 16,
-          marginBottom: props.customStyleDivider?.dividerLight.marginBottom ? props.customStyleDivider.dividerLight.marginBottom : 16,
+          borderColor: props.customStyleDivider?.dividerDark.borderColor ? props.customStyleDivider.dividerDark.borderColor : '#8A8A8E',
+          borderBottomWidth: props.customStyleDivider?.dividerDark.borderBottomWidth ? props.customStyleDivider.dividerDark.borderBottomWidth : StyleSheet.hairlineWidth,
+          marginTop: props.customStyleDivider?.dividerDark.marginTop ? props.customStyleDivider.dividerDark.marginTop : 16,
+          marginBottom: props.customStyleDivider?.dividerDark.marginBottom ? props.customStyleDivider.dividerDark.marginBottom : 16,
         }
       );
     }
