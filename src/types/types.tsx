@@ -121,6 +121,22 @@ export interface PickerItemTextStyle {
   },
 };
 
+// TypeScript Type: Divider Style
+export interface DividerStyle {
+  dividerLight: {
+    marginTop?: number,
+    marginBottom?: number,
+    borderBottomWidth?: number,
+    borderColor?: string,
+  },
+  dividerDark: {
+    marginTop?: number,
+    marginBottom?: number,
+    borderBottomWidth?: number,
+    borderColor?: string,
+  },
+};
+
 
 // PICKER
 // TypeScript Types: Picker Item
