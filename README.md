@@ -858,8 +858,8 @@ npm publish
 
 ***Changed***
 
-- Updated `iOS` Getting Started for pods.
-- Updated `Android` Getting Started for dependencies.
+- Updated `README` Getting Started for `iOS` pods.
+- Updated `README` Getting Started for `Android` dependencies.
 
 ### [0.3.3] - 5/13/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
 
