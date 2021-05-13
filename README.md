@@ -291,6 +291,20 @@ const App: React.FC = (): JSX.Element => {
               color: 'red',
             },
           }}
+          customStyleDivider={{
+            dividerLight: {
+              marginTop: 16,
+              marginBottom: 16,
+              borderBottomWidth: 2,
+              borderColor: 'red',
+            },
+            dividerDark: {
+              marginTop: 16,
+              marginBottom: 16,
+              borderBottomWidth: 2,
+              borderColor: 'red',
+            },
+          }}
         />
 
         {/* Dropdown: List */}
@@ -804,19 +818,20 @@ export default App;
 
 ## Changelog
 
-### [0.3.0] - 5/11/2021 **BREAKING CHANGES (SEE UPDATED EXAMPLES)**
+### [0.3.0] - 5/11/2021 - **BREAKING CHANGES (SEE UPDATED EXAMPLES)**
 
 ***Added***
 
-- Added custom style props for views and text. See Examples.
+- Added customStyle props for views and text (`customStyleContainer`, `customStyleTitleText`, `customStyleLabelText`, `customStyleFieldText`, `customStyleModalHeaderContainer`, `customStyleCancelText`, `customStyleDoneText`, `customStyleModalContentContainer`, `customStylePickerItemText`, `customStyleDivider`). See Examples.
 
 ***Changed***
+
 - Updated to `iOS 14` styling.
 - Updated `react` dependency to `React 17`.
 - Updated `react-native` dependency to `React 0.64`.
 - Updated `react-native-modal` dependency.
 - Updated `@react-native-community/datetimepicker` dependency.
-- Replaced `@react-native-community/picker` dependency with `@react-native-picker/picker`.
+- Updated `@react-native-community/picker` dependency with `@react-native-picker/picker`.
 - Changed `DatePicker` to `PickerDate`.
 - Changed `DateTimePicker` to `PickerDateTime`.
 - Changed `DateRangePicker` to `PickerDateRange`.
@@ -825,6 +840,10 @@ export default App;
 - Changed `CookingMeasurementsPicker` to `DropdownMeasurements`.
 - Changed `NumberPicker` to `DropdownNumber`.
 - Changed `StatePicker` to `DropdownState`.
+
+***Removed***
+
+- Removed to `StatePickerSmall`.
 
 
 ### [0.2.2] - 8/10/2020
