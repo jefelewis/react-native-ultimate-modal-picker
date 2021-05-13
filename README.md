@@ -964,7 +964,7 @@ npm publish
 ***Changed***
 
 - Fixed `onChange` issue.
-- Done button is now disabled unless a new item or state is picked.
+- Done button is now `disabled` unless a new item or state is picked.
 
 ### [0.1.54] - 1/28/2020
 
@@ -981,7 +981,7 @@ npm publish
 
 ***Changed***
 
-- Fixed `Picker` Done button issue. Done button is now disabled unless new date is picked.
+- Fixed `Picker` Done button issue. Done button is now `disabled` unless new date is picked.
 - Increased `Picker` container size for `iOS`.
 
 ***Removed***
@@ -1025,8 +1025,8 @@ npm publish
 
 - Added cancel button to `iOS` `ListPicker`.
 - Added test data items for `ListPicker` on `README`.
-- Added props to `App.tsx` for testing.
-- Title props can be added to any `Picker`. Default titles are shown if no `prop` is added.
+- Added `props` to `App.tsx` for testing.
+- Title `props` can be added to any `Picker`. Default titles are shown if no `prop` is added.
 
 ***Changed***
 
