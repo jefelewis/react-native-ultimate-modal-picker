@@ -1,5 +1,5 @@
 // Imports: Dependencies
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 
 // Imports: Components
@@ -21,7 +21,20 @@ import { PickerValue } from './src/types/types';
 
 // React Native App
 const App: React.FC = (): JSX.Element => {
-  // Test Data
+  // React Hooks: State
+  // Pickers
+  const [ date, setDate ] = useState<Date>(new Date());
+  const [ time, setTime ] = useState<Date>(new Date());
+  const [ dateTime, setDateTime ] = useState<Date>(new Date());
+  const [ fromDate, setFromDate ] = useState<Date>(new Date());
+  const [ toDate, setToDate ] = useState<Date>(new Date());
+  // Dropdowns
+  const [ listValue, setListValue ] = useState<string>('');
+  const [ numberValue, setNumberValue ] = useState<string>('');
+  const [ measurementValue, setMeasurementValue ] = useState<string>('');
+  const [ stateValue, setStateValue ] = useState<string>('');
+
+  // Items
   const items: Array<PickerValue> = [
     { label: '1', value: '1' },
     { label: '2', value: '2' },
@@ -41,14 +54,14 @@ const App: React.FC = (): JSX.Element => {
         {/* Picker: Date (Modes: spinner/calendar) */}
         <PickerDate
           title="Date"
-          onChange={(date) => console.log(date)}
+          onChange={(date: Date) => setDate(date)}
           mode="spinner"
         />
 
         {/* Picker: Date (Custom Styles) */}
         <PickerDate
           title="Date (Custom Styles)"
-          onChange={(date) => console.log(date)}
+          onChange={(date: Date) => setDate(date)}
           mode="spinner"
           customStyleContainer={{
             containerLight: {
@@ -83,14 +96,14 @@ const App: React.FC = (): JSX.Element => {
         {/* Picker: Time (Modes: spinner/clock) */}
         <PickerTime
           title="Time"
-          onChange={(date) => console.log(date)}
+          onChange={(date: Date) => setTime(date)}
           mode="spinner"
         />
 
         {/* Picker: Time (Custom Styles) */}
         <PickerTime
           title="Time (Custom Styles)"
-          onChange={(date) => console.log(date)}
+          onChange={(date: Date) => setTime(date)}
           mode="spinner"
           customStyleContainer={{
             containerLight: {
@@ -125,13 +138,13 @@ const App: React.FC = (): JSX.Element => {
         {/* Picker: Date Time (iOS Only) */}
         <PickerDateTime
           title="Date/Time"
-          onChange={(date) => console.log(date)}
+          onChange={(date: Date) => setDateTime(date)}
         />
 
         {/* Picker: Date Time (Custom Styles) */}
         <PickerDateTime
           title="Date/Time (Custom Styles)"
-          onChange={(date) => console.log(date)}
+          onChange={(date: Date) => setDateTime(date)}
           customStyleContainer={{
             containerLight: {
               backgroundColor: '#000000',
@@ -165,16 +178,16 @@ const App: React.FC = (): JSX.Element => {
         {/* Picker (Date Range) */}
         <PickerDateRange
           title="Date Range"
-          onFromChange={(date) => console.log(date)}
-          onToChange={(date) => console.log(date)}
+          onFromChange={(date: Date) => setFromDate(date)}
+          onToChange={(date: Date) => setToDate(date)}
           mode="spinner"
         />
 
         {/* Picker (Custom Styles) */}
         <PickerDateRange
           title="Date Range"
-          onFromChange={(date) => console.log(date)}
-          onToChange={(date) => console.log(date)}
+          onFromChange={(date: Date) => setFromDate(date)}
+          onToChange={(date: Date) => setToDate(date)}
           mode="spinner"
           customStyleContainer={{
             containerLight: {
@@ -236,14 +249,14 @@ const App: React.FC = (): JSX.Element => {
         <DropdownList
           title="List"
           items={items}
-          onChange={(item) => console.log(item)}
+          onChange={(value: string) => setListValue(value)}
         />
 
         {/* Dropdown: List (Custom Styles) */}
         <DropdownList
           title="List (Custom Styles)"
           items={items}
-          onChange={(item) => console.log(item)}
+          onChange={(value: string) => setListValue(value)}
           customStyleContainer={{
             containerLight: {
               backgroundColor: '#000000',
@@ -347,13 +360,13 @@ const App: React.FC = (): JSX.Element => {
         {/* Dropdown: Number */}
         <DropdownNumber
           title="Number"
-          onChange={(item) => console.log(item)}
+          onChange={(value: string) => setNumberValue(value)}
         />
 
         {/* Dropdown: Number (Custom Styles) */}
         <DropdownNumber
           title="Number"
-          onChange={(item) => console.log(item)}
+          onChange={(value: string) => setNumberValue(value)}
           customStyleContainer={{
             containerLight: {
               backgroundColor: '#000000',
@@ -456,14 +469,14 @@ const App: React.FC = (): JSX.Element => {
 
         {/* Dropdown: Measurements */}
         <DropdownMeasurements
-          title="Amount"
-          onChange={(item) => console.log(item)}
+          title="Measurement"
+          onChange={(value: string) => setMeasurementValue(value)}
         />
 
         {/* Dropdown: Measurements (Custom Styles) */}
         <DropdownMeasurements
-          title="Amount"
-          onChange={(item) => console.log(item)}
+          title="Measurement"
+          onChange={(value: string) => setMeasurementValue(value)}
           customStyleContainer={{
             containerLight: {
               backgroundColor: '#000000',
@@ -567,13 +580,13 @@ const App: React.FC = (): JSX.Element => {
         {/* Dropdown: State */}
         <DropdownState
           title="State"
-          onChange={(state) => console.log(state)}
+          onChange={(value: string) => setStateValue(value)}
         />
 
         {/* Dropdown: State (Custom Styles) */}
         <DropdownState
           title="State"
-          onChange={(state) => console.log(state)}
+          onChange={(value: string) => setStateValue(value)}
           customStyleContainer={{
             containerLight: {
               backgroundColor: '#000000',
