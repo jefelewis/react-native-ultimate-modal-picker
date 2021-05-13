@@ -11,7 +11,7 @@ import { ContainerStyle, LabelTextStyle } from '../../types/types';
 
 // TypeScript Types: Props
 interface Props {
-  onChange: (date: Date) => Date;
+  onChange: (date: Date) => void;
   title?: string;
   darkMode?: boolean,
   customStyleContainer?: ContainerStyle,

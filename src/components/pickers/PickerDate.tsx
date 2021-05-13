@@ -12,7 +12,7 @@ import { ContainerStyle, LabelTextStyle } from '../../types/types';
 // TypeScript Types: Props
 interface Props {
   mode: 'calendar' | 'spinner' | 'default';
-  onChange: (date: Date) => Date;
+  onChange: (date: Date) => void;
   title?: string;
   darkMode?: boolean,
   customStyleContainer?: ContainerStyle,
