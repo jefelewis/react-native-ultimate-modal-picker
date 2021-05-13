@@ -818,11 +818,20 @@ export default App;
 
 ## Changelog
 
-### [0.3.0] - 5/11/2021 - **BREAKING CHANGES (SEE UPDATED EXAMPLES)**
+### [0.3.0] - 5/11/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
 
 ***Added***
 
-- Added customStyle props for views and text (`customStyleContainer`, `customStyleTitleText`, `customStyleLabelText`, `customStyleFieldText`, `customStyleModalHeaderContainer`, `customStyleCancelText`, `customStyleDoneText`, `customStyleModalContentContainer`, `customStylePickerItemText`, `customStyleDivider`). See Examples.
+- Added custom style prop `customStyleContainer`.
+- Added custom style prop `customStyleTitleText`.
+- Added custom style prop `customStyleLabelText`.
+- Added custom style prop `customStyleFieldText`.
+- Added custom style prop `customStyleModalHeaderContainer`.
+- Added custom style prop `customStyleCancelText`.
+- Added custom style prop `customStyleDoneText`.
+- Added custom style prop `customStyleModalContentContainer`.
+- Added custom style prop `customStylePickerItemText`.
+- Added custom style prop `customStyleDivider`.
 
 ***Changed***
 
