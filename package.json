@@ -1,6 +1,6 @@
 {
   "name": "@jefelewis/react-native-ultimate-modal-picker",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "React Native Picker Component Library (Date, Time, DateTime, List, State)",
