@@ -9,7 +9,7 @@ import { ContainerStyle, LabelTextStyle, FieldTextStyle, CancelTextStyle, DoneTe
 
 // TypeScript Types: Props
 interface Props {
-  onChange: (value: string) => void;
+  onChange: (value: string) => string;
   title?: string;
   defaultValue?: string;
   darkMode?: boolean,

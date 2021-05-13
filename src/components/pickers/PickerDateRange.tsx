@@ -12,8 +12,8 @@ import { ContainerStyle, LabelTextStyle, DividerStyle, TitleTextStyle } from '..
 // TypeScript Types: Props
 interface Props {
   mode: 'calendar' | 'spinner' | 'default';
-  onFromChange: (newDate: Date) => void;
-  onToChange: (newDate: Date) => void;
+  onFromChange: (newDate: Date) => Date;
+  onToChange: (newDate: Date) => Date;
   title?: string;
   darkMode?: boolean,
   customStyleContainer?: ContainerStyle,
