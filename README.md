@@ -840,6 +840,12 @@ npm publish
 
 ## Changelog
 
+### [0.3.2] - 5/13/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
+
+***Changed***
+
+- Fixed `onChange`, 'onFromChange`, `onToChange` issues.
+
 ### [0.3.1] - 5/13/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
 
 ***Changed***
