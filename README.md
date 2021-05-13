@@ -953,7 +953,7 @@ npm publish
 - Changing backdrop `opacity` to `30%`.
 - Increased `TouchableOpacity` size for `DateRangePicker`.
 - Increased `pickerHeaderContainer` `height` to `45px`.
-- Fixed `README` podspec issue.
+- Fixed `README` `podspec` issue.
 
 ***Removed***
 
