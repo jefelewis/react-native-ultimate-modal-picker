@@ -50,7 +50,7 @@
       // "noImplicitThis": true,
       // Parse in strict mode and emit "use strict" for each source file
       // "alwaysStrict": true,
-  
+
       // ADDITIONAL CHECKS
       // Report errors on unused locals
       // "noUnusedLocals": true,
@@ -60,7 +60,7 @@
       // "noImplicitReturns": true,
       // Report errors for fallthrough cases in switch statement
       // "noFallthroughCasesInSwitch": true,
-  
+
       // MODULE RESOLUTION OPTIONS
       // Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6)
       "moduleResolution": "node",
@@ -72,7 +72,7 @@
       // "rootDirs": [],
       // List of folders to include type definitions from
       "typeRoots": [
-  
+
       ],
       // Type declaration files to be included in compilation
       "types": [
@@ -85,7 +85,7 @@
       "esModuleInterop": true
       // Do not resolve the real path of symlinks
       // "preserveSymlinks": true,
-  
+
       // SOURCE MAP
       // Specify the location where debugger should locate TypeScript files instead of source locations
       // "sourceRoot": "./",
@@ -95,7 +95,7 @@
       // "inlineSourceMap": true,
       // Emit the source alongside the sourcemaps within a single file; requires '--inlineSourceMap' or '--sourceMap' to be set
       // "inlineSources": true,
-  
+
       /* Experimental Options */
       // "experimentalDecorators": true,        /* Enables experimental support for ES7 decorators. */
       // "emitDecoratorMetadata": true,         /* Enables experimental support for emitting type metadata for decorators. */
