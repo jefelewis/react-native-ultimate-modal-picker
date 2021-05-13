@@ -880,7 +880,7 @@ npm publish
 ### [0.2.2] - 8/10/2020
 
 ***Added***
-- Added Dark Mode support. Please upgrade to React Native 0.62 for this to work.
+- Added Dark Mode support. Please upgrade to React Native `0.62` for this to work.
 - Added `@react-native-community/picker` dependency (Picker is soon to be deprecated).
 
 ### [0.2.1] - 8/10/2020
@@ -896,7 +896,7 @@ npm publish
 ### [0.2.0] - 4/21/2020
 
 ***Changed***
-- Updated `@react-native-community/datetimepicker` to 2.3.2.
+- Updated `@react-native-community/datetimepicker` to `2.3.2`.
 - Removed unnecessary try/catch blocks.
 
 ### [0.1.64] - 3/13/2020
@@ -926,8 +926,8 @@ npm publish
 
 ***Added***
 
-- Added NumberPicker.
-- Added CookingAmountPicker.
+- Added `NumberPicker`.
+- Added `CookingAmountPicker`.
 
 ***Changed***
 
@@ -1032,19 +1032,19 @@ npm publish
 
 - Reformatted App.tsx for when testing.
 - Fixed `onChange` TypeScript Typings.
-- Updated README screenshot GIFs.
+- Updated `README` screenshot GIFs.
 
 ### [0.1.41] - 1/23/2020
 
 ***Changed***
 
-- Updated README for NPM package.
+- Updated `README` for NPM package.
 
 ### [0.1.40] - 1/23/2020
 
 ***Added***
 
-- Added `podfile` installation instructions to README.
+- Added `podfile` installation instructions to `README`.
 - Added cancel button for iOS modals.
 
 ***Changed***
@@ -1052,4 +1052,4 @@ npm publish
 - Fixed if/else toggle issue.
 - Fixed undefined date issue.
 - Fixed `onChange` issue.
-- Changed if statements for Platform to else/if so only one would ever run.
+- Changed if statements for `Platform` to else/if so only one would ever run.
