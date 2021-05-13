@@ -6,7 +6,7 @@
   "description": "React Native Picker Component Library (Date, Time, DateTime, List, State)",
   "repository": "https://github.com/jefelewis/react-native-ultimate-modal-picker",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/jefelewis"
+    "registry": "https://www.npmjs.com/package/react-native-ultimate-modal-picker"
   },
   "author": "Jeff Lewis",
   "license": "MIT",
