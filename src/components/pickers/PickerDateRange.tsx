@@ -1,16 +1,13 @@
 // Imports: Dependencies
 import React, { useState, useEffect } from 'react';
-import { Button, Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Button, Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
 
 // Imports: TypeScript Types
-import { ContainerStyle, LabelTextStyle, DividerStyle } from '../../types/types';
-
-// Dark Mode
-// const colorScheme = Appearance.getColorScheme();
+import { ContainerStyle, LabelTextStyle, DividerStyle, TitleTextStyle } from '../../types/types';
 
 // TypeScript Types: Props
 interface Props {
@@ -20,6 +17,7 @@ interface Props {
   title?: string;
   darkMode?: boolean,
   customStyleContainer?: ContainerStyle,
+  customStyleTitleText?: TitleTextStyle,
   customStyleLabelText?: LabelTextStyle,
   customStyleDivider?: DividerStyle,
 };
@@ -72,6 +70,36 @@ const DateRangePicker: React.FC<Props> = (props): JSX.Element => {
           paddingLeft: 16,
           paddingRight: 16,
           backgroundColor: props.customStyleContainer?.containerLight.backgroundColor ? props.customStyleContainer.containerLight.backgroundColor : undefined,
+        }
+      );
+    }
+  };
+
+  // Render Title Text Style
+  const renderTitleTextStyle = (): any => {
+    // Dark Mode
+    if (props.darkMode) {
+      return (
+        {
+          alignSelf: 'flex-start',
+          marginBottom: 12,
+          fontFamily: props.customStyleTitleText?.titleTextDark.fontFamily ? props.customStyleTitleText.titleTextDark.fontFamily : 'System',
+          fontSize: props.customStyleTitleText?.titleTextDark.fontSize ? props.customStyleTitleText.titleTextDark.fontSize : 27,
+          fontWeight: props.customStyleTitleText?.titleTextDark.fontWeight ? props.customStyleTitleText.titleTextDark.fontWeight : '700',
+          color: props.customStyleTitleText?.titleTextDark.color ? props.customStyleTitleText.titleTextDark.color : '#FFFFFF',
+        }
+      );
+    }
+    // Light Mode
+    else {
+      return (
+        {
+          alignSelf: 'flex-start',
+          marginBottom: 12,
+          fontFamily: props.customStyleTitleText?.titleTextLight.fontFamily ? props.customStyleTitleText.titleTextLight.fontFamily : 'System',
+          fontSize: props.customStyleTitleText?.titleTextLight.fontSize ? props.customStyleTitleText.titleTextLight.fontSize : 27,
+          fontWeight: props.customStyleTitleText?.titleTextLight.fontWeight ? props.customStyleTitleText.titleTextLight.fontWeight : '700',
+          color: props.customStyleTitleText?.titleTextLight.color ? props.customStyleTitleText.titleTextLight.color : '#000000',
         }
       );
     }
@@ -268,7 +296,7 @@ const DateRangePicker: React.FC<Props> = (props): JSX.Element => {
   return (
     <View style={renderContainerStyle()}>
       <View style={styles.titleContainer}>
-        <Text style={styles.titleText}>{props.title === undefined ? 'Date Range' : props.title}</Text>
+        <Text style={renderTitleTextStyle()}>{props.title === undefined ? 'Date Range' : props.title}</Text>
       </View>
 
       <View style={styles.toFromDateContainer}>
@@ -295,19 +323,11 @@ const styles = StyleSheet.create({
     width: width,
     paddingLeft: 16,
     paddingRight: 16,
-    // backgroundColor: colorScheme === 'dark' ? '#000000' : '#FFFFFF',
   },
   titleContainer: {
     width: width,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  titleText: {
-    alignSelf: 'flex-start',
-    fontFamily: 'System',
-    fontSize: 27,
-    fontWeight: '700',
-    marginBottom: 12,
   },
   toFromDateContainer: {
     display: 'flex',
