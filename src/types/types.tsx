@@ -137,6 +137,24 @@ export interface DividerStyle {
   },
 };
 
+// TypeScript Type: Title Text Style
+export interface TitleTextStyle {
+  titleTextLight: {
+    fontFamily?: string,
+    fontSize?: number,
+    fontWeight?: FontWeight,
+    textTransform?: TextTransform,
+    color?: string,
+  },
+  titleTextDark: {
+    fontFamily?: string,
+    fontSize?: number,
+    fontWeight?: FontWeight,
+    textTransform?: TextTransform,
+    color?: string,
+  },
+};
+
 
 // PICKER
 // TypeScript Types: Picker Value
