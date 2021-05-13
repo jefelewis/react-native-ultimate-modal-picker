@@ -950,7 +950,7 @@ npm publish
 ***Changed***
 
 - Updated `@react-native-community/datetimepicker` to `2.1.1`.
-- Changing backdrop opacity to 30%.
+- Changing backdrop `opacity` to 30%.
 - Increased `TouchableOpacity` size for `DateRangePicker`.
 - Increased `pickerHeaderContainer` height to 45px.
 - Fixed `README` podspec issue.
@@ -1005,13 +1005,13 @@ npm publish
 
 ***Changed***
 
-- Added keyboard dismiss to `toggleModal()`.
+- Added `Keyboard.dismiss()` to `toggleModal()`.
 
 ### [0.1.44] - 1/25/2020
 
 ***Added***
 
-- Added keyboard dismiss to work better with form fields.
+- Added `Keyboard.dismiss()` to work better with form fields.
 
 ### [0.1.43] - 1/24/2020
 
