@@ -10,6 +10,7 @@
 *  [Example Code](#example-code)
 *  [Picker Types (iOS)](#picker-types-ios)
 *  [Picker Types (Android)](#picker-types-android)
+*  [Building & Publishing](#building-&-publishing)
 *  [Changelog](#changelog)
 
 ## Features
@@ -822,6 +823,20 @@ export default App;
 <div align="center">
   <img src="/screenshots/android/androidState.gif" width="40%" height="40%" />
 </div>
+
+
+## Building & Publishing
+
+**Build**
+```
+npm run build
+```
+
+**Publish**
+```
+npm run publish
+```
+
 
 ## Changelog
 
