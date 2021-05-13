@@ -67,8 +67,8 @@
         "affectsGlobalScope": true
       },
       "../node_modules/csstype/index.d.ts": {
-        "version": "859b1245cdfd0d6e0752cdb59913e36fb2946e919f5d99846ef7f8ab45d5735e",
-        "signature": "859b1245cdfd0d6e0752cdb59913e36fb2946e919f5d99846ef7f8ab45d5735e",
+        "version": "4ee363f83d7be2202f34fcd84c44da71bf3a9329fee8a05f976f75083a52ea94",
+        "signature": "4ee363f83d7be2202f34fcd84c44da71bf3a9329fee8a05f976f75083a52ea94",
         "affectsGlobalScope": false
       },
       "../node_modules/@types/prop-types/index.d.ts": {
@@ -76,14 +76,19 @@
         "signature": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
         "affectsGlobalScope": false
       },
+      "../node_modules/@types/scheduler/tracing.d.ts": {
+        "version": "f5a8b384f182b3851cec3596ccc96cb7464f8d3469f48c74bf2befb782a19de5",
+        "signature": "f5a8b384f182b3851cec3596ccc96cb7464f8d3469f48c74bf2befb782a19de5",
+        "affectsGlobalScope": false
+      },
       "../node_modules/@types/react/index.d.ts": {
-        "version": "99fffab102cf237a91e7f40423bfe1a14bc9d55e19f42573559fefe47e79b4a8",
-        "signature": "99fffab102cf237a91e7f40423bfe1a14bc9d55e19f42573559fefe47e79b4a8",
+        "version": "881ea8e225320dd9b436999d82998e1d7699e512e0597f0015e5abd59d95974a",
+        "signature": "881ea8e225320dd9b436999d82998e1d7699e512e0597f0015e5abd59d95974a",
         "affectsGlobalScope": true
       },
       "../node_modules/@types/react-native/globals.d.ts": {
-        "version": "80132c7ac792dda5dcd7787cf83acc5e67cc9704fe212b170786bb7791bc2982",
-        "signature": "80132c7ac792dda5dcd7787cf83acc5e67cc9704fe212b170786bb7791bc2982",
+        "version": "44ae1263bb526f9f08419f9532e10d39b9cca5564f0481362ce8b4cbf1def8d9",
+        "signature": "44ae1263bb526f9f08419f9532e10d39b9cca5564f0481362ce8b4cbf1def8d9",
         "affectsGlobalScope": true
       },
       "../node_modules/@types/react-native/legacy-properties.d.ts": {
@@ -107,23 +112,23 @@
         "affectsGlobalScope": false
       },
       "../node_modules/@types/react-native/index.d.ts": {
-        "version": "fd234c47861d3b1c82cbf5d580b8dad1ec45d773d421afad202194eee6e192f4",
-        "signature": "fd234c47861d3b1c82cbf5d580b8dad1ec45d773d421afad202194eee6e192f4",
+        "version": "409dd5cf23d93eca6e4e71fac78a6ef0524eff732adcc1f0f0a0897995a106b7",
+        "signature": "409dd5cf23d93eca6e4e71fac78a6ef0524eff732adcc1f0f0a0897995a106b7",
         "affectsGlobalScope": true
       },
-      "../node_modules/@react-native-community/picker/typings/picker.d.ts": {
-        "version": "93a2a1790e754e333b56bc2380ca4059e07dd7661684127a245d173ee4cbcc35",
-        "signature": "93a2a1790e754e333b56bc2380ca4059e07dd7661684127a245d173ee4cbcc35",
+      "../node_modules/@react-native-picker/picker/typings/picker.d.ts": {
+        "version": "c406e00d6b902bbe6949f44e45628cf2ba46295da2e5391992a98db5e272f022",
+        "signature": "c406e00d6b902bbe6949f44e45628cf2ba46295da2e5391992a98db5e272f022",
         "affectsGlobalScope": false
       },
-      "../node_modules/@react-native-community/picker/typings/pickerios.d.ts": {
+      "../node_modules/@react-native-picker/picker/typings/pickerios.d.ts": {
         "version": "109f7d9d66f15f386ba160fb8ecc2274b1276bc8f05c27e8fd0bd482440c7fcf",
         "signature": "109f7d9d66f15f386ba160fb8ecc2274b1276bc8f05c27e8fd0bd482440c7fcf",
         "affectsGlobalScope": false
       },
-      "../node_modules/@react-native-community/picker/typings/index.d.ts": {
-        "version": "d9e7bb0be3766592a8f48060d7634bdc2de5c46ea50eae0cb94f1ab298a9a1aa",
-        "signature": "d9e7bb0be3766592a8f48060d7634bdc2de5c46ea50eae0cb94f1ab298a9a1aa",
+      "../node_modules/@react-native-picker/picker/typings/index.d.ts": {
+        "version": "a9a7264086bcd2360df01b2437ddc50f23bdb7f232a63682b99043f86305b524",
+        "signature": "a9a7264086bcd2360df01b2437ddc50f23bdb7f232a63682b99043f86305b524",
         "affectsGlobalScope": false
       },
       "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts": {
@@ -132,78 +137,73 @@
         "affectsGlobalScope": false
       },
       "../node_modules/react-native-modal/dist/types.d.ts": {
-        "version": "d6b95aab886ad7ec3a6cca369e4bf01650039f4758b5cc5aa3ba6bfe646443b5",
-        "signature": "d6b95aab886ad7ec3a6cca369e4bf01650039f4758b5cc5aa3ba6bfe646443b5",
+        "version": "0c0146b35e111ff95338c89c59ca822c02dadfc5548ae98a1112760908713fd3",
+        "signature": "0c0146b35e111ff95338c89c59ca822c02dadfc5548ae98a1112760908713fd3",
         "affectsGlobalScope": false
       },
       "../node_modules/react-native-modal/dist/modal.d.ts": {
-        "version": "fc2d0be30798aee2ef1f10987657bbd213a9c56dc135c1080840f3ef4fc5e35f",
-        "signature": "fc2d0be30798aee2ef1f10987657bbd213a9c56dc135c1080840f3ef4fc5e35f",
+        "version": "1942fedf0543833c584bac455d9d5edf55d743b4aa9dfaf60a6b3006e4b3186f",
+        "signature": "1942fedf0543833c584bac455d9d5edf55d743b4aa9dfaf60a6b3006e4b3186f",
         "affectsGlobalScope": false
       },
       "../node_modules/react-native-modal/dist/index.d.ts": {
-        "version": "a9e22773e6ab3b3acbe3471a3fa9e28c6540d757eaefaf5b32036c70a9d167ae",
-        "signature": "a9e22773e6ab3b3acbe3471a3fa9e28c6540d757eaefaf5b32036c70a9d167ae",
+        "version": "bfe0b7982eb32c7e95220332db3879d9059fa8d632cb3297a625bf776e53908f",
+        "signature": "bfe0b7982eb32c7e95220332db3879d9059fa8d632cb3297a625bf776e53908f",
         "affectsGlobalScope": false
       },
-      "../src/cookingamountpicker.tsx": {
-        "version": "4a05cb40e01ba196b175d8703a5e5240179e151a57e85dcbd31cf904228819bf",
-        "signature": "0ed6975419964a40bcd73afc0588164177a84e9f2fedd584c6f7bc6f390e7a77",
+      "../src/types/types.tsx": {
+        "version": "891c4325530a32bb88ee2af1cab3f8bb7a422f9f3d0f1cc07f46be1c3efc6a3b",
+        "signature": "14d2560ea8eca4128fe32f31fe587d1c8532b61379446f0cd8b94392d7330e22",
+        "affectsGlobalScope": false
+      },
+      "../src/components/dropdowns/dropdownlist.tsx": {
+        "version": "7e7ff9e29175bb703dcdebdc7f8afcca49e2f7ed5128aa518c7710d5d36b1b40",
+        "signature": "1495094523553b146cdc2f937b68ff40816d71eb39e1c1dc63cc132882511326",
+        "affectsGlobalScope": false
+      },
+      "../src/components/dropdowns/dropdownmeasurements.tsx": {
+        "version": "8ae13a728ac02bf514784a5750d088418731b307ab71b0e28f8f44dff8eb0cf7",
+        "signature": "d3b4474161cc775c9891caccab294faa7c3be4e8c9be8df46275dcdfd7d4e103",
+        "affectsGlobalScope": false
+      },
+      "../src/components/dropdowns/dropdownnumber.tsx": {
+        "version": "72952bc667a0b33e760362ce7539be53071cab06ba4459f72f713bcffba81264",
+        "signature": "a54a7ef0d7b77af022aeec3922b1bedd139f1aff565544026e5549278084479d",
+        "affectsGlobalScope": false
+      },
+      "../src/components/dropdowns/dropdownstate.tsx": {
+        "version": "0e4742371dadaca2ab24ff82b67073fd6da64949c4fbf806dc59f755debc7f1d",
+        "signature": "aa0b4e8f226f1cb9531f5000e5ec791e49a9797bc88d93fcd0967f52e81686f0",
         "affectsGlobalScope": false
       },
       "../node_modules/@react-native-community/datetimepicker/src/index.d.ts": {
-        "version": "97ef92c043cd85f3947f75a00eabfee66821e2e4952e4d7839432d77d34fb925",
-        "signature": "97ef92c043cd85f3947f75a00eabfee66821e2e4952e4d7839432d77d34fb925",
+        "version": "88ee84db3d1bd2d18f33069ef093649a71acee72dd0c448d1c7e72c95c092d9a",
+        "signature": "88ee84db3d1bd2d18f33069ef093649a71acee72dd0c448d1c7e72c95c092d9a",
         "affectsGlobalScope": false
       },
-      "../src/datepicker.tsx": {
-        "version": "90d1124b4e69ff88a88cbdb6f6db0a6104aadec4ecf35a06f94457c509dc5987",
-        "signature": "d1bf8e051892fde11900ca2703bec6556250f39ac0f8812f93d9e7295144ac47",
+      "../src/components/pickers/pickertime.tsx": {
+        "version": "6fcd2f1766b82e5c4b154f6c70db46bb75ede35aa7e123a6c654702ffba84985",
+        "signature": "3375fc8ec2231c86c73e8923c1f338305663542d18150064dd85a0c3fad97431",
         "affectsGlobalScope": false
       },
-      "../src/daterangepicker.tsx": {
-        "version": "ad13a4e516e09b22208dc6893e23e82d5a48ba033935a64a16d1e361bc018f47",
-        "signature": "dca69c424a6a913b6d382d9f8411269c0869e46a8e8917909b982d42d9f396a0",
+      "../src/components/pickers/pickerdate.tsx": {
+        "version": "49fcb1f211ed2dee7b2edd1fac1f3064bfcd5478ec7e80e06fe760925cf49050",
+        "signature": "168cbc3591791bb9892ef9bdc963521aba4af561078fc2e874b9053b9a49069e",
         "affectsGlobalScope": false
       },
-      "../src/datetimepicker.tsx": {
-        "version": "35bf96b269d0ac7e16ac169bdb9844fc56adc0b98a2e6559dec00267d382c7ee",
-        "signature": "f68c4a24b67750c27ceb94714ac68c350fe9284173508854837a1ce87705b197",
+      "../src/components/pickers/pickerdatetime.tsx": {
+        "version": "b513095dda4755c73bb6d765e22058d09221751d0902b1d3e4d4cd45b26c1680",
+        "signature": "bb9dec46748e28da693f878f1004717d2230a2df648f7203bb7cc61afba87bfc",
         "affectsGlobalScope": false
       },
-      "../src/listpicker.tsx": {
-        "version": "dce69adf238f9f249b890ff432947c6c97ccd020798cd05957da193e4738e321",
-        "signature": "08faf9a6d1902adff8b0c6167f4399fbf33abde0a607c47fb9bae62e36597500",
-        "affectsGlobalScope": false
-      },
-      "../src/numberpicker.tsx": {
-        "version": "f542bf631dee21ff9612aad5aa8fcae3c4ca52ee28758aaa17264fd98d9e3d97",
-        "signature": "fd5607414b746bebd6c879dce4a4332e9e06e7f38c50e44a4717e47e78d51104",
-        "affectsGlobalScope": false
-      },
-      "../src/statepicker.tsx": {
-        "version": "9eb05887d7cc043c009d6b47d7e67bb81d8f52ce35be0ae858e549ab6f41b11a",
-        "signature": "8a4aacbe0bfeb2611451aabd87c7df8618b9a305ba7eacf0c2cda8fc142dfd02",
-        "affectsGlobalScope": false
-      },
-      "../src/statepickersmall.tsx": {
-        "version": "3c5ba42b618eda2e5ccc67c4a15c765f18a2893d9db7de93729b66c77619fad2",
-        "signature": "fb6f88b4175afc25615da5690b48c68ff1602c81e3b25a899b91248e2e7e3154",
-        "affectsGlobalScope": false
-      },
-      "../src/textfield.tsx": {
-        "version": "e95acd30a99ac852d8cae047eb30833eddcbf91766ef30e6b3c4b94235ea2028",
-        "signature": "29dec38c79575d87c5ad41afdd8d1b6efb35b90c15cababcb4f7b4fe1371c324",
-        "affectsGlobalScope": false
-      },
-      "../src/timepicker.tsx": {
-        "version": "fdf698272d42d0bfbc33299e2f42f65c2877148518f88f29b8d48543431b197a",
-        "signature": "36305164794e2a828e76a38eaa6f4338a3e22e7875c8126006dc247a7adacfbb",
+      "../src/components/pickers/pickerdaterange.tsx": {
+        "version": "7eeff4b43b6b374e530beb59f02ec2f8dc0b18c5680eec550a7a2d37e2606894",
+        "signature": "386a1c1eb6a62b08aab8ecdf36eed37895f1d1c450f5744b50054205619d321c",
         "affectsGlobalScope": false
       },
       "../src/index.js": {
-        "version": "e689ad6fe36e869da2d998decd812675f89a1bb73a3e4161ace85e40138ae5ea",
-        "signature": "6fbd162ad472ecf8f5641a5aba8c3081a468d344258596e6cdd3e2a88b9b56a3",
+        "version": "69f0eb87576e1cb98d07542990631e1a109d02beea8780c4d293b3ca05cda43e",
+        "signature": "4df06d51d14739e8a275446195a9c6339ffc2bc6c380a435f0ce8f1eee1eaea4",
         "affectsGlobalScope": false
       }
     },
@@ -241,16 +241,16 @@
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts"
       ],
-      "../node_modules/@react-native-community/picker/typings/index.d.ts": [
-        "../node_modules/@react-native-community/picker/typings/picker.d.ts",
-        "../node_modules/@react-native-community/picker/typings/pickerios.d.ts"
+      "../node_modules/@react-native-picker/picker/typings/index.d.ts": [
+        "../node_modules/@react-native-picker/picker/typings/picker.d.ts",
+        "../node_modules/@react-native-picker/picker/typings/pickerios.d.ts"
       ],
-      "../node_modules/@react-native-community/picker/typings/picker.d.ts": [
+      "../node_modules/@react-native-picker/picker/typings/picker.d.ts": [
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts"
       ],
-      "../node_modules/@react-native-community/picker/typings/pickerios.d.ts": [
-        "../node_modules/@react-native-community/picker/typings/picker.d.ts",
+      "../node_modules/@react-native-picker/picker/typings/pickerios.d.ts": [
+        "../node_modules/@react-native-picker/picker/typings/picker.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts"
       ],
@@ -271,6 +271,7 @@
       "../node_modules/@types/react/index.d.ts": [
         "../node_modules/@types/prop-types/index.d.ts",
         "../node_modules/@types/react/global.d.ts",
+        "../node_modules/@types/scheduler/tracing.d.ts",
         "../node_modules/csstype/index.d.ts"
       ],
       "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts": [
@@ -292,74 +293,67 @@
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts"
       ],
-      "../src/cookingamountpicker.tsx": [
-        "../node_modules/@react-native-community/picker/typings/index.d.ts",
+      "../src/components/dropdowns/dropdownlist.tsx": [
+        "../node_modules/@react-native-picker/picker/typings/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
-        "../node_modules/react-native-modal/dist/index.d.ts"
+        "../node_modules/react-native-modal/dist/index.d.ts",
+        "../src/types/types.tsx"
       ],
-      "../src/datepicker.tsx": [
+      "../src/components/dropdowns/dropdownmeasurements.tsx": [
+        "../node_modules/@react-native-picker/picker/typings/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-modal/dist/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/dropdowns/dropdownnumber.tsx": [
+        "../node_modules/@react-native-picker/picker/typings/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-modal/dist/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/dropdowns/dropdownstate.tsx": [
+        "../node_modules/@react-native-picker/picker/typings/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-modal/dist/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickerdate.tsx": [
         "../node_modules/@react-native-community/datetimepicker/src/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
-        "../node_modules/react-native-modal/dist/index.d.ts"
+        "../src/types/types.tsx"
       ],
-      "../src/daterangepicker.tsx": [
+      "../src/components/pickers/pickerdaterange.tsx": [
         "../node_modules/@react-native-community/datetimepicker/src/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
-        "../node_modules/react-native-modal/dist/index.d.ts"
+        "../src/types/types.tsx"
       ],
-      "../src/datetimepicker.tsx": [
+      "../src/components/pickers/pickerdatetime.tsx": [
         "../node_modules/@react-native-community/datetimepicker/src/index.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts",
-        "../node_modules/react-native-modal/dist/index.d.ts"
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickertime.tsx": [
+        "../node_modules/@react-native-community/datetimepicker/src/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
       ],
       "../src/index.js": [
-        "../src/cookingamountpicker.tsx",
-        "../src/datepicker.tsx",
-        "../src/daterangepicker.tsx",
-        "../src/datetimepicker.tsx",
-        "../src/listpicker.tsx",
-        "../src/numberpicker.tsx",
-        "../src/statepicker.tsx",
-        "../src/statepickersmall.tsx",
-        "../src/timepicker.tsx"
-      ],
-      "../src/listpicker.tsx": [
-        "../node_modules/@react-native-community/picker/typings/index.d.ts",
-        "../node_modules/@types/react-native/index.d.ts",
-        "../node_modules/@types/react/index.d.ts",
-        "../node_modules/react-native-modal/dist/index.d.ts"
-      ],
-      "../src/numberpicker.tsx": [
-        "../node_modules/@react-native-community/picker/typings/index.d.ts",
-        "../node_modules/@types/react-native/index.d.ts",
-        "../node_modules/@types/react/index.d.ts",
-        "../node_modules/react-native-modal/dist/index.d.ts"
-      ],
-      "../src/statepicker.tsx": [
-        "../node_modules/@react-native-community/picker/typings/index.d.ts",
-        "../node_modules/@types/react-native/index.d.ts",
-        "../node_modules/@types/react/index.d.ts",
-        "../node_modules/react-native-modal/dist/index.d.ts"
-      ],
-      "../src/statepickersmall.tsx": [
-        "../node_modules/@react-native-community/picker/typings/index.d.ts",
-        "../node_modules/@types/react-native/index.d.ts",
-        "../node_modules/@types/react/index.d.ts",
-        "../node_modules/react-native-modal/dist/index.d.ts"
-      ],
-      "../src/textfield.tsx": [
-        "../node_modules/@types/react-native/index.d.ts",
-        "../node_modules/@types/react/index.d.ts"
-      ],
-      "../src/timepicker.tsx": [
-        "../node_modules/@react-native-community/datetimepicker/src/index.d.ts",
-        "../node_modules/@types/react-native/index.d.ts",
-        "../node_modules/@types/react/index.d.ts",
-        "../node_modules/react-native-modal/dist/index.d.ts"
+        "../src/components/dropdowns/dropdownlist.tsx",
+        "../src/components/dropdowns/dropdownmeasurements.tsx",
+        "../src/components/dropdowns/dropdownnumber.tsx",
+        "../src/components/dropdowns/dropdownstate.tsx",
+        "../src/components/pickers/pickerdate.tsx",
+        "../src/components/pickers/pickerdaterange.tsx",
+        "../src/components/pickers/pickerdatetime.tsx",
+        "../src/components/pickers/pickertime.tsx"
       ]
     },
     "exportedModulesMap": {
@@ -367,16 +361,16 @@
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts"
       ],
-      "../node_modules/@react-native-community/picker/typings/index.d.ts": [
-        "../node_modules/@react-native-community/picker/typings/picker.d.ts",
-        "../node_modules/@react-native-community/picker/typings/pickerios.d.ts"
+      "../node_modules/@react-native-picker/picker/typings/index.d.ts": [
+        "../node_modules/@react-native-picker/picker/typings/picker.d.ts",
+        "../node_modules/@react-native-picker/picker/typings/pickerios.d.ts"
       ],
-      "../node_modules/@react-native-community/picker/typings/picker.d.ts": [
+      "../node_modules/@react-native-picker/picker/typings/picker.d.ts": [
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts"
       ],
-      "../node_modules/@react-native-community/picker/typings/pickerios.d.ts": [
-        "../node_modules/@react-native-community/picker/typings/picker.d.ts",
+      "../node_modules/@react-native-picker/picker/typings/pickerios.d.ts": [
+        "../node_modules/@react-native-picker/picker/typings/picker.d.ts",
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/@types/react/index.d.ts"
       ],
@@ -397,6 +391,7 @@
       "../node_modules/@types/react/index.d.ts": [
         "../node_modules/@types/prop-types/index.d.ts",
         "../node_modules/@types/react/global.d.ts",
+        "../node_modules/@types/scheduler/tracing.d.ts",
         "../node_modules/csstype/index.d.ts"
       ],
       "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts": [
@@ -417,13 +412,45 @@
       "../node_modules/react-native-modal/dist/types.d.ts": [
         "../node_modules/@types/react-native/index.d.ts",
         "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts"
+      ],
+      "../src/components/dropdowns/dropdownlist.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/dropdowns/dropdownmeasurements.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/dropdowns/dropdownnumber.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/dropdowns/dropdownstate.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickerdate.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickerdaterange.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickerdatetime.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickertime.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
       ]
     },
     "semanticDiagnosticsPerFile": [
       "../node_modules/@react-native-community/datetimepicker/src/index.d.ts",
-      "../node_modules/@react-native-community/picker/typings/index.d.ts",
-      "../node_modules/@react-native-community/picker/typings/picker.d.ts",
-      "../node_modules/@react-native-community/picker/typings/pickerios.d.ts",
+      "../node_modules/@react-native-picker/picker/typings/index.d.ts",
+      "../node_modules/@react-native-picker/picker/typings/picker.d.ts",
+      "../node_modules/@react-native-picker/picker/typings/pickerios.d.ts",
       "../node_modules/@types/prop-types/index.d.ts",
       "../node_modules/@types/react-native/batchedbridge.d.ts",
       "../node_modules/@types/react-native/devtools.d.ts",
@@ -433,6 +460,7 @@
       "../node_modules/@types/react-native/legacy-properties.d.ts",
       "../node_modules/@types/react/global.d.ts",
       "../node_modules/@types/react/index.d.ts",
+      "../node_modules/@types/scheduler/tracing.d.ts",
       "../node_modules/csstype/index.d.ts",
       "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts",
       "../node_modules/react-native-modal/dist/index.d.ts",
@@ -450,18 +478,17 @@
       "../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
       "../node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
       "../node_modules/typescript/lib/lib.es5.d.ts",
-      "../src/cookingamountpicker.tsx",
-      "../src/datepicker.tsx",
-      "../src/daterangepicker.tsx",
-      "../src/datetimepicker.tsx",
+      "../src/components/dropdowns/dropdownlist.tsx",
+      "../src/components/dropdowns/dropdownmeasurements.tsx",
+      "../src/components/dropdowns/dropdownnumber.tsx",
+      "../src/components/dropdowns/dropdownstate.tsx",
+      "../src/components/pickers/pickerdate.tsx",
+      "../src/components/pickers/pickerdaterange.tsx",
+      "../src/components/pickers/pickerdatetime.tsx",
+      "../src/components/pickers/pickertime.tsx",
       "../src/index.js",
-      "../src/listpicker.tsx",
-      "../src/numberpicker.tsx",
-      "../src/statepicker.tsx",
-      "../src/statepickersmall.tsx",
-      "../src/textfield.tsx",
-      "../src/timepicker.tsx"
+      "../src/types/types.tsx"
     ]
   },
-  "version": "3.9.7"
+  "version": "3.9.9"
 }
