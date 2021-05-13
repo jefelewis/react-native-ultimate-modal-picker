@@ -139,9 +139,8 @@ export interface DividerStyle {
 
 
 // PICKER
-// TypeScript Types: Picker Item
-export interface PickerItem {
-  key: number | string;
-  label: string;
-  value: string;
+// TypeScript Types: Picker Value
+export interface PickerValue {
+  label: string,
+  value: string,
 };
