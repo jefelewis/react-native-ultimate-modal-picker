@@ -897,7 +897,7 @@ npm publish
 
 ***Changed***
 - Updated `@react-native-community/datetimepicker` to `2.3.2`.
-- Removed unnecessary try/catch blocks.
+- Removed unnecessary `try/catch` blocks.
 
 ### [0.1.64] - 3/13/2020
 
@@ -953,11 +953,11 @@ npm publish
 - Changing backdrop opacity to 30%.
 - Increased `TouchableOpacity` size for `DateRangePicker`.
 - Increased `pickerHeaderContainer` height to 45px.
-- Fixed README podspec issue.
+- Fixed `README` podspec issue.
 
 ***Removed***
 
-- Removed React Native Vector Icons.
+- Removed `react-native-vector-icons`.
 
 ### [0.1.55] - 1/28/2020
 
@@ -986,7 +986,7 @@ npm publish
 
 ***Removed***
 
-- Removed async/await due to that it was not the root cause of the issue.
+- Removed `async/await` due to that it was not the root cause of the issue.
 
 ### [0.1.47] - 1/26/2020
 
@@ -1030,7 +1030,7 @@ npm publish
 
 ***Changed***
 
-- Reformatted App.tsx for when testing.
+- Reformatted `App.tsx` for when testing.
 - Fixed `onChange` TypeScript Typings.
 - Updated `README` screenshot GIFs.
 
@@ -1049,7 +1049,7 @@ npm publish
 
 ***Changed***
 
-- Fixed if/else toggle issue.
-- Fixed undefined date issue.
+- Fixed `if/else` toggle issue.
+- Fixed `undefined` date issue.
 - Fixed `onChange` issue.
-- Changed if statements for `Platform` to else/if so only one would ever run.
+- Changed if statements for `Platform` to `if/else`, so only one would ever run.
