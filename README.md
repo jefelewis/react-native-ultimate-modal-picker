@@ -881,7 +881,7 @@ npm publish
 
 ***Added***
 - Added Dark Mode support. Please upgrade to `React Native 0.62` for this to work.
-- Added `@react-native-community/picker` dependency (Picker is soon to be deprecated).
+- Added `@react-native-community/picker` dependency (`Picker` is soon to be deprecated).
 
 ### [0.2.1] - 8/10/2020
 
@@ -937,7 +937,7 @@ npm publish
 
 ***Changed***
 
-- Increased `fieldTextContainer` marginBottom to 12px.
+- Increased `fieldTextContainer` `marginBottom` to `12px`.
 
 ### [0.1.57] - 2/7/2020
 
@@ -950,9 +950,9 @@ npm publish
 ***Changed***
 
 - Updated `@react-native-community/datetimepicker` to `2.1.1`.
-- Changing backdrop `opacity` to 30%.
+- Changing backdrop `opacity` to `30%`.
 - Increased `TouchableOpacity` size for `DateRangePicker`.
-- Increased `pickerHeaderContainer` height to 45px.
+- Increased `pickerHeaderContainer` `height` to `45px`.
 - Fixed `README` podspec issue.
 
 ***Removed***
@@ -981,8 +981,8 @@ npm publish
 
 ***Changed***
 
-- Fixed Picker Done button issue. Done button is now disabled unless new date is picked.
-- Increased Picker container size for iOS.
+- Fixed `Picker` Done button issue. Done button is now disabled unless new date is picked.
+- Increased `Picker` container size for `iOS`.
 
 ***Removed***
 
@@ -1023,10 +1023,10 @@ npm publish
 
 ***Added***
 
-- Added cancel button to iOS `ListPicker`.
+- Added cancel button to `iOS` `ListPicker`.
 - Added test data items for `ListPicker` on `README`.
 - Added props to `App.tsx` for testing.
-- Title props can be added to any Picker. Default titles are shown if no prop is added.
+- Title props can be added to any `Picker`. Default titles are shown if no `prop` is added.
 
 ***Changed***
 
@@ -1045,7 +1045,7 @@ npm publish
 ***Added***
 
 - Added `podfile` installation instructions to `README`.
-- Added cancel button for iOS modals.
+- Added cancel button for `iOS` modals.
 
 ***Changed***
 
