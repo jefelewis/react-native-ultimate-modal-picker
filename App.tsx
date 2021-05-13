@@ -217,6 +217,20 @@ const App: React.FC = (): JSX.Element => {
               color: 'red',
             },
           }}
+          customStyleDivider={{
+            dividerLight: {
+              marginTop: 16,
+              marginBottom: 16,
+              borderBottomWidth: 2,
+              borderColor: 'red',
+            },
+            dividerDark: {
+              marginTop: 16,
+              marginBottom: 16,
+              borderBottomWidth: 2,
+              borderColor: 'red',
+            },
+          }}
         />
 
         {/* Dropdown: List */}
