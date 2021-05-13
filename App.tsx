@@ -168,6 +168,54 @@ const App: React.FC = (): JSX.Element => {
           mode="spinner"
         />
 
+        {/* Picker (Custom Styles) */}
+        <PickerDateRange
+          title="Date Range"
+          onFromChange={(date) => console.log(date)}
+          onToChange={(date) => console.log(date)}
+          mode="spinner"
+          customStyleContainer={{
+            containerLight: {
+              backgroundColor: '#000000',
+            },
+            containerDark: {
+              backgroundColor: '#000000',
+            },
+          }}
+          customStyleTitleText={{
+            titleTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            titleTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleLabelText={{
+            labelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            labelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+        />
+
         {/* Dropdown: List */}
         <DropdownList
           title="List"
