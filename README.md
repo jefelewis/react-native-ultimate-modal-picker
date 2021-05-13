@@ -834,7 +834,7 @@ npm run build
 
 **Publish**
 ```
-npm run publish
+npm publish
 ```
 
 
