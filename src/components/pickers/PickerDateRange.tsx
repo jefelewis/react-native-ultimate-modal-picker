@@ -1,14 +1,16 @@
 // Imports: Dependencies
 import React, { useState, useEffect } from 'react';
-import { Appearance, Button, Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Button, Dimensions, Keyboard, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import Modal from 'react-native-modal';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
 
+// Imports: TypeScript Types
+import { ContainerStyle, LabelTextStyle, DividerStyle } from '../../types/types';
+
 // Dark Mode
-const colorScheme = Appearance.getColorScheme();
+// const colorScheme = Appearance.getColorScheme();
 
 // TypeScript Types: Props
 interface Props {
@@ -16,6 +18,10 @@ interface Props {
   onFromChange: (newDate: Date) => void;
   onToChange: (newDate: Date) => void;
   title?: string;
+  darkMode?: boolean,
+  customStyleContainer?: ContainerStyle,
+  customStyleLabelText?: LabelTextStyle,
+  customStyleDivider?: DividerStyle,
 };
 
 // Component: Picker (Date Range)
@@ -42,6 +48,86 @@ const DateRangePicker: React.FC<Props> = (props): JSX.Element => {
       todaySent(true);
     }
   }, [today]);
+
+  // Render Container Style
+  const renderContainerStyle = (): any => {
+    // Dark Mode
+    if (props.darkMode) {
+      return (
+        {
+          display: 'flex',
+          width: width,
+          paddingLeft: 16,
+          paddingRight: 16,
+          backgroundColor: props.customStyleContainer?.containerDark.backgroundColor ? props.customStyleContainer.containerDark.backgroundColor : undefined,
+        }
+      );
+    }
+    // Light Mode
+    else {
+      return (
+        {
+          display: 'flex',
+          width: width,
+          paddingLeft: 16,
+          paddingRight: 16,
+          backgroundColor: props.customStyleContainer?.containerLight.backgroundColor ? props.customStyleContainer.containerLight.backgroundColor : undefined,
+        }
+      );
+    }
+  };
+
+  // Render Label Text Style
+  const renderLabelTextStyle = (): any => {
+    // Dark Mode
+    if (props.darkMode) {
+      return (
+        {
+          fontFamily: props.customStyleLabelText?.labelTextDark.fontFamily ? props.customStyleLabelText.labelTextDark.fontFamily : 'System',
+          fontSize: props.customStyleLabelText?.labelTextDark.fontSize ? props.customStyleLabelText.labelTextDark.fontSize : 17,
+          fontWeight: props.customStyleLabelText?.labelTextDark.fontWeight ? props.customStyleLabelText.labelTextDark.fontWeight : '600',
+          color: props.customStyleLabelText?.labelTextDark.color ? props.customStyleLabelText.labelTextDark.color : '#FFFFFF',
+        }
+      );
+    }
+    // Light Mode
+    else {
+      return (
+        {
+          fontFamily: props.customStyleLabelText?.labelTextLight.fontFamily ? props.customStyleLabelText.labelTextLight.fontFamily : 'System',
+          fontSize: props.customStyleLabelText?.labelTextLight.fontSize ? props.customStyleLabelText.labelTextLight.fontSize : 17,
+          fontWeight: props.customStyleLabelText?.labelTextLight.fontWeight ? props.customStyleLabelText.labelTextLight.fontWeight : '600',
+          color: props.customStyleLabelText?.labelTextLight.color ? props.customStyleLabelText.labelTextLight.color : '#000000',
+        }
+      );
+    }
+  };
+
+  // Render Divider Style
+  const renderDividerStyle = (): any => {
+    // Dark Mode
+    if (props.darkMode) {
+      return (
+        {
+          borderColor: props.customStyleDivider?.dividerLight.borderColor ? props.customStyleDivider.dividerLight.borderColor : '#8A8A8E',
+          borderBottomWidth: props.customStyleDivider?.dividerLight.borderBottomWidth ? props.customStyleDivider.dividerLight.borderBottomWidth : StyleSheet.hairlineWidth,
+          marginTop: props.customStyleDivider?.dividerLight.marginTop ? props.customStyleDivider.dividerLight.marginTop : 16,
+          marginBottom: props.customStyleDivider?.dividerLight.marginBottom ? props.customStyleDivider.dividerLight.marginBottom : 16,
+        }
+      );
+    }
+    // Light Mode
+    else {
+      return (
+        {
+          borderColor: props.customStyleDivider?.dividerLight.borderColor ? props.customStyleDivider.dividerLight.borderColor : '#8D8D93',
+          borderBottomWidth: props.customStyleDivider?.dividerLight.borderBottomWidth ? props.customStyleDivider.dividerLight.borderBottomWidth : StyleSheet.hairlineWidth,
+          marginTop: props.customStyleDivider?.dividerLight.marginTop ? props.customStyleDivider.dividerLight.marginTop : 16,
+          marginBottom: props.customStyleDivider?.dividerLight.marginBottom ? props.customStyleDivider.dividerLight.marginBottom : 16,
+        }
+      );
+    }
+  };
 
   // Select From Date
   const selectFromDate = (event: any, newDate: Date): void => {
@@ -180,21 +266,21 @@ const DateRangePicker: React.FC<Props> = (props): JSX.Element => {
   // };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.inputTitleContainer}>
-        <Text style={styles.inputTitle}>{props.title === undefined ? 'Date Range' : props.title}</Text>
+    <View style={renderContainerStyle()}>
+      <View style={styles.titleContainer}>
+        <Text style={styles.titleText}>{props.title === undefined ? 'Date Range' : props.title}</Text>
       </View>
 
       <View style={styles.toFromDateContainer}>
-        <Text style={styles.dateText}>From</Text>
+        <Text style={renderLabelTextStyle()}>From</Text>
 
         <>{renderFromIOSDatePicker()}</>
       </View>
 
-      <View style={styles.divider}></View>
+      <View style={renderDividerStyle()}></View>
 
       <View style={styles.toFromDateContainer}>
-        <Text style={styles.dateText}>To</Text>
+        <Text style={renderLabelTextStyle()}>To</Text>
 
         <>{renderToIOSDatePicker()}</>
       </View>
@@ -209,19 +295,18 @@ const styles = StyleSheet.create({
     width: width,
     paddingLeft: 16,
     paddingRight: 16,
-    backgroundColor: colorScheme === 'dark' ? '#000000' : '#FFFFFF',
+    // backgroundColor: colorScheme === 'dark' ? '#000000' : '#FFFFFF',
   },
-  inputTitleContainer: {
+  titleContainer: {
     width: width,
     flexDirection: 'row',
     alignItems: 'center',
   },
-  inputTitle: {
+  titleText: {
     alignSelf: 'flex-start',
     fontFamily: 'System',
     fontSize: 27,
     fontWeight: '700',
-    color: colorScheme === 'dark' ? '#FFFFFF' : '#000000',
     marginBottom: 12,
   },
   toFromDateContainer: {
@@ -230,18 +315,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     width: width - 16,
-  },
-  dateText: {
-    fontFamily: 'System',
-    fontSize: 17,
-    fontWeight: '600',
-    color: colorScheme === 'dark' ? '#FFFFFF' : '#000000',
-  },
-  divider: {
-    borderColor: '#7D7D7D',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    marginTop: 12,
-    marginBottom: 12,
   },
 });
 

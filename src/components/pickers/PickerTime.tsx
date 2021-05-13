@@ -120,9 +120,9 @@ const PickerTime: React.FC<Props> = (props): JSX.Element => {
           paddingRight: 16,
           paddingBottom: 12,
           marginBottom: 12,
-          borderColor: props.customStyleContainer?.containerDark ? props.customStyleContainer.containerDark.borderColor : '#8D8D93',
-          borderBottomWidth: props.customStyleContainer?.containerDark ? props.customStyleContainer.containerDark.borderBottomWidth : StyleSheet.hairlineWidth,
-          backgroundColor: props.customStyleContainer?.containerDark ? props.customStyleContainer.containerDark.backgroundColor : undefined,
+          borderColor: props.customStyleContainer?.containerDark.borderColor ? props.customStyleContainer.containerDark.borderColor : '#8D8D93',
+          borderBottomWidth: props.customStyleContainer?.containerDark.borderBottomWidth ? props.customStyleContainer.containerDark.borderBottomWidth : StyleSheet.hairlineWidth,
+          backgroundColor: props.customStyleContainer?.containerDark.backgroundColor ? props.customStyleContainer.containerDark.backgroundColor : undefined,
         }
       );
     }
@@ -136,9 +136,9 @@ const PickerTime: React.FC<Props> = (props): JSX.Element => {
           paddingRight: 16,
           paddingBottom: 12,
           marginBottom: 12,
-          borderColor: props.customStyleContainer?.containerLight ? props.customStyleContainer.containerLight.borderColor : '#8A8A8E',
-          borderBottomWidth: props.customStyleContainer?.containerLight ? props.customStyleContainer.containerLight.borderBottomWidth : StyleSheet.hairlineWidth,
-          backgroundColor: props.customStyleContainer?.containerLight ? props.customStyleContainer.containerLight.backgroundColor : undefined,
+          borderColor: props.customStyleContainer?.containerLight.borderColor ? props.customStyleContainer.containerLight.borderColor : '#8A8A8E',
+          borderBottomWidth: props.customStyleContainer?.containerLight.borderBottomWidth ? props.customStyleContainer.containerLight.borderBottomWidth : StyleSheet.hairlineWidth,
+          backgroundColor: props.customStyleContainer?.containerLight.backgroundColor ? props.customStyleContainer.containerLight.backgroundColor : undefined,
         }
       );
     }
@@ -150,11 +150,11 @@ const PickerTime: React.FC<Props> = (props): JSX.Element => {
     if (props.darkMode) {
       return (
         {
-          fontFamily: props.customStyleLabelText?.labelTextDark ? props.customStyleLabelText.labelTextDark.fontFamily : 'System',
-          fontSize: props.customStyleLabelText?.labelTextDark ? props.customStyleLabelText.labelTextDark.fontSize : 11,
-          fontWeight: props.customStyleLabelText?.labelTextDark ? props.customStyleLabelText.labelTextDark.fontWeight : '600',
-          textTransform: props.customStyleLabelText?.labelTextDark ? props.customStyleLabelText.labelTextDark.textTransform : 'uppercase',
-          color: props.customStyleLabelText?.labelTextDark ? props.customStyleLabelText.labelTextDark.color : '#8D8D93',
+          fontFamily: props.customStyleLabelText?.labelTextDark.fontFamily ? props.customStyleLabelText.labelTextDark.fontFamily : 'System',
+          fontSize: props.customStyleLabelText?.labelTextDark.fontSize ? props.customStyleLabelText.labelTextDark.fontSize : 11,
+          fontWeight: props.customStyleLabelText?.labelTextDark.fontWeight ? props.customStyleLabelText.labelTextDark.fontWeight : '600',
+          textTransform: props.customStyleLabelText?.labelTextDark.textTransform ? props.customStyleLabelText.labelTextDark.textTransform : 'uppercase',
+          color: props.customStyleLabelText?.labelTextDark.color ? props.customStyleLabelText.labelTextDark.color : '#8D8D93',
           marginBottom: 7,
         }
       );
@@ -163,11 +163,11 @@ const PickerTime: React.FC<Props> = (props): JSX.Element => {
     else {
       return (
         {
-          fontFamily: props.customStyleLabelText?.labelTextLight ? props.customStyleLabelText.labelTextLight.fontFamily : 'System',
-          fontSize: props.customStyleLabelText?.labelTextLight ? props.customStyleLabelText.labelTextLight.fontSize : 11,
-          fontWeight: props.customStyleLabelText?.labelTextLight ? props.customStyleLabelText.labelTextLight.fontWeight : '600',
-          textTransform: props.customStyleLabelText?.labelTextLight ? props.customStyleLabelText.labelTextLight.textTransform : 'uppercase',
-          color: props.customStyleLabelText?.labelTextLight ? props.customStyleLabelText.labelTextLight.color : '#8A8A8E',
+          fontFamily: props.customStyleLabelText?.labelTextLight.fontFamily ? props.customStyleLabelText.labelTextLight.fontFamily : 'System',
+          fontSize: props.customStyleLabelText?.labelTextLight.fontSize ? props.customStyleLabelText.labelTextLight.fontSize : 11,
+          fontWeight: props.customStyleLabelText?.labelTextLight.fontWeight ? props.customStyleLabelText.labelTextLight.fontWeight : '600',
+          textTransform: props.customStyleLabelText?.labelTextLight.textTransform ? props.customStyleLabelText.labelTextLight.textTransform : 'uppercase',
+          color: props.customStyleLabelText?.labelTextLight.color ? props.customStyleLabelText.labelTextLight.color : '#8A8A8E',
           marginBottom: 7,
         }
       );
