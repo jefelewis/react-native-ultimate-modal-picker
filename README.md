@@ -39,7 +39,7 @@ npm i react-native-ultimate-modal-picker
 
 Add the following line to ios/podfile:
 ```
-pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec'
+pod 'DateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker/DateTimePicker.podspec'
 ```
 
 **3. Install Pods (For iOS)**
@@ -74,25 +74,29 @@ react-native run-ios
 ```javascript
 // Imports: Dependencies
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
+
+// Imports: Components
 import {
-  DateRangePicker,
-  DatePicker,
-  TimePicker,
-  DateTimePicker,
-  ListPicker,
-  NumberPicker,
-  CookingAmountPicker,
-  StatePicker,
-  StatePickerSmall,
-  TextField,
-} from 'react-native-ultimate-modal-picker';
+  // Pickers
+  PickerTime,
+  PickerDate,
+  PickerDateTime,
+  PickerDateRange,
+  // Dropdowns
+  DropdownList,
+  DropdownMeasurements,
+  DropdownNumber,
+  DropdownState,
+} from './src/index';
+
+// Imports: TypeScript Types
+import { PickerValue } from './src/types/types';
 
 // React Native App
-const App = () => {
-
+const App: React.FC = (): JSX.Element => {
   // Test Data
-  const items: any = [
+  const items: Array<PickerValue> = [
     { label: '1', value: '1' },
     { label: '2', value: '2' },
     { label: '3', value: '3' },
@@ -107,73 +111,636 @@ const App = () => {
 
   return (
     <SafeAreaView style={{ display: 'flex', flex: 1 }}>
-      {/* Date Picker (Modes: spinner/calendar) */}
-      <DatePicker
-        title="Date"
-        onChange={(date) => console.log(date)}
-        mode="spinner"
-      />
+      <ScrollView>
 
-      {/* Time Picker (Modes: spinner/clock) */}
-      <TimePicker
-        title="Time"
-        onChange={(date) => console.log(date)}
-        mode="spinner"
-      />
+        {/* Picker: Date (Modes: spinner/calendar) */}
+        <PickerDate
+          title="Date"
+          onChange={(date) => console.log(date)}
+          mode="spinner"
+        />
 
-      {/* Date Time Picker (iOS Only) */}
-      <DateTimePicker
-        title="Date/Time"
-        onChange={(date) => console.log(date)}
-      />
+        {/* Picker: Date (Custom Styles) */}
+        <PickerDate
+          title="Date (Custom Styles)"
+          onChange={(date) => console.log(date)}
+          mode="spinner"
+          customStyleContainer={{
+            containerLight: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            containerDark: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleLabelText={{
+            labelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            labelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+        />
 
-      {/* List Picker */}
-      <ListPicker
-        title="List"
-        items={items}
-        onChange={(item) => console.log(item)}
-      />
+        {/* Picker: Time (Modes: spinner/clock) */}
+        <PickerTime
+          title="Time"
+          onChange={(date) => console.log(date)}
+          mode="spinner"
+        />
 
-      {/* Number Picker */}
-      <NumberPicker
-        title="Number"
-        onChange={(item) => console.log(item)}
-      />
+        {/* Picker: Time (Custom Styles) */}
+        <PickerTime
+          title="Time (Custom Styles)"
+          onChange={(date) => console.log(date)}
+          mode="spinner"
+          customStyleContainer={{
+            containerLight: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            containerDark: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleLabelText={{
+            labelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            labelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+        />
 
-      {/* Cooking Measurement Picker */}
-      <CookingAmountPicker
-        title="Measurement"
-        onChange={(item) => console.log(item)}
-      />
+        {/* Picker: Date Time (iOS Only) */}
+        <PickerDateTime
+          title="Date/Time"
+          onChange={(date) => console.log(date)}
+        />
 
-      {/* State Picker */}
-      <StatePicker
-        title="State"
-        onChange={(state) => console.log(state)}
-      />
+        {/* Picker: Date Time (Custom Styles) */}
+        <PickerDateTime
+          title="Date/Time (Custom Styles)"
+          onChange={(date) => console.log(date)}
+          customStyleContainer={{
+            containerLight: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            containerDark: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleLabelText={{
+            labelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            labelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+        />
 
-      {/* State Picker (Small) */}
-      <StatePickerSmall
-        title="State"
-        onChange={(state) => console.log(state)}
-      />
+        {/* Picker (Date Range) */}
+        <PickerDateRange
+          title="Date Range"
+          onFromChange={(date) => console.log(date)}
+          onToChange={(date) => console.log(date)}
+          mode="spinner"
+        />
 
-      {/* Date Range Picker */}
-      <DateRangePicker
-        title="Date Range"
-        onFromChange={(date) => console.log(date)}
-        onToChange={(date) => console.log(date)}
-        mode="spinner"
-      />
+        {/* Picker (Custom Styles) */}
+        <PickerDateRange
+          title="Date Range"
+          onFromChange={(date) => console.log(date)}
+          onToChange={(date) => console.log(date)}
+          mode="spinner"
+          customStyleContainer={{
+            containerLight: {
+              backgroundColor: '#000000',
+            },
+            containerDark: {
+              backgroundColor: '#000000',
+            },
+          }}
+          customStyleTitleText={{
+            titleTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            titleTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleLabelText={{
+            labelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            labelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+        />
 
-      {/* Text Field */}
-      <TextField
-        title="Text"
-        value={(text: string | number) => console.log(text)}
-      />
+        {/* Dropdown: List */}
+        <DropdownList
+          title="List"
+          items={items}
+          onChange={(item) => console.log(item)}
+        />
+
+        {/* Dropdown: List (Custom Styles) */}
+        <DropdownList
+          title="List (Custom Styles)"
+          items={items}
+          onChange={(item) => console.log(item)}
+          customStyleContainer={{
+            containerLight: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            containerDark: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleLabelText={{
+            labelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            labelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleFieldText={{
+            fieldTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            fieldTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleModalHeaderContainer={{
+            modalHeaderContainerLight: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            modalHeaderContainerDark: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleCancelText={{
+            cancelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+            cancelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+          }}
+          customStyleDoneText={{
+            doneTextLight: {
+              color: 'red',
+            },
+            doneTextDark: {
+              color: 'red',
+            },
+          }}
+          customStyleModalContentContainer={{
+            modalContentContainerLight: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+            modalContentContainerDark: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+          }}
+          customStylePickerItemText={{
+            pickerItemTextLight: {
+              color: 'red',
+            },
+            pickerItemTextDark: {
+              color: 'red',
+            }
+          }}
+        />
+
+        {/* Dropdown: Number */}
+        <DropdownNumber
+          title="Number"
+          onChange={(item) => console.log(item)}
+        />
+
+        {/* Dropdown: Number (Custom Styles) */}
+        <DropdownNumber
+          title="Number"
+          onChange={(item) => console.log(item)}
+          customStyleContainer={{
+            containerLight: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            containerDark: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleLabelText={{
+            labelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            labelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleFieldText={{
+            fieldTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            fieldTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleModalHeaderContainer={{
+            modalHeaderContainerLight: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            modalHeaderContainerDark: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleCancelText={{
+            cancelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+            cancelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+          }}
+          customStyleDoneText={{
+            doneTextLight: {
+              color: 'red',
+            },
+            doneTextDark: {
+              color: 'red',
+            },
+          }}
+          customStyleModalContentContainer={{
+            modalContentContainerLight: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+            modalContentContainerDark: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+          }}
+          customStylePickerItemText={{
+            pickerItemTextLight: {
+              color: 'red',
+            },
+            pickerItemTextDark: {
+              color: 'red',
+            }
+          }}
+        />
+
+        {/* Dropdown: Measurements */}
+        <DropdownMeasurements
+          title="Amount"
+          onChange={(item) => console.log(item)}
+        />
+
+        {/* Dropdown: Measurements (Custom Styles) */}
+        <DropdownMeasurements
+          title="Amount"
+          onChange={(item) => console.log(item)}
+          customStyleContainer={{
+            containerLight: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            containerDark: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleLabelText={{
+            labelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            labelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleFieldText={{
+            fieldTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            fieldTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleModalHeaderContainer={{
+            modalHeaderContainerLight: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            modalHeaderContainerDark: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleCancelText={{
+            cancelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+            cancelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+          }}
+          customStyleDoneText={{
+            doneTextLight: {
+              color: 'red',
+            },
+            doneTextDark: {
+              color: 'red',
+            },
+          }}
+          customStyleModalContentContainer={{
+            modalContentContainerLight: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+            modalContentContainerDark: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+          }}
+          customStylePickerItemText={{
+            pickerItemTextLight: {
+              color: 'red',
+            },
+            pickerItemTextDark: {
+              color: 'red',
+            }
+          }}
+        />
+
+        {/* Dropdown: State */}
+        <DropdownState
+          title="State"
+          onChange={(state) => console.log(state)}
+        />
+
+        {/* Dropdown: State (Custom Styles) */}
+        <DropdownState
+          title="State"
+          onChange={(state) => console.log(state)}
+          customStyleContainer={{
+            containerLight: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            containerDark: {
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleLabelText={{
+            labelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            labelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleFieldText={{
+            fieldTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+            fieldTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              textTransform: 'lowercase',
+              color: 'red',
+            },
+          }}
+          customStyleModalHeaderContainer={{
+            modalHeaderContainerLight: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+            modalHeaderContainerDark: {
+              height: 55,
+              backgroundColor: '#000000',
+              borderColor: '#000000',
+              borderBottomWidth: 2,
+            },
+          }}
+          customStyleCancelText={{
+            cancelTextLight: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+            cancelTextDark: {
+              fontFamily: 'System',
+              fontSize: 22,
+              fontWeight: '800',
+              color: 'red',
+            },
+          }}
+          customStyleDoneText={{
+            doneTextLight: {
+              color: 'red',
+            },
+            doneTextDark: {
+              color: 'red',
+            },
+          }}
+          customStyleModalContentContainer={{
+            modalContentContainerLight: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+            modalContentContainerDark: {
+              height: 400,
+              backgroundColor: '#000000',
+            },
+          }}
+          customStylePickerItemText={{
+            pickerItemTextLight: {
+              color: 'red',
+            },
+            pickerItemTextDark: {
+              color: 'red',
+            }
+          }}
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 };
+
+// Exports
+export default App;
 ```
 
 ## Picker Types (iOS)
@@ -236,6 +803,29 @@ const App = () => {
 </div>
 
 ## Changelog
+
+### [0.3.0] - 5/11/2021 **BREAKING CHANGES (SEE UPDATED EXAMPLES)**
+
+***Added***
+
+- Added custom style props for views and text. See Examples.
+
+***Changed***
+- Updated to `iOS 14` styling.
+- Updated `react` dependency to `React 17`.
+- Updated `react-native` dependency to `React 0.64`.
+- Updated `react-native-modal` dependency.
+- Updated `@react-native-community/datetimepicker` dependency.
+- Replaced `@react-native-community/picker` dependency with `@react-native-picker/picker`.
+- Changed `DatePicker` to `PickerDate`.
+- Changed `DateTimePicker` to `PickerDateTime`.
+- Changed `DateRangePicker` to `PickerDateRange`.
+- Changed `TimePicker` to `PickerTime`.
+- Changed `ListPicker` to `DropdownList`.
+- Changed `CookingMeasurementsPicker` to `DropdownMeasurements`.
+- Changed `NumberPicker` to `DropdownNumber`.
+- Changed `StatePicker` to `DropdownState`.
+
 
 ### [0.2.2] - 8/10/2020
 
