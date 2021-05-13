@@ -269,7 +269,7 @@ PODS:
     - React-perflogger (= 0.64.1)
   - RNCPicker (1.16.0):
     - React-Core
-  - RNDateTimePicker (3.4.7):
+  - DateTimePicker (3.4.7):
     - React-Core
   - Yoga (1.14.0)
 
@@ -304,7 +304,7 @@ DEPENDENCIES:
   - React-runtimeexecutor (from `../node_modules/react-native/ReactCommon/runtimeexecutor`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
-  - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
+  - "DateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -368,7 +368,7 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon"
   RNCPicker:
     :path: "../node_modules/@react-native-picker/picker"
-  RNDateTimePicker:
+  DateTimePicker:
     :path: "../node_modules/@react-native-community/datetimepicker"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
@@ -403,7 +403,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: ff951a0c241bfaefc4940a3f1f1a229e7cb32fa6
   ReactCommon: bedc99ed4dae329c4fcf128d0c31b9115e5365ca
   RNCPicker: 918e98b54a141791e99614b1c320ef2e58300490
-  RNDateTimePicker: 8dcfab802edece406f4f4780130974a0e04213b4
+  DateTimePicker: 8dcfab802edece406f4f4780130974a0e04213b4
   Yoga: a7de31c64fe738607e7a3803e3f591a4b1df7393
 
 PODFILE CHECKSUM: 480a99ba6348643d256276ec5ff15575600b76b3
