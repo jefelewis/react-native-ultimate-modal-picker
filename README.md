@@ -858,6 +858,9 @@ npm publish
 
 ***Changed***
 
+- Changed `@react-native-community/datetimepicker` to `peerDependency`.
+- Changed `@react-native-picker/picker` to `peerDependency`.
+- Changed `react-native-modal` to `peerDependency`.
 - Updated `README` Getting Started for `iOS` pods.
 - Updated `README` Getting Started for `Android` dependencies.
 
