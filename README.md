@@ -854,6 +854,12 @@ npm publish
 
 ## Changelog
 
+### [0.3.5] - 5/16/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
+
+***Changed***
+
+- Fixed `peerDependencies` issue.
+
 ### [0.3.4] - 5/13/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
 
 ***Changed***
