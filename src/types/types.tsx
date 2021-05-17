@@ -157,8 +157,8 @@ export interface TitleTextStyle {
 
 
 // PICKER
-// TypeScript Types: Picker Value
-export interface PickerValue {
+// TypeScript Types: Picker Item
+export interface PickerItem {
   label: string,
   value: string,
 };
