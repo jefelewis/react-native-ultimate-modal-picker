@@ -98,10 +98,9 @@ import {
   DropdownMeasurements,
   DropdownNumber,
   DropdownState,
+  // TypeScript Types
+  PickerItem,
 } from './src/index';
-
-// Imports: TypeScript Types
-import { PickerValue } from './src/types/types';
 
 // React Native App
 const App: React.FC = (): JSX.Element => {
@@ -119,7 +118,7 @@ const App: React.FC = (): JSX.Element => {
   const [ stateValue, setStateValue ] = useState<string>('');
 
   // Items
-  const items: Array<PickerValue> = [
+  const items: Array<PickerItem> = [
     { label: '1', value: '1' },
     { label: '2', value: '2' },
     { label: '3', value: '3' },
