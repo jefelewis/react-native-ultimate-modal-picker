@@ -5,7 +5,7 @@ import { Picker } from '@react-native-picker/picker';
 import Modal from 'react-native-modal';
 
 // Imports: TypeScript Types
-import { ContainerStyle, LabelTextStyle, FieldTextStyle, CancelTextStyle, DoneTextStyle, ModalHeaderContainerStyle, ModalContentContainerStyle, PickerItemTextStyle, PickerValue } from '../../types/types';
+import { ContainerStyle, LabelTextStyle, FieldTextStyle, CancelTextStyle, DoneTextStyle, ModalHeaderContainerStyle, ModalContentContainerStyle, PickerItemTextStyle, PickerItem } from '../../types/types';
 
 // TypeScript Types: Props
 interface Props {
@@ -46,7 +46,7 @@ const DropdownMeasurements: React.FC<Props> = (props): JSX.Element => {
   }, [props.defaultValue]);
 
   // Measurements
-  const measurements: Array<PickerValue> = [
+  const measurements: Array<PickerItem> = [
     { label: 'Select', value: 'Select' },
     { label: '1/8', value: '1/8' },
     { label: '1/4', value: '1/4' },
@@ -455,7 +455,7 @@ const DropdownMeasurements: React.FC<Props> = (props): JSX.Element => {
                   selectedValue={tempValue !== undefined ? tempValue : value}
                   onValueChange={(value: string) => selectValue(value)}
                 >
-                  {measurements.map((item: PickerValue, i: number) => {
+                  {measurements.map((item: PickerItem, i: number) => {
                     return (
                       <Picker.Item
                         key={i}
@@ -486,7 +486,7 @@ const DropdownMeasurements: React.FC<Props> = (props): JSX.Element => {
             style={{height: 60, width: width - 16}}
             onValueChange={(value: string) => setValue(value)}
           >
-            {measurements.map((item: PickerValue, i: number) => {
+            {measurements.map((item: PickerItem, i: number) => {
               return (
                 <Picker.Item
                   key={i}

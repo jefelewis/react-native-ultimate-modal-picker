@@ -5,11 +5,11 @@ import { Picker } from '@react-native-picker/picker';
 import Modal from 'react-native-modal';
 
 // Imports: TypeScript Types
-import { ContainerStyle, LabelTextStyle, FieldTextStyle, CancelTextStyle, DoneTextStyle, ModalHeaderContainerStyle, ModalContentContainerStyle, PickerItemTextStyle, PickerValue } from '../../types/types';
+import { ContainerStyle, LabelTextStyle, FieldTextStyle, CancelTextStyle, DoneTextStyle, ModalHeaderContainerStyle, ModalContentContainerStyle, PickerItemTextStyle, PickerItem } from '../../types/types';
 
 // TypeScript Types: Props
 interface Props {
-  items: Array<PickerValue>;
+  items: Array<PickerItem>;
   onChange: (value: string) => void;
   title?: string;
   defaultValue?: string;
@@ -347,7 +347,7 @@ const DropdownList: React.FC<Props> = (props): JSX.Element => {
                   selectedValue={tempValue !== undefined ? tempValue : value}
                   onValueChange={(value: string) => selectValue(value)}
                 >
-                  {props.items.map((item: PickerValue, i: number) => {
+                  {props.items.map((item: PickerItem, i: number) => {
                     return (
                       <Picker.Item
                         key={i}
@@ -378,7 +378,7 @@ const DropdownList: React.FC<Props> = (props): JSX.Element => {
             style={{height: 60, width: width - 16}}
             onValueChange={(value: string) => setValue(value)}
           >
-            {props.items.map((item: PickerValue, i: number) => {
+            {props.items.map((item: PickerItem, i: number) => {
               return (
                 <Picker.Item
                   key={i}
