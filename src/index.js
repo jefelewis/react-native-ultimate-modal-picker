@@ -10,6 +10,9 @@ import PickerDate from './components/pickers/PickerDate';
 import PickerDateTime from './components/pickers/PickerDateTime';
 import PickerDateRange from './components/pickers/PickerDateRange';
 
+// Imports: TypeScript Types
+import { PickerItem } from './types/types';
+
 // Exports
 export {
   // Pickers
@@ -22,4 +25,6 @@ export {
   DropdownMeasurements,
   DropdownNumber,
   DropdownState,
+  // TypeScript Types
+  PickerItem,
 };
