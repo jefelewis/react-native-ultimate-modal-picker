@@ -860,6 +860,12 @@ npm publish
 
 ## Changelog
 
+### [0.3.9] - 5/22/2021 - **BREAKING CHANGES**
+
+***Added***
+
+- Added `@react-native-community/datetimepicker` as a peer dependency.
+
 ### [0.3.8] - 5/22/2021 - **BREAKING CHANGES**
 
 ***Added***
