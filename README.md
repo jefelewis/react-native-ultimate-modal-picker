@@ -860,7 +860,7 @@ npm publish
 
 ## Changelog
 
-### [0.3.7] - 5/22/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
+### [0.3.7] - 5/22/2021 - **BREAKING CHANGES**
 
 ***Changed***
 
@@ -868,7 +868,7 @@ npm publish
 - Changed peer dependency `react-native` from `"react-native": "*"` to `"react": ">=0.60"`.
 - Updated example code in `README`.
 
-### [0.3.6] - 5/22/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
+### [0.3.6] - 5/22/2021 - **BREAKING CHANGES**
 
 ***Added***
 
@@ -889,13 +889,13 @@ npm publish
 - Removed `react-native-modal` dependency.
 - Removed React Native dependencies.
 
-### [0.3.5] - 5/16/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
+### [0.3.5] - 5/16/2021 - **BREAKING CHANGES**
 
 ***Changed***
 
 - Fixed `peerDependencies` issue.
 
-### [0.3.4] - 5/13/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
+### [0.3.4] - 5/13/2021 - **BREAKING CHANGES**
 
 ***Changed***
 
@@ -905,7 +905,7 @@ npm publish
 - Updated `README` Getting Started for `iOS` pods.
 - Updated `README` Getting Started for `Android` dependencies.
 
-### [0.3.3] - 5/13/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
+### [0.3.3] - 5/13/2021 - **BREAKING CHANGES**
 
 ***Added***
 
@@ -916,19 +916,19 @@ npm publish
 - Changed `onChange(item: string)` to `onChange(item: value)`.
 - Changed `onChange(state: string)` to `onChange(item: value)`.
 
-### [0.3.2] - 5/13/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
+### [0.3.2] - 5/13/2021 - **BREAKING CHANGES**
 
 ***Changed***
 
 - Fixed `onChange`, 'onFromChange`, `onToChange` issues.
 
-### [0.3.1] - 5/13/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
+### [0.3.1] - 5/13/2021 - **BREAKING CHANGES**
 
 ***Changed***
 
 - Fixed `onChange`, 'onFromChange`, `onToChange` issues.
 
-### [0.3.0] - 5/12/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
+### [0.3.0] - 5/12/2021 - **BREAKING CHANGES**
 
 ***Added***
 
