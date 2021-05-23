@@ -1,0 +1,543 @@
+{
+  "program": {
+    "fileInfos": {
+      "../node_modules/typescript/lib/lib.es5.d.ts": {
+        "version": "b3584bc5798ed422ce2516df360ffa9cf2d80b5eae852867db9ba3743145f895",
+        "signature": "b3584bc5798ed422ce2516df360ffa9cf2d80b5eae852867db9ba3743145f895",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2015.d.ts": {
+        "version": "dc47c4fa66b9b9890cf076304de2a9c5201e94b740cffdf09f87296d877d71f6",
+        "signature": "dc47c4fa66b9b9890cf076304de2a9c5201e94b740cffdf09f87296d877d71f6",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/typescript/lib/lib.es2016.d.ts": {
+        "version": "7a387c58583dfca701b6c85e0adaf43fb17d590fb16d5b2dc0a2fbd89f35c467",
+        "signature": "7a387c58583dfca701b6c85e0adaf43fb17d590fb16d5b2dc0a2fbd89f35c467",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/typescript/lib/lib.es2017.d.ts": {
+        "version": "8a12173c586e95f4433e0c6dc446bc88346be73ffe9ca6eec7aa63c8f3dca7f9",
+        "signature": "8a12173c586e95f4433e0c6dc446bc88346be73ffe9ca6eec7aa63c8f3dca7f9",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/typescript/lib/lib.es2015.core.d.ts": {
+        "version": "46ee15e9fefa913333b61eaf6b18885900b139867d89832a515059b62cf16a17",
+        "signature": "46ee15e9fefa913333b61eaf6b18885900b139867d89832a515059b62cf16a17",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2015.collection.d.ts": {
+        "version": "43fb1d932e4966a39a41b464a12a81899d9ae5f2c829063f5571b6b87e6d2f9c",
+        "signature": "43fb1d932e4966a39a41b464a12a81899d9ae5f2c829063f5571b6b87e6d2f9c",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2015.generator.d.ts": {
+        "version": "cdccba9a388c2ee3fd6ad4018c640a471a6c060e96f1232062223063b0a5ac6a",
+        "signature": "cdccba9a388c2ee3fd6ad4018c640a471a6c060e96f1232062223063b0a5ac6a",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
+        "version": "8b2a5df1ce95f78f6b74f1a555ccdb6baab0486b42d8345e0871dd82811f9b9a",
+        "signature": "8b2a5df1ce95f78f6b74f1a555ccdb6baab0486b42d8345e0871dd82811f9b9a",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2015.promise.d.ts": {
+        "version": "2bb4b3927299434052b37851a47bf5c39764f2ba88a888a107b32262e9292b7c",
+        "signature": "2bb4b3927299434052b37851a47bf5c39764f2ba88a888a107b32262e9292b7c",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
+        "version": "810627a82ac06fb5166da5ada4159c4ec11978dfbb0805fe804c86406dab8357",
+        "signature": "810627a82ac06fb5166da5ada4159c4ec11978dfbb0805fe804c86406dab8357",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
+        "version": "62d80405c46c3f4c527ee657ae9d43fda65a0bf582292429aea1e69144a522a6",
+        "signature": "62d80405c46c3f4c527ee657ae9d43fda65a0bf582292429aea1e69144a522a6",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
+        "version": "3013574108c36fd3aaca79764002b3717da09725a36a6fc02eac386593110f93",
+        "signature": "3013574108c36fd3aaca79764002b3717da09725a36a6fc02eac386593110f93",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
+        "version": "9d122b7e8c1a5c72506eea50c0973cba55b92b5532d5cafa8a6ce2c547d57551",
+        "signature": "9d122b7e8c1a5c72506eea50c0973cba55b92b5532d5cafa8a6ce2c547d57551",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2016.array.include.d.ts": {
+        "version": "3be5a1453daa63e031d266bf342f3943603873d890ab8b9ada95e22389389006",
+        "signature": "3be5a1453daa63e031d266bf342f3943603873d890ab8b9ada95e22389389006",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2017.object.d.ts": {
+        "version": "17bb1fc99591b00515502d264fa55dc8370c45c5298f4a5c2083557dccba5a2a",
+        "signature": "17bb1fc99591b00515502d264fa55dc8370c45c5298f4a5c2083557dccba5a2a",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": {
+        "version": "7ce9f0bde3307ca1f944119f6365f2d776d281a393b576a18a2f2893a2d75c98",
+        "signature": "7ce9f0bde3307ca1f944119f6365f2d776d281a393b576a18a2f2893a2d75c98",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2017.string.d.ts": {
+        "version": "6a6b173e739a6a99629a8594bfb294cc7329bfb7b227f12e1f7c11bc163b8577",
+        "signature": "6a6b173e739a6a99629a8594bfb294cc7329bfb7b227f12e1f7c11bc163b8577",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2017.intl.d.ts": {
+        "version": "12a310447c5d23c7d0d5ca2af606e3bd08afda69100166730ab92c62999ebb9d",
+        "signature": "12a310447c5d23c7d0d5ca2af606e3bd08afda69100166730ab92c62999ebb9d",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": {
+        "version": "b0124885ef82641903d232172577f2ceb5d3e60aed4da1153bab4221e1f6dd4e",
+        "signature": "b0124885ef82641903d232172577f2ceb5d3e60aed4da1153bab4221e1f6dd4e",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/@types/react/global.d.ts": {
+        "version": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
+        "signature": "ecf78e637f710f340ec08d5d92b3f31b134a46a4fcf2e758690d8c46ce62cba6",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/csstype/index.d.ts": {
+        "version": "4ee363f83d7be2202f34fcd84c44da71bf3a9329fee8a05f976f75083a52ea94",
+        "signature": "4ee363f83d7be2202f34fcd84c44da71bf3a9329fee8a05f976f75083a52ea94",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/prop-types/index.d.ts": {
+        "version": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
+        "signature": "a7e32dcb90bf0c1b7a1e4ac89b0f7747cbcba25e7beddc1ebf17be1e161842ad",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/scheduler/tracing.d.ts": {
+        "version": "f5a8b384f182b3851cec3596ccc96cb7464f8d3469f48c74bf2befb782a19de5",
+        "signature": "f5a8b384f182b3851cec3596ccc96cb7464f8d3469f48c74bf2befb782a19de5",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/react/index.d.ts": {
+        "version": "881ea8e225320dd9b436999d82998e1d7699e512e0597f0015e5abd59d95974a",
+        "signature": "881ea8e225320dd9b436999d82998e1d7699e512e0597f0015e5abd59d95974a",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/@types/react-native/globals.d.ts": {
+        "version": "44ae1263bb526f9f08419f9532e10d39b9cca5564f0481362ce8b4cbf1def8d9",
+        "signature": "44ae1263bb526f9f08419f9532e10d39b9cca5564f0481362ce8b4cbf1def8d9",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/@types/react-native/legacy-properties.d.ts": {
+        "version": "818a9a35cf844bd8380e9273b8ed82023c614164d0975f096b8c9b680730cbc3",
+        "signature": "818a9a35cf844bd8380e9273b8ed82023c614164d0975f096b8c9b680730cbc3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/react-native/batchedbridge.d.ts": {
+        "version": "496293b62091a5bfb97dac7a0055f3e73dfc7b8d8c220000ecf68635c0bef790",
+        "signature": "496293b62091a5bfb97dac7a0055f3e73dfc7b8d8c220000ecf68635c0bef790",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/@types/react-native/devtools.d.ts": {
+        "version": "715ee74e86e7388d2923cd6377fafcf3f86bea534d5cb4c827a1603383fabdb3",
+        "signature": "715ee74e86e7388d2923cd6377fafcf3f86bea534d5cb4c827a1603383fabdb3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/react-native/launchscreen.d.ts": {
+        "version": "234b97ac9af46707f2315ff395a9b340d37b7dbc8290d91f5d6bd97189d220f3",
+        "signature": "234b97ac9af46707f2315ff395a9b340d37b7dbc8290d91f5d6bd97189d220f3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@types/react-native/index.d.ts": {
+        "version": "409dd5cf23d93eca6e4e71fac78a6ef0524eff732adcc1f0f0a0897995a106b7",
+        "signature": "409dd5cf23d93eca6e4e71fac78a6ef0524eff732adcc1f0f0a0897995a106b7",
+        "affectsGlobalScope": true
+      },
+      "../node_modules/@react-native-picker/picker/typings/picker.d.ts": {
+        "version": "c406e00d6b902bbe6949f44e45628cf2ba46295da2e5391992a98db5e272f022",
+        "signature": "c406e00d6b902bbe6949f44e45628cf2ba46295da2e5391992a98db5e272f022",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-native-picker/picker/typings/pickerios.d.ts": {
+        "version": "109f7d9d66f15f386ba160fb8ecc2274b1276bc8f05c27e8fd0bd482440c7fcf",
+        "signature": "109f7d9d66f15f386ba160fb8ecc2274b1276bc8f05c27e8fd0bd482440c7fcf",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-native-picker/picker/typings/index.d.ts": {
+        "version": "a9a7264086bcd2360df01b2437ddc50f23bdb7f232a63682b99043f86305b524",
+        "signature": "a9a7264086bcd2360df01b2437ddc50f23bdb7f232a63682b99043f86305b524",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts": {
+        "version": "a96e922f08dd5037ca064639ff602be7bec00eb40d97f58842faf83c1b290eb2",
+        "signature": "a96e922f08dd5037ca064639ff602be7bec00eb40d97f58842faf83c1b290eb2",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/react-native-modal/dist/types.d.ts": {
+        "version": "0c0146b35e111ff95338c89c59ca822c02dadfc5548ae98a1112760908713fd3",
+        "signature": "0c0146b35e111ff95338c89c59ca822c02dadfc5548ae98a1112760908713fd3",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/react-native-modal/dist/modal.d.ts": {
+        "version": "1942fedf0543833c584bac455d9d5edf55d743b4aa9dfaf60a6b3006e4b3186f",
+        "signature": "1942fedf0543833c584bac455d9d5edf55d743b4aa9dfaf60a6b3006e4b3186f",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/react-native-modal/dist/index.d.ts": {
+        "version": "bfe0b7982eb32c7e95220332db3879d9059fa8d632cb3297a625bf776e53908f",
+        "signature": "bfe0b7982eb32c7e95220332db3879d9059fa8d632cb3297a625bf776e53908f",
+        "affectsGlobalScope": false
+      },
+      "../src/types/types.tsx": {
+        "version": "8d4b43b2d6b09450a2abe68d3955c6847b1a83d7ecc63269a4089657784b32d7",
+        "signature": "3403dd7f90a09e4bb96935728b6b28220335b0be6ca5e874e9813ad191bc9df9",
+        "affectsGlobalScope": false
+      },
+      "../src/components/dropdowns/dropdownlist.tsx": {
+        "version": "f2f22a7c30b8d0c90c6f903a0b41594f3b1fa275923111437f5c3ada7e177cec",
+        "signature": "dc5c1435993fc69401f41a018a5d18a9a703ba4df43eac2e20fc8240a27924b0",
+        "affectsGlobalScope": false
+      },
+      "../src/components/dropdowns/dropdownmeasurements.tsx": {
+        "version": "a7428bf86c1042a40276a8511752e4a4cb701e08a684742f2b6b0d17983b5fac",
+        "signature": "d3b4474161cc775c9891caccab294faa7c3be4e8c9be8df46275dcdfd7d4e103",
+        "affectsGlobalScope": false
+      },
+      "../src/components/dropdowns/dropdownnumber.tsx": {
+        "version": "fc4cecd74a70240a30f696f51e8bc35f3ca440d7231a30f4dbe7beab7cd04ddf",
+        "signature": "a54a7ef0d7b77af022aeec3922b1bedd139f1aff565544026e5549278084479d",
+        "affectsGlobalScope": false
+      },
+      "../src/components/dropdowns/dropdownstate.tsx": {
+        "version": "9a098b1683c5c15bf73edd17337dcbb103e9dab4598850ed176190aa65a25e29",
+        "signature": "aa0b4e8f226f1cb9531f5000e5ec791e49a9797bc88d93fcd0967f52e81686f0",
+        "affectsGlobalScope": false
+      },
+      "../node_modules/@react-native-community/datetimepicker/src/index.d.ts": {
+        "version": "8b50b482deea4ee90655a8b116c60c1288833640c814d018991967f06414224f",
+        "signature": "8b50b482deea4ee90655a8b116c60c1288833640c814d018991967f06414224f",
+        "affectsGlobalScope": false
+      },
+      "../src/components/pickers/pickertime.tsx": {
+        "version": "dee4717364ec917ef9cbf30d3e9dca87d6df3da1af619008d3ca5e37fef796c9",
+        "signature": "3375fc8ec2231c86c73e8923c1f338305663542d18150064dd85a0c3fad97431",
+        "affectsGlobalScope": false
+      },
+      "../src/components/pickers/pickerdate.tsx": {
+        "version": "2f93ff6cb3aed9ee0c33206e2e5d49cd35616d8a3429cd3132e92d75844dd774",
+        "signature": "168cbc3591791bb9892ef9bdc963521aba4af561078fc2e874b9053b9a49069e",
+        "affectsGlobalScope": false
+      },
+      "../src/components/pickers/pickerdatetime.tsx": {
+        "version": "7f2c50aac5369f543a58f207a53aad9fb668d1ff763aa52ff48fc869816d70ba",
+        "signature": "bb9dec46748e28da693f878f1004717d2230a2df648f7203bb7cc61afba87bfc",
+        "affectsGlobalScope": false
+      },
+      "../src/components/pickers/pickerdaterange.tsx": {
+        "version": "7eeff4b43b6b374e530beb59f02ec2f8dc0b18c5680eec550a7a2d37e2606894",
+        "signature": "386a1c1eb6a62b08aab8ecdf36eed37895f1d1c450f5744b50054205619d321c",
+        "affectsGlobalScope": false
+      },
+      "../src/index.tsx": {
+        "version": "6c8574e90b0d578cb282ecbb623cd6960eadf058f351a037f6f7f7b8e39fa21c",
+        "signature": "357faa9f400414f95d6d39e4ea9eecc0e05b354e4065db25a708a3101cf5715c",
+        "affectsGlobalScope": false
+      }
+    },
+    "options": {
+      "target": 99,
+      "module": 1,
+      "lib": [
+        "lib.es2017.d.ts"
+      ],
+      "allowJs": true,
+      "jsx": 3,
+      "declaration": true,
+      "outDir": "./",
+      "noEmit": false,
+      "incremental": true,
+      "isolatedModules": false,
+      "resolveJsonModule": true,
+      "strict": true,
+      "strictFunctionTypes": true,
+      "moduleResolution": 2,
+      "baseUrl": "..",
+      "types": [],
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "skipLibCheck": false,
+      "configFilePath": "../tsconfig.json"
+    },
+    "referencedMap": {
+      "../node_modules/@react-native-community/datetimepicker/src/index.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@react-native-picker/picker/typings/index.d.ts": [
+        "../node_modules/@react-native-picker/picker/typings/picker.d.ts",
+        "../node_modules/@react-native-picker/picker/typings/pickerios.d.ts"
+      ],
+      "../node_modules/@react-native-picker/picker/typings/picker.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@react-native-picker/picker/typings/pickerios.d.ts": [
+        "../node_modules/@react-native-picker/picker/typings/picker.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@types/react-native/devtools.d.ts": [
+        "../node_modules/@types/react-native/devtools.d.ts"
+      ],
+      "../node_modules/@types/react-native/index.d.ts": [
+        "../node_modules/@types/react-native/batchedbridge.d.ts",
+        "../node_modules/@types/react-native/devtools.d.ts",
+        "../node_modules/@types/react-native/globals.d.ts",
+        "../node_modules/@types/react-native/launchscreen.d.ts",
+        "../node_modules/@types/react-native/legacy-properties.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@types/react-native/legacy-properties.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts"
+      ],
+      "../node_modules/@types/react/index.d.ts": [
+        "../node_modules/@types/prop-types/index.d.ts",
+        "../node_modules/@types/react/global.d.ts",
+        "../node_modules/@types/scheduler/tracing.d.ts",
+        "../node_modules/csstype/index.d.ts"
+      ],
+      "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/react-native-modal/dist/index.d.ts": [
+        "../node_modules/react-native-modal/dist/modal.d.ts",
+        "../node_modules/react-native-modal/dist/types.d.ts"
+      ],
+      "../node_modules/react-native-modal/dist/modal.d.ts": [
+        "../node_modules/@types/prop-types/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts",
+        "../node_modules/react-native-modal/dist/types.d.ts"
+      ],
+      "../node_modules/react-native-modal/dist/types.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts"
+      ],
+      "../src/components/dropdowns/dropdownlist.tsx": [
+        "../node_modules/@react-native-picker/picker/typings/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-modal/dist/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/dropdowns/dropdownmeasurements.tsx": [
+        "../node_modules/@react-native-picker/picker/typings/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-modal/dist/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/dropdowns/dropdownnumber.tsx": [
+        "../node_modules/@react-native-picker/picker/typings/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-modal/dist/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/dropdowns/dropdownstate.tsx": [
+        "../node_modules/@react-native-picker/picker/typings/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-modal/dist/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickerdate.tsx": [
+        "../node_modules/@react-native-community/datetimepicker/src/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickerdaterange.tsx": [
+        "../node_modules/@react-native-community/datetimepicker/src/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickerdatetime.tsx": [
+        "../node_modules/@react-native-community/datetimepicker/src/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickertime.tsx": [
+        "../node_modules/@react-native-community/datetimepicker/src/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/index.tsx": [
+        "../src/components/dropdowns/dropdownlist.tsx",
+        "../src/components/dropdowns/dropdownmeasurements.tsx",
+        "../src/components/dropdowns/dropdownnumber.tsx",
+        "../src/components/dropdowns/dropdownstate.tsx",
+        "../src/components/pickers/pickerdate.tsx",
+        "../src/components/pickers/pickerdaterange.tsx",
+        "../src/components/pickers/pickerdatetime.tsx",
+        "../src/components/pickers/pickertime.tsx",
+        "../src/types/types.tsx"
+      ]
+    },
+    "exportedModulesMap": {
+      "../node_modules/@react-native-community/datetimepicker/src/index.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@react-native-picker/picker/typings/index.d.ts": [
+        "../node_modules/@react-native-picker/picker/typings/picker.d.ts",
+        "../node_modules/@react-native-picker/picker/typings/pickerios.d.ts"
+      ],
+      "../node_modules/@react-native-picker/picker/typings/picker.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@react-native-picker/picker/typings/pickerios.d.ts": [
+        "../node_modules/@react-native-picker/picker/typings/picker.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@types/react-native/devtools.d.ts": [
+        "../node_modules/@types/react-native/devtools.d.ts"
+      ],
+      "../node_modules/@types/react-native/index.d.ts": [
+        "../node_modules/@types/react-native/batchedbridge.d.ts",
+        "../node_modules/@types/react-native/devtools.d.ts",
+        "../node_modules/@types/react-native/globals.d.ts",
+        "../node_modules/@types/react-native/launchscreen.d.ts",
+        "../node_modules/@types/react-native/legacy-properties.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/@types/react-native/legacy-properties.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts"
+      ],
+      "../node_modules/@types/react/index.d.ts": [
+        "../node_modules/@types/prop-types/index.d.ts",
+        "../node_modules/@types/react/global.d.ts",
+        "../node_modules/@types/scheduler/tracing.d.ts",
+        "../node_modules/csstype/index.d.ts"
+      ],
+      "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts"
+      ],
+      "../node_modules/react-native-modal/dist/index.d.ts": [
+        "../node_modules/react-native-modal/dist/modal.d.ts",
+        "../node_modules/react-native-modal/dist/types.d.ts"
+      ],
+      "../node_modules/react-native-modal/dist/modal.d.ts": [
+        "../node_modules/@types/prop-types/index.d.ts",
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/@types/react/index.d.ts",
+        "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts",
+        "../node_modules/react-native-modal/dist/types.d.ts"
+      ],
+      "../node_modules/react-native-modal/dist/types.d.ts": [
+        "../node_modules/@types/react-native/index.d.ts",
+        "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts"
+      ],
+      "../src/components/dropdowns/dropdownlist.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/dropdowns/dropdownmeasurements.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/dropdowns/dropdownnumber.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/dropdowns/dropdownstate.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickerdate.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickerdaterange.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickerdatetime.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/components/pickers/pickertime.tsx": [
+        "../node_modules/@types/react/index.d.ts",
+        "../src/types/types.tsx"
+      ],
+      "../src/index.tsx": [
+        "../src/components/dropdowns/dropdownlist.tsx",
+        "../src/components/dropdowns/dropdownmeasurements.tsx",
+        "../src/components/dropdowns/dropdownnumber.tsx",
+        "../src/components/dropdowns/dropdownstate.tsx",
+        "../src/components/pickers/pickerdate.tsx",
+        "../src/components/pickers/pickerdaterange.tsx",
+        "../src/components/pickers/pickerdatetime.tsx",
+        "../src/components/pickers/pickertime.tsx",
+        "../src/types/types.tsx"
+      ]
+    },
+    "semanticDiagnosticsPerFile": [
+      "../node_modules/@react-native-community/datetimepicker/src/index.d.ts",
+      "../node_modules/@react-native-picker/picker/typings/index.d.ts",
+      "../node_modules/@react-native-picker/picker/typings/picker.d.ts",
+      "../node_modules/@react-native-picker/picker/typings/pickerios.d.ts",
+      "../node_modules/@types/prop-types/index.d.ts",
+      "../node_modules/@types/react-native/batchedbridge.d.ts",
+      "../node_modules/@types/react-native/devtools.d.ts",
+      "../node_modules/@types/react-native/globals.d.ts",
+      "../node_modules/@types/react-native/index.d.ts",
+      "../node_modules/@types/react-native/launchscreen.d.ts",
+      "../node_modules/@types/react-native/legacy-properties.d.ts",
+      "../node_modules/@types/react/global.d.ts",
+      "../node_modules/@types/react/index.d.ts",
+      "../node_modules/@types/scheduler/tracing.d.ts",
+      "../node_modules/csstype/index.d.ts",
+      "../node_modules/react-native-animatable/typings/react-native-animatable.d.ts",
+      "../node_modules/react-native-modal/dist/index.d.ts",
+      "../node_modules/react-native-modal/dist/modal.d.ts",
+      "../node_modules/react-native-modal/dist/types.d.ts",
+      "../node_modules/typescript/lib/lib.es2015.collection.d.ts",
+      "../node_modules/typescript/lib/lib.es2015.core.d.ts",
+      "../node_modules/typescript/lib/lib.es2015.d.ts",
+      "../node_modules/typescript/lib/lib.es2015.generator.d.ts",
+      "../node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+      "../node_modules/typescript/lib/lib.es2015.promise.d.ts",
+      "../node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+      "../node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+      "../node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+      "../node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+      "../node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+      "../node_modules/typescript/lib/lib.es2016.d.ts",
+      "../node_modules/typescript/lib/lib.es2017.d.ts",
+      "../node_modules/typescript/lib/lib.es2017.intl.d.ts",
+      "../node_modules/typescript/lib/lib.es2017.object.d.ts",
+      "../node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+      "../node_modules/typescript/lib/lib.es2017.string.d.ts",
+      "../node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+      "../node_modules/typescript/lib/lib.es5.d.ts",
+      "../src/components/dropdowns/dropdownlist.tsx",
+      "../src/components/dropdowns/dropdownmeasurements.tsx",
+      "../src/components/dropdowns/dropdownnumber.tsx",
+      "../src/components/dropdowns/dropdownstate.tsx",
+      "../src/components/pickers/pickerdate.tsx",
+      "../src/components/pickers/pickerdaterange.tsx",
+      "../src/components/pickers/pickerdatetime.tsx",
+      "../src/components/pickers/pickertime.tsx",
+      "../src/index.tsx",
+      "../src/types/types.tsx"
+    ]
+  },
+  "version": "4.2.4"
+}
