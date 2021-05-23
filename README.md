@@ -6,10 +6,10 @@
 *  [Features](#features)
 *  [Built With](#built-with)
 *  [Pending Items](#pending-items)
-*  [Getting Started](#getting-started)
-*  [Example Code](#example-code)
 *  [Picker Types (iOS)](#picker-types-ios)
 *  [Picker Types (Android)](#picker-types-android)
+*  [Getting Started](#getting-started)
+*  [Props](#props)
 *  [Building & Publishing](#building-&-publishing)
 *  [Changelog](#changelog)
 
@@ -30,6 +30,68 @@
 
 ## Pending Items
 - [ ] Fix Android issues
+
+
+## Picker Types (iOS)
+### 1. Date
+<div align="center">
+  <img src="/screenshots/ios/iosDate.gif" width="40%" height="40%" />
+</div>
+
+### 2. Time
+<div align="center">
+  <img src="/screenshots/ios/iosTime.gif" width="40%" height="40%" />
+</div>
+
+### 3. Date/Time (iOS Only)
+<div align="center">
+  <img src="/screenshots/ios/iosDateTime.gif" width="40%" height="40%" />
+</div>
+
+### 4. List
+<div align="center">
+  <img src="/screenshots/ios/iosList.gif" width="40%" height="40%" />
+</div>
+
+
+### 5. State (50 United States)
+<div align="center">
+  <img src="/screenshots/ios/iosState.gif" width="40%" height="40%" />
+</div>
+
+## Picker Types (Android)
+### 1. Date (Mode: Spinner)
+<div align="center">
+  <img src="/screenshots/android/androidDateSpinner.gif" width="40%" height="40%" />
+</div>
+
+### 2. Date (Mode: Calendar)
+<div align="center">
+  <img src="/screenshots/android/androidDateCalendar.gif" width="40%" height="40%" />
+</div>
+
+### 3. Time (Mode: Spinner)
+<div align="center">
+  <img src="/screenshots/android/androidTimeSpinner.gif" width="40%" height="40%" />
+</div>
+
+### 4. Time (Mode: Clock)
+<div align="center">
+  <img src="/screenshots/android/androidTimeClock.gif" width="40%" height="40%" />
+</div>
+
+### 5. List
+<div align="center">
+  <img src="/screenshots/android/androidList.gif" width="40%" height="40%" />
+</div>
+
+
+### 6. State (50 United States)
+<div align="center">
+  <img src="/screenshots/android/androidState.gif" width="40%" height="40%" />
+</div>
+
+
 
 ## Getting Started
 **1. Install Package:**
@@ -67,20 +129,7 @@ dependencies {
 }
 ```
 
-**5. Run Project:**
-
-**Android**
-```javascript
-
-```
-
-**iOS**
-```javascript
-react-native run-ios
-```
-
-
-## Example Code
+**6. Add Example Code:**
 ```typescript
 // Imports: Dependencies
 import React, { useState } from 'react';
@@ -778,64 +827,23 @@ const App: React.FC = (): JSX.Element => {
 export default App;
 ```
 
-## Picker Types (iOS)
-### 1. Date
-<div align="center">
-  <img src="/screenshots/ios/iosDate.gif" width="40%" height="40%" />
-</div>
 
-### 2. Time
-<div align="center">
-  <img src="/screenshots/ios/iosTime.gif" width="40%" height="40%" />
-</div>
+**6. Run Project:**
 
-### 3. Date/Time (iOS Only)
-<div align="center">
-  <img src="/screenshots/ios/iosDateTime.gif" width="40%" height="40%" />
-</div>
+**Android**
+```javascript
 
-### 4. List
-<div align="center">
-  <img src="/screenshots/ios/iosList.gif" width="40%" height="40%" />
-</div>
+```
+
+**iOS**
+```javascript
+react-native run-ios
+```
 
 
-### 5. State (50 United States)
-<div align="center">
-  <img src="/screenshots/ios/iosState.gif" width="40%" height="40%" />
-</div>
-
-## Picker Types (Android)
-### 1. Date (Mode: Spinner)
-<div align="center">
-  <img src="/screenshots/android/androidDateSpinner.gif" width="40%" height="40%" />
-</div>
-
-### 2. Date (Mode: Calendar)
-<div align="center">
-  <img src="/screenshots/android/androidDateCalendar.gif" width="40%" height="40%" />
-</div>
-
-### 3. Time (Mode: Spinner)
-<div align="center">
-  <img src="/screenshots/android/androidTimeSpinner.gif" width="40%" height="40%" />
-</div>
-
-### 4. Time (Mode: Clock)
-<div align="center">
-  <img src="/screenshots/android/androidTimeClock.gif" width="40%" height="40%" />
-</div>
-
-### 5. List
-<div align="center">
-  <img src="/screenshots/android/androidList.gif" width="40%" height="40%" />
-</div>
+## Props
 
 
-### 6. State (50 United States)
-<div align="center">
-  <img src="/screenshots/android/androidState.gif" width="40%" height="40%" />
-</div>
 
 
 ## Building & Publishing
@@ -852,6 +860,27 @@ npm publish
 
 
 ## Changelog
+
+### [0.3.6] - 5/22/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
+
+***Added***
+
+- Added 'react-native-slide-modal` dependency.
+- Added `.npmignore`.
+- Added Props section to `README`.
+
+***Changed***
+
+- Changed `src/index.js` to `src/index.tsx`.
+- Changed `package.json` build script to `cd src && tsc && cp ../package.json && Echo Build completed!`.
+- Updated `package.json` dependencies.
+- Updated `tsconfig.json`.
+- Fixed `peerDependencies` issue.
+
+***Removed***
+
+- Removed `react-native-modal` dependency.
+- Removed React Native dependencies.
 
 ### [0.3.5] - 5/16/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
 
