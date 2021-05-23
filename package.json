@@ -1,6 +1,6 @@
 {
   "name": "react-native-ultimate-modal-picker",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "React Native Picker Component Library (Date, Time, DateTime, List, State)",
@@ -22,51 +22,25 @@
     "state"
   ],
   "scripts": {
-    "build": "tsc",
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
-    "test": "jest",
+    "build": "cd src && tsc && cp ../package.json && Echo Build completed!",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
-  "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@babel/runtime": "^7.12.5",
-    "@react-native-community/eslint-config": "^2.0.0",
-    "@types/jest": "^26.0.20",
-    "@types/react-native": "^0.64.0",
-    "@types/react-test-renderer": "^16.9.2",
-    "babel-jest": "^26.6.3",
-    "eslint": "^7.14.0",
-    "jest": "^26.6.3",
-    "metro-react-native-babel-preset": "^0.64.0",
-    "react": "^17.0.1",
-    "react-native": "^0.64.1",
-    "react-test-renderer": "17.0.1",
-    "typescript": "^3.8.3"
-  },
   "peerDependencies": {
-    "@react-native-community/datetimepicker": ">=3.0.0",
-    "@react-native-picker/picker": ">=1.8.3",
     "react": "*",
-    "react-native": "*",
-    "react-native-modal": ">=11.0.0"
+    "react-native": "*"
   },
-  "resolutions": {
-    "@types/react": "^17"
+  "dependencies": {
+    "@react-native-community/datetimepicker": "^3.5.0",
+    "@react-native-picker/picker": "^1.16.1",
+    "react-native-slide-modal": "^0.0.31"
   },
-  "jest": {
-    "preset": "react-native",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
-  },
-  "files": [
-    "dist/"
-  ]
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@types/react": "^17.0.6",
+    "@types/react-native": "^0.64.5",
+    "@types/react-native-vector-icons": "^6.4.6",
+    "eslint": "^7.26.0",
+    "react-native-typescript-transformer": "^1.2.13",
+    "typescript": "^4.2.4"
+  }
 }
