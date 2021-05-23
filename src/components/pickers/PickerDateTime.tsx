@@ -72,13 +72,52 @@ const PickerDateTime: React.FC<Props> = (props): JSX.Element => {
   const renderPicker = (): JSX.Element | undefined => {
     // Platform: iOS
     if (Platform.OS === 'ios') {
-      return (
-        <DateTimePicker
-          mode="datetime"
-          value={tempDate ? tempDate : date}
-          onChange={(event: any, newDate: any) => selectDate(event, newDate)}
-        />
-      );
+      // Major Version iOS
+      const majorVersionIOS: number = parseInt(Platform.Version, 10);
+
+      // iOS 14
+      if (majorVersionIOS >= 14) {
+        return (
+          <DateTimePicker
+            mode="datetime"
+            value={tempDate ? tempDate : date}
+            onChange={(event: any, newDate: any) => selectDate(event, newDate)}
+          />
+        );
+      }
+      // iOS 13 And Under
+      else {
+        // <Modal
+        //   isVisible={iosModalVisible}
+        //   style={styles.modal}
+        //   backdropOpacity={.30}
+        // >
+        //   <View style={styles.modalContainer}>
+        //     <View style={styles.pickerHeaderContainer}>
+        //       <TouchableOpacity
+        //         onPress={() => pressCancel()} >
+        //         <Text style={styles.cancelText}>Cancel</Text>
+        //       </TouchableOpacity>
+
+        //       <View style={styles.doneButton}>
+        //         <Button
+        //           onPress={() => pressDone()}
+        //           title="Done"
+        //           disabled={date === tempDate ? true : false}
+        //         />
+        //       </View>
+        //     </View>
+
+        //     <View style={styles.pickerContainer}>
+        //       <DateTimePicker
+        //         mode="date"
+        //         value={tempDate ? tempDate : date}
+        //         onChange={(event: any, newDate: any) => selectDate(event, newDate)}
+        //       />
+        //     </View>
+        //   </View>
+        // </Modal>
+      }
     }
   };
 

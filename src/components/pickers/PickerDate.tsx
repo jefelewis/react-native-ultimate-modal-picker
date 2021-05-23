@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
+// import { SlideModal }  from 'react-native-slide-modal';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');
@@ -22,6 +23,7 @@ interface Props {
 // Component: Picker (Date)
 const PickerDate: React.FC<Props> = (props): JSX.Element => {
   // React Hooks: State
+  const [ iosModalVisible, setIosModalVisible ] = useState(false);
   const [ androidModalVisible, toggleAndroid ] = useState<boolean>(false);
   const [ date, setDate ] = useState<Date>(new Date());
   const [ tempDate, setTempDate ] = useState<Date>(date);
@@ -90,13 +92,52 @@ const PickerDate: React.FC<Props> = (props): JSX.Element => {
     }
     // Platform: iOS
     else if (Platform.OS === 'ios') {
-      return (
-        <DateTimePicker
-          mode="date"
-          value={tempDate ? tempDate : date}
-          onChange={(event: any, newDate: any) => selectDate(event, newDate)}
-        />
-      );
+      // Major Version iOS
+      const majorVersionIOS: number = parseInt(Platform.Version, 10);
+
+      // iOS 14
+      if (majorVersionIOS >= 14) {
+        return (
+          <DateTimePicker
+            mode="date"
+            value={tempDate ? tempDate : date}
+            onChange={(event: any, newDate: any) => selectDate(event, newDate)}
+          />
+        );
+      }
+      // iOS 13 And Under
+      else {
+        // <Modal
+        //   isVisible={iosModalVisible}
+        //   style={styles.modal}
+        //   backdropOpacity={.30}
+        // >
+        //   <View style={styles.modalContainer}>
+        //     <View style={styles.pickerHeaderContainer}>
+        //       <TouchableOpacity
+        //         onPress={() => pressCancel()} >
+        //         <Text style={styles.cancelText}>Cancel</Text>
+        //       </TouchableOpacity>
+
+        //       <View style={styles.doneButton}>
+        //         <Button
+        //           onPress={() => pressDone()}
+        //           title="Done"
+        //           disabled={date === tempDate ? true : false}
+        //         />
+        //       </View>
+        //     </View>
+
+        //     <View style={styles.pickerContainer}>
+        //       <DateTimePicker
+        //         mode="date"
+        //         value={tempDate ? tempDate : date}
+        //         onChange={(event: any, newDate: any) => selectDate(event, newDate)}
+        //       />
+        //     </View>
+        //   </View>
+        // </Modal>
+      }
     }
   };
 
