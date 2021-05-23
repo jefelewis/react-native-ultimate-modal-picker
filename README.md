@@ -35,60 +35,60 @@
 ## Picker Types (iOS)
 ### 1. Date
 <div align="center">
-  <img src="/screenshots/ios/iosDate.gif" width="40%" height="40%" />
+  <img src="./assets/screenshots/ios/iosDate.gif" width="40%" height="40%" />
 </div>
 
 ### 2. Time
 <div align="center">
-  <img src="/screenshots/ios/iosTime.gif" width="40%" height="40%" />
+  <img src="./assets/screenshots/ios/iosTime.gif" width="40%" height="40%" />
 </div>
 
 ### 3. Date/Time (iOS Only)
 <div align="center">
-  <img src="/screenshots/ios/iosDateTime.gif" width="40%" height="40%" />
+  <img src="./assets/screenshots/ios/iosDateTime.gif" width="40%" height="40%" />
 </div>
 
 ### 4. List
 <div align="center">
-  <img src="/screenshots/ios/iosList.gif" width="40%" height="40%" />
+  <img src="./assets/screenshots/ios/iosList.gif" width="40%" height="40%" />
 </div>
 
 
 ### 5. State (50 United States)
 <div align="center">
-  <img src="/screenshots/ios/iosState.gif" width="40%" height="40%" />
+  <img src="./assets/screenshots/ios/iosState.gif" width="40%" height="40%" />
 </div>
 
 ## Picker Types (Android)
 ### 1. Date (Mode: Spinner)
 <div align="center">
-  <img src="/screenshots/android/androidDateSpinner.gif" width="40%" height="40%" />
+  <img src="./assets/screenshots/android/androidDateSpinner.gif" width="40%" height="40%" />
 </div>
 
 ### 2. Date (Mode: Calendar)
 <div align="center">
-  <img src="/screenshots/android/androidDateCalendar.gif" width="40%" height="40%" />
+  <img src="./assets/screenshots/android/androidDateCalendar.gif" width="40%" height="40%" />
 </div>
 
 ### 3. Time (Mode: Spinner)
 <div align="center">
-  <img src="/screenshots/android/androidTimeSpinner.gif" width="40%" height="40%" />
+  <img src="./assets/screenshots/android/androidTimeSpinner.gif" width="40%" height="40%" />
 </div>
 
 ### 4. Time (Mode: Clock)
 <div align="center">
-  <img src="/screenshots/android/androidTimeClock.gif" width="40%" height="40%" />
+  <img src="./assets/screenshots/android/androidTimeClock.gif" width="40%" height="40%" />
 </div>
 
 ### 5. List
 <div align="center">
-  <img src="/screenshots/android/androidList.gif" width="40%" height="40%" />
+  <img src="./assets/screenshots/android/androidList.gif" width="40%" height="40%" />
 </div>
 
 
 ### 6. State (50 United States)
 <div align="center">
-  <img src="/screenshots/android/androidState.gif" width="40%" height="40%" />
+  <img src="./assets/screenshots/android/androidState.gif" width="40%" height="40%" />
 </div>
 
 
