@@ -26,7 +26,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importStar(require("react"));
 const react_native_1 = require("react-native");
 const datetimepicker_1 = __importDefault(require("@react-native-community/datetimepicker"));
-// import { SlideModal }  from 'react-native-slide-modal';
 // Screen Dimensions
 const { height, width } = react_native_1.Dimensions.get('window');
 ;
