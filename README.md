@@ -865,7 +865,7 @@ npm publish
 ***Changed***
 
 - Changed peer dependency `react` from `"react": "*"` to `"react": ">=16.8.3"`.
-- Changed peer dependency `react-native` from `"react-native": "*"` to `"react": ">=0.60"`.
+- Changed peer dependency `react-native` from `"react-native": "*"` to `"react-native": ">=0.60"`.
 - Updated example code in `README`.
 
 ### [0.3.6] - 5/22/2021 - **BREAKING CHANGES**
