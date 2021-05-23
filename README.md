@@ -860,6 +860,13 @@ npm publish
 
 ## Changelog
 
+### [0.3.8] - 5/22/2021 - **BREAKING CHANGES**
+
+***Added***
+
+- Added support to `src/components/pickers` for `iOS 14`.
+- Added `react-native-slide-modal` to `package.json`.
+
 ### [0.3.7] - 5/22/2021 - **BREAKING CHANGES**
 
 ***Changed***
