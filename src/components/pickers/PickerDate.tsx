@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { Dimensions, Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-// import { SlideModal }  from 'react-native-slide-modal';
 
 // Screen Dimensions
 const { height, width } = Dimensions.get('window');

@@ -1,8 +1,8 @@
 {
   "name": "react-native-ultimate-modal-picker",
   "version": "0.3.10",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "description": "React Native Picker Component Library (Date, Time, DateTime, List, State)",
   "repository": "https://github.com/jefelewis/react-native-ultimate-modal-picker",
   "author": "Jeff Lewis",
