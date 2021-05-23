@@ -870,7 +870,7 @@ npm publish
 
 ***Added***
 
-- Added 'react-native-slide-modal` dependency.
+- Added `react-native-slide-modal` dependency.
 - Added `.npmignore`.
 - Added Props section to `README`.
 
