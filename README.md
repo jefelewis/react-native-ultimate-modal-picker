@@ -135,8 +135,6 @@ dependencies {
 // Imports: Dependencies
 import React, { useState } from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
-
-// Imports: Components
 import {
   // Pickers
   PickerTime,
@@ -150,7 +148,7 @@ import {
   DropdownState,
   // TypeScript Types
   PickerItem,
-} from './src/index';
+} from 'react-native-ultimate-modal-picker';
 
 // React Native App
 const App: React.FC = (): JSX.Element => {
@@ -861,6 +859,12 @@ npm publish
 
 
 ## Changelog
+
+### [0.3.7] - 5/22/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
+
+***Changed***
+
+- Update example code in `README`.
 
 ### [0.3.6] - 5/22/2021 - **BREAKING CHANGES ([See Updated Example Code](#example-code))**
 
