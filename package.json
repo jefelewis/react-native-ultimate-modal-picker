@@ -1,9 +1,8 @@
 {
   "name": "react-native-ultimate-modal-picker",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": ["./src/"],
   "description": "React Native Picker Component Library (Date, Time, DateTime, List, State)",
   "repository": "https://github.com/jefelewis/react-native-ultimate-modal-picker",
   "author": "Jeff Lewis",
@@ -36,6 +35,7 @@
     "react-native-modal": "^11.10.0"
   },
   "devDependencies": {
+    "@react-native-community/datetimepicker": "^3.5.0",
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/react": "^17.0.6",
     "@types/react-native": "^0.64.5",
