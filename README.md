@@ -847,6 +847,10 @@ npm publish
 
 ### [0.3.14] - 5/24/2021 - **BREAKING CHANGES**
 
+***Added***
+
+- Added `@react-native-picker/picker` as a `peerDependency`.
+
 ***Changed***
 
 - Changed `"jsx": "react-native"` to `"jsx": "react-jsx"` in `tsconfig.json`.
