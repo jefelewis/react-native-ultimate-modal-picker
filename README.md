@@ -102,7 +102,7 @@ npm i react-native-ultimate-modal-picker
 
 **2. Install additional dependencies:**
 ```
-npm i react-native-vector-icons
+npm i @react-native-community/datetimepicker
 ```
 
 **3. Install Cocoapods:**
