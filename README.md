@@ -101,6 +101,8 @@ npm i react-native-ultimate-modal-picker
 ```
 
 **2. Install additional dependencies:**
+**Note:** `@react-native-community/datetimepicker` package is a native module [May require manual linking](https://github.com/react-native-community/react-native-datetimepicker#getting-started).
+
 ```
 npm i @react-native-community/datetimepicker
 ```
