@@ -846,7 +846,6 @@ npm publish
 
 ***Changed***
 
-- Updated `imports` in `src/App`.
 - Updated Getting Started in `README`.
 
 ***Added***
