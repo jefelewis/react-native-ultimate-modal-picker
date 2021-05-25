@@ -845,6 +845,12 @@ npm publish
 
 ## Changelog
 
+### [0.3.14] - 5/24/2021 - **BREAKING CHANGES**
+
+***Changed***
+
+- Changed `"jsx": "react-native"` to `"jsx": "react-jsx"` in `tsconfig.json`.
+
 ### [0.3.13] - 5/24/2021 - **BREAKING CHANGES**
 
 ***Changed***
