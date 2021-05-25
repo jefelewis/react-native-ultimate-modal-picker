@@ -100,37 +100,19 @@
 npm i react-native-ultimate-modal-picker
 ```
 
-**2. Add Pod (For iOS)**
-
-Add the following line to ios/podfile:
-```javascript
-# Pods for testing
-pod 'RNDateTimePicker', :path => '../node_modules/@react-native-community/datetimepicker/RNDateTimePicker.podspec'
+**2. Install additional dependencies:**
+```
+npm i react-native-vector-icons
 ```
 
-**3. Install Pods (For iOS)**
+**3. Install Cocoapods:**
 ```
 cd ios
+
 pod install
 ```
 
-**4. Add Dependencies (For Android)**
-
-Add the following lines to android/settings.gradle:
-```javascript
-include ':@react-native-community_datetimepicker'
-project(':@react-native-community_datetimepicker').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-community/datetimepicker/android')
-```
-
-Add the following line to android/app/build.gradle:
-```javascript
-dependencies {
-  ...
-  implementation project(':@react-native-community_datetimepicker')
-}
-```
-
-**6. Add Example Code:**
+**4. Add Example Code:**
 ```typescript
 // Imports: Dependencies
 import React, { useState } from 'react';
@@ -860,11 +842,22 @@ npm publish
 
 ## Changelog
 
+### [0.3.12] - 5/24/2021 - **BREAKING CHANGES**
+
+***Changed***
+
+- Updated `imports` in `src/App`.
+- Updated Getting Started in `README`.
+
+***Added***
+
+- Added `react-native-community/datetimepicker` as a as a `devDependency`.
+
 ### [0.3.9] - 5/22/2021 - **BREAKING CHANGES**
 
 ***Added***
 
-- Added `@react-native-community/datetimepicker` as a peer dependency.
+- Added `@react-native-community/datetimepicker` as a `peerDependency`.
 
 ### [0.3.8] - 5/22/2021 - **BREAKING CHANGES**
 
@@ -877,8 +870,8 @@ npm publish
 
 ***Changed***
 
-- Changed peer dependency `react` from `"react": "*"` to `"react": ">=16.8.3"`.
-- Changed peer dependency `react-native` from `"react-native": "*"` to `"react-native": ">=0.60"`.
+- Changed `peerDependency` `react` from `"react": "*"` to `"react": ">=16.8.3"`.
+- Changed `peerDependency` `react-native` from `"react-native": "*"` to `"react-native": ">=0.60"`.
 - Updated example code in `README`.
 
 ### [0.3.6] - 5/22/2021 - **BREAKING CHANGES**
