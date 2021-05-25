@@ -102,10 +102,10 @@ npm i react-native-ultimate-modal-picker
 
 **2. Install additional dependencies:**
 
-**Note:** This NPM Package uses the [Native Module](https://reactnative.dev/docs/native-modules-intro)  [`@react-native-community/datetimepicker`](https://github.com/react-native-datetimepicker/datetimepicker), so it must be installed in your project.
+**Note:** This NPM Package uses the [Native Modules](https://reactnative.dev/docs/native-modules-intro)  [`@react-native-community/datetimepicker`](https://github.com/react-native-datetimepicker/datetimepicker) and [@react-native-picker/picker](https://github.com/react-native-picker/picker), so it must be installed in your project.
 
 ```
-npm i @react-native-community/datetimepicker
+npm i @react-native-community/datetimepicker @react-native-picker/picker
 ```
 
 **3. Install Cocoapods:**
@@ -845,6 +845,16 @@ npm publish
 
 ## Changelog
 
+### [0.3.13] - 5/24/2021 - **BREAKING CHANGES**
+
+***Changed***
+
+- Updated Getting Started in `README`.
+
+***Added***
+
+- Added `@react-native-picker/picker` as a `devDependency` and 'peerDependency.
+
 ### [0.3.12] - 5/24/2021 - **BREAKING CHANGES**
 
 ***Changed***
@@ -853,7 +863,7 @@ npm publish
 
 ***Added***
 
-- Added `react-native-community/datetimepicker` as a as a `devDependency`.
+- Added `react-native-community/datetimepicker` as a `devDependency`.
 
 ### [0.3.9] - 5/22/2021 - **BREAKING CHANGES**
 
