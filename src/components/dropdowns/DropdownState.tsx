@@ -10,9 +10,11 @@ import { ContainerStyle, LabelTextStyle, FieldTextStyle, CancelTextStyle, DoneTe
 
 // TypeScript Types: Props
 interface Props {
-  onChange: (value: string) => void;
-  title?: string;
-  defaultValue?: string;
+  onChange: (value: string) => void,
+  title?: string,
+  cancelText?: string,
+  doneText?: string,
+  defaultValue?: string,
   darkMode?: boolean,
   customStyleContainer?: ContainerStyle,
   customStyleLabelText?: LabelTextStyle,
@@ -383,12 +385,12 @@ const DropdownUnitedStates: React.FC<Props> = (props): JSX.Element => {
             <View style={styles.modalContainer}>
               <View style={renderModalHeaderContainerStyle()}>
                 <TouchableOpacity onPress={() => pressCancel()}>
-                    <Text style={renderCancelTextStyle()}>Cancel</Text>
+                    <Text style={renderCancelTextStyle()}>{props.cancelText ? props.cancelText : 'Cancel'}</Text>
                   </TouchableOpacity>
 
                   <View style={styles.doneButtonContainer}>
                     <Button
-                      title="Done"
+                      title={props.doneText ? props.doneText : 'Done'}
                       onPress={() => pressDone()}
                       disabled={value === tempValue ? true : false}
                       color={renderDoneTextStyle()}
