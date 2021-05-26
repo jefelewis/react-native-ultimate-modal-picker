@@ -849,7 +849,7 @@ npm publish
 
 ***Changed***
 
-- Add `cancelText` and `doneText` optional props to all `dropdowns`.
+- Added `cancelText` and `doneText` optional props to all `dropdowns`.
 
 ### [1.0.0] - 5/26/2021 - **BREAKING CHANGES**
 
