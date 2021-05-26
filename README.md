@@ -955,13 +955,13 @@ npm publish
 
 ***Changed***
 
-- Fixed `onChange`, 'onFromChange`, `onToChange` issues.
+- Fixed `onChange`, `onFromChange`, `onToChange` issues.
 
 ### [0.3.1] - 5/13/2021 - **BREAKING CHANGES**
 
 ***Changed***
 
-- Fixed `onChange`, 'onFromChange`, `onToChange` issues.
+- Fixed `onChange`, `onFromChange`, `onToChange` issues.
 
 ### [0.3.0] - 5/12/2021 - **BREAKING CHANGES**
 
