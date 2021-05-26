@@ -174,6 +174,52 @@ const App: React.FC = (): JSX.Element => {
           mode="spinner"
         />
 
+        {/* Picker: Time (Modes: spinner/clock) */}
+        <PickerTime
+          title="Time"
+          onChange={(date: Date) => setTime(date)}
+          mode="spinner"
+        />
+
+        {/* Picker: Date Time (iOS Only) */}
+        <PickerDateTime
+          title="Date/Time"
+          onChange={(date: Date) => setDateTime(date)}
+        />
+
+        {/* Picker (Date Range) */}
+        <PickerDateRange
+          title="Date Range"
+          onFromChange={(date: Date) => setFromDate(date)}
+          onToChange={(date: Date) => setToDate(date)}
+          mode="spinner"
+        />
+
+        {/* Dropdown: List */}
+        <DropdownList
+          title="List"
+          items={items}
+          onChange={(value: string) => setListValue(value)}
+        />
+
+        {/* Dropdown: Number */}
+        <DropdownNumber
+          title="Number"
+          onChange={(value: string) => setNumberValue(value)}
+        />
+
+        {/* Dropdown: Measurements */}
+        <DropdownMeasurements
+          title="Measurement"
+          onChange={(value: string) => setMeasurementValue(value)}
+        />
+
+        {/* Dropdown: State */}
+        <DropdownState
+          title="State"
+          onChange={(value: string) => setStateValue(value)}
+        />
+
         {/* Picker: Date (Custom Styles) */}
         <PickerDate
           title="Date (Custom Styles)"
@@ -207,13 +253,6 @@ const App: React.FC = (): JSX.Element => {
               color: 'red',
             },
           }}
-        />
-
-        {/* Picker: Time (Modes: spinner/clock) */}
-        <PickerTime
-          title="Time"
-          onChange={(date: Date) => setTime(date)}
-          mode="spinner"
         />
 
         {/* Picker: Time (Custom Styles) */}
@@ -251,12 +290,6 @@ const App: React.FC = (): JSX.Element => {
           }}
         />
 
-        {/* Picker: Date Time (iOS Only) */}
-        <PickerDateTime
-          title="Date/Time"
-          onChange={(date: Date) => setDateTime(date)}
-        />
-
         {/* Picker: Date Time (Custom Styles) */}
         <PickerDateTime
           title="Date/Time (Custom Styles)"
@@ -289,14 +322,6 @@ const App: React.FC = (): JSX.Element => {
               color: 'red',
             },
           }}
-        />
-
-        {/* Picker (Date Range) */}
-        <PickerDateRange
-          title="Date Range"
-          onFromChange={(date: Date) => setFromDate(date)}
-          onToChange={(date: Date) => setToDate(date)}
-          mode="spinner"
         />
 
         {/* Picker (Custom Styles) */}
@@ -359,13 +384,6 @@ const App: React.FC = (): JSX.Element => {
               borderColor: 'red',
             },
           }}
-        />
-
-        {/* Dropdown: List */}
-        <DropdownList
-          title="List"
-          items={items}
-          onChange={(value: string) => setListValue(value)}
         />
 
         {/* Dropdown: List (Custom Styles) */}
@@ -473,12 +491,6 @@ const App: React.FC = (): JSX.Element => {
           }}
         />
 
-        {/* Dropdown: Number */}
-        <DropdownNumber
-          title="Number"
-          onChange={(value: string) => setNumberValue(value)}
-        />
-
         {/* Dropdown: Number (Custom Styles) */}
         <DropdownNumber
           title="Number"
@@ -583,12 +595,6 @@ const App: React.FC = (): JSX.Element => {
           }}
         />
 
-        {/* Dropdown: Measurements */}
-        <DropdownMeasurements
-          title="Measurement"
-          onChange={(value: string) => setMeasurementValue(value)}
-        />
-
         {/* Dropdown: Measurements (Custom Styles) */}
         <DropdownMeasurements
           title="Measurement"
@@ -691,12 +697,6 @@ const App: React.FC = (): JSX.Element => {
               color: 'red',
             }
           }}
-        />
-
-        {/* Dropdown: State */}
-        <DropdownState
-          title="State"
-          onChange={(value: string) => setStateValue(value)}
         />
 
         {/* Dropdown: State (Custom Styles) */}
@@ -844,6 +844,13 @@ npm publish
 
 
 ## Changelog
+
+### [1.0.0] - 5/26/2021 - **BREAKING CHANGES**
+
+***Changed***
+
+- Changed `import React from 'react` to `import * as React from 'react`.
+- Updated example code in `README`.
 
 ### [0.3.14] - 5/24/2021 - **BREAKING CHANGES**
 
