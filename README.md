@@ -870,7 +870,7 @@ npm publish
 
 ***Added***
 
-- Added `@react-native-picker/picker` as a `devDependency` and 'peerDependency.
+- Added `@react-native-picker/picker` as a `devDependency` and `peerDependency`.
 
 ### [0.3.12] - 5/24/2021 - **BREAKING CHANGES**
 
